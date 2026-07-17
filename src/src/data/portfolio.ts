@@ -31,9 +31,8 @@ export const portfolio = {
   name: 'Dylan McDermott',
   initials: 'DM',
   eyebrow: 'Meteorology · Geospatial Data · Technology',
-  headline: 'Turning environmental data into useful intelligence.',
   introduction:
-    'I’m a meteorologist with an M.S. in Meteorology, working at the intersection of atmospheric science, spatial data, and technology.',
+    'I’m a meteorologist with an M.S. in Meteorology, working at the intersection of science, spatial data, and technology.',
   about:
     'My experience includes meteorological research, weather and catastrophe analysis, automation, ArcGIS, geospatial data analytics, remote sensing, and field-sensing research.',
   location: 'West Des Moines, Iowa',
@@ -41,7 +40,7 @@ export const portfolio = {
   resumeFile: 'resume.pdf',
   links: [
     { label: 'GitHub', href: 'https://github.com/Dylanmcd16' },
-    { label: 'Atmosky', href: 'https://atmosky.ai' },
+    { label: 'Atmosky', href: 'https://atmoskyai.com' },
     // Add your full LinkedIn URL here when ready:
     // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile/' },
   ] satisfies LinkItem[],
@@ -63,7 +62,7 @@ export const portfolio = {
       details:
         'The project combines weather and geospatial data services with automated planning, analysis, and presentation workflows.',
       tags: ['React', 'TypeScript', 'Python', 'FastAPI', 'Geospatial APIs'],
-      href: 'https://atmosky.ai',
+      href: 'https://atmoskyai.com',
     },
     {
       number: '02',

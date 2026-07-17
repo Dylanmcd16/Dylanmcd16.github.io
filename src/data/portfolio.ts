@@ -1,16 +1,30 @@
-export type LinkItem = {
+// ---------------------------------------------------------------------------
+// Portfolio content. Edit this file to change almost all visible text.
+// ---------------------------------------------------------------------------
+
+export type ProjectLink = {
   label: string
   href: string
 }
 
 export type Project = {
-  number: string
+  slug: string
   title: string
-  category: string
-  summary: string
-  details: string
-  tags: string[]
-  href?: string
+  kind: string
+  description: string
+  accent: 'operations' | 'field' | 'modeling' | 'analysis'
+  outcomes?: string[]
+  keyContribution?: string
+  caseStudy: {
+    overview: string
+    examples: string[]
+  }
+  tech: string[]
+  links: ProjectLink[]
+  featured?: boolean
+  // Optional screenshot: drop a file in /public and set e.g. 'projects/example.png'
+  image?: string
+  imageAlt?: string
 }
 
 export type Experience = {
@@ -20,117 +34,300 @@ export type Experience = {
   summary: string
 }
 
-export type ResearchItem = {
-  degree: string
+export type SkillGroup = {
   title: string
-  summary: string
+  items: string[]
 }
 
-// Edit this file to customize almost all visible text on the site.
+export type EducationItem = {
+  degree: string
+  year: string
+  workLabel: string
+  work: string
+  href?: string
+}
+
 export const portfolio = {
   name: 'Dylan McDermott',
-  initials: 'DM',
-  eyebrow: 'Meteorology · Geospatial Data · Technology',
-  headline: 'Turning environmental data into useful intelligence.',
-  introduction:
-    'I’m a meteorologist with an M.S. in Meteorology, working at the intersection of atmospheric science, spatial data, and technology.',
-  about:
-    'My experience includes meteorological research, weather and catastrophe analysis, automation, ArcGIS, geospatial data analytics, remote sensing, and field-sensing research.',
+  role: 'Meteorologist & Geospatial Data Professional',
+  tagline: 'Atmospheric science · Geospatial data · Automation',
   location: 'West Des Moines, Iowa',
   email: 'dylanddermott@gmail.com',
   resumeFile: 'resume.pdf',
-  links: [
-    { label: 'GitHub', href: 'https://github.com/Dylanmcd16' },
-    { label: 'Atmosky', href: 'https://atmosky.ai' },
-    // Add your full LinkedIn URL here when ready:
-    // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile/' },
-  ] satisfies LinkItem[],
-  strengths: [
-    'Atmospheric science',
-    'Geospatial analytics',
-    'Python automation',
-    'ArcGIS',
-    'Remote sensing',
-    'Scientific software',
+  thesisFile: 'McDermott_iastate_0097M_21473.pdf',
+  photo: 'photo-avatar.jpg',
+
+  heroStatement:
+    'I’m a meteorologist who enjoys using science, data, and technology to solve real-world problems. My work has included weather and catastrophe analysis at PLRB, field-sensing research at Corteva, and building geospatial and automation tools along the way. I especially enjoy work that combines research, technology, and practical problem-solving.',
+
+  links: {
+    github: 'https://github.com/Dylanmcd16',
+    linkedin: 'https://www.linkedin.com/in/dylan-mcdermott-193b18174/',
+  },
+
+  legacyProjects: [
+    {
+      slug: 'plrb-weather-systems',
+      title: 'Operational Weather & Geospatial Systems',
+      kind: 'Property & Liability Resource Bureau · Professional · 2025 — Present',
+      featured: true,
+      description:
+        'Develop and maintain operational weather-data workflows and ArcGIS products used for event verification, catastrophe analysis, and decision support. The work combines meteorological interpretation with geospatial data engineering, quality control, cloud infrastructure, and clear communication of uncertainty.',
+      highlights: [
+        'Automate the ingestion, validation, processing, and publication of radar, satellite, numerical-model, observational, and hazard datasets with Python and ArcPy.',
+        'Build regional and national raster and vector products for severe weather, precipitation, smoke, evacuations, earthquakes, and power outages.',
+        'Maintain cloud-hosted geospatial automations and backend services using AWS, databases, and REST APIs.',
+        'Advise users on data quality, source limitations, uncertainty, and appropriate interpretation of weather information.',
+        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+      ],
+      tech: [
+        'Python',
+        'ArcGIS Pro & Enterprise',
+        'ArcPy',
+        'AWS',
+        'Radar & remote sensing',
+      ],
+      links: [],
+    },
+    {
+      title: 'Field-Sensing Systems & Data Automation',
+      kind: 'Corteva Agriscience · Professional · 2024',
+      description:
+        'Supported field-sensing research by helping design data-collection systems and building the automated workflows that converted raw measurements into reliable, spatially referenced research data.',
+      highlights: [
+        'Designed and built an automated weather station and antenna-based relay system for real-time field measurements.',
+        'Helped engineer the “Smartstick,” a wheeled sensing platform deployed across multiple research sites.',
+        'Created an end-to-end Python and ArcPy pipeline for ingestion, quality control, spatial assignment, statistical analysis, visualization, and delivery.',
+        'Worked with agronomists, engineers, and data scientists on microclimate, crop-stress, irrigation, and proof-of-concept research.',
+      ],
+      tech: [
+        'Python',
+        'ArcPy',
+        'Field sensors',
+        'Spatial analysis',
+        'Research data',
+      ],
+      links: [],
+    },
+    {
+      title: 'Land-Use & Convective Weather Research',
+      kind: 'Iowa State University · Graduate Research · 2022 — 2024',
+      description:
+        'Investigated how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems using numerical weather and land-surface modeling.',
+      highlights: [
+        'Designed and executed WRF and Noah-MP experiments across multiple model resolutions.',
+        'Developed geospatial land-surface datasets by translating and interpolating CESM/LUMIP land-use data to model grids.',
+        'Processed and compared large ERA5, CESM, WRF, and observational datasets with Python, xarray, MATLAB, and NetCDF.',
+        'Communicated methods and findings through a M.S. thesis, technical figures, presentations, and interdisciplinary collaboration.',
+      ],
+      tech: ['WRF', 'Noah-MP', 'Python', 'xarray', 'NetCDF'],
+      links: [],
+    },
+    {
+      title: 'Extreme Convective Wind Research',
+      kind: 'Iowa State University · Undergraduate Research · 2021 — 2022',
+      description:
+        'Studied the magnitude and duration of extreme convective wind events in Iowa through case identification, atmospheric-data processing, statistical analysis, and scientific visualization.',
+      highlights: [
+        'Identified and analyzed severe convective wind cases using meteorological observations and event data.',
+        'Produced visualizations and summaries to support scientific interpretation and thesis development.',
+        'Worked with faculty researchers to evaluate results and communicate defensible conclusions.',
+      ],
+      tech: [
+        'Meteorological analysis',
+        'Python',
+        'Data visualization',
+        'Severe weather',
+      ],
+      links: [],
+    },
   ],
+
   projects: [
     {
-      number: '01',
-      title: 'Atmosky AI',
-      category: 'Independent product',
-      summary:
-        'An AI weather-intelligence platform built to answer location- and time-specific questions with supporting maps, data, and evidence.',
-      details:
-        'The project combines weather and geospatial data services with automated planning, analysis, and presentation workflows.',
-      tags: ['React', 'TypeScript', 'Python', 'FastAPI', 'Geospatial APIs'],
-      href: 'https://atmosky.ai',
+      slug: 'plrb-weather-systems',
+      title: 'Operational Weather & Geospatial Systems',
+      kind: 'PLRB · Professional · 2025–Present',
+      accent: 'operations',
+      featured: true,
+      description:
+        'I develop weather-data workflows and geospatial products used for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation, quality control, cloud infrastructure, and clear communication of uncertainty.',
+      outcomes: [
+        'Automated national weather and hazard-data workflows using Python and ArcPy.',
+        'Built raster and vector products for severe weather, precipitation, smoke, evacuations, earthquakes, and outages.',
+        'Maintained cloud-hosted geospatial services and supporting APIs.',
+        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+      ],
+      caseStudy: {
+        overview:
+          'At PLRB, I contribute to operational weather and geospatial systems used to support event verification, catastrophe analysis, and decision-making. The work requires practical meteorological interpretation alongside reliable automated data processing.',
+        examples: [
+          'Automated ingestion, validation, and publication workflows for weather and hazard datasets.',
+          'Raster and vector products that help communicate severe weather, precipitation, smoke, evacuation, earthquake, and outage impacts.',
+          'Cloud-hosted services and APIs that support repeatable, data-driven workflows.',
+        ],
+      },
+      tech: ['Python', 'ArcGIS Pro & Enterprise', 'ArcPy', 'AWS'],
+      links: [],
     },
     {
-      number: '02',
-      title: 'Weather & Catastrophe Analytics',
-      category: 'Operational analytics',
-      summary:
-        'Automated workflows and geospatial products used to analyze severe weather, catastrophe events, and related environmental information.',
-      details:
-        'Work includes data processing, quality control, reporting, ArcGIS applications, and operational weather analysis.',
-      tags: ['Python', 'ArcGIS', 'Automation', 'Weather data'],
+      slug: 'corteva-field-sensing',
+      title: 'Field-Sensing Systems & Data Automation',
+      kind: 'Corteva Agriscience · 2024',
+      accent: 'field',
+      description:
+        'Supported field-sensing research at Corteva by designing measurement systems and building automated workflows that converted raw observations into reliable, spatially referenced research data.',
+      keyContribution:
+        'Helped engineer the Smartstick mobile sensing platform and created its Python and ArcPy processing workflow.',
+      caseStudy: {
+        overview:
+          'At Corteva, I helped connect field measurements with usable research data by supporting sensor systems and the processing workflows behind them.',
+        examples: [
+          'Designed and built an automated weather-station and antenna relay system for field measurements.',
+          'Helped engineer the Smartstick mobile sensing platform used across research sites.',
+          'Built a Python and ArcPy workflow for quality control, spatial assignment, analysis, visualization, and delivery.',
+        ],
+      },
+      tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
+      links: [],
     },
     {
-      number: '03',
-      title: 'Field-Sensing Research',
-      category: 'Research and development',
-      summary:
-        'Field data-collection, sensing, and processing work supporting research operations and spatial analysis.',
-      details:
-        'Contributions included mobile data-collection systems, automated processing, quality control, and cross-functional research support.',
-      tags: ['Field sensing', 'Data pipelines', 'Quality control', 'R&D'],
+      slug: 'land-use-convective-weather',
+      title: 'Land-Use Effects on Convective Weather',
+      kind: 'Iowa State · M.S. Research · 2022–2024',
+      accent: 'modeling',
+      description:
+        'Studied how historical land-use change influenced Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems using WRF and Noah-MP simulations.',
+      keyContribution:
+        'Research output: a M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
+      caseStudy: {
+        overview:
+          'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
+        examples: [
+          'Designed and ran WRF and Noah-MP experiments at multiple model resolutions.',
+          'Prepared land-surface datasets by translating CESM/LUMIP land-use data to model grids.',
+          'Compared ERA5, CESM, WRF, and observational datasets using Python, xarray, MATLAB, and NetCDF.',
+        ],
+      },
+      tech: ['WRF', 'Noah-MP', 'Python', 'xarray'],
+      links: [],
     },
     {
-      number: '04',
-      title: 'Convective Weather Research',
-      category: 'Academic research',
-      summary:
-        'Research focused on severe convective winds and the response of mesoscale convective systems to land-use change.',
-      details:
-        'This work combined atmospheric science, numerical modeling, data analysis, and scientific communication.',
-      tags: ['Meteorology', 'WRF', 'Python', 'Scientific analysis'],
+      slug: 'extreme-convective-wind',
+      title: 'Boundary-Layer Meteorology Research',
+      kind: 'Iowa State · Undergraduate Research Assistant · 2021',
+      accent: 'analysis',
+      description:
+        'Conducted boundary-layer meteorology research under the guidance of Dr. Ian Williams at Iowa State University. The work focused on identifying relevant cases, creating scientific visualizations, and collaborating on the interpretation of findings.',
+      keyContribution:
+        'Research contribution: produced case-based plots and visualizations that supported an ongoing research effort later carried forward into a graduate thesis.',
+      caseStudy: {
+        overview:
+          'My undergraduate research focused on boundary-layer meteorology under the guidance of Dr. Ian Williams at Iowa State University.',
+        examples: [
+          'Identified relevant cases for further meteorological analysis.',
+          'Generated scientific plots and visualizations to support interpretation of findings.',
+          'Contributed research that was later carried forward by an incoming graduate student.',
+        ],
+      },
+      tech: ['Boundary-layer meteorology', 'Case identification', 'Data visualization', 'Research collaboration'],
+      links: [],
     },
-  ] satisfies Project[],
+  ] as Project[],
+
   experience: [
     {
       organization: 'Property & Liability Resource Bureau',
-      role: 'Weather & Catastrophe Analyst',
+      role: 'Meteorologist — Weather & Catastrophe Analysis',
       period: '2025 — Present',
       summary:
-        'Develop and maintain weather and geospatial workflows, operational analyses, ArcGIS products, and automated reporting systems.',
+        'Build operational geospatial products and automated weather-data systems for event verification, catastrophe analysis, and decision support.',
     },
     {
       organization: 'Corteva Agriscience',
-      role: 'Field Sensing Research Associate (Contract)',
+      role: 'Field Sensing Research Associate',
       period: '2024',
       summary:
-        'Supported field-sensing research, mobile data collection, quality control, automated processing, and research operations.',
+        'Developed field-sensing systems and automated workflows for data ingestion, quality control, spatial analysis, visualization, and research delivery.',
     },
     {
       organization: 'Iowa State University',
-      role: 'Graduate Researcher',
+      role: 'Graduate Research Assistant',
       period: '2022 — 2024',
       summary:
-        'Conducted atmospheric-science research involving mesoscale convective systems, land-use change, modeling, and data analysis.',
+        'Conducted numerical modeling and geospatial analysis of land-use change, rainfall, and mesoscale convective systems for an M.S. in Meteorology.',
+    },
+    {
+      organization: 'Iowa State University',
+      role: 'Undergraduate Research Assistant',
+      period: '2021',
+      summary:
+        'Processed atmospheric datasets and developed visualizations for boundary-layer and convective-weather research.',
     },
   ] satisfies Experience[],
-  research: [
+
+  skills: [
     {
-      degree: 'M.S. Meteorology',
-      title: 'Responses of Mesoscale Convective Systems to Land-Use Change',
-      summary:
-        'Examined how modifications to the land surface influence the evolution and behavior of organized convective systems.',
+      title: 'Meteorology & environmental analysis',
+      items: [
+        'Severe weather',
+        'Radar & MRMS',
+        'Satellite',
+        'Forecasting',
+        'WRF',
+        'Noah-MP',
+      ],
     },
     {
-      degree: 'B.S. Meteorology',
-      title: 'Extreme Convective Wind Magnitude and Duration in Iowa',
-      summary:
-        'Investigated the magnitude, duration, and characteristics of extreme convective wind events across Iowa.',
+      title: 'Geospatial data engineering',
+      items: [
+        'ArcGIS Pro',
+        'ArcGIS Enterprise',
+        'ArcPy',
+        'GeoPandas',
+        'Rasterio',
+        'Raster & vector processing',
+      ],
     },
-  ] satisfies ResearchItem[],
+    {
+      title: 'Data, automation & cloud',
+      items: [
+        'Python',
+        'SQL',
+        'pandas',
+        'xarray',
+        'REST APIs',
+        'AWS EC2, S3 & RDS',
+      ],
+    },
+    {
+      title: 'Remote sensing & scientific data',
+      items: [
+        'Sentinel-1/2',
+        'MODIS',
+        'GOES',
+        'SAR',
+        'NetCDF',
+        'GeoTIFF & GRIB',
+      ],
+    },
+  ] satisfies SkillGroup[],
+
+  education: [
+    {
+      degree: 'M.S. in Meteorology — Iowa State University',
+      year: '2024',
+      workLabel: 'Thesis',
+      work: 'Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems',
+    },
+    {
+      degree: 'B.S. in Meteorology — Iowa State University',
+      year: '2022',
+      workLabel: 'Senior thesis',
+      work: 'Extreme Convective Wind Magnitude and Duration in Iowa',
+    },
+  ] satisfies EducationItem[],
+
+  contactLead:
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, research, or related work.',
 }

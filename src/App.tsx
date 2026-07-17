@@ -1,17 +1,28 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { portfolio } from './data/portfolio'
 
+// Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
+const WeatherGlobe = lazy(() => import('./components/WeatherGlobe'))
+
 const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Work', href: '#work' },
+  { label: 'Work', href: '#projects' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Research', href: '#research' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
 
+const careerTimeline = [
+  { organization: 'PLRB', period: '2025–Present' },
+  { organization: 'Corteva', period: '2024–2025' },
+  { organization: "Iowa State University Master's Research", period: '2022–2024' },
+  { organization: 'Iowa State University Undergraduate Research', period: '2022–2024' },
+]
+
+// ---- Icons ----------------------------------------------------------------
+
 function ArrowIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20">
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="icon">
       <path d="M4 10h11M11 5l5 5-5 5" />
     </svg>
   )
@@ -19,18 +30,88 @@ function ArrowIcon() {
 
 function ExternalIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20">
-      <path d="M7 5h8v8M15 5 6 14M13 10v5H5V7h5" />
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="icon">
+      <path d="M7 5h8v8M15 5 6 14" />
     </svg>
   )
 }
 
-function Header() {
+function ProjectScreenshot() {
+  return (
+    <div className="project-screenshot">
+      <img
+        src={`${import.meta.env.BASE_URL}Screenshot 2026-07-17 154353.png`}
+        alt="LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
+      />
+    </div>
+  )
+}
+
+function CaseStudyPage({
+  project,
+  base,
+  thesisUrl,
+}: {
+  project: (typeof portfolio.projects)[number]
+  base: string
+  thesisUrl: string
+}) {
+  if (project.slug === 'land-use-convective-weather') {
+    return (
+      <main className="case-study-page thesis-reader-page">
+        <div className="container case-study-container">
+          <a className="text-link case-study-back" href={base}>
+            ← Back to portfolio
+          </a>
+          <h1>Master&apos;s Thesis – Iowa State University</h1>
+          <p className="thesis-reader-description">
+            A study of how historical U.S. land-use change influenced Midwest rainfall and mesoscale convective systems.
+          </p>
+          <iframe
+            className="thesis-reader"
+            src={thesisUrl}
+            title="M.S. thesis: Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems"
+          />
+        </div>
+      </main>
+    )
+  }
+
+  return (
+    <main className="case-study-page">
+      <div className="container case-study-container">
+        <a className="text-link case-study-back" href={base}>
+          ← Back to portfolio
+        </a>
+        <p className="project-kind">{project.kind}</p>
+        <h1>{project.title}</h1>
+        <p className="case-study-overview">{project.caseStudy.overview}</p>
+
+        <section className="case-study-examples" aria-labelledby="work-examples-heading">
+          <h2 id="work-examples-heading">Selected work examples</h2>
+          <ul>
+            {project.caseStudy.examples.map((example) => <li key={example}>{example}</li>)}
+          </ul>
+        </section>
+
+        <ul className="tech-list" aria-label="Technologies">
+          {project.tech.map((tech) => <li key={tech}>{tech}</li>)}
+        </ul>
+
+        {project.slug === 'plrb-weather-systems' && <ProjectScreenshot />}
+      </div>
+    </main>
+  )
+}
+
+// ---- Header ---------------------------------------------------------------
+
+function Header({ resumeUrl }: { resumeUrl: string }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16)
+    const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -38,9 +119,9 @@ function Header() {
 
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
-      <div className="header-inner">
-        <a className="brand" href="#top" aria-label="Return to top">
-          <span>{portfolio.initials}</span>
+      <div className="container header-inner">
+        <a className="brand" href="#top">
+          {portfolio.name}
         </a>
 
         <button
@@ -58,230 +139,265 @@ function Header() {
         <nav
           id="site-navigation"
           className={`site-nav ${menuOpen ? 'is-open' : ''}`}
-          aria-label="Primary navigation"
+          aria-label="Primary"
         >
           {navItems.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
               {item.label}
             </a>
           ))}
+          <a
+            className="nav-resume"
+            href={resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setMenuOpen(false)}
+          >
+            View Résumé
+          </a>
         </nav>
       </div>
     </header>
   )
 }
 
-function DataGraphic() {
-  return (
-    <div className="data-graphic" aria-hidden="true">
-      <div className="graphic-topline">
-        <span>ENVIRONMENTAL DATA</span>
-        <span>41.6°N / 93.7°W</span>
-      </div>
-      <svg viewBox="0 0 600 430" role="presentation">
-        <defs>
-          <linearGradient id="fade" x1="0" x2="1">
-            <stop offset="0" stopColor="currentColor" stopOpacity="0.08" />
-            <stop offset="0.5" stopColor="currentColor" stopOpacity="0.85" />
-            <stop offset="1" stopColor="currentColor" stopOpacity="0.08" />
-          </linearGradient>
-          <radialGradient id="cell" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stopColor="#7be0e2" stopOpacity="0.7" />
-            <stop offset="1" stopColor="#7be0e2" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <g className="grid-lines">
-          {Array.from({ length: 9 }).map((_, index) => (
-            <line key={`v-${index}`} x1={75 * index} y1="0" x2={75 * index} y2="430" />
-          ))}
-          {Array.from({ length: 7 }).map((_, index) => (
-            <line key={`h-${index}`} x1="0" y1={72 * index} x2="600" y2={72 * index} />
-          ))}
-        </g>
-        <circle cx="365" cy="190" r="105" fill="url(#cell)" />
-        <g className="contours">
-          <path d="M-25 303C71 250 113 306 194 270s89-113 178-108 84 89 164 68 88-82 126-74" />
-          <path d="M-16 335c92-51 145 8 224-29s83-108 170-105 90 85 169 62 80-72 126-63" />
-          <path d="M-30 251c98-52 133 5 211-29s96-116 184-112 94 86 171 62 74-68 128-66" />
-          <path d="M67 96c58-33 113-21 148 12s65 45 111 23 91-34 135 9 86 45 136 16" />
-        </g>
-        <path className="track" d="M96 322C181 293 240 248 304 212s127-72 206-104" />
-        <g className="track-points">
-          <circle cx="96" cy="322" r="5" />
-          <circle cx="202" cy="274" r="5" />
-          <circle cx="304" cy="212" r="7" />
-          <circle cx="405" cy="159" r="5" />
-          <circle cx="510" cy="108" r="5" />
-        </g>
-        <line className="scan-line" x1="40" y1="374" x2="560" y2="374" stroke="url(#fade)" />
-      </svg>
-      <div className="graphic-readout">
-        <span><b>06</b> data layers</span>
-        <span><b>24</b> automated workflows</span>
-        <span><b>01</b> clear result</span>
-      </div>
-    </div>
-  )
-}
-
-function SectionHeading({ index, title }: { index: string; title: string }) {
-  return (
-    <div className="section-heading">
-      <span>{index}</span>
-      <h2>{title}</h2>
-      <div />
-    </div>
-  )
-}
+// ---- Page -----------------------------------------------------------------
 
 function App() {
-  const resumeUrl = `${import.meta.env.BASE_URL}${portfolio.resumeFile}`
+  const base = import.meta.env.BASE_URL
+  const resumeUrl = `${base}${portfolio.resumeFile}`
+  const thesisUrl = `${base}${portfolio.thesisFile}`
+  const caseStudySlug = new URLSearchParams(window.location.search).get('work')
+  const caseStudy = portfolio.projects.find((project) => project.slug === caseStudySlug)
+
+  if (caseStudy) {
+    return <CaseStudyPage project={caseStudy} base={base} thesisUrl={thesisUrl} />
+  }
 
   return (
     <>
-      <a className="skip-link" href="#main-content">Skip to content</a>
-      <Header />
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <Header resumeUrl={resumeUrl} />
 
       <main id="main-content">
+        {/* HERO */}
         <section className="hero" id="top">
-          <div className="ambient-grid" />
-          <div className="container hero-layout">
+          <div className="container hero-inner">
             <div className="hero-copy">
-              <p className="eyebrow">{portfolio.eyebrow}</p>
+              <img
+                className="hero-photo"
+                src={`${base}${portfolio.photo}`}
+                alt={`Portrait of ${portfolio.name}`}
+                width="112"
+                height="112"
+              />
               <h1>{portfolio.name}</h1>
-              <p className="hero-headline">{portfolio.headline}</p>
-              <p className="hero-introduction">{portfolio.introduction}</p>
+              <p className="hero-role">{portfolio.role}</p>
+              <p className="hero-statement">{portfolio.heroStatement}</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#work">
-                  View selected work <ArrowIcon />
+                <a className="button button-primary" href="#projects">
+                  Selected Work <ArrowIcon />
                 </a>
-                <a className="button button-secondary" href={`mailto:${portfolio.email}`}>
-                  Contact me
+                <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
+                  View Résumé
+                </a>
+                <a
+                  className="button button-secondary"
+                  href={portfolio.links.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  className="button button-secondary"
+                  href={portfolio.links.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
                 </a>
               </div>
+              <p className="hero-tagline">{portfolio.tagline}</p>
             </div>
-            <DataGraphic />
+            <Suspense fallback={<div className="globe-wrap" aria-hidden="true" />}>
+              <WeatherGlobe />
+            </Suspense>
           </div>
-          <div className="container hero-meta">
-            <span>{portfolio.location}</span>
-            <span>Atmospheric science · GIS · software</span>
-          </div>
+          {/* Soft fade at the bottom of the hero so the growing globe blends
+              into the Selected Work section instead of being cut off abruptly. */}
+          <div className="hero-fade" aria-hidden="true" />
         </section>
 
-        <section className="section" id="about">
-          <div className="container">
-            <SectionHeading index="01" title="About" />
-            <div className="about-layout">
-              <p className="about-statement">{portfolio.about}</p>
-              <div className="strength-list" aria-label="Areas of expertise">
-                {portfolio.strengths.map((strength, index) => (
-                  <div key={strength}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <p>{strength}</p>
-                  </div>
+        {/* SELECTED WORK */}
+        <section className="section" id="projects">
+          <div className="container selected-work-layout">
+            <aside className="career-timeline" aria-label="Career timeline">
+              <p className="career-timeline-label">Career timeline</p>
+              <ol>
+                {careerTimeline.map((item) => (
+                  <li key={item.organization}>
+                    <span className="career-timeline-marker" aria-hidden="true" />
+                    <div>
+                      <strong>{item.organization}</strong>
+                      <span>{item.period}</span>
+                    </div>
+                  </li>
                 ))}
+              </ol>
+            </aside>
+
+            <div className="selected-work-content">
+              <h2>Selected Work</h2>
+              <div className="project-grid">
+              {portfolio.projects.map((project) => (
+                <article
+                  key={project.title}
+                  className={`project project--${project.accent} ${project.featured ? 'is-featured' : ''}`}
+                >
+                  <div className="project-body">
+                    <p className="project-kind">{project.kind}</p>
+                    <h3>{project.title}</h3>
+                    <p className="project-description">{project.description}</p>
+                    {project.featured && project.outcomes && (
+                      <div className="project-outcomes">
+                        <p>Selected contributions</p>
+                        <ul>
+                          {project.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
+                        </ul>
+                      </div>
+                    )}
+                    {!project.featured && project.keyContribution && (
+                      <p className="project-contribution">{project.keyContribution}</p>
+                    )}
+                    <ul className="tech-list" aria-label="Technologies">
+                      {project.tech.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                    {project.slug !== 'extreme-convective-wind' && (
+                      <a className="text-link project-case-link" href={`${base}?work=${project.slug}`}>
+                        View Work Example <ArrowIcon />
+                      </a>
+                    )}
+                    {project.links.length > 0 && (
+                      <div className="project-links">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-link"
+                          >
+                            {link.label} <ExternalIcon />
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {project.featured && <ProjectScreenshot />}
+                </article>
+              ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="section section-dark" id="work">
-          <div className="container">
-            <SectionHeading index="02" title="Selected work" />
-            <div className="project-list">
-              {portfolio.projects.map((project) => {
-                const content = (
-                  <>
-                    <div className="project-number">{project.number}</div>
-                    <div className="project-main">
-                      <p className="project-category">{project.category}</p>
-                      <h3>{project.title}</h3>
-                      <p className="project-summary">{project.summary}</p>
-                      <p className="project-details">{project.details}</p>
-                      <div className="tag-list">
-                        {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
-                      </div>
-                    </div>
-                    <div className="project-arrow">
-                      {project.href ? <ExternalIcon /> : <ArrowIcon />}
-                    </div>
-                  </>
-                )
-
-                return project.href ? (
-                  <a
-                    className="project-card"
-                    key={project.title}
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <article className="project-card" key={project.title}>
-                    {content}
-                  </article>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-
+        {/* EXPERIENCE */}
         <section className="section" id="experience">
           <div className="container">
-            <SectionHeading index="03" title="Experience" />
-            <div className="timeline">
+            <h2>Experience</h2>
+            <div className="experience-list">
               {portfolio.experience.map((item) => (
-                <article className="timeline-item" key={`${item.organization}-${item.role}`}>
-                  <p className="timeline-period">{item.period}</p>
+                <article className="experience" key={`${item.organization}-${item.role}`}>
                   <div>
-                    <p className="timeline-organization">{item.organization}</p>
                     <h3>{item.role}</h3>
-                    <p>{item.summary}</p>
+                    <p className="experience-org">{item.organization}</p>
                   </div>
+                  <p className="experience-summary">{item.summary}</p>
+                  <p className="experience-period">{item.period}</p>
+                </article>
+              ))}
+            </div>
+
+            <h2 className="education-heading">Education</h2>
+            <div className="education-list">
+              {portfolio.education.map((item) => (
+                <article className="education" key={item.degree}>
+                  <div>
+                    <h3>{item.degree}</h3>
+                    <p className="education-work">
+                      {item.workLabel}: {item.work}
+                    </p>
+                    {item.degree.startsWith('M.S.') && (
+                      <a
+                        className="text-link education-link"
+                        href={thesisUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Read the thesis <ExternalIcon />
+                      </a>
+                    )}
+                  </div>
+                  <p className="education-year">{item.year}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="section research-section" id="research">
+        {/* SKILLS + EDUCATION */}
+        <section className="section" id="skills">
           <div className="container">
-            <SectionHeading index="04" title="Research" />
-            <div className="research-grid">
-              {portfolio.research.map((item) => (
-                <article className="research-card" key={item.title}>
-                  <p>{item.degree}</p>
-                  <h3>{item.title}</h3>
-                  <span />
-                  <p>{item.summary}</p>
-                </article>
+            <h2>Skills</h2>
+            <div className="skills-grid">
+              {portfolio.skills.map((group) => (
+                <div className="skill-group" key={group.title}>
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
+
           </div>
         </section>
 
-        <section className="contact-section" id="contact">
-          <div className="container contact-layout">
-            <div>
-              <p className="eyebrow">Contact</p>
-              <h2>Let’s discuss weather, geospatial data, or scientific technology.</h2>
-            </div>
+        {/* CONTACT */}
+        <section className="section section-contact" id="contact">
+          <div className="container">
+            <h2>Contact</h2>
+            <p className="contact-lead">{portfolio.contactLead}</p>
             <div className="contact-actions">
-              <a className="contact-email" href={`mailto:${portfolio.email}`}>
-                {portfolio.email} <ArrowIcon />
+              <a className="button button-primary" href={`mailto:${portfolio.email}`}>
+                Email Dylan <ArrowIcon />
               </a>
-              <div className="social-links">
-                {portfolio.links.map((link) => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noreferrer">
-                    {link.label} <ExternalIcon />
-                  </a>
-                ))}
-                <a href={resumeUrl} target="_blank" rel="noreferrer">
-                  Résumé <ExternalIcon />
-                </a>
-              </div>
+              <a
+                className="button button-secondary"
+                href={portfolio.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn <ExternalIcon />
+              </a>
+              <a
+                className="button button-secondary"
+                href={portfolio.links.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub <ExternalIcon />
+              </a>
+              <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
+                Download Résumé
+              </a>
             </div>
           </div>
         </section>
@@ -289,7 +405,9 @@ function App() {
 
       <footer>
         <div className="container footer-inner">
-          <p>© {new Date().getFullYear()} {portfolio.name}</p>
+          <p>
+            © {new Date().getFullYear()} {portfolio.name} · {portfolio.location}
+          </p>
           <a href="#top">Back to top ↑</a>
         </div>
       </footer>
