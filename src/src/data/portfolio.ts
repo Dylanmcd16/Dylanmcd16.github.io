@@ -28,7 +28,7 @@ export type ResearchItem = {
 
 // Edit this file to customize almost all visible text on the site.
 export const portfolio = {
-  name: 'Dylan McDermott',
+  name: 'Dylan McDermott M.S. Meteorology',
   initials: 'DM',
   eyebrow: 'Meteorology · Geospatial Data · Technology',
   introduction:

@@ -580,10 +580,13 @@ svg.icon {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   gap: clamp(28px, 5vw, 54px);
-  align-items: center;
+  align-items: start;
   background: linear-gradient(135deg, #fff 0%, #f7fbff 100%);
   border-color: #dde7f4;
-  padding: clamp(30px, 4vw, 48px);
+  padding: clamp(30px, 3vw, 40px);
+}
+.project.is-featured .project-screenshot {
+  width: min(100%, 320px);
 }
 .project-kind {
   font-size: 0.76rem;
@@ -815,8 +818,9 @@ svg.icon {
   font-weight: 500;
 }
 .experience-summary {
-  color: var(--muted);
-  font-size: 0.97rem;
+  color: var(--ink-soft);
+  font-size: 1.03rem;
+  line-height: 1.55;
   max-width: 60ch;
 }
 .experience-period {

@@ -90,7 +90,7 @@ export const portfolio = {
       links: [],
     },
     {
-      title: 'Field-Sensing Systems & Data Automation',
+      title: 'Field Sensing Research Associate',
       kind: 'Corteva Agriscience · Professional · 2024',
       description:
         'Supported field-sensing research by helping design data-collection systems and building the automated workflows that converted raw measurements into reliable, spatially referenced research data.',
@@ -151,12 +151,9 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'I develop weather-data workflows and geospatial products used for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation, quality control, cloud infrastructure, and clear communication of uncertainty.',
+        'I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and quality control.',
       outcomes: [
-        'Automated national weather and hazard-data workflows using Python and ArcPy.',
-        'Built raster and vector products for severe weather, precipitation, smoke, evacuations, earthquakes, and outages.',
-        'Maintained cloud-hosted geospatial services and supporting APIs.',
-        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+        'Built and maintained national weather and hazard-data workflows and geospatial products for event verification, catastrophe analysis, and decision support.',
       ],
       caseStudy: {
         overview:
@@ -165,6 +162,7 @@ export const portfolio = {
           'Automated ingestion, validation, and publication workflows for weather and hazard datasets.',
           'Raster and vector products that help communicate severe weather, precipitation, smoke, evacuation, earthquake, and outage impacts.',
           'Cloud-hosted services and APIs that support repeatable, data-driven workflows.',
+          'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
         ],
       },
       tech: ['Python', 'ArcGIS Pro & Enterprise', 'ArcPy', 'AWS'],
@@ -172,16 +170,16 @@ export const portfolio = {
     },
     {
       slug: 'corteva-field-sensing',
-      title: 'Field-Sensing Systems & Data Automation',
+      title: 'Field Sensing Research Associate',
       kind: 'Corteva Agriscience · 2024',
       accent: 'field',
       description:
-        'Supported field-sensing research at Corteva by designing measurement systems and building automated workflows that converted raw observations into reliable, spatially referenced research data.',
+        'Supported field-sensing research by turning raw observations into reliable, spatially referenced data. Built the measurement systems and automated workflows behind that process.',
       keyContribution:
         'Helped engineer the Smartstick mobile sensing platform and created its Python and ArcPy processing workflow.',
       caseStudy: {
         overview:
-          'At Corteva, I helped connect field measurements with usable research data by supporting sensor systems and the processing workflows behind them.',
+          'At Corteva, I helped connect field measurements with usable research data by supporting sensor systems and the processing workflows behind them. This included the practical systems used in the field as well as the quality-control and spatial-analysis steps that made the data useful.',
         examples: [
           'Designed and built an automated weather-station and antenna relay system for field measurements.',
           'Helped engineer the Smartstick mobile sensing platform used across research sites.',
@@ -197,12 +195,12 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Studied how historical land-use change influenced Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems using WRF and Noah-MP simulations.',
+        'Studied how historical land-use change affected Midwest rainfall and mesoscale convective systems using WRF and Noah-MP simulations.',
       keyContribution:
         'Research output: a M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
       caseStudy: {
         overview:
-          'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
+          'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems. The work combined numerical weather and land-surface modeling with geospatial data preparation and multi-source analysis.',
         examples: [
           'Designed and ran WRF and Noah-MP experiments at multiple model resolutions.',
           'Prepared land-surface datasets by translating CESM/LUMIP land-use data to model grids.',
@@ -218,7 +216,7 @@ export const portfolio = {
       kind: 'Iowa State · Undergraduate Research Assistant · 2021',
       accent: 'analysis',
       description:
-        'Conducted boundary-layer meteorology research under the guidance of Dr. Ian Williams at Iowa State University. The work focused on identifying relevant cases, creating scientific visualizations, and collaborating on the interpretation of findings.',
+        'Conducted boundary-layer meteorology research under Dr. Ian Williams at Iowa State University. Focused on case identification and scientific visualization.',
       keyContribution:
         'Research contribution: produced case-based plots and visualizations that supported an ongoing research effort later carried forward into a graduate thesis.',
       caseStudy: {
@@ -238,77 +236,72 @@ export const portfolio = {
   experience: [
     {
       organization: 'Property & Liability Resource Bureau',
-      role: 'Meteorologist — Weather & Catastrophe Analysis',
+      role: 'Meteorologist — Weather & Catastrophe Analyst',
       period: '2025 — Present',
       summary:
-        'Build operational geospatial products and automated weather-data systems for event verification, catastrophe analysis, and decision support.',
+        'Operational weather analysis, geospatial products, automation, and catastrophe decision support.',
     },
     {
       organization: 'Corteva Agriscience',
       role: 'Field Sensing Research Associate',
       period: '2024',
       summary:
-        'Developed field-sensing systems and automated workflows for data ingestion, quality control, spatial analysis, visualization, and research delivery.',
+        'Field-sensing systems, automated data workflows, and spatial research support.',
     },
     {
       organization: 'Iowa State University',
       role: 'Graduate Research Assistant',
       period: '2022 — 2024',
       summary:
-        'Conducted numerical modeling and geospatial analysis of land-use change, rainfall, and mesoscale convective systems for an M.S. in Meteorology.',
+        'Numerical modeling and geospatial analysis of land-use change and convective weather.',
     },
     {
       organization: 'Iowa State University',
       role: 'Undergraduate Research Assistant',
       period: '2021',
       summary:
-        'Processed atmospheric datasets and developed visualizations for boundary-layer and convective-weather research.',
+        'Boundary-layer meteorology research, case identification, and scientific visualization.',
     },
   ] satisfies Experience[],
 
   skills: [
     {
-      title: 'Meteorology & environmental analysis',
+      title: 'Meteorology',
       items: [
         'Severe weather',
-        'Radar & MRMS',
-        'Satellite',
-        'Forecasting',
+        'Radar',
+        'Numerical modeling',
         'WRF',
-        'Noah-MP',
+        'Remote sensing',
       ],
     },
     {
-      title: 'Geospatial data engineering',
+      title: 'Geospatial',
       items: [
         'ArcGIS Pro',
-        'ArcGIS Enterprise',
         'ArcPy',
         'GeoPandas',
         'Rasterio',
-        'Raster & vector processing',
+        'Spatial analysis',
       ],
     },
     {
-      title: 'Data, automation & cloud',
+      title: 'Data and automation',
       items: [
         'Python',
-        'SQL',
         'pandas',
         'xarray',
+        'NetCDF',
         'REST APIs',
-        'AWS EC2, S3 & RDS',
       ],
     },
     {
-      title: 'Remote sensing & scientific data',
+      title: 'Software',
       items: [
-        'Sentinel-1/2',
-        'MODIS',
-        'GOES',
-        'SAR',
-        'NetCDF',
-        'GeoTIFF & GRIB',
+        'FastAPI',
+        'React',
+        'TypeScript',
+        'Git/GitHub',
       ],
     },
   ] satisfies SkillGroup[],
