@@ -891,14 +891,7 @@ footer {
     padding-bottom: 0;
   }
   .globe-wrap {
-    height: 360px;
-    margin-top: -20px;
-  }
-  .globe-stage {
-    left: 50%;
-    transform: translate(-50%, -50%) scale(var(--globe-scale, 1));
-    width: 560px;
-    height: 560px;
+    display: none;
   }
   .experience {
     grid-template-columns: 1fr;

@@ -204,14 +204,6 @@ function App() {
                 >
                   LinkedIn
                 </a>
-                <a
-                  className="button button-secondary"
-                  href={portfolio.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
               </div>
               <p className="hero-tagline">{portfolio.tagline}</p>
             </div>
