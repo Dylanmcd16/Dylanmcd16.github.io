@@ -11,13 +11,6 @@ const navItems = [
   { label: 'Contact', href: '#contact' },
 ]
 
-const careerTimeline = [
-  { organization: 'PLRB', period: '2025–Present' },
-  { organization: 'Corteva', period: '2024–2025' },
-  { organization: "Iowa State University Master's Research", period: '2022–2024' },
-  { organization: 'Iowa State University Undergraduate Research', period: '2022–2024' },
-]
-
 // ---- Icons ----------------------------------------------------------------
 
 function ArrowIcon() {
@@ -233,22 +226,7 @@ function App() {
 
         {/* SELECTED WORK */}
         <section className="section" id="projects">
-          <div className="container selected-work-layout">
-            <aside className="career-timeline" aria-label="Career timeline">
-              <p className="career-timeline-label">Career timeline</p>
-              <ol>
-                {careerTimeline.map((item) => (
-                  <li key={item.organization}>
-                    <span className="career-timeline-marker" aria-hidden="true" />
-                    <div>
-                      <strong>{item.organization}</strong>
-                      <span>{item.period}</span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </aside>
-
+          <div className="container">
             <div className="selected-work-content">
               <h2>Selected Work</h2>
               <div className="project-grid">

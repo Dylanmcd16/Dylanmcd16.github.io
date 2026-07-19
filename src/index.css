@@ -484,74 +484,8 @@ svg.icon {
 
 /* -------------------------------------------------------------- Projects -- */
 
-.selected-work-layout {
-  position: relative;
-}
 .selected-work-content {
   width: 100%;
-}
-.career-timeline {
-  position: absolute;
-  top: 6px;
-  right: calc(100% + 34px);
-  width: 122px;
-}
-.career-timeline-label {
-  margin: 0 0 26px;
-  color: var(--muted);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.career-timeline ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.career-timeline li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 13px 1fr;
-  gap: 12px;
-  min-height: 94px;
-}
-.career-timeline li:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 13px;
-  bottom: -1px;
-  left: 5px;
-  width: 1px;
-  background: var(--line);
-}
-.career-timeline-marker {
-  position: relative;
-  z-index: 1;
-  width: 11px;
-  height: 11px;
-  margin-top: 2px;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  background: #fff;
-}
-.career-timeline li:first-child .career-timeline-marker {
-  background: var(--accent);
-}
-.career-timeline strong,
-.career-timeline span {
-  display: block;
-}
-.career-timeline strong {
-  color: var(--ink);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.35;
-}
-.career-timeline li div > span {
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.73rem;
 }
 
 .project-grid {
@@ -937,23 +871,6 @@ footer {
 /* ------------------------------------------------------------ Responsive -- */
 
 @media (max-width: 980px) {
-  .selected-work-layout {
-    grid-template-columns: 1fr;
-  }
-  .career-timeline {
-    position: static;
-  }
-  .career-timeline ol {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 30px;
-  }
-  .career-timeline li {
-    min-height: 0;
-  }
-  .career-timeline li:not(:last-child)::after {
-    display: none;
-  }
   .project-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -964,17 +881,6 @@ footer {
     width: 720px;
     height: 720px;
     left: -100px;
-  }
-}
-
-@media (max-width: 1120px) {
-  .selected-work-content {
-    width: 100%;
-  }
-  .career-timeline {
-    position: static;
-    width: auto;
-    margin-bottom: 30px;
   }
 }
 
@@ -1004,9 +910,6 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .career-timeline ol {
-    grid-template-columns: 1fr;
-  }
   body {
     font-size: 1rem;
   }
