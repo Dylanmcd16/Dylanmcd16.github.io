@@ -174,16 +174,16 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024',
       accent: 'field',
       description:
-        'Built and operated field-sensing systems ranging from a gold-standard automated weather station and custom N₂O soil-gas flux chambers to hundreds of infrared radiometers deployed across the Americas. Developed Python and ArcPy pipelines that converted raw observations into quality-controlled geospatial analyses for research teams.',
+        'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into quality-controlled geospatial analyses for research teams.',
       keyContribution:
-        'Co-engineered Corteva’s Smartstick mobile sensing platform, collected data across more than seven research sites, and compared field measurements with drone imagery and LiDAR to demonstrate its potential as a scalable field-research tool.',
+        'Co-engineered Corteva’s Smartstick mobile sensing platform and validated it across seven research sites with field, drone, and LiDAR measurements.',
       caseStudy: {
         overview:
-          'At Corteva, I helped connect field measurements with usable research data by supporting sensor systems and the processing workflows behind them. This included the practical systems used in the field as well as the quality-control and spatial-analysis steps that made the data useful.',
+          'At Corteva, I built and operated field-sensing systems and the processing workflows that turned raw observations into quality-controlled geospatial analyses for research teams.',
         examples: [
-          'Designed and built an automated weather-station and antenna relay system for field measurements.',
-          'Helped engineer the Smartstick mobile sensing platform used across research sites.',
-          'Built a Python and ArcPy workflow for quality control, spatial assignment, analysis, visualization, and delivery.',
+          'Built systems ranging from a gold-standard automated weather station and custom N₂O soil-gas flux chambers to hundreds of infrared radiometers deployed across the Americas.',
+          'Developed Python and ArcPy pipelines for quality control, spatial assignment, analysis, visualization, and delivery.',
+          'Co-engineered the Smartstick mobile sensing platform; collected data at more than seven research sites and compared field measurements with drone imagery and LiDAR.',
         ],
       },
       tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
