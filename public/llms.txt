@@ -1,0 +1,27 @@
+# Dylan McDermott
+
+> Meteorologist and geospatial data professional specializing in operational weather analysis, geospatial automation, field sensing, remote sensing, and atmospheric research.
+
+## Professional profile
+
+- Location: West Des Moines, Iowa, USA
+- Current role: Weather and Catastrophe Analyst at Property & Liability Resource Bureau (2025–Present)
+- Contact: dylanddermott@gmail.com
+- LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/
+
+## Experience and research
+
+- Operational weather analysis, geospatial products, automation, and catastrophe decision support at PLRB.
+- Field-sensing systems, quality-controlled geospatial analysis, Python, ArcPy, drone imagery, and LiDAR at Corteva Agriscience.
+- M.S. research at Iowa State University on historical land-use change, Midwest rainfall, and mesoscale convective systems using WRF and Noah-MP.
+- Undergraduate boundary-layer meteorology research at Iowa State University.
+
+## Skills
+
+Meteorology, radar applications, numerical weather prediction, remote sensing, ArcGIS Pro, ArcGIS Enterprise, ArcPy, GeoPandas, Rasterio, Python, pandas, xarray, NetCDF, GRIB, GeoTIFF, TypeScript, React, FastAPI, AWS, SQL, PostgreSQL, Git, GitHub, and Linux.
+
+## Key links
+
+- Portfolio: https://dylanmcd16.github.io/
+- Résumé: https://dylanmcd16.github.io/resume.pdf
+- M.S. thesis: https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf

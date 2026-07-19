@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
+import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
 import { portfolio } from './data/portfolio'
 
 // Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
@@ -68,6 +69,10 @@ function CaseStudyPage({
         </div>
       </main>
     )
+  }
+
+  if (project.slug === 'plrb-weather-systems' || project.slug === 'corteva-field-sensing') {
+    return <ProfessionalCaseStudyPage slug={project.slug} base={base} />
   }
 
   return (
@@ -356,14 +361,6 @@ function App() {
                 rel="noreferrer"
               >
                 LinkedIn <ExternalIcon />
-              </a>
-              <a
-                className="button button-secondary"
-                href={portfolio.links.github}
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub <ExternalIcon />
               </a>
               <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
                 Download Résumé
