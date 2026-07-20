@@ -855,13 +855,42 @@ svg.icon {
    -------------------------------------------------------------------------- */
 
 .case-hero-scene--plrb {
-  inset: -86px -150px -54px -150px;
+  /*
+   * Keep the precipitation treatment on the far-right side of the hero.
+   * The scene begins at 56% of the hero width, but its mask keeps the first
+   * portion invisible, so visible data does not begin until farther right.
+   */
+  top: -48px;
+  right: -72px;
+  bottom: -34px;
+  left: 56%;
   width: auto;
   height: auto;
-  opacity: 1;
+  opacity: 0.88;
   overflow: hidden;
-  -webkit-mask-image: none;
-  mask-image: none;
+
+  /*
+   * Fade from fully transparent to visible. This is the main readability
+   * control: the data disappears before it reaches the title and summary.
+   */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 18%,
+    rgba(0, 0, 0, 0.12) 34%,
+    rgba(0, 0, 0, 0.55) 58%,
+    rgba(0, 0, 0, 0.92) 78%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 18%,
+    rgba(0, 0, 0, 0.12) 34%,
+    rgba(0, 0, 0, 0.55) 58%,
+    rgba(0, 0, 0, 0.92) 78%,
+    #000 100%
+  );
 }
 
 .plrb-precip-scene {
@@ -869,7 +898,12 @@ svg.icon {
   inset: 0;
   overflow: hidden;
   background:
-    linear-gradient(110deg, #eef4fc 0%, #f8fbff 43%, #e7f0fb 100%);
+    radial-gradient(
+      ellipse at 82% 44%,
+      rgba(222, 234, 249, 0.72) 0%,
+      rgba(238, 245, 252, 0.38) 48%,
+      transparent 78%
+    );
 }
 
 .plrb-precip-atmosphere {
@@ -877,23 +911,23 @@ svg.icon {
   inset: -12%;
   background:
     radial-gradient(
-      ellipse at 76% 26%,
-      rgba(54, 107, 205, 0.20) 0%,
-      rgba(54, 107, 205, 0.08) 25%,
-      transparent 52%
+      ellipse at 78% 28%,
+      rgba(54, 107, 205, 0.14) 0%,
+      rgba(54, 107, 205, 0.05) 27%,
+      transparent 54%
     ),
     radial-gradient(
-      ellipse at 57% 66%,
-      rgba(35, 157, 184, 0.16) 0%,
-      rgba(35, 157, 184, 0.06) 29%,
-      transparent 56%
+      ellipse at 62% 68%,
+      rgba(35, 157, 184, 0.11) 0%,
+      rgba(35, 157, 184, 0.04) 30%,
+      transparent 58%
     ),
     radial-gradient(
-      ellipse at 90% 75%,
-      rgba(102, 181, 104, 0.12) 0%,
-      transparent 45%
+      ellipse at 92% 74%,
+      rgba(102, 181, 104, 0.08) 0%,
+      transparent 46%
     );
-  filter: blur(18px);
+  filter: blur(20px);
 }
 
 /*
@@ -925,8 +959,8 @@ svg.icon {
   mask-position: 44% 50%;
   mask-mode: luminance;
 
-  opacity: 0.5;
-  filter: saturate(1.2) contrast(1.06);
+  opacity: 0.38;
+  filter: saturate(1.05) contrast(1.02);
   transform: scale(1.04);
   transform-origin: center;
   will-change: transform;
@@ -935,7 +969,7 @@ svg.icon {
 }
 
 .plrb-precip-scene.has-live-data .plrb-precip-fallback {
-  opacity: 0.12;
+  opacity: 0.08;
 }
 
 .plrb-precip-live {
@@ -948,7 +982,7 @@ svg.icon {
   object-position: center;
   opacity: 0;
   mix-blend-mode: multiply;
-  filter: saturate(1.35) contrast(1.02) brightness(1.08);
+  filter: saturate(1.08) contrast(0.98) brightness(1.1);
   transform: scale(1.035) translate3d(-0.6%, 0, 0);
   transform-origin: center;
   will-change: transform, opacity;
@@ -957,13 +991,13 @@ svg.icon {
 }
 
 .plrb-precip-live.is-ready {
-  opacity: 0.6;
+  opacity: 0.46;
 }
 
 .plrb-precip-data-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.15;
+  opacity: 0.055;
   background-image:
     linear-gradient(rgba(57, 92, 143, 0.10) 1px, transparent 1px),
     linear-gradient(90deg, rgba(57, 92, 143, 0.10) 1px, transparent 1px);
@@ -977,20 +1011,23 @@ svg.icon {
 .plrb-precip-veil {
   position: absolute;
   inset: 0;
+
+  /*
+   * Only soften the outer edges and bottom of the data treatment. The
+   * horizontal scene mask above handles the fade away from the text.
+   */
   background:
     linear-gradient(
-      90deg,
-      rgba(248, 251, 255, 0.68) 0%,
-      rgba(248, 251, 255, 0.57) 31%,
-      rgba(248, 251, 255, 0.38) 57%,
-      rgba(248, 251, 255, 0.16) 82%,
-      rgba(248, 251, 255, 0.08) 100%
+      180deg,
+      rgba(248, 251, 255, 0.24) 0%,
+      transparent 22%,
+      transparent 68%,
+      rgba(248, 251, 255, 0.72) 100%
     ),
     linear-gradient(
-      180deg,
-      rgba(248, 251, 255, 0.08) 0%,
-      rgba(248, 251, 255, 0.02) 58%,
-      rgba(248, 251, 255, 0.62) 100%
+      270deg,
+      rgba(248, 251, 255, 0.12) 0%,
+      transparent 28%
     );
 }
 
@@ -1588,11 +1625,14 @@ footer {
   }
 
   .case-hero-scene--plrb {
-    inset: -62px -110px -42px -110px;
+    top: -42px;
+    right: -84px;
+    bottom: -30px;
+    left: 52%;
   }
 
   .plrb-precip-live.is-ready {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -1602,34 +1642,11 @@ footer {
   }
 
   .case-hero-scene--plrb {
-    inset: -38px -76px -28px -76px;
-  }
-
-  .plrb-precip-fallback {
-    opacity: 0.34;
-  }
-
-  .plrb-precip-live.is-ready {
-    opacity: 0.38;
-  }
-
-  .plrb-precip-data-grid {
-    opacity: 0.08;
-  }
-
-  .plrb-precip-veil {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(248, 251, 255, 0.78) 0%,
-        rgba(248, 251, 255, 0.66) 58%,
-        rgba(248, 251, 255, 0.42) 100%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(248, 251, 255, 0.12) 0%,
-        rgba(248, 251, 255, 0.50) 100%
-      );
+    /*
+     * On narrow screens the title consumes nearly the full width. Hiding the
+     * data avoids a cramped strip behind the text.
+     */
+    display: none;
   }
 }
 
