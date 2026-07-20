@@ -805,9 +805,9 @@ svg.icon {
   margin-top: 26px;
 }
 /* ------------------------------------------- Case-study hero scenes -- */
-/* Ambient SVG backgrounds for the professional case studies. No rotating
-   sweep and no scanning band by design — the motion here is drift, dash
-   flow, and slow pulses only. */
+/* Photographic backgrounds for the professional case studies. Each image
+   bleeds off the right edge and dissolves leftward via a CSS mask so the
+   hero copy remains fully legible. */
 
 .case-hero-scene {
   position: absolute;
@@ -815,25 +815,16 @@ svg.icon {
   pointer-events: none;
 }
 
-.case-scene-svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
 /*
- * Both scenes share one frame: data emerges from the right edge of the page
- * and the mask dissolves it before it reaches the writing. The scene visuals
- * themselves are styled inline in their SVG components — this CSS only
- * positions, masks, and (for PLRB) drifts.
+ * Both scenes share one frame: the photograph emerges from the right edge
+ * of the page and the mask dissolves it before it reaches the text.
  */
 .case-hero-scene--plrb,
 .case-hero-scene--corteva {
   top: -12px;
   right: -24px;
   bottom: -12px;
-  left: 52%;
+  left: 42%;
   width: auto;
   height: auto;
   overflow: hidden;
@@ -842,41 +833,32 @@ svg.icon {
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 10%,
-    rgba(0, 0, 0, 0.08) 26%,
-    rgba(0, 0, 0, 0.42) 48%,
-    rgba(0, 0, 0, 0.85) 70%,
-    #000 86%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.06) 18%,
+    rgba(0, 0, 0, 0.35) 40%,
+    rgba(0, 0, 0, 0.75) 62%,
+    #000 80%,
     #000 100%
   );
   mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 10%,
-    rgba(0, 0, 0, 0.08) 26%,
-    rgba(0, 0, 0, 0.42) 48%,
-    rgba(0, 0, 0, 0.85) 70%,
-    #000 86%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.06) 18%,
+    rgba(0, 0, 0, 0.35) 40%,
+    rgba(0, 0, 0, 0.75) 62%,
+    #000 80%,
     #000 100%
   );
 }
 
-/* The one piece of motion: the PLRB cells drift a few pixels over 80s. */
-.plrb-cells {
-  animation: plrb-cells-drift 80s ease-in-out infinite alternate;
-}
-@keyframes plrb-cells-drift {
-  from {
-    transform: translate(-5px, 3px);
-  }
-  to {
-    transform: translate(6px, -4px);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .plrb-cells {
-    animation: none !important;
-  }
+/* The photograph fills the scene container edge-to-edge. */
+.case-hero-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* --- Corteva field-data scene (quiet, right-side, no D3, no motion) --- */
@@ -893,9 +875,6 @@ svg.icon {
 .professional-case-study--corteva-field-sensing .case-hero-summary {
   max-width: 760px;
 }
-
-/* Scene visuals are inline in CortevaContourScene.tsx; positioning and the
-   dissolve mask live in the shared .case-hero-scene--plrb/--corteva rule. */
 
 .case-challenge {
   display: grid;
