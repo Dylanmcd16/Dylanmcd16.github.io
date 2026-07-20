@@ -574,6 +574,9 @@ svg.icon {
   border-radius: 999px;
   padding: 4px 11px;
 }
+.project.is-featured .tech-list {
+  margin-top: 12px;
+}
 .project-outcomes {
   margin-top: 24px;
 }

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dylanmcd16.github.io/sitemap.xml
+# AI-readable summary: https://dylanmcd16.github.io/llms.txt

@@ -1,0 +1,50 @@
+# Dylan McDermott - Detailed Professional Profile
+
+## Overview
+
+Dylan McDermott is a meteorologist and geospatial data professional based in West Des Moines, Iowa. His work combines meteorological analysis, catastrophe research, geospatial data engineering, automation, remote sensing, and field-sensing research.
+
+## Current Role: PLRB - Meteorologist
+
+Dylan is a Weather and Catastrophe Analyst at Property & Liability Resource Bureau (PLRB), beginning in 2025. He designs, builds, and maintains ArcGIS-based geospatial products for weather-event verification, catastrophe analytics, and insurance-facing decision support.
+
+His work includes automated Python and ArcPy workflows that download, quality-check, process, and update daily datasets for ArcGIS Server. He builds claims-facing ArcGIS Experience Builder applications, custom widgets, and REST API integrations for hail, wind, hurricane, current-weather, and location-specific weather analysis. He also integrates radar, satellite, numerical-model, and observational data into recurring products for severe weather, precipitation, smoke, evacuation, earthquake, power-outage, and catastrophe analysis.
+
+Dylan evaluates data quality, source limitations, uncertainty, and transparent methodology for operational weather products. He contributed to an internal machine-learning project exploring convective wind-gust estimation from meteorological observations and engineered predictors. He contributed to PLRB's 2025 Esri Special Achievement in GIS Award.
+
+## Corteva Agriscience - Research Associate
+
+At Corteva Agriscience in 2024, Dylan built and operated field-sensing systems and independently developed Python and ArcPy workflows for data ingestion, quality control, spatial assignment to field and plot boundaries, analysis, visualization, and research delivery.
+
+He helped engineer and repeatedly operate the Smartstick, a wheeled platform that collected spatially referenced crop-canopy measurements. The workflow connected field collection, cloud transfer, GPS records, geospatial point creation, plot assignment, and plot-level summaries across more than seven research sites, including Johnston, Dallas Center, Lubbock, and Viluco. Dylan compared field measurements with drone imagery and drone LiDAR to support crop-stress research.
+
+Other Corteva work included designing and building the Gold Standard automated weather station and antenna-based data relay system, supporting a nitrous oxide soil-gas flux experiment, and building, maintaining, shipping, and tracking infrared radiometers deployed across the Midwest, California, Texas, and South America.
+
+## Master's Thesis - Iowa State University
+
+Dylan earned an M.S. in Meteorology from Iowa State University in 2024. His thesis examined how historical U.S. land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
+
+The research used WRF and Noah-MP simulations; geospatial land-surface datasets translated from CESM/LUMIP inputs; and analysis of ERA5, CESM, WRF, and observational precipitation datasets using Python, xarray, MATLAB, and NetCDF.
+
+## Education
+
+- M.S. in Meteorology, Iowa State University, 2024
+- B.S. in Meteorology, Iowa State University, 2022
+
+## Core Capabilities
+
+- Meteorological analysis, catastrophe research, radar applications, numerical weather prediction, and remote sensing
+- ArcGIS Pro, ArcGIS Enterprise, Experience Builder, ArcPy, GeoPandas, Rasterio, spatial and raster analysis
+- Python, pandas, xarray, NetCDF, GRIB, GeoTIFF, automated data pipelines, quality control, REST API integration
+- TypeScript, JavaScript, React, FastAPI, AWS, SQL, PostgreSQL, Git, GitHub, and Linux
+
+## Primary URLs
+
+- Portfolio: https://dylanmcd16.github.io/
+- Work Examples: https://dylanmcd16.github.io/?page=work-examples
+- PLRB case study: https://dylanmcd16.github.io/?work=plrb-weather-systems
+- Corteva case study: https://dylanmcd16.github.io/?work=corteva-field-sensing
+- Master's thesis case study: https://dylanmcd16.github.io/?work=land-use-convective-weather
+- Thesis PDF: https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf
+- Resume PDF: https://dylanmcd16.github.io/resume.pdf
+- LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/

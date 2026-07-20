@@ -81,7 +81,7 @@ function WorkExamplesPage({ base }: { base: string }) {
               <h2>{example.title}</h2>
               <p>{example.description}</p>
               <a className="text-link" href={example.href}>
-                View work example <ArrowIcon />
+                View work examples <ArrowIcon />
               </a>
             </article>
           ))}
@@ -309,7 +309,7 @@ function App() {
                     </ul>
                     {project.slug !== 'extreme-convective-wind' && (
                       <a className="text-link project-case-link" href={`${base}?work=${project.slug}`}>
-                        View Work Example <ArrowIcon />
+                        View Work Examples <ArrowIcon />
                       </a>
                     )}
                     {project.links.length > 0 && (

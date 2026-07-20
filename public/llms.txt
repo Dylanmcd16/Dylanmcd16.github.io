@@ -1,27 +1,29 @@
 # Dylan McDermott
 
-> Meteorologist and geospatial data professional specializing in operational weather analysis, geospatial automation, field sensing, remote sensing, and atmospheric research.
+> Meteorologist and geospatial data professional specializing in weather and catastrophe analysis, geospatial automation, field sensing, remote sensing, and atmospheric research.
 
-## Professional profile
+## Profile
 
 - Location: West Des Moines, Iowa, USA
-- Current role: Weather and Catastrophe Analyst at Property & Liability Resource Bureau (2025–Present)
+- Current role: Meteorologist - Weather and Catastrophe Analyst, Property & Liability Resource Bureau (2025-Present)
+- Education: M.S. and B.S. in Meteorology, Iowa State University
 - Contact: dylanddermott@gmail.com
 - LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/
 
-## Experience and research
+## Work Examples
 
-- Operational weather analysis, geospatial products, automation, and catastrophe decision support at PLRB.
-- Field-sensing systems, quality-controlled geospatial analysis, Python, ArcPy, drone imagery, and LiDAR at Corteva Agriscience.
-- M.S. research at Iowa State University on historical land-use change, Midwest rainfall, and mesoscale convective systems using WRF and Noah-MP.
-- Undergraduate boundary-layer meteorology research at Iowa State University.
+- [PLRB - Meteorologist](https://dylanmcd16.github.io/?work=plrb-weather-systems): Develops weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. Work includes meteorological interpretation, Python and ArcPy automation, ArcGIS applications, cloud services, APIs, and clear communication of uncertainty.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/?work=corteva-field-sensing): Built field-sensing systems and automated data pipelines that converted raw observations into quality-controlled geospatial analyses. Work includes Smartstick field collection, cloud and ArcGIS workflows, drone imagery, LiDAR, a Gold Standard weather station, soil-gas experiments, and infrared-radiometer fleet operations.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/?work=land-use-convective-weather): Studied how historical land-use change affected Midwest rainfall and mesoscale convective systems using WRF and Noah-MP simulations.
 
-## Skills
+## Core Capabilities
 
-Meteorology, radar applications, numerical weather prediction, remote sensing, ArcGIS Pro, ArcGIS Enterprise, ArcPy, GeoPandas, Rasterio, Python, pandas, xarray, NetCDF, GRIB, GeoTIFF, TypeScript, React, FastAPI, AWS, SQL, PostgreSQL, Git, GitHub, and Linux.
+Meteorological analysis, catastrophe research, spatial analysis, Python automation, ArcPy, ArcGIS Enterprise, data integration, REST APIs, radar, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, AWS, SQL, PostgreSQL, React, TypeScript, FastAPI, Git, GitHub, and Linux.
 
-## Key links
+## Key Links
 
-- Portfolio: https://dylanmcd16.github.io/
-- Résumé: https://dylanmcd16.github.io/resume.pdf
-- M.S. thesis: https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf
+- [Portfolio](https://dylanmcd16.github.io/)
+- [Work Examples](https://dylanmcd16.github.io/?page=work-examples)
+- [Resume](https://dylanmcd16.github.io/resume.pdf)
+- [M.S. thesis](https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf)
+- [Detailed profile](https://dylanmcd16.github.io/llms-full.txt)
