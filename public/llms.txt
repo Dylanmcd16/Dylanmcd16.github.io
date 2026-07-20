@@ -23,7 +23,7 @@ Meteorological analysis, catastrophe research, spatial analysis, Python automati
 ## Key Links
 
 - [Portfolio](https://dylanmcd16.github.io/)
-- [Work Examples](https://dylanmcd16.github.io/?page=work-examples)
+- [Work](https://dylanmcd16.github.io/#projects)
 - [Resume](https://dylanmcd16.github.io/resume.pdf)
 - [M.S. thesis](https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf)
 - [Detailed profile](https://dylanmcd16.github.io/llms-full.txt)

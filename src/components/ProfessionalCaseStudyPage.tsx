@@ -173,7 +173,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     challengeTitle: 'Converting fragmented weather evidence into operational products',
     challenge:
       'Claims questions rarely have one perfect data source. Radar, observations, models, satellite products, warnings, and storm reports all differ in format, resolution, timing, and uncertainty. I build repeatable systems that organize those sources and make their limits understandable to non-meteorologists.',
-    next: { label: 'Corteva — Field-sensing systems & geospatial research', slug: 'corteva-field-sensing' },
+    next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
       'Catastrophe research',
@@ -534,7 +534,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
               {section.note && <p className="case-media-note">{section.note}</p>}
               {section.code && (
                 <details className="case-code">
-                  <summary>View sanitized ArcPy workflow excerpt</summary>
+                  <summary>View example ArcPy workflow excerpt</summary>
                   <p className="case-code-note">
                     Site names, file paths, and proprietary implementation details have been replaced or omitted.
                   </p>

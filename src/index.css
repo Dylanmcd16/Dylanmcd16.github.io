@@ -701,61 +701,6 @@ svg.icon {
   justify-self: start;
 }
 
-/* ------------------------------------------------------ Work examples -- */
-
-.work-examples-page {
-  padding-top: 118px;
-}
-.work-examples-container {
-  max-width: 960px;
-}
-.work-examples-page .case-study-back {
-  display: inline-flex;
-  margin-bottom: 58px;
-}
-.work-examples-page h1 {
-  max-width: 720px;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-}
-.work-examples-intro {
-  max-width: 680px;
-  margin-top: 22px;
-  color: var(--ink-soft);
-  font-size: 1.1rem;
-  line-height: 1.7;
-}
-.work-examples-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 54px;
-}
-.work-example-card {
-  display: flex;
-  min-height: 270px;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: var(--shadow-sm);
-}
-.work-example-card h2 {
-  margin: 0;
-  font-size: 1.35rem;
-  line-height: 1.18;
-}
-.work-example-card p {
-  margin: 16px 0 24px;
-  color: var(--ink-soft);
-  font-size: 0.96rem;
-  line-height: 1.66;
-}
-.work-example-card .text-link {
-  margin-top: auto;
-}
-
 /* ------------------------------------------------ Professional case study -- */
 
 .professional-case-study {
@@ -1343,23 +1288,6 @@ footer {
   .case-study-page {
     padding: 82px 0 64px;
   }
-  .work-examples-page {
-    padding-top: 82px;
-  }
-  .work-examples-page .case-study-back {
-    margin-bottom: 42px;
-  }
-  .work-examples-page h1 {
-    font-size: clamp(2.3rem, 11vw, 3.6rem);
-  }
-  .work-examples-grid {
-    grid-template-columns: 1fr;
-    margin-top: 36px;
-  }
-  .work-example-card {
-    min-height: 0;
-    padding: 24px;
-  }
   .professional-case-study {
     padding-top: 28px;
   }
@@ -1392,14 +1320,32 @@ footer {
     padding: 7px 10px;
     font-size: 0.75rem;
   }
+  /* One horizontally scrollable row: a wrapping nav grows to two or three rows
+     and hides the heading it just scrolled to. */
   .case-section-nav > div {
-    flex-wrap: wrap;
-    overflow: visible;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
     padding: 1px;
   }
+  .case-section-nav > div::-webkit-scrollbar {
+    display: none;
+  }
   .case-work-section {
-    scroll-margin-top: 76px;
+    scroll-margin-top: 72px;
     padding: 58px 0 52px;
+  }
+  /* .button is nowrap, so long labels must be allowed to wrap here or they
+     push the page into horizontal scroll. */
+  .case-next-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .case-next-actions .button {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
   }
   .case-section-copy h2,
   .case-results h2,

@@ -41,7 +41,7 @@ The research used WRF and Noah-MP simulations; geospatial land-surface datasets 
 ## Primary URLs
 
 - Portfolio: https://dylanmcd16.github.io/
-- Work Examples: https://dylanmcd16.github.io/?page=work-examples
+- Work: https://dylanmcd16.github.io/#projects
 - PLRB case study: https://dylanmcd16.github.io/?work=plrb-weather-systems
 - Corteva case study: https://dylanmcd16.github.io/?work=corteva-field-sensing
 - Master's thesis case study: https://dylanmcd16.github.io/?work=land-use-convective-weather

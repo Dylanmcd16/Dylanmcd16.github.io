@@ -42,56 +42,6 @@ function ProjectScreenshot() {
   )
 }
 
-function WorkExamplesPage({ base }: { base: string }) {
-  const examples = [
-    {
-      title: 'PLRB - Meteorologist',
-      description:
-        'I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and quality control.',
-      href: `${base}?work=plrb-weather-systems`,
-    },
-    {
-      title: 'Corteva - Research Associate',
-      description:
-        'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into quality-controlled geospatial analyses for research teams.',
-      href: `${base}?work=corteva-field-sensing`,
-    },
-    {
-      title: 'Master\'s Thesis - Iowa State University',
-      description:
-        'Studied how historical land-use change affected Midwest rainfall and mesoscale convective systems using WRF and Noah-MP simulations.',
-      href: `${base}?work=land-use-convective-weather`,
-    },
-  ]
-
-  return (
-    <main className="case-study-page work-examples-page">
-      <div className="container work-examples-container">
-        <a className="text-link case-study-back" href={base}>
-          ← Back to portfolio
-        </a>
-        <p className="case-kicker">Work examples</p>
-        <h1>Work Examples</h1>
-        <p className="work-examples-intro">
-          A closer look at operational weather systems, field-sensing research, and graduate research in meteorology.
-        </p>
-
-        <div className="work-examples-grid">
-          {examples.map((example) => (
-            <article className="work-example-card" key={example.title}>
-              <h2>{example.title}</h2>
-              <p>{example.description}</p>
-              <a className="text-link" href={example.href}>
-                View work examples <ArrowIcon />
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </main>
-  )
-}
-
 function CaseStudyPage({
   project,
   base,
@@ -119,7 +69,7 @@ function CaseStudyPage({
           />
           <CaseStudyFooter
             base={base}
-            next={{ label: 'Browse all work examples', href: `${base}?page=work-examples` }}
+            next={{ label: 'Browse all work', href: `${base}#projects` }}
           />
         </div>
       </main>
@@ -155,7 +105,7 @@ function CaseStudyPage({
 
         <CaseStudyFooter
           base={base}
-          next={{ label: 'Browse all work examples', href: `${base}?page=work-examples` }}
+          next={{ label: 'Browse all work', href: `${base}#projects` }}
         />
       </div>
     </main>
@@ -225,13 +175,8 @@ function App() {
   const base = import.meta.env.BASE_URL
   const resumeUrl = `${base}${portfolio.resumeFile}`
   const thesisUrl = `${base}${portfolio.thesisFile}`
-  const page = new URLSearchParams(window.location.search).get('page')
   const caseStudySlug = new URLSearchParams(window.location.search).get('work')
   const caseStudy = portfolio.projects.find((project) => project.slug === caseStudySlug)
-
-  if (page === 'work-examples') {
-    return <WorkExamplesPage base={base} />
-  }
 
   if (caseStudy) {
     return <CaseStudyPage project={caseStudy} base={base} thesisUrl={thesisUrl} />
@@ -260,7 +205,7 @@ function App() {
               <p className="hero-role">{portfolio.role}</p>
               <p className="hero-statement">{portfolio.heroStatement}</p>
               <div className="hero-actions">
-                <a className="button button-primary" href={`${base}?page=work-examples`}>
+                <a className="button button-primary" href="#projects">
                   Work Examples <ArrowIcon />
                 </a>
                 <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
@@ -290,7 +235,7 @@ function App() {
         <section className="section" id="projects">
           <div className="container">
             <div className="selected-work-content">
-              <h2>Work Examples</h2>
+              <h2>Work</h2>
               <div className="project-grid">
               {portfolio.projects.map((project) => (
                 <article
