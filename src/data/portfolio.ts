@@ -243,5 +243,5 @@ export const portfolio = {
   ] satisfies EducationItem[],
 
   contactLead:
-    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, research, or related work.',
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, research, or related work. Reach me at dylanddermott@gmail.com or via LinkedIn.',
 }
