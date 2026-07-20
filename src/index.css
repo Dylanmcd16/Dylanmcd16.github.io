@@ -822,131 +822,60 @@ svg.icon {
   overflow: visible;
 }
 
-/* --------------------------------------------------------------------------
-   PLRB live precipitation background
-
-   Uses the same NASA GIBS / GPM IMERG data source as the landing-page globe.
-   The data fills the hero behind the title instead of appearing as a small
-   pale diagram on the right.
-   -------------------------------------------------------------------------- */
-
-.case-hero-scene--plrb {
-  /*
-   * Keep the precipitation treatment on the far-right side of the hero.
-   * The scene begins at 56% of the hero width, but its mask keeps the first
-   * portion invisible, so visible data does not begin until farther right.
-   */
-  top: -48px;
-  right: -72px;
-  bottom: -34px;
-  left: 56%;
+/*
+ * Both scenes share one frame: data emerges from the right edge of the page
+ * and the mask dissolves it before it reaches the writing. The scene visuals
+ * themselves are styled inline in their SVG components — this CSS only
+ * positions, masks, and (for PLRB) drifts.
+ */
+.case-hero-scene--plrb,
+.case-hero-scene--corteva {
+  top: -12px;
+  right: -24px;
+  bottom: -12px;
+  left: 52%;
   width: auto;
   height: auto;
-  opacity: 0.82;
   overflow: hidden;
+  opacity: 0.92;
 
-  /*
-   * Fade from fully transparent to visible. This is the main readability
-   * control: the data disappears before it reaches the title and summary.
-   */
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 18%,
-    rgba(0, 0, 0, 0.12) 34%,
-    rgba(0, 0, 0, 0.55) 58%,
-    rgba(0, 0, 0, 0.92) 78%,
+    transparent 10%,
+    rgba(0, 0, 0, 0.08) 26%,
+    rgba(0, 0, 0, 0.42) 48%,
+    rgba(0, 0, 0, 0.85) 70%,
+    #000 86%,
     #000 100%
   );
   mask-image: linear-gradient(
     90deg,
     transparent 0%,
-    transparent 18%,
-    rgba(0, 0, 0, 0.12) 34%,
-    rgba(0, 0, 0, 0.55) 58%,
-    rgba(0, 0, 0, 0.92) 78%,
+    transparent 10%,
+    rgba(0, 0, 0, 0.08) 26%,
+    rgba(0, 0, 0, 0.42) 48%,
+    rgba(0, 0, 0, 0.85) 70%,
+    #000 86%,
     #000 100%
   );
 }
 
-.plrb-precip-scene {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+/* The one piece of motion: the PLRB cells drift a few pixels over 80s. */
+.plrb-cells {
+  animation: plrb-cells-drift 80s ease-in-out infinite alternate;
 }
-
-/*
- * The bundled globe precipitation texture, rendered directly. precip.png is
- * transparent with colored rain-rate blobs, so it drops onto the hero as the
- * same data the globe overlays — no masking, so it reliably shows.
- */
-.plrb-precip-field {
-  position: absolute;
-  inset: -11%;
-  background-image: var(--plrb-precip-texture);
-  background-repeat: repeat-x;
-  background-size: 190% 100%;
-  background-position: 44% 50%;
-
-  opacity: 0.62;
-  filter: saturate(0.98) contrast(1.02);
-  transform: scale(1.04);
-  transform-origin: center;
-  will-change: transform;
-  animation: plrb-precip-fallback-drift 42s ease-in-out infinite alternate;
-}
-
-.plrb-precip-data-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.055;
-  background-image:
-    linear-gradient(rgba(57, 92, 143, 0.10) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(57, 92, 143, 0.10) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-
-/*
- * This keeps the dark title readable while allowing the colored field to
- * remain visible behind it.
- */
-.plrb-precip-veil {
-  position: absolute;
-  inset: 0;
-
-  /*
-   * Only soften the outer edges and bottom of the data treatment. The
-   * horizontal scene mask above handles the fade away from the text.
-   */
-  background:
-    linear-gradient(
-      180deg,
-      rgba(248, 251, 255, 0.24) 0%,
-      transparent 22%,
-      transparent 68%,
-      rgba(248, 251, 255, 0.72) 100%
-    ),
-    linear-gradient(
-      270deg,
-      rgba(248, 251, 255, 0.12) 0%,
-      transparent 28%
-    );
-}
-
-@keyframes plrb-precip-fallback-drift {
+@keyframes plrb-cells-drift {
   from {
-    transform: scale(1.04) translate3d(-1.5%, 0.5%, 0);
+    transform: translate(-5px, 3px);
   }
-
   to {
-    transform: scale(1.08) translate3d(1.5%, -0.8%, 0);
+    transform: translate(6px, -4px);
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .plrb-precip-field {
+  .plrb-cells {
     animation: none !important;
-    transform: scale(1.04);
   }
 }
 
@@ -965,112 +894,8 @@ svg.icon {
   max-width: 760px;
 }
 
-.case-hero-scene--corteva {
-  top: -18px;
-  right: -30px;
-  bottom: -18px;
-  left: 55%;
-  width: auto;
-  height: auto;
-  overflow: hidden;
-  opacity: 0.9;
-
-  /* The visual does not become materially visible until the far-right side. */
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 17%,
-    rgba(0, 0, 0, 0.08) 31%,
-    rgba(0, 0, 0, 0.38) 48%,
-    rgba(0, 0, 0, 0.82) 68%,
-    #000 82%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    transparent 17%,
-    rgba(0, 0, 0, 0.08) 31%,
-    rgba(0, 0, 0, 0.38) 48%,
-    rgba(0, 0, 0, 0.82) 68%,
-    #000 82%,
-    #000 100%
-  );
-}
-
-.corteva-contour-svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.corteva-field-card {
-  transform: rotate(-4deg);
-  transform-origin: 505px 275px;
-}
-
-.corteva-plot {
-  opacity: 0.76;
-}
-
-.corteva-track {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.9);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 0.65 2.25;
-  filter: drop-shadow(0 1px 1.5px rgba(20, 74, 91, 0.18));
-}
-
-.corteva-track--secondary {
-  opacity: 0.58;
-  stroke-width: 1.7;
-}
-
-.corteva-point-halo {
-  fill: rgba(66, 143, 210, 0.08);
-  stroke: rgba(66, 143, 210, 0.28);
-  stroke-width: 1.1;
-}
-
-.corteva-point-ring {
-  fill: rgba(255, 255, 255, 0.76);
-  stroke: rgba(65, 142, 210, 0.68);
-  stroke-width: 1.35;
-}
-
-.corteva-point-core {
-  fill: #438fd1;
-  stroke: rgba(255, 255, 255, 0.95);
-  stroke-width: 0.9;
-}
-
-.corteva-topography {
-  fill: none;
-  stroke: rgba(58, 125, 141, 0.16);
-  stroke-width: 1;
-  stroke-linecap: round;
-}
-
-.corteva-grid-accent {
-  fill: none;
-  stroke: rgba(45, 112, 164, 0.17);
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-dasharray: 2 7;
-}
-
-.corteva-grid-accent circle {
-  fill: rgba(59, 136, 197, 0.28);
-  stroke: none;
-}
-
-/* Do not animate background data. The PLRB scene keeps its own motion. */
-.corteva-plot,
-.corteva-point-halo {
-  animation: none !important;
-}
+/* Scene visuals are inline in CortevaContourScene.tsx; positioning and the
+   dissolve mask live in the shared .case-hero-scene--plrb/--corteva rule. */
 
 .case-challenge {
   display: grid;
@@ -1540,21 +1365,14 @@ footer {
 /* ------------------------------------------------------------ Responsive -- */
 
 @media (max-width: 900px) {
+  .case-hero-scene--plrb,
   .case-hero-scene--corteva {
-    left: 58%;
-    right: -110px;
-    opacity: 0.54;
+    left: 56%;
+    opacity: 0.55;
   }
 
   .professional-case-study--corteva-field-sensing .case-hero-copy {
     max-width: 760px;
-  }
-
-  .case-hero-scene--plrb {
-    top: -42px;
-    right: -84px;
-    bottom: -30px;
-    left: 52%;
   }
 }
 

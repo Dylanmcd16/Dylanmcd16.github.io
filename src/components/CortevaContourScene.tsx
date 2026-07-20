@@ -1,212 +1,243 @@
 import { useId } from 'react'
 
 /**
- * Decorative hero scene for the Corteva case study.
+ * Corteva case-study hero background.
  *
- * The graphic is intentionally small, quiet, and confined to the right side of
- * the hero. It suggests experimental plots, crop rows, spatial variation, and
- * GPS-tagged collection without competing with the title or pretending to be
- * a live application. All values and locations are illustrative.
+ * A cluster of experimental plots emerging from the right edge of the page.
+ * The rightmost column is filled and bleeds off-screen; moving toward the
+ * text the plots lighten, lose their fill, and finally decay to dashed ghost
+ * outlines — data dissolving before it reaches the writing. One GPS track
+ * threads through with a few measurement points.
+ *
+ * Deliberately not a card: no drop shadow, no backing panel, no complete
+ * grid, and no motion. All values are illustrative — no Corteva data.
  */
 
-const SVG_WIDTH = 760
-const SVG_HEIGHT = 520
+const PLOT_W = 80
+const PLOT_H = 46
+const ROW_STEP = 58
+const ROW_START = 84
 
-const FIELD_COLUMNS = 4
-const FIELD_ROWS = 5
-const PLOT_WIDTH = 86
-const PLOT_HEIGHT = 58
-const COLUMN_GAP = 11
-const ROW_GAP = 11
-const FIELD_X = 286
-const FIELD_Y = 78
+const FILLS = ['#d8d0a0', '#c4cf9d', '#a3c493', '#7fb08d', '#619e85']
 
-const VALUES = [
-  0.34, 0.58, 0.72, 0.49,
-  0.43, 0.67, 0.79, 0.61,
-  0.28, 0.53, 0.75, 0.69,
-  0.38, 0.64, 0.83, 0.57,
-  0.31, 0.48, 0.71, 0.63,
-]
-
-function plotColor(value: number): string {
-  if (value < 0.38) return '#dccf83'
-  if (value < 0.52) return '#b9cf82'
-  if (value < 0.66) return '#82bd7c'
-  if (value < 0.78) return '#57aa82'
-  return '#3d927f'
+type PlotSpec = {
+  id: string
+  path: string
+  mode: 'fill' | 'outline' | 'ghost'
+  fill?: string
+  fillOpacity?: number
 }
 
-function buildPlotPath(row: number, column: number): string {
-  const index = row * FIELD_COLUMNS + column
-  const rowShift = row * 3.5
-  const x = FIELD_X + column * (PLOT_WIDTH + COLUMN_GAP) + rowShift
-  const y = FIELD_Y + row * (PLOT_HEIGHT + ROW_GAP) - column * 1.3
-
+/** Slightly irregular quad so plots read as surveyed, not spreadsheet cells. */
+function plotPath(x: number, y: number, index: number): string {
   const topInset = index % 3 === 0 ? 3 : 1
   const lowerShift = index % 4 === 0 ? 4 : 2
-
   return [
     `M ${x + topInset} ${y + 2}`,
-    `L ${x + PLOT_WIDTH - 2} ${y}`,
-    `L ${x + PLOT_WIDTH + lowerShift} ${y + PLOT_HEIGHT - 3}`,
-    `L ${x} ${y + PLOT_HEIGHT + 2}`,
+    `L ${x + PLOT_W - 2} ${y}`,
+    `L ${x + PLOT_W + lowerShift} ${y + PLOT_H - 3}`,
+    `L ${x} ${y + PLOT_H + 2}`,
     'Z',
   ].join(' ')
 }
 
-const PLOTS = Array.from({ length: FIELD_ROWS * FIELD_COLUMNS }, (_, index) => {
-  const row = Math.floor(index / FIELD_COLUMNS)
-  const column = index % FIELD_COLUMNS
+// Columns dissolve right-to-left: full fills -> light fills -> outlines ->
+// dashed ghosts. Skipped rows keep the silhouette ragged instead of blocky.
+const COLUMNS: Array<{
+  x: number
+  yOffset: number
+  rows: number[]
+  mode: (row: number, position: number) => PlotSpec['mode']
+  fillOpacity: number
+}> = [
+  { x: 398, yOffset: 30, rows: [1, 2, 3], mode: () => 'ghost', fillOpacity: 0 },
+  {
+    x: 488,
+    yOffset: 18,
+    rows: [0, 2, 3, 4],
+    mode: (_row, position) => (position === 0 || position === 3 ? 'outline' : 'fill'),
+    fillOpacity: 0.32,
+  },
+  { x: 578, yOffset: 8, rows: [0, 1, 2, 3, 4], mode: () => 'fill', fillOpacity: 0.5 },
+  { x: 668, yOffset: 0, rows: [0, 1, 2, 3, 4], mode: () => 'fill', fillOpacity: 0.68 },
+]
 
-  return {
-    id: `plot-${row}-${column}`,
-    row,
-    column,
-    path: buildPlotPath(row, column),
-    fill: plotColor(VALUES[index]),
-  }
-})
+const PLOTS: PlotSpec[] = COLUMNS.flatMap((column, columnIndex) =>
+  column.rows.map((row, position) => {
+    const x = column.x
+    const y = ROW_START + row * ROW_STEP + column.yOffset
+    const mode = column.mode(row, position)
+    return {
+      id: `plot-${columnIndex}-${row}`,
+      path: plotPath(x, y, row + columnIndex * 2),
+      mode,
+      fill: mode === 'fill' ? FILLS[(row + columnIndex * 2) % 5] : undefined,
+      fillOpacity: mode === 'fill' ? column.fillOpacity : undefined,
+    }
+  }),
+)
 
-const PRIMARY_TRACK = [
-  'M 389 60',
-  'C 383 116 399 138 390 181',
-  'S 378 246 391 285',
-  'S 403 347 393 385',
-  'S 382 431 390 471',
-].join(' ')
+const CROP_TEXTURE_PLOTS = PLOTS.filter(
+  (plot) => plot.mode === 'fill' && (plot.fillOpacity ?? 0) >= 0.5,
+)
 
-const SECONDARY_TRACK = [
-  'M 586 67',
-  'C 578 119 596 151 586 192',
-  'S 574 257 588 297',
-  'S 600 357 589 398',
-  'S 580 438 586 466',
-].join(' ')
+const PRIMARY_TRACK =
+  'M 640 52 C 632 120 650 165 641 225 S 628 330 640 390 S 650 440 644 492'
+const SECONDARY_TRACK =
+  'M 706 70 C 700 140 712 200 705 265 S 698 380 706 440'
 
 const POINTS = [
-  { x: 389, y: 111 },
-  { x: 391, y: 181, important: true },
-  { x: 388, y: 250 },
-  { x: 393, y: 318, important: true },
-  { x: 391, y: 389 },
-  { x: 390, y: 455, important: true },
-  { x: 586, y: 126 },
-  { x: 586, y: 197 },
-  { x: 587, y: 267, important: true },
-  { x: 590, y: 337 },
-  { x: 588, y: 409 },
+  { x: 638, y: 130 },
+  { x: 641, y: 225, important: true },
+  { x: 634, y: 320 },
+  { x: 641, y: 405, important: true },
+  { x: 644, y: 480 },
+  { x: 705, y: 180 },
+  { x: 703, y: 340 },
 ]
 
 export default function CortevaContourScene() {
   const uid = useId().replace(/:/g, '')
-  const cropPatternId = `${uid}-crop-rows`
-  const fieldClipId = `${uid}-field-clip`
-  const glowId = `${uid}-glow`
-  const fadeId = `${uid}-fade`
+  const cropId = `${uid}-crop`
+  const clipId = `${uid}-clip`
 
   return (
     <svg
-      className="case-scene-svg corteva-contour-svg"
-      viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
-      preserveAspectRatio="xMidYMid meet"
+      className="case-scene-svg"
+      viewBox="0 0 760 560"
+      preserveAspectRatio="xMidYMid slice"
       role="presentation"
-      aria-hidden="true"
-      focusable="false"
     >
       <defs>
-        <radialGradient id={glowId} cx="72%" cy="45%" r="62%">
-          <stop offset="0%" stopColor="#8bc8aa" stopOpacity="0.2" />
-          <stop offset="45%" stopColor="#91bdd4" stopOpacity="0.12" />
-          <stop offset="74%" stopColor="#e4cb82" stopOpacity="0.07" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-        </radialGradient>
-
-        <linearGradient id={fadeId} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
-          <stop offset="36%" stopColor="#ffffff" stopOpacity="0.18" />
-          <stop offset="64%" stopColor="#ffffff" stopOpacity="0.74" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
-        </linearGradient>
-
         <pattern
-          id={cropPatternId}
+          id={cropId}
           width="8"
           height="8"
           patternUnits="userSpaceOnUse"
           patternTransform="rotate(5)"
         >
-          <line x1="1" y1="0" x2="1" y2="8" stroke="#ffffff" strokeOpacity="0.28" strokeWidth="0.9" />
-          <line x1="5" y1="0" x2="5" y2="8" stroke="#254f45" strokeOpacity="0.08" strokeWidth="0.65" />
+          <line x1="1.5" y1="0" x2="1.5" y2="8" stroke="#ffffff" strokeOpacity="0.22" strokeWidth="0.9" />
         </pattern>
-
-        <clipPath id={fieldClipId}>
-          {PLOTS.map((plot) => <path key={plot.id} d={plot.path} />)}
+        <clipPath id={clipId}>
+          {CROP_TEXTURE_PLOTS.map((plot) => (
+            <path key={plot.id} d={plot.path} />
+          ))}
         </clipPath>
-
-        <filter id={`${uid}-soft-shadow`} x="-20%" y="-20%" width="150%" height="160%">
-          <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#173d39" floodOpacity="0.12" />
-        </filter>
       </defs>
 
-      <rect width={SVG_WIDTH} height={SVG_HEIGHT} fill={`url(#${glowId})`} />
-
-      <g className="corteva-topography" aria-hidden="true">
-        <path d="M285 45 C365 5 438 21 503 2 S642 2 738 42" />
-        <path d="M266 76 C350 32 432 50 510 25 S650 25 754 69" />
-        <path d="M275 432 C352 387 441 407 511 384 S641 379 748 423" />
-        <path d="M258 463 C352 415 439 440 521 415 S657 411 756 456" />
-        <path d="M289 492 C376 451 456 470 535 448 S663 443 744 482" />
+      {/* Faint interpolation curves for geospatial context. */}
+      <g fill="none" stroke="#3a7d8d" strokeOpacity="0.12" strokeWidth="1" strokeLinecap="round">
+        <path d="M370 505 C460 478 560 492 706 462" />
+        <path d="M420 40 C500 22 580 34 660 20" />
       </g>
 
-      <g className="corteva-field-card" filter={`url(#${uid}-soft-shadow)`}>
-        <g className="corteva-plots">
-          {PLOTS.map((plot) => (
+      {/* Survey tick marks — same grammar as the PLRB graticule crosses. */}
+      <g stroke="#5c7fb9" strokeOpacity="0.2" strokeWidth="1" strokeLinecap="round" fill="none">
+        <path d="M452 58 V74 M444 66 H460" />
+        <path d="M500 462 V478 M492 470 H508" />
+      </g>
+
+      {/* The plot cluster, tilted just off-axis. */}
+      <g transform="rotate(-3 560 280)">
+        {PLOTS.map((plot) => {
+          if (plot.mode === 'ghost') {
+            return (
+              <path
+                key={plot.id}
+                d={plot.path}
+                fill="none"
+                stroke="#8fa8b8"
+                strokeOpacity="0.32"
+                strokeWidth="1.1"
+                strokeDasharray="4 5"
+              />
+            )
+          }
+          if (plot.mode === 'outline') {
+            return (
+              <path
+                key={plot.id}
+                d={plot.path}
+                fill="none"
+                stroke="#93aab6"
+                strokeOpacity="0.45"
+                strokeWidth="1.1"
+              />
+            )
+          }
+          return (
             <path
               key={plot.id}
-              className="corteva-plot"
               d={plot.path}
               fill={plot.fill}
+              fillOpacity={plot.fillOpacity}
               stroke="#ffffff"
-              strokeOpacity="0.82"
-              strokeWidth="1.55"
-              vectorEffect="non-scaling-stroke"
+              strokeOpacity="0.72"
+              strokeWidth="1.1"
             />
-          ))}
-        </g>
+          )
+        })}
 
+        {/* Crop-row texture only where fills are strongest. */}
         <rect
-          x="270"
-          y="55"
-          width="455"
-          height="430"
-          fill={`url(#${cropPatternId})`}
-          clipPath={`url(#${fieldClipId})`}
-          opacity="0.74"
+          x="560"
+          y="60"
+          width="200"
+          height="440"
+          fill={`url(#${cropId})`}
+          clipPath={`url(#${clipId})`}
         />
 
-        <path className="corteva-track" d={PRIMARY_TRACK} pathLength="100" />
-        <path className="corteva-track corteva-track--secondary" d={SECONDARY_TRACK} pathLength="100" />
+        {/* GPS collection tracks: colored underlay + white dashes. */}
+        <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+          <path d={PRIMARY_TRACK} stroke="#2d6b8a" strokeOpacity="0.14" strokeWidth="3.2" />
+          <path
+            d={PRIMARY_TRACK}
+            stroke="#ffffff"
+            strokeOpacity="0.85"
+            strokeWidth="1.8"
+            pathLength={100}
+            strokeDasharray="0.7 2.3"
+          />
+          <path d={SECONDARY_TRACK} stroke="#2d6b8a" strokeOpacity="0.1" strokeWidth="2.6" />
+          <path
+            d={SECONDARY_TRACK}
+            stroke="#ffffff"
+            strokeOpacity="0.6"
+            strokeWidth="1.5"
+            pathLength={100}
+            strokeDasharray="0.7 2.3"
+          />
+        </g>
 
-        <g className="corteva-points">
+        {/* Measurement points. */}
+        <g>
           {POINTS.map((point) => (
             <g key={`${point.x}-${point.y}`} transform={`translate(${point.x} ${point.y})`}>
-              {point.important && <circle className="corteva-point-halo" r="10.5" />}
-              <circle className="corteva-point-ring" r={point.important ? 6.1 : 4.7} />
-              <circle className="corteva-point-core" r={point.important ? 2.7 : 2.1} />
+              {point.important && (
+                <circle
+                  r="9"
+                  fill="rgba(66, 143, 210, 0.08)"
+                  stroke="rgba(66, 143, 210, 0.26)"
+                  strokeWidth="1"
+                />
+              )}
+              <circle
+                r={point.important ? 5.6 : 4.4}
+                fill="rgba(255, 255, 255, 0.75)"
+                stroke="rgba(75, 143, 208, 0.65)"
+                strokeWidth="1.2"
+              />
+              <circle
+                r={point.important ? 2.5 : 2}
+                fill="#438fd1"
+                stroke="rgba(255, 255, 255, 0.9)"
+                strokeWidth="0.8"
+              />
             </g>
           ))}
         </g>
       </g>
-
-      <g className="corteva-grid-accent" aria-hidden="true">
-        <path d="M672 53 H742" />
-        <path d="M707 18 V92" />
-        <circle cx="707" cy="53" r="2.2" />
-      </g>
-
-      {/* A final internal fade prevents the field from becoming a hard-edged panel. */}
-      <rect x="0" y="0" width="265" height={SVG_HEIGHT} fill={`url(#${fadeId})`} opacity="0.72" />
     </svg>
   )
 }
