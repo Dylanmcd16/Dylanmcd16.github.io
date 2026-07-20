@@ -68,7 +68,7 @@ export const portfolio = {
   legacyProjects: [
     {
       slug: 'plrb-weather-systems',
-      title: 'Operational Weather & Geospatial Systems',
+      title: 'Weather, Catastrophe, & Geospatial Analysis',
       kind: 'Property & Liability Resource Bureau · Professional · 2025 — Present',
       featured: true,
       description:
@@ -146,7 +146,7 @@ export const portfolio = {
   projects: [
     {
       slug: 'plrb-weather-systems',
-      title: 'Operational Weather & Geospatial Systems',
+      title: 'Weather, Catastrophe, & Geospatial Analysis',
       kind: 'PLRB · Professional · 2025–Present',
       accent: 'operations',
       featured: true,

@@ -56,7 +56,7 @@ const smartstickCode = `def assign_measurements_to_plots(
 
 const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'plrb-weather-systems': {
-    title: 'Operational Weather & Geospatial Systems',
+    title: 'Weather, Catastrophe, & Geospatial Analysis',
     role: 'PLRB - Weather & Catastrophe Analyst',
     summary: [
       'I design and maintain operational weather and geospatial tools that help claims professionals evaluate events and understand complex environmental data.',
@@ -64,7 +64,16 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     ],
     challenge:
       'Claims questions rarely have one perfect data source. Radar, observations, models, satellite products, warnings, and storm reports all differ in format, resolution, timing, and uncertainty. I build repeatable systems that organize those sources and make their limits understandable to non-meteorologists.',
-    tags: ['Meteorology', 'Python', 'ArcPy', 'ArcGIS Enterprise', 'Experience Builder', 'AWS', 'REST APIs'],
+    tags: [
+      'Meteorological analysis',
+      'Catastrophe research',
+      'Spatial analysis',
+      'Python automation',
+      'ArcPy',
+      'ArcGIS Enterprise',
+      'Data integration',
+      'REST APIs',
+    ],
     sections: [
       {
         id: 'operational-pipelines',
@@ -443,4 +452,3 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
     </main>
   )
 }
-
