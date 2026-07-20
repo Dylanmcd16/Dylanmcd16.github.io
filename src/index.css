@@ -815,30 +815,6 @@ svg.icon {
   pointer-events: none;
 }
 
-.case-hero-scene--corteva {
-  top: -72px;
-  right: -330px;
-  width: min(980px, 78vw);
-  height: 620px;
-  opacity: 0.7;
-
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.1) 12%,
-    rgba(0, 0, 0, 0.65) 38%,
-    #000 58%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.1) 12%,
-    rgba(0, 0, 0, 0.65) 38%,
-    #000 58%,
-    #000 100%
-  );
-}
 .case-scene-svg {
   display: block;
   width: 100%;
@@ -866,7 +842,7 @@ svg.icon {
   left: 56%;
   width: auto;
   height: auto;
-  opacity: 0.68;
+  opacity: 0.82;
   overflow: hidden;
 
   /*
@@ -897,70 +873,23 @@ svg.icon {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background:
-    radial-gradient(
-      ellipse at 82% 44%,
-      rgba(222, 234, 249, 0.72) 0%,
-      rgba(238, 245, 252, 0.38) 48%,
-      transparent 78%
-    );
-}
-
-.plrb-precip-atmosphere {
-  position: absolute;
-  inset: -12%;
-  background:
-    radial-gradient(
-      ellipse at 78% 28%,
-      rgba(54, 107, 205, 0.14) 0%,
-      rgba(54, 107, 205, 0.05) 27%,
-      transparent 54%
-    ),
-    radial-gradient(
-      ellipse at 62% 68%,
-      rgba(35, 157, 184, 0.11) 0%,
-      rgba(35, 157, 184, 0.04) 30%,
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse at 92% 74%,
-      rgba(102, 181, 104, 0.08) 0%,
-      transparent 46%
-    );
-  filter: blur(20px);
 }
 
 /*
- * The bundled globe texture is used as a luminance mask. Its precipitation
- * shapes reveal this globe-like color scale while empty areas stay clear.
+ * The bundled globe precipitation texture, rendered directly. precip.png is
+ * transparent with colored rain-rate blobs, so it drops onto the hero as the
+ * same data the globe overlays — no masking, so it reliably shows.
  */
 .plrb-precip-field {
   position: absolute;
   inset: -11%;
-  background:
-    linear-gradient(
-      96deg,
-      #365fb7 0%,
-      #3f83cf 19%,
-      #32a9c7 37%,
-      #62bc75 55%,
-      #d4c84e 72%,
-      #ea9347 86%,
-      #c85c6c 100%
-    );
+  background-image: var(--plrb-precip-texture);
+  background-repeat: repeat-x;
+  background-size: 190% 100%;
+  background-position: 44% 50%;
 
-  -webkit-mask-image: var(--plrb-precip-texture);
-  mask-image: var(--plrb-precip-texture);
-  -webkit-mask-repeat: repeat-x;
-  mask-repeat: repeat-x;
-  -webkit-mask-size: 190% 100%;
-  mask-size: 190% 100%;
-  -webkit-mask-position: 44% 50%;
-  mask-position: 44% 50%;
-  mask-mode: luminance;
-
-  opacity: 0.4;
-  filter: saturate(1.05) contrast(1.02);
+  opacity: 0.62;
+  filter: saturate(0.98) contrast(1.02);
   transform: scale(1.04);
   transform-origin: center;
   will-change: transform;
@@ -1021,81 +950,126 @@ svg.icon {
   }
 }
 
-/* --- Corteva d3-contour agronomic scene --- */
+/* --- Corteva field-data scene (quiet, right-side, no D3, no motion) --- */
 
-.corteva-contours {
-  opacity: 0.72;
+.professional-case-study--corteva-field-sensing .case-hero {
+  min-height: 430px;
 }
-.corteva-map-accents {
-  fill: none;
-  stroke: rgba(34, 126, 172, 0.25);
-  stroke-width: 1;
-  stroke-linecap: round;
-  stroke-dasharray: 2 8;
+.professional-case-study--corteva-field-sensing .case-hero-copy {
+  max-width: 820px;
 }
-.corteva-field {
-  transform-box: fill-box;
-  transform-origin: center;
+.professional-case-study--corteva-field-sensing .case-hero h1 {
+  max-width: 790px;
 }
-/* Very slow "breathe" — the only plot motion. */
-.corteva-plot {
+.professional-case-study--corteva-field-sensing .case-hero-summary {
+  max-width: 760px;
+}
+
+.case-hero-scene--corteva {
+  top: -18px;
+  right: -30px;
+  bottom: -18px;
+  left: 55%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
   opacity: 0.9;
-  animation: corteva-plot-breathe 8s ease-in-out infinite;
-  animation-delay: var(--plot-delay, 0s);
+
+  /* The visual does not become materially visible until the far-right side. */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 17%,
+    rgba(0, 0, 0, 0.08) 31%,
+    rgba(0, 0, 0, 0.38) 48%,
+    rgba(0, 0, 0, 0.82) 68%,
+    #000 82%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 17%,
+    rgba(0, 0, 0, 0.08) 31%,
+    rgba(0, 0, 0, 0.38) 48%,
+    rgba(0, 0, 0, 0.82) 68%,
+    #000 82%,
+    #000 100%
+  );
 }
-@keyframes corteva-plot-breathe {
-  0%, 100% { opacity: 0.86; }
-  50% { opacity: 0.97; }
+
+.corteva-contour-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
+
+.corteva-field-card {
+  transform: rotate(-4deg);
+  transform-origin: 505px 275px;
+}
+
+.corteva-plot {
+  opacity: 0.76;
+}
+
 .corteva-track {
-  stroke: rgba(255, 255, 255, 0.94);
-  stroke-width: 2.5;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  /* pathLength="100" makes the dash relative to the path, not its length. */
-  stroke-dasharray: 0.75 2.45;
-  filter: drop-shadow(0 1px 2px rgba(17, 86, 116, 0.24));
-}
-.corteva-track--secondary {
-  opacity: 0.7;
-  stroke-width: 2;
-}
-.corteva-point-pulse {
-  fill: rgba(58, 148, 221, 0.08);
-  stroke: rgba(44, 139, 223, 0.46);
-  stroke-width: 1.4;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: corteva-point-pulse 4.8s ease-out infinite;
-  animation-delay: var(--pulse-delay, 0s);
-}
-.corteva-point-ring {
-  fill: rgba(255, 255, 255, 0.8);
-  stroke: rgba(50, 139, 219, 0.78);
-  stroke-width: 1.6;
-  filter: drop-shadow(0 1px 2px rgba(17, 73, 105, 0.24));
-}
-.corteva-point-core {
-  fill: #3d9be6;
-  stroke: rgba(255, 255, 255, 0.96);
-  stroke-width: 1.15;
-}
-@keyframes corteva-point-pulse {
-  0% { opacity: 0; transform: scale(0.72); }
-  14% { opacity: 0.72; }
-  70%, 100% { opacity: 0; transform: scale(1.55); }
+  stroke-dasharray: 0.65 2.25;
+  filter: drop-shadow(0 1px 1.5px rgba(20, 74, 91, 0.18));
 }
 
-/* Settle the Corteva scene into a deliberate static state. The PLRB
-   precipitation scene has its own reduced-motion rules beneath its styles. */
-@media (prefers-reduced-motion: reduce) {
-  .corteva-plot,
-  .corteva-point-pulse {
-    animation: none !important;
-  }
-  .corteva-plot {
-    opacity: 0.94;
-  }
+.corteva-track--secondary {
+  opacity: 0.58;
+  stroke-width: 1.7;
+}
+
+.corteva-point-halo {
+  fill: rgba(66, 143, 210, 0.08);
+  stroke: rgba(66, 143, 210, 0.28);
+  stroke-width: 1.1;
+}
+
+.corteva-point-ring {
+  fill: rgba(255, 255, 255, 0.76);
+  stroke: rgba(65, 142, 210, 0.68);
+  stroke-width: 1.35;
+}
+
+.corteva-point-core {
+  fill: #438fd1;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 0.9;
+}
+
+.corteva-topography {
+  fill: none;
+  stroke: rgba(58, 125, 141, 0.16);
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.corteva-grid-accent {
+  fill: none;
+  stroke: rgba(45, 112, 164, 0.17);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 2 7;
+}
+
+.corteva-grid-accent circle {
+  fill: rgba(59, 136, 197, 0.28);
+  stroke: none;
+}
+
+/* Do not animate background data. The PLRB scene keeps its own motion. */
+.corteva-plot,
+.corteva-point-halo {
+  animation: none !important;
 }
 
 .case-challenge {
@@ -1567,9 +1541,13 @@ footer {
 
 @media (max-width: 900px) {
   .case-hero-scene--corteva {
-    right: -430px;
-    width: 940px;
-    opacity: 0.42;
+    left: 58%;
+    right: -110px;
+    opacity: 0.54;
+  }
+
+  .professional-case-study--corteva-field-sensing .case-hero-copy {
+    max-width: 760px;
   }
 
   .case-hero-scene--plrb {
@@ -1583,6 +1561,10 @@ footer {
 @media (max-width: 640px) {
   .case-hero-scene--corteva {
     display: none;
+  }
+
+  .professional-case-study--corteva-field-sensing .case-hero {
+    min-height: auto;
   }
 
   .case-hero-scene--plrb {

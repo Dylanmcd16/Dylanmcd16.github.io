@@ -2,17 +2,16 @@ import { lazy, Suspense, type CSSProperties } from 'react'
 
 export type HeroSceneVariant = 'plrb' | 'corteva'
 
-// Code-split: d3-contour ships only in this chunk, loaded on the Corteva page,
-// never in the homepage bundle. PLRB's scene below is pure CSS, so it stays
-// synchronous.
+// Code-split so the Corteva-only scene stays out of the homepage bundle.
+// PLRB's scene below is pure CSS, so it stays synchronous.
 const CortevaContourScene = lazy(() => import('./CortevaContourScene'))
 
 /**
  * Decorative background for the professional case-study hero.
  *
  * PLRB uses the bundled GPM IMERG precipitation texture (the same layer the
- * landing-page globe overlays). Corteva uses a procedurally generated
- * d3-contour agronomic-analysis scene.
+ * landing-page globe overlays). Corteva uses a small, static SVG field-data
+ * illustration (plots, crop rows, GPS tracks, and measurement points).
  */
 export function CaseStudyHeroScene({ variant }: { variant: HeroSceneVariant }) {
   return (
@@ -48,7 +47,6 @@ function PlrbPrecipScene() {
 
   return (
     <div className="plrb-precip-scene" style={sceneStyle}>
-      <div className="plrb-precip-atmosphere" />
       <div className="plrb-precip-field" />
       <div className="plrb-precip-data-grid" />
       <div className="plrb-precip-veil" />

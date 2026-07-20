@@ -1,308 +1,212 @@
-import { useId, type CSSProperties } from 'react'
-import { contours, type ContourMultiPolygon } from 'd3-contour'
+import { useId } from 'react'
 
 /**
- * Corteva case-study hero background.
+ * Decorative hero scene for the Corteva case study.
  *
- * A procedurally generated agronomic-analysis scene: d3-contour turns a
- * synthetic value field into smooth analysis contours, and hand-placed SVG
- * supplies the experimental plots, crop-row texture, GPS collection tracks,
- * and measurement points. Everything is illustrative — no Corteva data.
- *
- * Static by design: no scanning band and no traveling marker. The only motion
- * is a very slow plot "breathe" and a slow pulse on a few measurement points.
- *
- * Code-split (default export, lazy-loaded) so d3-contour ships only in this
- * chunk, never in the homepage bundle.
+ * The graphic is intentionally small, quiet, and confined to the right side of
+ * the hero. It suggests experimental plots, crop rows, spatial variation, and
+ * GPS-tagged collection without competing with the title or pretending to be
+ * a live application. All values and locations are illustrative.
  */
 
-const SVG_WIDTH = 900
-const SVG_HEIGHT = 620
-
-// Low-resolution grid; d3-contour interpolates and smooths it into polygons.
-const CONTOUR_COLUMNS = 24
-const CONTOUR_ROWS = 18
-const CONTOUR_THRESHOLDS = [0.28, 0.4, 0.52, 0.64, 0.76, 0.86]
-
-type Coordinate = readonly [number, number]
-
-function clamp(value: number, min = 0, max = 1): number {
-  return Math.min(max, Math.max(min, value))
-}
-
-/** Deterministic pseudo-noise so the layout is identical on every load. */
-function seededNoise(seed: number): number {
-  const value = Math.sin(seed * 12.9898 + 78.233) * 43758.5453
-  return value - Math.floor(value)
-}
-
-function gaussian(
-  x: number,
-  y: number,
-  cx: number,
-  cy: number,
-  spread: number,
-  amplitude: number,
-): number {
-  const dx = x - cx
-  const dy = y - cy
-  return amplitude * Math.exp(-(dx * dx + dy * dy) / (2 * spread * spread))
-}
-
-/** Synthetic surface (canopy vigor / moisture-like) feeding the contours. */
-function buildContourValues(): number[] {
-  const values: number[] = []
-  for (let row = 0; row < CONTOUR_ROWS; row += 1) {
-    for (let column = 0; column < CONTOUR_COLUMNS; column += 1) {
-      const primary = gaussian(column, row, 18.5, 6.5, 5.6, 0.62)
-      const secondary = gaussian(column, row, 15.5, 14.5, 4.4, 0.42)
-      const cool = gaussian(column, row, 9.5, 8.5, 5.2, -0.22)
-      const gradient = (column / Math.max(1, CONTOUR_COLUMNS - 1)) * 0.26
-      const wave =
-        Math.sin(column * 0.58 + row * 0.17) * 0.035 +
-        Math.cos(row * 0.63 - column * 0.12) * 0.025
-      const noise = (seededNoise(row * CONTOUR_COLUMNS + column + 17) - 0.5) * 0.045
-      values.push(clamp(0.16 + primary + secondary + cool + gradient + wave + noise))
-    }
-  }
-  return values
-}
-
-/**
- * Serialize a d3-contour MultiPolygon to SVG path data. This replaces
- * d3-geo's geoPath(geoIdentity()) — the projection is the identity, so each
- * ring is just moveto + linetos + close in grid coordinates.
- */
-function contourToPath(geometry: ContourMultiPolygon): string {
-  let d = ''
-  for (const polygon of geometry.coordinates) {
-    for (const ring of polygon) {
-      ring.forEach((point, index) => {
-        d += `${index === 0 ? 'M' : 'L'}${point[0].toFixed(2)} ${point[1].toFixed(2)}`
-      })
-      d += 'Z'
-    }
-  }
-  return d
-}
-
-const CONTOUR_PATHS = contours()
-  .size([CONTOUR_COLUMNS, CONTOUR_ROWS])
-  .smooth(true)
-  .thresholds(CONTOUR_THRESHOLDS)(buildContourValues())
-  .map((geometry) => ({ value: geometry.value, path: contourToPath(geometry) }))
-
-// Grid units -> viewBox units (24*38≈912 wide, 18*35=630 tall).
-const CONTOUR_TRANSFORM = 'translate(8 2) scale(38 35)'
-
-/* ---------------------------------------------------------- Field plots -- */
+const SVG_WIDTH = 760
+const SVG_HEIGHT = 520
 
 const FIELD_COLUMNS = 4
 const FIELD_ROWS = 5
-const FIELD_START_X = 318
-const FIELD_START_Y = 78
-const BASE_PLOT_WIDTH = 112
-const BASE_PLOT_HEIGHT = 82
-const PLOT_H_GAP = 15
-const PLOT_V_GAP = 14
+const PLOT_WIDTH = 86
+const PLOT_HEIGHT = 58
+const COLUMN_GAP = 11
+const ROW_GAP = 11
+const FIELD_X = 286
+const FIELD_Y = 78
 
-type FieldPlot = {
-  id: string
-  points: string
-  fill: string
-}
-
-/** Muted gold (low) -> lime -> green/teal (high). */
-function plotFill(value: number): string {
-  const hue = 42 + value * 108
-  const saturation = 48 + value * 13
-  const lightness = 77 - value * 25
-  return `hsl(${hue.toFixed(1)} ${saturation.toFixed(1)}% ${lightness.toFixed(1)}%)`
-}
-
-function buildFieldPlots(): FieldPlot[] {
-  const plots: FieldPlot[] = []
-  for (let row = 0; row < FIELD_ROWS; row += 1) {
-    for (let column = 0; column < FIELD_COLUMNS; column += 1) {
-      const seed = row * FIELD_COLUMNS + column + 1
-      const x = FIELD_START_X + column * (BASE_PLOT_WIDTH + PLOT_H_GAP) + row * 4
-      const y = FIELD_START_Y + row * (BASE_PLOT_HEIGHT + PLOT_V_GAP) - column * 1.5
-      const width = BASE_PLOT_WIDTH + (seededNoise(seed * 3.1) - 0.5) * 8
-      const height = BASE_PLOT_HEIGHT + (seededNoise(seed * 5.7) - 0.5) * 7
-
-      // Small deterministic corner offsets so plots read as surveyed
-      // boundaries rather than a spreadsheet of perfect rectangles.
-      const corners: Coordinate[] = [
-        [x + 3 + (seededNoise(seed * 7.3) - 0.5) * 5, y + 3],
-        [x + width - 2, y + (seededNoise(seed * 9.1) - 0.5) * 5],
-        [x + width + (seededNoise(seed * 11.7) - 0.5) * 5, y + height - 3],
-        [x + (seededNoise(seed * 13.9) - 0.5) * 5, y + height + 2],
-      ]
-
-      const value = clamp(
-        0.24 +
-          column * 0.11 +
-          Math.sin(row * 0.9 + column * 0.55) * 0.14 +
-          (seededNoise(seed * 22.1) - 0.5) * 0.2,
-      )
-
-      plots.push({
-        id: `plot-${row}-${column}`,
-        points: corners.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(' '),
-        fill: plotFill(value),
-      })
-    }
-  }
-  return plots
-}
-
-const FIELD_PLOTS = buildFieldPlots()
-
-/* ------------------------------------------------ Tracks & measurements -- */
-
-const TRACKS = [
-  {
-    id: 'primary',
-    path: 'M397 55 C392 106 408 127 401 166 S389 229 401 267 S414 335 404 365 S389 442 403 489 S420 541 411 570',
-  },
-  {
-    id: 'secondary',
-    secondary: true,
-    path: 'M653 62 C645 106 665 138 655 182 S643 241 657 282 S671 343 661 384 S646 446 661 492 S673 534 667 568',
-  },
+const VALUES = [
+  0.34, 0.58, 0.72, 0.49,
+  0.43, 0.67, 0.79, 0.61,
+  0.28, 0.53, 0.75, 0.69,
+  0.38, 0.64, 0.83, 0.57,
+  0.31, 0.48, 0.71, 0.63,
 ]
 
-const MEASUREMENTS: Array<{ x: number; y: number; emphasized?: boolean }> = [
-  { x: 397, y: 103 },
-  { x: 401, y: 166, emphasized: true },
-  { x: 397, y: 224 },
-  { x: 402, y: 282 },
-  { x: 405, y: 348, emphasized: true },
-  { x: 400, y: 412 },
-  { x: 405, y: 479 },
-  { x: 411, y: 548, emphasized: true },
-  { x: 654, y: 110 },
-  { x: 656, y: 180 },
-  { x: 653, y: 247, emphasized: true },
-  { x: 659, y: 316 },
-  { x: 660, y: 381 },
-  { x: 658, y: 447, emphasized: true },
-  { x: 664, y: 515 },
+function plotColor(value: number): string {
+  if (value < 0.38) return '#dccf83'
+  if (value < 0.52) return '#b9cf82'
+  if (value < 0.66) return '#82bd7c'
+  if (value < 0.78) return '#57aa82'
+  return '#3d927f'
+}
+
+function buildPlotPath(row: number, column: number): string {
+  const index = row * FIELD_COLUMNS + column
+  const rowShift = row * 3.5
+  const x = FIELD_X + column * (PLOT_WIDTH + COLUMN_GAP) + rowShift
+  const y = FIELD_Y + row * (PLOT_HEIGHT + ROW_GAP) - column * 1.3
+
+  const topInset = index % 3 === 0 ? 3 : 1
+  const lowerShift = index % 4 === 0 ? 4 : 2
+
+  return [
+    `M ${x + topInset} ${y + 2}`,
+    `L ${x + PLOT_WIDTH - 2} ${y}`,
+    `L ${x + PLOT_WIDTH + lowerShift} ${y + PLOT_HEIGHT - 3}`,
+    `L ${x} ${y + PLOT_HEIGHT + 2}`,
+    'Z',
+  ].join(' ')
+}
+
+const PLOTS = Array.from({ length: FIELD_ROWS * FIELD_COLUMNS }, (_, index) => {
+  const row = Math.floor(index / FIELD_COLUMNS)
+  const column = index % FIELD_COLUMNS
+
+  return {
+    id: `plot-${row}-${column}`,
+    row,
+    column,
+    path: buildPlotPath(row, column),
+    fill: plotColor(VALUES[index]),
+  }
+})
+
+const PRIMARY_TRACK = [
+  'M 389 60',
+  'C 383 116 399 138 390 181',
+  'S 378 246 391 285',
+  'S 403 347 393 385',
+  'S 382 431 390 471',
+].join(' ')
+
+const SECONDARY_TRACK = [
+  'M 586 67',
+  'C 578 119 596 151 586 192',
+  'S 574 257 588 297',
+  'S 600 357 589 398',
+  'S 580 438 586 466',
+].join(' ')
+
+const POINTS = [
+  { x: 389, y: 111 },
+  { x: 391, y: 181, important: true },
+  { x: 388, y: 250 },
+  { x: 393, y: 318, important: true },
+  { x: 391, y: 389 },
+  { x: 390, y: 455, important: true },
+  { x: 586, y: 126 },
+  { x: 586, y: 197 },
+  { x: 587, y: 267, important: true },
+  { x: 590, y: 337 },
+  { x: 588, y: 409 },
 ]
 
 export default function CortevaContourScene() {
-  // Unique ids so the pattern/clip refs never collide with another SVG.
   const uid = useId().replace(/:/g, '')
-  const cropId = `${uid}-crop`
-  const clipId = `${uid}-clip`
+  const cropPatternId = `${uid}-crop-rows`
+  const fieldClipId = `${uid}-field-clip`
   const glowId = `${uid}-glow`
+  const fadeId = `${uid}-fade`
 
   return (
     <svg
       className="case-scene-svg corteva-contour-svg"
       viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
-      preserveAspectRatio="xMidYMid slice"
+      preserveAspectRatio="xMidYMid meet"
       role="presentation"
+      aria-hidden="true"
+      focusable="false"
     >
       <defs>
-        <radialGradient id={glowId} cx="67%" cy="43%" r="67%">
-          <stop offset="0%" stopColor="rgba(82, 190, 141, 0.25)" />
-          <stop offset="46%" stopColor="rgba(89, 174, 204, 0.13)" />
-          <stop offset="76%" stopColor="rgba(239, 197, 91, 0.08)" />
-          <stop offset="100%" stopColor="rgba(255, 255, 255, 0)" />
+        <radialGradient id={glowId} cx="72%" cy="45%" r="62%">
+          <stop offset="0%" stopColor="#8bc8aa" stopOpacity="0.2" />
+          <stop offset="45%" stopColor="#91bdd4" stopOpacity="0.12" />
+          <stop offset="74%" stopColor="#e4cb82" stopOpacity="0.07" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
         </radialGradient>
 
-        {/* Crop-row texture, clipped to the plot polygons. */}
-        <pattern id={cropId} width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(7)">
-          <line x1="1" y1="0" x2="1" y2="9" stroke="rgba(255, 255, 255, 0.42)" strokeWidth="1.15" />
-          <line x1="5.5" y1="0" x2="5.5" y2="9" stroke="rgba(9, 74, 57, 0.11)" strokeWidth="0.65" />
+        <linearGradient id={fadeId} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="36%" stopColor="#ffffff" stopOpacity="0.18" />
+          <stop offset="64%" stopColor="#ffffff" stopOpacity="0.74" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="1" />
+        </linearGradient>
+
+        <pattern
+          id={cropPatternId}
+          width="8"
+          height="8"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(5)"
+        >
+          <line x1="1" y1="0" x2="1" y2="8" stroke="#ffffff" strokeOpacity="0.28" strokeWidth="0.9" />
+          <line x1="5" y1="0" x2="5" y2="8" stroke="#254f45" strokeOpacity="0.08" strokeWidth="0.65" />
         </pattern>
 
-        <clipPath id={clipId}>
-          {FIELD_PLOTS.map((plot) => (
-            <polygon key={plot.id} points={plot.points} />
-          ))}
+        <clipPath id={fieldClipId}>
+          {PLOTS.map((plot) => <path key={plot.id} d={plot.path} />)}
         </clipPath>
+
+        <filter id={`${uid}-soft-shadow`} x="-20%" y="-20%" width="150%" height="160%">
+          <feDropShadow dx="0" dy="8" stdDeviation="10" floodColor="#173d39" floodOpacity="0.12" />
+        </filter>
       </defs>
 
-      {/* Soft atmospheric glow. */}
       <rect width={SVG_WIDTH} height={SVG_HEIGHT} fill={`url(#${glowId})`} />
 
-      {/* Procedurally generated analysis contours. */}
-      <g className="corteva-contours" transform={CONTOUR_TRANSFORM}>
-        {CONTOUR_PATHS.map((contour, index) => {
-          const t = index / Math.max(1, CONTOUR_PATHS.length - 1)
-          return (
-            <g key={`${contour.value}-${index}`}>
-              <path d={contour.path} fill={`hsl(${198 - t * 80} 58% ${84 - t * 12}%)`} fillOpacity={0.045 + t * 0.025} />
-              <path
-                d={contour.path}
-                fill="none"
-                stroke="rgba(49, 125, 151, 0.34)"
-                strokeWidth="0.034"
-                vectorEffect="non-scaling-stroke"
-              />
-            </g>
-          )
-        })}
+      <g className="corteva-topography" aria-hidden="true">
+        <path d="M285 45 C365 5 438 21 503 2 S642 2 738 42" />
+        <path d="M266 76 C350 32 432 50 510 25 S650 25 754 69" />
+        <path d="M275 432 C352 387 441 407 511 384 S641 379 748 423" />
+        <path d="M258 463 C352 415 439 440 521 415 S657 411 756 456" />
+        <path d="M289 492 C376 451 456 470 535 448 S663 443 744 482" />
       </g>
 
-      {/* Small coordinate accents. */}
-      <g className="corteva-map-accents">
-        <path d="M737 42 V70 M723 56 H751" />
-        <path d="M848 126 V154 M834 140 H862" />
-        <path d="M703 76 H858" />
-        <path d="M828 47 V189" />
-      </g>
-
-      {/* Field, tracks, and points share one oblique rotation. */}
-      <g className="corteva-field" transform="rotate(-6 586 320)">
+      <g className="corteva-field-card" filter={`url(#${uid}-soft-shadow)`}>
         <g className="corteva-plots">
-          {FIELD_PLOTS.map((plot, index) => (
-            <polygon
+          {PLOTS.map((plot) => (
+            <path
               key={plot.id}
               className="corteva-plot"
-              points={plot.points}
+              d={plot.path}
               fill={plot.fill}
-              stroke="rgba(255, 255, 255, 0.88)"
-              strokeWidth="2.3"
+              stroke="#ffffff"
+              strokeOpacity="0.82"
+              strokeWidth="1.55"
               vectorEffect="non-scaling-stroke"
-              style={{ '--plot-delay': `${-index * 0.19}s` } as CSSProperties}
             />
           ))}
         </g>
 
-        {/* Crop-row texture, confined to the plots. */}
-        <rect x="278" y="46" width="595" height="545" fill={`url(#${cropId})`} opacity="0.6" clipPath={`url(#${clipId})`} />
+        <rect
+          x="270"
+          y="55"
+          width="455"
+          height="430"
+          fill={`url(#${cropPatternId})`}
+          clipPath={`url(#${fieldClipId})`}
+          opacity="0.74"
+        />
 
-        {/* GPS / Smartstick collection tracks (static). */}
-        <g className="corteva-tracks">
-          {TRACKS.map((track) => (
-            <path
-              key={track.id}
-              className={track.secondary ? 'corteva-track corteva-track--secondary' : 'corteva-track'}
-              d={track.path}
-              fill="none"
-              pathLength="100"
-            />
-          ))}
-        </g>
+        <path className="corteva-track" d={PRIMARY_TRACK} pathLength="100" />
+        <path className="corteva-track corteva-track--secondary" d={SECONDARY_TRACK} pathLength="100" />
 
-        {/* Measurement points; emphasized ones pulse slowly. */}
         <g className="corteva-points">
-          {MEASUREMENTS.map((point, index) => (
-            <g
-              key={`${point.x}-${point.y}`}
-              transform={`translate(${point.x} ${point.y})`}
-              style={{ '--pulse-delay': `${-index * 0.36}s` } as CSSProperties}
-            >
-              {point.emphasized && <circle className="corteva-point-pulse" r="13" />}
-              <circle className="corteva-point-ring" r={point.emphasized ? 8 : 6} />
-              <circle className="corteva-point-core" r={point.emphasized ? 3.6 : 2.8} />
+          {POINTS.map((point) => (
+            <g key={`${point.x}-${point.y}`} transform={`translate(${point.x} ${point.y})`}>
+              {point.important && <circle className="corteva-point-halo" r="10.5" />}
+              <circle className="corteva-point-ring" r={point.important ? 6.1 : 4.7} />
+              <circle className="corteva-point-core" r={point.important ? 2.7 : 2.1} />
             </g>
           ))}
         </g>
       </g>
+
+      <g className="corteva-grid-accent" aria-hidden="true">
+        <path d="M672 53 H742" />
+        <path d="M707 18 V92" />
+        <circle cx="707" cy="53" r="2.2" />
+      </g>
+
+      {/* A final internal fade prevents the field from becoming a hard-edged panel. */}
+      <rect x="0" y="0" width="265" height={SVG_HEIGHT} fill={`url(#${fadeId})`} opacity="0.72" />
     </svg>
   )
 }

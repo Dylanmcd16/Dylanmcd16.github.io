@@ -9,9 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/d3-contour": "^3.0.6",
     "cesium": "^1.143.0",
-    "d3-contour": "^4.0.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
