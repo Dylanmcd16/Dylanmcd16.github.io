@@ -866,7 +866,7 @@ svg.icon {
   left: 56%;
   width: auto;
   height: auto;
-  opacity: 0.88;
+  opacity: 0.68;
   overflow: hidden;
 
   /*
@@ -934,7 +934,7 @@ svg.icon {
  * The bundled globe texture is used as a luminance mask. Its precipitation
  * shapes reveal this globe-like color scale while empty areas stay clear.
  */
-.plrb-precip-fallback {
+.plrb-precip-field {
   position: absolute;
   inset: -11%;
   background:
@@ -959,39 +959,12 @@ svg.icon {
   mask-position: 44% 50%;
   mask-mode: luminance;
 
-  opacity: 0.38;
+  opacity: 0.4;
   filter: saturate(1.05) contrast(1.02);
   transform: scale(1.04);
   transform-origin: center;
   will-change: transform;
   animation: plrb-precip-fallback-drift 42s ease-in-out infinite alternate;
-  transition: opacity 900ms ease;
-}
-
-.plrb-precip-scene.has-live-data .plrb-precip-fallback {
-  opacity: 0.08;
-}
-
-.plrb-precip-live {
-  position: absolute;
-  inset: -7%;
-  width: 114%;
-  height: 114%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  mix-blend-mode: multiply;
-  filter: saturate(1.08) contrast(0.98) brightness(1.1);
-  transform: scale(1.035) translate3d(-0.6%, 0, 0);
-  transform-origin: center;
-  will-change: transform, opacity;
-  transition: opacity 1200ms ease;
-  animation: plrb-precip-live-drift 48s ease-in-out infinite alternate;
-}
-
-.plrb-precip-live.is-ready {
-  opacity: 0.46;
 }
 
 .plrb-precip-data-grid {
@@ -1041,112 +1014,87 @@ svg.icon {
   }
 }
 
-@keyframes plrb-precip-live-drift {
-  from {
-    transform: scale(1.035) translate3d(-0.8%, 0.3%, 0);
-  }
-
-  to {
-    transform: scale(1.07) translate3d(0.8%, -0.5%, 0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .plrb-precip-fallback,
-  .plrb-precip-live {
+  .plrb-precip-field {
     animation: none !important;
     transform: scale(1.04);
   }
 }
 
-/* --- Corteva experimental-field scene --- */
+/* --- Corteva d3-contour agronomic scene --- */
 
-.corteva-field-base {
-  fill: rgba(94, 121, 164, 0.025);
-  stroke: rgba(75, 101, 146, 0.18);
-  stroke-width: 1.3;
+.corteva-contours {
+  opacity: 0.72;
 }
-.corteva-plot {
-  fill: rgba(93, 125, 177, 0.035);
-  stroke: rgba(73, 101, 151, 0.19);
-  stroke-width: 1.2;
+.corteva-map-accents {
+  fill: none;
+  stroke: rgba(34, 126, 172, 0.25);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-dasharray: 2 8;
 }
-.corteva-plot--active {
+.corteva-field {
   transform-box: fill-box;
   transform-origin: center;
-  animation: corteva-plot-analysis 8s ease-in-out infinite;
 }
-.corteva-crop-rows line {
-  stroke: #718bb8;
-  stroke-width: 0.7;
-  opacity: 0.075;
+/* Very slow "breathe" — the only plot motion. */
+.corteva-plot {
+  opacity: 0.9;
+  animation: corteva-plot-breathe 8s ease-in-out infinite;
+  animation-delay: var(--plot-delay, 0s);
 }
-.corteva-gps-route {
-  fill: none;
-  stroke: #416ec7;
-  stroke-width: 2.2;
+@keyframes corteva-plot-breathe {
+  0%, 100% { opacity: 0.86; }
+  50% { opacity: 0.97; }
+}
+.corteva-track {
+  stroke: rgba(255, 255, 255, 0.94);
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 8 11;
-  opacity: 0.29;
-  animation: corteva-route-flow 12s linear infinite;
+  /* pathLength="100" makes the dash relative to the path, not its length. */
+  stroke-dasharray: 0.75 2.45;
+  filter: drop-shadow(0 1px 2px rgba(17, 86, 116, 0.24));
 }
-.corteva-gps-point {
-  fill: #2f5fd0;
-  opacity: 0.24;
+.corteva-track--secondary {
+  opacity: 0.7;
+  stroke-width: 2;
+}
+.corteva-point-pulse {
+  fill: rgba(58, 148, 221, 0.08);
+  stroke: rgba(44, 139, 223, 0.46);
+  stroke-width: 1.4;
   transform-box: fill-box;
   transform-origin: center;
-  animation: corteva-gps-pulse 5.2s ease-in-out infinite;
+  animation: corteva-point-pulse 4.8s ease-out infinite;
+  animation-delay: var(--pulse-delay, 0s);
 }
-.corteva-sensor-glow {
-  fill: rgba(47, 95, 208, 0.2);
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: corteva-sensor-glow 4.5s ease-in-out infinite;
+.corteva-point-ring {
+  fill: rgba(255, 255, 255, 0.8);
+  stroke: rgba(50, 139, 219, 0.78);
+  stroke-width: 1.6;
+  filter: drop-shadow(0 1px 2px rgba(17, 73, 105, 0.24));
 }
-.corteva-sensor-core {
-  fill: #2f5fd0;
-  opacity: 0.52;
+.corteva-point-core {
+  fill: #3d9be6;
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 1.15;
 }
-
-@keyframes corteva-plot-analysis {
-  0%, 100% { fill: rgba(93, 125, 177, 0.035); }
-  45%, 60% { fill: rgba(72, 108, 177, 0.16); }
-}
-@keyframes corteva-route-flow {
-  to { stroke-dashoffset: -76; }
-}
-@keyframes corteva-gps-pulse {
-  0%, 100% { opacity: 0.16; transform: scale(0.78); }
-  45% { opacity: 0.52; transform: scale(1.25); }
-}
-@keyframes corteva-sensor-glow {
-  0%, 100% { opacity: 0.12; transform: scale(0.75); }
-  50% { opacity: 0.38; transform: scale(1.3); }
+@keyframes corteva-point-pulse {
+  0% { opacity: 0; transform: scale(0.72); }
+  14% { opacity: 0.72; }
+  70%, 100% { opacity: 0; transform: scale(1.55); }
 }
 
-/* Settle the Corteva scene into a deliberate static state rather than
-   merely shortening its animation. The PLRB precipitation scene has its own
-   reduced-motion rules directly beneath its PLRB styles. */
+/* Settle the Corteva scene into a deliberate static state. The PLRB
+   precipitation scene has its own reduced-motion rules beneath its styles. */
 @media (prefers-reduced-motion: reduce) {
-  .corteva-plot--active,
-  .corteva-gps-route,
-  .corteva-gps-point,
-  .corteva-sensor-glow {
+  .corteva-plot,
+  .corteva-point-pulse {
     animation: none !important;
   }
-
-  .corteva-plot--active {
-    fill: rgba(72, 108, 177, 0.1);
-  }
-
-  .corteva-gps-point {
-    opacity: 0.28;
-    transform: none;
-  }
-
-  .corteva-sensor-glow {
-    opacity: 0.24;
+  .corteva-plot {
+    opacity: 0.94;
   }
 }
 
@@ -1629,10 +1577,6 @@ footer {
     right: -84px;
     bottom: -30px;
     left: 52%;
-  }
-
-  .plrb-precip-live.is-ready {
-    opacity: 0.4;
   }
 }
 
