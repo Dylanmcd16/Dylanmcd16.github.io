@@ -713,7 +713,16 @@ svg.icon {
   display: inline-flex;
   margin-bottom: 62px;
 }
+/* The hero spans the full container so the scene has room on the right; the
+   copy keeps the old measure. */
 .case-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.case-hero-copy {
+  position: relative;
+  z-index: 2;
   max-width: 940px;
 }
 .professional-case-study .case-hero h1 {
@@ -735,6 +744,228 @@ svg.icon {
 .professional-case-study .case-hero .tech-list {
   margin-top: 26px;
 }
+/* ------------------------------------------- Case-study hero scenes -- */
+/* Ambient SVG backgrounds for the professional case studies. No rotating
+   sweep and no scanning band by design — the motion here is drift, dash
+   flow, and slow pulses only. */
+
+.case-hero-scene {
+  position: absolute;
+  z-index: 0;
+  top: -72px;
+  right: -330px;
+  width: min(980px, 78vw);
+  height: 620px;
+  pointer-events: none;
+  opacity: 0.7;
+  /* Fade the scene out before it reaches the text. */
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 12%,
+    rgba(0, 0, 0, 0.65) 38%,
+    #000 58%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 12%,
+    rgba(0, 0, 0, 0.65) 38%,
+    #000 58%,
+    #000 100%
+  );
+}
+.case-scene-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* --- PLRB weather-analysis scene --- */
+
+.plrb-map-grid line {
+  stroke: #7590bf;
+  stroke-width: 1;
+  opacity: 0.065;
+}
+.plrb-map-boundaries path {
+  fill: none;
+  stroke: #6d88b7;
+  stroke-width: 1.2;
+  opacity: 0.09;
+}
+.plrb-radar-rings circle {
+  fill: none;
+  stroke: #6282bd;
+  stroke-width: 1.35;
+  opacity: 0.16;
+}
+.plrb-radar-spokes line {
+  stroke: #6d8ac1;
+  stroke-width: 1;
+  opacity: 0.085;
+}
+.plrb-storm-cell {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+/* Different durations so the cells never drift in lockstep. */
+.plrb-storm-cell--one {
+  animation: plrb-cell-drift-one 18s ease-in-out infinite alternate;
+}
+.plrb-storm-cell--two {
+  animation: plrb-cell-drift-two 22s ease-in-out infinite alternate;
+}
+.plrb-storm-cell--three {
+  animation: plrb-cell-drift-three 20s ease-in-out infinite alternate;
+}
+.plrb-storm-track {
+  fill: none;
+  stroke: #496fc0;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 7 12;
+  opacity: 0.24;
+  animation: plrb-track-flow 14s linear infinite;
+}
+.plrb-report-points circle {
+  fill: #315fc7;
+  opacity: 0.38;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: plrb-report-pulse 4.5s ease-in-out infinite;
+}
+.plrb-report-points circle:nth-child(2) { animation-delay: 0.6s; }
+.plrb-report-points circle:nth-child(3) { animation-delay: 1.2s; }
+.plrb-report-points circle:nth-child(4) { animation-delay: 1.8s; }
+.plrb-report-points circle:nth-child(5) { animation-delay: 2.4s; }
+.plrb-report-points circle:nth-child(6) { animation-delay: 3s; }
+.plrb-radar-site circle:first-child {
+  fill: #2f5fd0;
+  opacity: 0.55;
+}
+.plrb-radar-site circle:last-child {
+  fill: none;
+  stroke: #2f5fd0;
+  stroke-width: 1.5;
+  opacity: 0.25;
+}
+
+@keyframes plrb-cell-drift-one {
+  from { transform: translate(-8px, 4px) scale(0.98); }
+  to { transform: translate(15px, -8px) scale(1.04); }
+}
+@keyframes plrb-cell-drift-two {
+  from { transform: translate(8px, -5px) scale(1); }
+  to { transform: translate(-13px, 9px) scale(1.045); }
+}
+@keyframes plrb-cell-drift-three {
+  from { transform: translate(-4px, -8px); }
+  to { transform: translate(11px, 6px); }
+}
+@keyframes plrb-track-flow {
+  to { stroke-dashoffset: -76; }
+}
+@keyframes plrb-report-pulse {
+  0%, 100% { opacity: 0.22; transform: scale(0.86); }
+  45% { opacity: 0.52; transform: scale(1.18); }
+}
+
+/* --- Corteva experimental-field scene --- */
+
+.corteva-field-base {
+  fill: rgba(94, 121, 164, 0.025);
+  stroke: rgba(75, 101, 146, 0.18);
+  stroke-width: 1.3;
+}
+.corteva-plot {
+  fill: rgba(93, 125, 177, 0.035);
+  stroke: rgba(73, 101, 151, 0.19);
+  stroke-width: 1.2;
+}
+.corteva-plot--active {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: corteva-plot-analysis 8s ease-in-out infinite;
+}
+.corteva-crop-rows line {
+  stroke: #718bb8;
+  stroke-width: 0.7;
+  opacity: 0.075;
+}
+.corteva-gps-route {
+  fill: none;
+  stroke: #416ec7;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 8 11;
+  opacity: 0.29;
+  animation: corteva-route-flow 12s linear infinite;
+}
+.corteva-gps-point {
+  fill: #2f5fd0;
+  opacity: 0.24;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: corteva-gps-pulse 5.2s ease-in-out infinite;
+}
+.corteva-sensor-glow {
+  fill: rgba(47, 95, 208, 0.2);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: corteva-sensor-glow 4.5s ease-in-out infinite;
+}
+.corteva-sensor-core {
+  fill: #2f5fd0;
+  opacity: 0.52;
+}
+
+@keyframes corteva-plot-analysis {
+  0%, 100% { fill: rgba(93, 125, 177, 0.035); }
+  45%, 60% { fill: rgba(72, 108, 177, 0.16); }
+}
+@keyframes corteva-route-flow {
+  to { stroke-dashoffset: -76; }
+}
+@keyframes corteva-gps-pulse {
+  0%, 100% { opacity: 0.16; transform: scale(0.78); }
+  45% { opacity: 0.52; transform: scale(1.25); }
+}
+@keyframes corteva-sensor-glow {
+  0%, 100% { opacity: 0.12; transform: scale(0.75); }
+  50% { opacity: 0.38; transform: scale(1.3); }
+}
+
+/* Settle into a deliberate static state rather than just stopping. */
+@media (prefers-reduced-motion: reduce) {
+  .plrb-storm-cell,
+  .plrb-storm-track,
+  .plrb-report-points circle,
+  .corteva-plot--active,
+  .corteva-gps-route,
+  .corteva-gps-point,
+  .corteva-sensor-glow {
+    animation: none !important;
+  }
+  .plrb-report-points circle {
+    opacity: 0.3;
+    transform: none;
+  }
+  .corteva-plot--active {
+    fill: rgba(72, 108, 177, 0.1);
+  }
+  .corteva-gps-point {
+    opacity: 0.28;
+    transform: none;
+  }
+  .corteva-sensor-glow {
+    opacity: 0.24;
+  }
+}
+
 .case-challenge {
   display: grid;
   grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.7fr);
@@ -1201,6 +1432,22 @@ footer {
 }
 
 /* ------------------------------------------------------------ Responsive -- */
+
+@media (max-width: 900px) {
+  .case-hero-scene {
+    right: -430px;
+    width: 940px;
+    opacity: 0.42;
+  }
+}
+
+/* Below this the title needs the whole width; drop the scene entirely rather
+   than run animation behind cramped text. */
+@media (max-width: 640px) {
+  .case-hero-scene {
+    display: none;
+  }
+}
 
 @media (max-width: 980px) {
   .project-grid {

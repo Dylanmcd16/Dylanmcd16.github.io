@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CaseStudyFooter } from './CaseStudyFooter'
+import { CaseStudyHeroScene, type HeroSceneVariant } from './CaseStudyHeroScene'
 
 type CaseStudyImage = {
   src: string
@@ -25,6 +26,7 @@ type CaseStudySection = {
 type ProfessionalCaseStudy = {
   title: string
   role: string
+  scene: HeroSceneVariant
   summary: string[]
   challengeTitle: string
   challenge: string
@@ -166,6 +168,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'plrb-weather-systems': {
     title: 'Weather, Catastrophe, & Geospatial Analysis',
     role: 'PLRB - Weather & Catastrophe Analyst',
+    scene: 'plrb',
     summary: [
       'I design and maintain operational weather and geospatial tools that help claims professionals evaluate events and understand complex environmental data.',
       'My work connects meteorology with Python and ArcPy automation, ArcGIS application development, cloud infrastructure, APIs, and research into emerging weather products. The objective is to turn technical datasets into reliable, transparent tools for event verification and catastrophe analysis.',
@@ -288,6 +291,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'corteva-field-sensing': {
     title: 'Field-Sensing Systems & Geospatial Research',
     role: 'Corteva Agriscience - Field Sensing Research Associate',
+    scene: 'corteva',
     summary: [
       'At Corteva, I worked across field instrumentation, geospatial data processing, agronomic research, and software automation. I helped develop and operate sensing systems, built Python and ArcPy workflows, and converted field measurements into analysis products used by research teams.',
     ],
@@ -483,14 +487,18 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
         <a className="text-link case-study-back" href={base}>Back to portfolio</a>
 
         <header className="case-hero">
-          <p className="project-kind">{study.role}</p>
-          <h1>{study.title}</h1>
-          <div className="case-hero-summary">
-            {study.summary.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          <CaseStudyHeroScene variant={study.scene} />
+
+          <div className="case-hero-copy">
+            <p className="project-kind">{study.role}</p>
+            <h1>{study.title}</h1>
+            <div className="case-hero-summary">
+              {study.summary.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+            <ul className="tech-list" aria-label="Case study technologies">
+              {study.tags.map((tag) => <li key={tag}>{tag}</li>)}
+            </ul>
           </div>
-          <ul className="tech-list" aria-label="Case study technologies">
-            {study.tags.map((tag) => <li key={tag}>{tag}</li>)}
-          </ul>
         </header>
 
         <aside className="case-challenge" aria-labelledby="case-challenge-title">
