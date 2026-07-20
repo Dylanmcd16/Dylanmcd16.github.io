@@ -634,7 +634,7 @@ svg.icon {
     background-image: linear-gradient(
       100deg,
       var(--ink) 42%,
-      #86a9ee 50%,
+      #9ba2b1 50%,
       var(--ink) 58%
     );
     background-size: 260% 100%;
@@ -643,7 +643,7 @@ svg.icon {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    animation: link-sheen 6.5s ease-in-out infinite;
+    animation: link-sheen 9.5s ease-in-out infinite;
   }
   .project-case-link svg {
     color: var(--ink);
@@ -652,7 +652,7 @@ svg.icon {
     background-image: linear-gradient(
       100deg,
       var(--accent-strong) 42%,
-      #9dbcf5 50%,
+      #9ba2b1 50%,
       var(--accent-strong) 58%
     );
   }
@@ -843,94 +843,221 @@ svg.icon {
   overflow: visible;
 }
 
-/* --- PLRB weather-analysis scene --- */
+/* --------------------------------------------------------------------------
+   PLRB precipitation-data scene
 
-.plrb-map-grid line {
-  stroke: #7590bf;
+   Replace the previous PLRB radar-specific CSS with this section. The old
+   .case-hero-scene--plrb::before conic-gradient sweep, radar rings, spokes,
+   storm tracks, and radar-site rules are no longer used.
+   -------------------------------------------------------------------------- */
+
+/* Explicitly disable the old rotating radar-sweep pseudo-element if it still
+   exists elsewhere in the stylesheet. */
+.case-hero-scene--plrb::before {
+  content: none;
+}
+
+/* Latitude/longitude-style guide lines. */
+.plrb-graticule line {
+  stroke: #6f8fbd;
   stroke-width: 1;
-  opacity: 0.065;
+  opacity: 0.075;
+  vector-effect: non-scaling-stroke;
 }
-.plrb-map-boundaries path {
+
+/* Very faint raster-cell texture behind the contour field. */
+.plrb-data-grid {
+  opacity: 0.72;
+}
+
+.plrb-data-grid-line {
   fill: none;
-  stroke: #6d88b7;
-  stroke-width: 1.2;
-  opacity: 0.09;
+  stroke: #7c98c2;
+  stroke-width: 0.7;
+  opacity: 0.055;
+  vector-effect: non-scaling-stroke;
 }
-.plrb-radar-rings circle {
-  fill: none;
-  stroke: #6282bd;
-  stroke-width: 1.35;
-  opacity: 0.16;
-}
-.plrb-radar-spokes line {
-  stroke: #6d8ac1;
-  stroke-width: 1;
-  opacity: 0.085;
-}
-.plrb-storm-cell {
+
+/* Broad, blurred precipitation envelopes that connect the smaller cells into
+   elongated latitude bands. */
+.plrb-precip-envelope {
+  fill: #7fa4dd;
+  opacity: 0.055;
   transform-box: fill-box;
   transform-origin: center;
 }
-/* Different durations so the cells never drift in lockstep. */
-.plrb-storm-cell--one {
-  animation: plrb-cell-drift-one 18s ease-in-out infinite alternate;
+
+.plrb-precip-envelope--1 {
+  animation: plrb-envelope-drift-one 32s ease-in-out infinite alternate;
 }
-.plrb-storm-cell--two {
-  animation: plrb-cell-drift-two 22s ease-in-out infinite alternate;
+
+.plrb-precip-envelope--2 {
+  animation: plrb-envelope-drift-two 36s ease-in-out infinite alternate;
 }
-.plrb-storm-cell--three {
-  animation: plrb-cell-drift-three 20s ease-in-out infinite alternate;
+
+.plrb-precip-envelope--3 {
+  animation: plrb-envelope-drift-three 34s ease-in-out infinite alternate;
 }
-.plrb-storm-track {
-  fill: none;
-  stroke: #496fc0;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 7 12;
+
+/* Each precipitation system contains four nested contour polygons. Their
+   overlapping fills create the apparent increase in rain-rate intensity. */
+.plrb-precip-system {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.plrb-precip-system--1 {
+  animation: plrb-precip-drift-one 22s ease-in-out infinite alternate;
+}
+
+.plrb-precip-system--2 {
+  animation: plrb-precip-drift-two 26s ease-in-out infinite alternate;
+}
+
+.plrb-precip-system--3 {
+  animation: plrb-precip-drift-three 24s ease-in-out infinite alternate;
+}
+
+.plrb-precip-contour {
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  mix-blend-mode: multiply;
+}
+
+/* Outermost, lowest-intensity band. */
+.plrb-precip-contour--1 {
+  fill: #a9bee4;
+  fill-opacity: 0.105;
+  stroke: #8fa9d5;
+  stroke-width: 0.65;
+  stroke-opacity: 0.07;
+}
+
+/* Moderate precipitation. */
+.plrb-precip-contour--2 {
+  fill: #7e9fd7;
+  fill-opacity: 0.125;
+  stroke: #6f93ce;
+  stroke-width: 0.7;
+  stroke-opacity: 0.085;
+}
+
+/* Higher-intensity embedded core. */
+.plrb-precip-contour--3 {
+  fill: #537fca;
+  fill-opacity: 0.155;
+  stroke: #4773bd;
+  stroke-width: 0.75;
+  stroke-opacity: 0.1;
+}
+
+/* Innermost maximum. It remains restrained because this is a background. */
+.plrb-precip-contour--4 {
+  fill: #2f63ba;
+  fill-opacity: 0.205;
+  stroke: #2758aa;
+  stroke-width: 0.8;
+  stroke-opacity: 0.12;
+}
+
+/* Sparse sampling points suggest a gridded observational product rather than
+   individual radar reports. */
+.plrb-sample-points circle {
+  fill: #3869bd;
   opacity: 0.24;
-  animation: plrb-track-flow 14s linear infinite;
-}
-.plrb-report-points circle {
-  fill: #315fc7;
-  opacity: 0.38;
   transform-box: fill-box;
   transform-origin: center;
-  animation: plrb-report-pulse 4.5s ease-in-out infinite;
-}
-.plrb-report-points circle:nth-child(2) { animation-delay: 0.6s; }
-.plrb-report-points circle:nth-child(3) { animation-delay: 1.2s; }
-.plrb-report-points circle:nth-child(4) { animation-delay: 1.8s; }
-.plrb-report-points circle:nth-child(5) { animation-delay: 2.4s; }
-.plrb-report-points circle:nth-child(6) { animation-delay: 3s; }
-.plrb-radar-site circle:first-child {
-  fill: #2f5fd0;
-  opacity: 0.55;
-}
-.plrb-radar-site circle:last-child {
-  fill: none;
-  stroke: #2f5fd0;
-  stroke-width: 1.5;
-  opacity: 0.25;
+  animation: plrb-sample-pulse 7s ease-in-out infinite;
 }
 
-@keyframes plrb-cell-drift-one {
-  from { transform: translate(-8px, 4px) scale(0.98); }
-  to { transform: translate(15px, -8px) scale(1.04); }
+.plrb-sample-points circle:nth-child(2n) {
+  animation-delay: 1.8s;
 }
-@keyframes plrb-cell-drift-two {
-  from { transform: translate(8px, -5px) scale(1); }
-  to { transform: translate(-13px, 9px) scale(1.045); }
+
+.plrb-sample-points circle:nth-child(3n) {
+  animation-delay: 3.4s;
 }
-@keyframes plrb-cell-drift-three {
-  from { transform: translate(-4px, -8px); }
-  to { transform: translate(11px, 6px); }
+
+@keyframes plrb-envelope-drift-one {
+  from {
+    transform: translate(-7px, 2px) scaleX(0.99);
+  }
+
+  to {
+    transform: translate(10px, -4px) scaleX(1.015);
+  }
 }
-@keyframes plrb-track-flow {
-  to { stroke-dashoffset: -76; }
+
+@keyframes plrb-envelope-drift-two {
+  from {
+    transform: translate(8px, -3px) scaleX(1.01);
+  }
+
+  to {
+    transform: translate(-9px, 4px) scaleX(0.99);
+  }
 }
-@keyframes plrb-report-pulse {
-  0%, 100% { opacity: 0.22; transform: scale(0.86); }
-  45% { opacity: 0.52; transform: scale(1.18); }
+
+@keyframes plrb-envelope-drift-three {
+  from {
+    transform: translate(-5px, -2px) scaleX(0.995);
+  }
+
+  to {
+    transform: translate(8px, 3px) scaleX(1.012);
+  }
+}
+
+@keyframes plrb-precip-drift-one {
+  from {
+    transform: translate(-4px, 1px) scale(0.99);
+  }
+
+  to {
+    transform: translate(8px, -3px) scale(1.018);
+  }
+}
+
+@keyframes plrb-precip-drift-two {
+  from {
+    transform: translate(5px, -2px) scale(1.008);
+  }
+
+  to {
+    transform: translate(-7px, 3px) scale(0.992);
+  }
+}
+
+@keyframes plrb-precip-drift-three {
+  from {
+    transform: translate(-3px, -2px) scale(0.995);
+  }
+
+  to {
+    transform: translate(7px, 4px) scale(1.014);
+  }
+}
+
+@keyframes plrb-sample-pulse {
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.34;
+    transform: scale(1.18);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plrb-precip-envelope,
+  .plrb-precip-system,
+  .plrb-sample-points circle {
+    animation: none !important;
+  }
 }
 
 /* --- Corteva experimental-field scene --- */
@@ -999,28 +1126,26 @@ svg.icon {
   50% { opacity: 0.38; transform: scale(1.3); }
 }
 
-/* Settle into a deliberate static state rather than just stopping. */
+/* Settle the Corteva scene into a deliberate static state rather than
+   merely shortening its animation. The PLRB precipitation scene has its own
+   reduced-motion rules directly beneath its PLRB styles. */
 @media (prefers-reduced-motion: reduce) {
-  .plrb-storm-cell,
-  .plrb-storm-track,
-  .plrb-report-points circle,
   .corteva-plot--active,
   .corteva-gps-route,
   .corteva-gps-point,
   .corteva-sensor-glow {
     animation: none !important;
   }
-  .plrb-report-points circle {
-    opacity: 0.3;
-    transform: none;
-  }
+
   .corteva-plot--active {
     fill: rgba(72, 108, 177, 0.1);
   }
+
   .corteva-gps-point {
     opacity: 0.28;
     transform: none;
   }
+
   .corteva-sensor-glow {
     opacity: 0.24;
   }

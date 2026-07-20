@@ -34,7 +34,93 @@ const GPS_POINTS = [
   [474, 105], [474, 170], [474, 235], [474, 300], [474, 365],
 ] as const
 
-const RADAR_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315]
+/** Deterministic PRNG so the generated field is identical on every render. */
+function seededRandom(seed: number) {
+  let state = seed
+  return () => {
+    state = (state * 1664525 + 1013904223) % 4294967296
+    return state / 4294967296
+  }
+}
+
+/**
+ * Closed Catmull-Rom spline through the given points, emitted as cubic
+ * beziers. Gives the contour bands smooth, organic edges instead of polygons.
+ */
+function closedSpline(points: Array<[number, number]>) {
+  const count = points.length
+  const at = (index: number) => points[((index % count) + count) % count]
+
+  let path = `M${at(0)[0].toFixed(2)} ${at(0)[1].toFixed(2)}`
+
+  for (let i = 0; i < count; i += 1) {
+    const [x0, y0] = at(i - 1)
+    const [x1, y1] = at(i)
+    const [x2, y2] = at(i + 1)
+    const [x3, y3] = at(i + 2)
+
+    const c1x = x1 + (x2 - x0) / 6
+    const c1y = y1 + (y2 - y0) / 6
+    const c2x = x2 - (x3 - x1) / 6
+    const c2y = y2 - (y3 - y1) / 6
+
+    path += ` C${c1x.toFixed(2)} ${c1y.toFixed(2)} ${c2x.toFixed(2)} ${c2y.toFixed(2)} ${x2.toFixed(2)} ${y2.toFixed(2)}`
+  }
+
+  return `${path}Z`
+}
+
+/**
+ * One irregular contour ring. Reusing the same seed across shrinking radii
+ * produces the nested cores seen in a gridded precipitation product.
+ */
+function contourPath(
+  cx: number,
+  cy: number,
+  rx: number,
+  ry: number,
+  seed: number,
+  wobble = 0.34,
+  samples = 16,
+) {
+  const random = seededRandom(seed)
+  const points = Array.from({ length: samples }, (_, index) => {
+    const angle = (index / samples) * Math.PI * 2
+    const jitter = 1 - wobble / 2 + random() * wobble
+    return [
+      cx + Math.cos(angle) * rx * jitter,
+      cy + Math.sin(angle) * ry * jitter,
+    ] as [number, number]
+  })
+
+  return closedSpline(points)
+}
+
+/**
+ * Precipitation systems, elongated and grouped into three bands the way rain
+ * rate organizes on the globe overlay. Each renders as nested intensity
+ * levels; inner levels are nudged off-center so the nesting is not concentric.
+ */
+const PRECIP_SYSTEMS = [
+  { cx: 430, cy: 150, rx: 95, ry: 36, seed: 1207, delay: 0 },
+  { cx: 622, cy: 122, rx: 118, ry: 41, seed: 3391, delay: 2.6 },
+  { cx: 812, cy: 158, rx: 88, ry: 33, seed: 5813, delay: 5.1 },
+  { cx: 958, cy: 118, rx: 104, ry: 38, seed: 7717, delay: 1.4 },
+  { cx: 486, cy: 312, rx: 108, ry: 40, seed: 9241, delay: 3.8 },
+  { cx: 716, cy: 296, rx: 128, ry: 45, seed: 2663, delay: 6.3 },
+  { cx: 934, cy: 330, rx: 92, ry: 35, seed: 4177, delay: 0.9 },
+  { cx: 412, cy: 466, rx: 86, ry: 32, seed: 6529, delay: 4.7 },
+  { cx: 640, cy: 486, rx: 122, ry: 43, seed: 8093, delay: 7.2 },
+  { cx: 878, cy: 452, rx: 99, ry: 37, seed: 1483, delay: 2.1 },
+]
+
+/** Outermost to innermost: radius scale, drift offset, and band class index. */
+const PRECIP_LEVELS = [
+  { scale: 1, dx: 0, dy: 0 },
+  { scale: 0.72, dx: 6, dy: -3 },
+  { scale: 0.46, dx: 12, dy: -5 },
+  { scale: 0.24, dx: 17, dy: -7 },
+]
 
 /**
  * Decorative hero background for the professional case studies.
@@ -45,20 +131,22 @@ const RADAR_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315]
 export function CaseStudyHeroScene({ variant }: { variant: HeroSceneVariant }) {
   return (
     <div className={`case-hero-scene case-hero-scene--${variant}`} aria-hidden="true">
-      {variant === 'plrb' ? <PlrbRadarScene /> : <CortevaFieldScene />}
+      {variant === 'plrb' ? <PlrbPrecipScene /> : <CortevaFieldScene />}
     </div>
   )
 }
 
 /**
- * PLRB: a stylized weather-analysis display - range rings over a regional
- * map, with drifting echoes, a storm track, and report points. Deliberately
- * abstract rather than a literal radar product.
+ * PLRB: a gridded precipitation field over a faint graticule - nested
+ * intensity contours in the visual language of the IMERG rain-rate layer the
+ * homepage globe overlays, rather than a radar display.
  */
-function PlrbRadarScene() {
-  const radarCenterX = 720
-  const radarCenterY = 300
-  const spokeLength = 270
+function PlrbPrecipScene() {
+  const broadBands = [
+    { cx: 700, cy: 145, rx: 355, ry: 76, seed: 2017 },
+    { cx: 720, cy: 310, rx: 342, ry: 82, seed: 4021 },
+    { cx: 680, cy: 470, rx: 320, ry: 70, seed: 6607 },
+  ]
 
   return (
     <svg
@@ -68,103 +156,138 @@ function PlrbRadarScene() {
       role="presentation"
     >
       <defs>
-        <filter id="plrb-cell-blur" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="11" />
-        </filter>
+        {/*
+         * A tiny square pattern gives the scene a faint gridded-data texture.
+         * It is intentionally subtle; the contour fills remain the main visual.
+         */}
+        <pattern
+          id="plrb-data-grid"
+          width="26"
+          height="26"
+          patternUnits="userSpaceOnUse"
+        >
+          <path d="M26 0H0V26" className="plrb-data-grid-line" />
+        </pattern>
 
-        <radialGradient id="plrb-cell-gradient">
-          <stop offset="0%" stopColor="#4e78d6" stopOpacity="0.32" />
-          <stop offset="48%" stopColor="#7899dc" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#aec0e4" stopOpacity="0" />
-        </radialGradient>
+        {/*
+         * Softens only the broad precipitation envelopes. The nested contour
+         * levels stay crisp enough to read as gridded satellite data.
+         */}
+        <filter
+          id="plrb-band-soften"
+          x="-20%"
+          y="-35%"
+          width="140%"
+          height="170%"
+        >
+          <feGaussianBlur stdDeviation="8" />
+        </filter>
       </defs>
 
-      {/* Geographic grid behind the display. */}
-      <g className="plrb-map-grid">
-        <line x1="395" y1="80" x2="395" y2="540" />
-        <line x1="500" y1="50" x2="500" y2="555" />
-        <line x1="610" y1="35" x2="610" y2="565" />
-        <line x1="720" y1="25" x2="720" y2="575" />
-        <line x1="830" y1="35" x2="830" y2="565" />
-        <line x1="940" y1="70" x2="940" y2="535" />
+      {/* Faint latitude/longitude-style graticule behind the data field. */}
+      <g className="plrb-graticule">
+        {Array.from({ length: 8 }, (_, index) => (
+          <line
+            key={`vertical-${index}`}
+            x1={350 + index * 92}
+            y1="30"
+            x2={350 + index * 92}
+            y2="570"
+          />
+        ))}
 
-        <line x1="350" y1="115" x2="990" y2="115" />
-        <line x1="335" y1="205" x2="995" y2="205" />
-        <line x1="325" y1="300" x2="1000" y2="300" />
-        <line x1="335" y1="395" x2="995" y2="395" />
-        <line x1="355" y1="485" x2="985" y2="485" />
+        {Array.from({ length: 6 }, (_, index) => (
+          <line
+            key={`horizontal-${index}`}
+            x1="330"
+            y1={65 + index * 96}
+            x2="1030"
+            y2={65 + index * 96}
+          />
+        ))}
       </g>
 
-      {/* Stylized regional boundaries - suggestive, not a precise map. */}
-      <g className="plrb-map-boundaries">
-        <path d="M385 145 C470 126 550 138 625 120 C710 100 796 115 905 95" />
-        <path d="M370 235 C460 220 548 238 640 214 C750 185 835 210 955 183" />
-        <path d="M360 330 C445 314 525 340 615 314 C720 284 824 308 970 278" />
-        <path d="M375 430 C465 405 565 432 665 408 C770 384 865 398 952 380" />
-
-        <path d="M455 95 C440 170 458 245 438 325 C425 385 438 452 420 515" />
-        <path d="M565 68 C550 155 576 220 555 304 C538 375 556 450 540 535" />
-        <path d="M680 55 C664 132 690 210 672 290 C655 370 682 458 666 548" />
-        <path d="M795 70 C780 145 805 225 786 305 C770 385 800 460 785 535" />
-        <path d="M900 100 C885 170 910 235 895 310 C880 385 905 445 892 510" />
-      </g>
-
-      {/* Static range rings and spokes: the analysis frame. */}
-      <g className="plrb-radar-rings">
-        <circle cx={radarCenterX} cy={radarCenterY} r="88" />
-        <circle cx={radarCenterX} cy={radarCenterY} r="166" />
-        <circle cx={radarCenterX} cy={radarCenterY} r="246" />
-      </g>
-
-      <g className="plrb-radar-spokes">
-        {RADAR_ANGLES.map((angle) => {
-          const radians = (angle * Math.PI) / 180
-
-          return (
-            <line
-              key={angle}
-              x1={radarCenterX}
-              y1={radarCenterY}
-              x2={radarCenterX + Math.cos(radians) * spokeLength}
-              y2={radarCenterY + Math.sin(radians) * spokeLength}
-            />
-          )
-        })}
-      </g>
-
-      {/* Soft echoes, each drifting on its own slow cycle. */}
-      <g className="plrb-storm-cell plrb-storm-cell--one" filter="url(#plrb-cell-blur)">
-        <ellipse cx="610" cy="205" rx="100" ry="48" fill="url(#plrb-cell-gradient)" />
-        <ellipse cx="650" cy="230" rx="74" ry="43" fill="url(#plrb-cell-gradient)" />
-      </g>
-
-      <g className="plrb-storm-cell plrb-storm-cell--two" filter="url(#plrb-cell-blur)">
-        <ellipse cx="790" cy="365" rx="115" ry="52" fill="url(#plrb-cell-gradient)" />
-        <ellipse cx="845" cy="340" rx="78" ry="39" fill="url(#plrb-cell-gradient)" />
-      </g>
-
-      <g className="plrb-storm-cell plrb-storm-cell--three" filter="url(#plrb-cell-blur)">
-        <ellipse cx="905" cy="170" rx="84" ry="42" fill="url(#plrb-cell-gradient)" />
-      </g>
-
-      {/* Storm path: the line is fixed, only its dash pattern flows. */}
-      <path
-        className="plrb-storm-track"
-        d="M455 430 C540 395 585 340 655 310 C725 278 800 230 908 180"
+      {/* A nearly invisible raster-cell texture helps imply a data product. */}
+      <rect
+        className="plrb-data-grid"
+        x="330"
+        y="24"
+        width="700"
+        height="552"
+        fill="url(#plrb-data-grid)"
       />
 
-      <g className="plrb-report-points">
-        <circle cx="515" cy="399" r="5" />
-        <circle cx="575" cy="350" r="4" />
-        <circle cx="642" cy="314" r="5" />
-        <circle cx="710" cy="280" r="4" />
-        <circle cx="790" cy="235" r="5" />
-        <circle cx="870" cy="197" r="4" />
+      {/*
+       * Large, low-opacity envelopes establish the three elongated rain-rate
+       * bands before the smaller nested intensity cores are drawn on top.
+       */}
+      <g className="plrb-precip-envelopes" filter="url(#plrb-band-soften)">
+        {broadBands.map((band, index) => (
+          <path
+            key={band.seed}
+            className={`plrb-precip-envelope plrb-precip-envelope--${index + 1}`}
+            d={contourPath(
+              band.cx,
+              band.cy,
+              band.rx,
+              band.ry,
+              band.seed,
+              0.24,
+              22,
+            )}
+          />
+        ))}
       </g>
 
-      <g className="plrb-radar-site">
-        <circle cx={radarCenterX} cy={radarCenterY} r="7" />
-        <circle cx={radarCenterX} cy={radarCenterY} r="16" />
+      {/*
+       * Each system is made from four nested contour polygons. They use the
+       * same seeded shape at progressively smaller radii, then shift slightly
+       * northeast so the cores feel irregular rather than perfectly centered.
+       */}
+      <g className="plrb-precip-field">
+        {PRECIP_SYSTEMS.map((system, systemIndex) => (
+          <g
+            key={system.seed}
+            className={`plrb-precip-system plrb-precip-system--${
+              (systemIndex % 3) + 1
+            }`}
+            style={{ animationDelay: `${system.delay}s` }}
+          >
+            {PRECIP_LEVELS.map((level, levelIndex) => (
+              <path
+                key={`${system.seed}-${levelIndex}`}
+                className={`plrb-precip-contour plrb-precip-contour--${
+                  levelIndex + 1
+                }`}
+                d={contourPath(
+                  system.cx + level.dx,
+                  system.cy + level.dy,
+                  system.rx * level.scale,
+                  system.ry * level.scale,
+                  system.seed,
+                  Math.max(0.2, 0.34 - levelIndex * 0.035),
+                  16,
+                )}
+              />
+            ))}
+          </g>
+        ))}
+      </g>
+
+      {/*
+       * Sparse sampling markers suggest that the field comes from a gridded
+       * observational product, without turning the scene into a radar display.
+       */}
+      <g className="plrb-sample-points">
+        <circle cx="462" cy="146" r="2.8" />
+        <circle cx="638" cy="126" r="2.4" />
+        <circle cx="786" cy="164" r="2.7" />
+        <circle cx="516" cy="314" r="2.6" />
+        <circle cx="738" cy="294" r="2.9" />
+        <circle cx="906" cy="332" r="2.5" />
+        <circle cx="438" cy="468" r="2.4" />
+        <circle cx="656" cy="484" r="2.8" />
+        <circle cx="860" cy="450" r="2.6" />
       </g>
     </svg>
   )
