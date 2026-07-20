@@ -22,7 +22,7 @@ export type Project = {
   tech: string[]
   links: ProjectLink[]
   featured?: boolean
-  // Optional screenshot: drop a file in /public and set e.g. 'projects/example.png'
+  // Optional screenshot: drop a file in /public and set e.g. 'projects/example.png' 
   image?: string
   imageAlt?: string
 }
