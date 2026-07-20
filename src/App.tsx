@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
+import { CaseStudyFooter } from './components/CaseStudyFooter'
 import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
 import { portfolio } from './data/portfolio'
 
@@ -116,6 +117,10 @@ function CaseStudyPage({
             src={thesisUrl}
             title="M.S. thesis: Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems"
           />
+          <CaseStudyFooter
+            base={base}
+            next={{ label: 'Browse all work examples', href: `${base}?page=work-examples` }}
+          />
         </div>
       </main>
     )
@@ -147,6 +152,11 @@ function CaseStudyPage({
         </ul>
 
         {project.slug === 'plrb-weather-systems' && <ProjectScreenshot />}
+
+        <CaseStudyFooter
+          base={base}
+          next={{ label: 'Browse all work examples', href: `${base}?page=work-examples` }}
+        />
       </div>
     </main>
   )
@@ -243,8 +253,8 @@ function App() {
                 className="hero-photo"
                 src={`${base}${portfolio.photo}`}
                 alt={`Portrait of ${portfolio.name}`}
-                width="112"
-                height="112"
+                width="132"
+                height="132"
               />
               <h1>{portfolio.name}</h1>
               <p className="hero-role">{portfolio.role}</p>
@@ -307,7 +317,7 @@ function App() {
                         <li key={tech}>{tech}</li>
                       ))}
                     </ul>
-                    {project.slug !== 'extreme-convective-wind' && (
+                    {project.slug !== 'boundary-layer-research' && (
                       <a className="text-link project-case-link" href={`${base}?work=${project.slug}`}>
                         View Work Examples <ArrowIcon />
                       </a>
@@ -343,11 +353,8 @@ function App() {
             <div className="experience-list">
               {portfolio.experience.map((item) => (
                 <article className="experience" key={`${item.organization}-${item.role}`}>
-                  <div>
-                    <h3>{item.role}</h3>
-                    <p className="experience-org">{item.organization}</p>
-                  </div>
-                  <p className="experience-summary">{item.summary}</p>
+                  <h3>{item.role}</h3>
+                  <p className="experience-org">{item.organization}</p>
                   <p className="experience-period">{item.period}</p>
                 </article>
               ))}

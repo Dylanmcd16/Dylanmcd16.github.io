@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { CaseStudyFooter } from './CaseStudyFooter'
 
 type CaseStudyImage = {
   src: string
@@ -25,7 +26,9 @@ type ProfessionalCaseStudy = {
   title: string
   role: string
   summary: string[]
+  challengeTitle: string
   challenge: string
+  next: { label: string; slug: string }
   tags: string[]
   sections: CaseStudySection[]
   results: string[]
@@ -167,8 +170,10 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       'I design and maintain operational weather and geospatial tools that help claims professionals evaluate events and understand complex environmental data.',
       'My work connects meteorology with Python and ArcPy automation, ArcGIS application development, cloud infrastructure, APIs, and research into emerging weather products. The objective is to turn technical datasets into reliable, transparent tools for event verification and catastrophe analysis.',
     ],
+    challengeTitle: 'Converting fragmented weather evidence into operational products',
     challenge:
       'Claims questions rarely have one perfect data source. Radar, observations, models, satellite products, warnings, and storm reports all differ in format, resolution, timing, and uncertainty. I build repeatable systems that organize those sources and make their limits understandable to non-meteorologists.',
+    next: { label: 'Corteva — Field-sensing systems & geospatial research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
       'Catastrophe research',
@@ -262,8 +267,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '04 / Exploration',
         title: 'Exploratory research and development',
         paragraphs: [
-          'As a smaller professional-development project, I contributed to exploratory machine-learning work estimating convective wind-gust speeds from weather-station observations and engineered meteorological predictors.',
-          'The work involved cleaning observations, matching gust events with environmental variables, developing physically meaningful predictors, comparing estimates with recorded gusts, and investigating failures caused by station coverage and storm-scale variability. It was a learning project, not a replacement for direct observations or expert meteorological analysis.',
+          'I conducted an exploratory machine-learning study estimating convective wind-gust speeds from station observations and physically relevant environmental predictors.',
+          'The work involved cleaning observations, matching gust events with environmental variables, developing physically meaningful predictors, comparing estimates with recorded gusts, and investigating failures caused by station coverage and storm-scale variability. The results were exploratory: they inform where modeled gust estimates break down, and are not a replacement for direct observations or expert meteorological analysis.',
         ],
       },
     ],
@@ -284,11 +289,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     title: 'Field-Sensing Systems & Geospatial Research',
     role: 'Corteva Agriscience - Field Sensing Research Associate',
     summary: [
-      'At Corteva, I worked across field instrumentation, agronomic research, geospatial analysis, and software automation.',
-      'I helped build and operate sensing systems, collected measurements across research sites, independently developed Python and ArcPy processing workflows, linked observations with experimental plots and remote-sensing products, and presented results to agronomists, engineers, and data scientists.',
+      'At Corteva, I worked across field instrumentation, geospatial data processing, agronomic research, and software automation. I helped develop and operate sensing systems, built Python and ArcPy workflows, and converted field measurements into analysis products used by research teams.',
     ],
+    challengeTitle: 'Connecting field measurements to research-ready geospatial data',
     challenge:
       'Mobile field measurements must be quality-controlled, connected with reliable GPS records, assigned to the correct experiment and plot, compared across sites and collection dates, and interpreted alongside crop and environmental conditions. My role covered both the physical systems in the field and the software needed to produce usable research evidence.',
+    // Points at the thesis reader (an embedded PDF), not a case study — the
+    // label has to say so.
+    next: { label: 'Read my M.S. thesis', slug: 'land-use-convective-weather' },
     tags: ['Field sensing', 'Python', 'ArcPy', 'Remote sensing', 'LiDAR', 'Instrumentation', 'Agronomic research'],
     sections: [
       {
@@ -298,7 +306,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Smartstick platform and field collection',
         paragraphs: [
           'I helped engineer and repeatedly operate Corteva\'s Smartstick, a wheeled platform created to collect spatially referenced crop-canopy measurements. My work covered the complete field system, from determining effective infrared-radiometer placement and establishing repeatable procedures to identifying practical hardware and collection issues.',
-          'I evaluated sensor height, orientation, and spacing, consulted engineering teams about related projects, and walked the platform through research fields during recurring campaigns. I also coordinated with personnel at more than seven sites - including Johnston, Dallas Center, Lubbock, and Viluco - to support consistent setup, collection, upload, and documentation.',
+          'I evaluated sensor height, orientation, and spacing, consulted engineering teams about related projects, and walked the platform through research fields during recurring campaigns. I also coordinated with personnel at seven sites - including Johnston, Dallas Center, Lubbock, and Viluco - to support consistent setup, collection, upload, and documentation.',
         ],
         images: [
           {
@@ -323,7 +331,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Smartstick cloud and geospatial data pipeline',
         paragraphs: [
           'I independently developed the end-to-end Python and ArcPy workflow behind the Smartstick. After each campaign, sensor observations and GPS records were uploaded through cloud storage. I downloaded and organized the files, performed formatting and quality-control checks, converted coordinates into geospatial points, and matched each observation with the correct field and experimental plot boundaries.',
-          'The workflow produced plot-level summaries, maps, and analysis products for the research team and was adapted to data from more than seven sites. I compared ground measurements with drone imagery and drone LiDAR, then evaluated patterns alongside soil moisture, irrigation, evapotranspiration, crop stage, and weather conditions. The proof of concept produced promising results for scalable crop-stress measurement and received strong feedback from the research team.',
+          'The workflow produced plot-level summaries, maps, and analysis products for the research team and was adapted to data from seven sites. For selected sites I compared ground measurements with drone imagery and drone LiDAR, then evaluated patterns alongside soil moisture, irrigation, evapotranspiration, crop stage, and weather conditions. The proof of concept demonstrated that mobile canopy measurements could be consistently processed, assigned to experimental plots, and compared with drone and environmental datasets.',
         ],
         bullets: [
           'Reduced hours of repetitive post-collection processing.',
@@ -347,18 +355,19 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
       {
         id: 'nitrous-oxide',
-        navLabel: 'N2O experiment',
+        navLabel: 'N₂O experiment',
         eyebrow: '03 / Experimentation',
-        title: 'Nitrous oxide field experiment',
+        title: 'Nitrous oxide (N₂O) field experiment',
         paragraphs: [
-          'I contributed to a large nitrous oxide (N2O) field experiment using soil-gas flux chambers designed and built by the research team. The system measured changes in gas concentration above the soil surface and required careful installation, maintenance, sampling, and quality control throughout the campaign.',
+          'I contributed to a large nitrous oxide (N₂O) field experiment built around sixteen soil-gas flux chambers. The system sampled on an automated fifteen-minute cycle and fed an on-site analyzer, so a single fault in a chamber, line, or valve could quietly corrupt a long stretch of the record. Our team hand-assembled the sampling manifolds, and I helped install, maintain, and troubleshoot the system across the campaign.',
+          'The resulting time series went to data science teams for analysis, and I worked with them to interpret the output — reviewing measurement quality, explaining field conditions and equipment behavior behind unusual values, and helping separate real soil-flux signal from artifacts of the sampling system. The collaboration turned continuous chamber measurements into conclusions the wider research group could act on.',
         ],
-        highlight: 'Helped build, deploy, maintain, and troubleshoot the chamber and sampling system while supporting consistent field measurements.',
+        highlight: 'Helped build, deploy, maintain, and troubleshoot a sixteen-chamber automated sampling system, then partnered with data science teams to interpret what it measured.',
         images: [
           {
             src: 'gas_sampling_build.jpeg',
             alt: 'Multi-channel soil-gas sampling and valve-control system under construction',
-            caption: 'Multi-channel gas-sampling and valve-control system built in-house for the automated soil-flux experiment.',
+            caption: 'Multi-channel valve-control and sampling manifold, assembled in-house, that carried chamber air to the on-site analyzer on an automated cycle.',
             treatment: 'portrait',
           },
         ],
@@ -367,9 +376,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         id: 'weather-station',
         navLabel: 'Weather station',
         eyebrow: '04 / Instrumentation',
-        title: 'Gold Standard weather station',
+        title: 'Gold Standard reference weather station',
         paragraphs: [
-          'I designed and built Corteva\'s Gold Standard automated weather station at the Johnston research fields as a trusted reference for comparing weather instruments and field-sensing systems. I integrated environmental sensors, operationalized an antenna-based relay, and maintained the site for side-by-side instrument evaluation.',
+          'I designed and built Corteva\'s Gold Standard automated weather station at the Johnston research fields. The site served as the reference against which other weather instruments and field-sensing systems were compared, so its measurements had to be well-sited, well-maintained, and continuously available. I integrated environmental sensors, operationalized an antenna-based relay, and maintained the site for side-by-side instrument evaluation.',
         ],
         highlight: 'Built the real-time field-to-facility data relay that supported reliable weather-instrument comparison at the reference site.',
         images: [
@@ -380,8 +389,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           },
           {
             src: 'gold_standard.jpeg',
-            alt: 'Supporting view of Gold Standard weather-station instruments',
-            caption: 'Supporting instrument view from the Gold Standard comparison site.',
+            alt: 'Dylan McDermott on site during assembly of the reference weather station',
+            caption: 'On site during assembly, showing the sensor mast, radiation shields, and solar-powered logging enclosures at working scale.',
             treatment: 'portrait',
           },
         ],
@@ -412,7 +421,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     results: [
       'Reduced hours of manual Smartstick processing through a reusable multi-site workflow.',
       'Connected mobile sensor measurements with GPS records, field boundaries, and experimental plots.',
-      'Compared ground measurements with drone imagery and LiDAR for a promising crop-stress proof of concept.',
+      'Showed that mobile canopy measurements could be processed, plot-assigned, and compared against drone imagery and LiDAR.',
       'Designed, built, deployed, and maintained field instrumentation from the ground up.',
       'Improved operational tracking for a large sensor fleet distributed across the Americas.',
       'Delivered methods, maps, and findings that cross-functional research teams could evaluate.',
@@ -486,7 +495,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
 
         <aside className="case-challenge" aria-labelledby="case-challenge-title">
           <p className="case-kicker">The challenge</p>
-          <h2 id="case-challenge-title">Turning complex evidence into a usable system</h2>
+          <h2 id="case-challenge-title">{study.challengeTitle}</h2>
           <p>{study.challenge}</p>
         </aside>
 
@@ -513,7 +522,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
                 <p className="case-kicker">{section.eyebrow}</p>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                {section.highlight && <p className="case-highlight"><strong>Highlighted contribution</strong>{section.highlight}</p>}
+                {section.highlight &&<p className="case-highlight"><strong>Highlighted contribution</strong>{section.highlight}</p>}
                 {section.bullets && (
                   <ul className="case-bullets">
                     {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
@@ -525,7 +534,10 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
               {section.note && <p className="case-media-note">{section.note}</p>}
               {section.code && (
                 <details className="case-code">
-                  <summary>View complete ArcPy processing workflow</summary>
+                  <summary>View sanitized ArcPy workflow excerpt</summary>
+                  <p className="case-code-note">
+                    Site names, file paths, and proprietary implementation details have been replaced or omitted.
+                  </p>
                   <pre><code>{section.code}</code></pre>
                 </details>
               )}
@@ -557,7 +569,10 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
           </dl>
         </section>
 
-        <a className="text-link case-study-footer-link" href={base}>Back to portfolio</a>
+        <CaseStudyFooter
+          base={base}
+          next={{ label: study.next.label, href: `${base}?work=${study.next.slug}` }}
+        />
       </div>
     </main>
   )
