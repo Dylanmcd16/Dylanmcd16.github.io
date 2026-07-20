@@ -624,6 +624,66 @@ svg.icon {
   width: 16px;
   height: 16px;
 }
+
+/* Reflective sheen on the card links. Guarded by @supports: without
+   background-clip the text-fill stays transparent and the label vanishes.
+   The arrow needs its own color because svg.icon strokes with currentColor,
+   which the clip trick sets to transparent. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .project-case-link {
+    background-image: linear-gradient(
+      100deg,
+      var(--ink) 42%,
+      #86a9ee 50%,
+      var(--ink) 58%
+    );
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: link-sheen 6.5s ease-in-out infinite;
+  }
+  .project-case-link svg {
+    color: var(--ink);
+  }
+  .project-case-link:hover {
+    background-image: linear-gradient(
+      100deg,
+      var(--accent-strong) 42%,
+      #9dbcf5 50%,
+      var(--accent-strong) 58%
+    );
+  }
+  .project-case-link:hover svg {
+    color: var(--accent-strong);
+  }
+  /* Offset each card so the four links don't flash in unison. */
+  .project:nth-child(2) .project-case-link { animation-delay: 0.5s; }
+  .project:nth-child(3) .project-case-link { animation-delay: 1s; }
+  .project:nth-child(4) .project-case-link { animation-delay: 1.5s; }
+}
+
+/* Sheen passes in the first ~30%, then rests. Both endpoints sit with the
+   highlight off-canvas, so the loop restart is invisible. */
+@keyframes link-sheen {
+  0%, 8% {
+    background-position: 0% 0;
+  }
+  38%, 100% {
+    background-position: 100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-case-link {
+    animation: none !important;
+    background-image: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--ink);
+  }
+}
 .project-screenshot {
   width: min(100%, 504px);
   justify-self: end;
