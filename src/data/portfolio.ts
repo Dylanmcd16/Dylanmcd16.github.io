@@ -176,7 +176,7 @@ export const portfolio = {
       description:
         'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into quality-controlled geospatial analyses for research teams.',
       keyContribution:
-        'Co-engineered Corteva’s Smartstick mobile sensing platform and validated it across seven research sites with field, drone, and LiDAR measurements.',
+        'Co-engineered Corteva’s Smartstick proof-of-concept and performed research analyses across seven research sites with field and drone measurements.',
       caseStudy: {
         overview:
           'At Corteva, I built and operated field-sensing systems and the processing workflows that turned raw observations into quality-controlled geospatial analyses for research teams.',
