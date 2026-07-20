@@ -767,15 +767,16 @@ svg.icon {
 .case-section-nav {
   position: sticky;
   z-index: 20;
-  top: 0;
+  top: 12px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
   margin-top: 72px;
-  padding: 12px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 94%, transparent);
+  padding: 10px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 8px 24px rgba(16, 33, 64, 0.1);
   backdrop-filter: blur(14px);
 }
 .case-section-nav > span {
@@ -791,24 +792,27 @@ svg.icon {
   flex: 1;
   min-width: 0;
   gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: thin;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .case-section-nav a {
   flex: 0 0 auto;
   padding: 8px 11px;
   border-radius: 999px;
-  color: var(--ink-soft);
+  color: var(--ink);
+  background: var(--panel);
   font-size: 0.8rem;
   font-weight: 650;
   line-height: 1.2;
+  white-space: nowrap;
   text-decoration: none;
-  transition: background 160ms ease, color 160ms ease;
+  transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
 .case-section-nav a:hover,
 .case-section-nav a.is-active {
   color: #fff;
   background: var(--accent);
+  box-shadow: 0 3px 8px rgba(47, 95, 208, 0.25);
 }
 .case-work-section {
   scroll-margin-top: 92px;
@@ -1260,8 +1264,10 @@ footer {
     padding: 26px 22px;
   }
   .case-section-nav {
+    top: 8px;
     margin-top: 48px;
-    padding: 9px 0;
+    padding: 8px;
+    border-radius: 12px;
   }
   .case-section-nav > span {
     display: none;
@@ -1269,6 +1275,11 @@ footer {
   .case-section-nav a {
     padding: 7px 10px;
     font-size: 0.75rem;
+  }
+  .case-section-nav > div {
+    flex-wrap: wrap;
+    overflow: visible;
+    padding: 1px;
   }
   .case-work-section {
     scroll-margin-top: 76px;
