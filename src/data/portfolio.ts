@@ -184,7 +184,7 @@ export const portfolio = {
       items: [
         'Radar applications',
         'Numerical weather prediction',
-        'Modeling',
+        'Numerical modeling',
         'Remote sensing',
       ],
     },
