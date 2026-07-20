@@ -697,6 +697,61 @@ svg.icon {
   justify-self: start;
 }
 
+/* ------------------------------------------------------ Work examples -- */
+
+.work-examples-page {
+  padding-top: 118px;
+}
+.work-examples-container {
+  max-width: 960px;
+}
+.work-examples-page .case-study-back {
+  display: inline-flex;
+  margin-bottom: 58px;
+}
+.work-examples-page h1 {
+  max-width: 720px;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+}
+.work-examples-intro {
+  max-width: 680px;
+  margin-top: 22px;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.work-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 54px;
+}
+.work-example-card {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.work-example-card h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.18;
+}
+.work-example-card p {
+  margin: 16px 0 24px;
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.66;
+}
+.work-example-card .text-link {
+  margin-top: auto;
+}
+
 /* ------------------------------------------------ Professional case study -- */
 
 .professional-case-study {
@@ -734,9 +789,9 @@ svg.icon {
 .case-challenge {
   display: grid;
   grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.7fr);
-  gap: 10px 54px;
-  margin-top: 70px;
-  padding: 34px 38px;
+  gap: 6px 38px;
+  margin-top: 56px;
+  padding: 26px 30px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: #fff;
@@ -754,7 +809,7 @@ svg.icon {
 .case-challenge > p:last-child {
   margin: 0;
   color: var(--ink-soft);
-  line-height: 1.72;
+  line-height: 1.62;
 }
 .case-kicker {
   margin: 0 0 12px;
@@ -837,6 +892,25 @@ svg.icon {
   font-size: 1.03rem;
   line-height: 1.76;
 }
+.case-section-copy > p.case-highlight {
+  max-width: 760px;
+  margin: 20px 0 0;
+  padding: 13px 16px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  color: var(--ink-soft);
+  background: var(--accent-soft);
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+.case-highlight strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ink);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .case-bullets {
   display: grid;
   gap: 10px;
@@ -901,6 +975,10 @@ svg.icon {
   font-size: 0.82rem;
   line-height: 1.5;
 }
+.case-media figcaption strong {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
 .case-media-note {
   max-width: 820px;
   margin: 16px 0 0;
@@ -957,16 +1035,16 @@ svg.icon {
   line-height: 1.58;
 }
 .case-toolkit {
-  margin-top: 76px;
+  margin-top: 62px;
 }
 .case-toolkit dl {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 42px;
-  margin: 30px 0 0;
+  gap: 0 30px;
+  margin: 22px 0 0;
 }
 .case-toolkit dl > div {
-  padding: 18px 0;
+  padding: 12px 0;
   border-top: 1px solid var(--line);
 }
 .case-toolkit dt {
@@ -975,10 +1053,10 @@ svg.icon {
   font-weight: 700;
 }
 .case-toolkit dd {
-  margin: 6px 0 0;
+  margin: 3px 0 0;
   color: var(--ink-soft);
   font-size: 0.9rem;
-  line-height: 1.55;
+  line-height: 1.45;
 }
 .case-study-footer-link {
   display: inline-flex;
@@ -1243,6 +1321,23 @@ footer {
   }
   .case-study-page {
     padding: 82px 0 64px;
+  }
+  .work-examples-page {
+    padding-top: 82px;
+  }
+  .work-examples-page .case-study-back {
+    margin-bottom: 42px;
+  }
+  .work-examples-page h1 {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+  }
+  .work-examples-grid {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+  .work-example-card {
+    min-height: 0;
+    padding: 24px;
   }
   .professional-case-study {
     padding-top: 28px;

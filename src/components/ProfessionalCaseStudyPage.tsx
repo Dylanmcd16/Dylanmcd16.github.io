@@ -4,6 +4,7 @@ type CaseStudyImage = {
   src: string
   alt: string
   caption: string
+  label?: string
   treatment?: 'portrait' | 'smoke'
 }
 
@@ -13,6 +14,7 @@ type CaseStudySection = {
   eyebrow: string
   title: string
   paragraphs: string[]
+  highlight?: string
   bullets?: string[]
   images?: CaseStudyImage[]
   note?: string
@@ -30,29 +32,132 @@ type ProfessionalCaseStudy = {
   tools: Array<{ label: string; values: string }>
 }
 
-const smartstickCode = `def assign_measurements_to_plots(
-    sensor_csv: Path,
-    plot_boundaries: Path,
-) -> gpd.GeoDataFrame:
-    measurements = pd.read_csv(sensor_csv)
+const smartstickCode = `############### ARCGIS ##############################
+import arcpy
+import pandas as pd
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import os
 
-    points = gpd.GeoDataFrame(
-        measurements,
-        geometry=gpd.points_from_xy(
-            measurements["longitude"],
-            measurements["latitude"],
-        ),
-        crs="EPSG:4326",
+
+def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
+    arcpy.env.workspace = data_directory
+    arcpy.env.overwriteOutput = True
+
+    # Define the field-boundary shapefile for each collection site.
+    shapefile_paths = {
+        "Loc1": r"path_to_file",
+        "Loc2": r"path_to_file",
+        "Loc3": r"path_to_file",
+        "Loc4": r"path_to_file",
+        "Loc5": r"path_to_file",
+        "Loc6": r"path_to_file",
+    }
+
+    shp = shapefile_paths.get(site)
+    if not shp:
+        print("FAILED: No shapefile found for the specified site")
+        return None
+
+    # Import field boundaries and convert sensor longitude and latitude to points.
+    shapefile_imported = "shapefile_imported.shp"
+    arcpy.management.CopyFeatures(shp, shapefile_imported)
+    print(f"Loading shapefile from \${shp}")
+
+    point_layer = "xy_points"
+    arcpy.management.XYTableToPoint(concatenated_file_path, point_layer, "lon", "lat")
+    print("Importing point layer using XY Table to Point")
+
+    # Dissolve field boundaries to the plot identifier used for spatial assignment.
+    dissolved_layer = "dissolved_layer.shp"
+    arcpy.management.Dissolve(shapefile_imported, dissolved_layer, "PRISM_ID")
+    print("Dissolved shapefile by PRISM_ID")
+
+    # Match observations inside their corresponding field plots.
+    spatial_join_within = "spatial_join_within.shp"
+    arcpy.analysis.SpatialJoin(
+        point_layer,
+        dissolved_layer,
+        spatial_join_within,
+        join_type="KEEP_ALL",
+        match_option="WITHIN",
+        join_operation="JOIN_ONE_TO_MANY",
     )
+    print("Joined point layer to dissolved field boundaries")
 
-    plots = gpd.read_file(plot_boundaries).to_crs(points.crs)
+    # Create an inward buffer to flag observations near plot edges.
+    buffer_layer = "buffer_layer.shp"
+    arcpy.analysis.Buffer(
+        dissolved_layer,
+        buffer_layer,
+        "-1.5 Feet",
+        dissolve_option="LIST",
+        dissolve_field="PRISM_ID",
+    )
+    print("Created -1.5 ft buffers by PRISM_ID")
 
-    return gpd.sjoin(
-        points,
-        plots[["plot_id", "geometry"]],
-        how="left",
-        predicate="within",
-    )`
+    spatial_join_buffer = "spatial_join_buffer.shp"
+    arcpy.analysis.SpatialJoin(
+        spatial_join_within,
+        buffer_layer,
+        spatial_join_buffer,
+        join_type="KEEP_ALL",
+        match_option="WITHIN",
+        join_operation="JOIN_ONE_TO_MANY",
+    )
+    print("Joined the assigned points to the plot-edge buffers")
+
+    # Export the attributed observations for downstream analysis.
+    csv_output_path = os.path.join(
+        data_directory,
+        f"spatial_join_buffer_output_\${site}_\${date}.csv",
+    )
+    arcpy.conversion.TableToTable(
+        spatial_join_buffer,
+        os.path.dirname(csv_output_path),
+        os.path.basename(csv_output_path),
+    )
+    print("Exported table as CSV")
+
+    df_csv = pd.read_csv(csv_output_path)
+    print("CSV File Columns:", df_csv.columns.tolist())
+    print(f"ArcGIS process complete. Outputs saved to \${csv_output_path}")
+
+    # Plot field boundaries and observations for a quick spatial QA check.
+    gdf_dissolved = gpd.read_file(os.path.join(data_directory, dissolved_layer))
+    points_gdf = gpd.GeoDataFrame(
+        df_csv,
+        geometry=gpd.points_from_xy(df_csv.lon, df_csv.lat),
+    )
+    points_gdf = points_gdf[~((points_gdf["lon"] == 0) & (points_gdf["lat"] == 0))]
+
+    fig, ax = plt.subplots(figsize=(16, 8))
+    gdf_dissolved.plot(
+        ax=ax,
+        color="lightblue",
+        edgecolor="black",
+        alpha=0.6,
+        label="Experimental plot boundaries",
+    )
+    points_gdf.plot(
+        ax=ax,
+        color="red",
+        markersize=5,
+        label="GPS-tagged sensor observations",
+    )
+    plt.title(f"Sensor observations and plot boundaries: \${site}")
+    plt.legend()
+    plt.show()
+
+    return csv_output_path
+
+
+arcgis_output_csv = run_arcgis_operations(
+    concatenated_file_path,
+    site,
+    date,
+    data_directory,
+)`
 
 const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'plrb-weather-systems': {
@@ -117,12 +222,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           {
             src: 'hail_research_map.png',
             alt: 'Hail Research ArcGIS Experience Builder application',
-            caption: 'Hail Research: I built the date filtering, evidence layers, report popups, map behavior, and claims-oriented interface around observed reports and gridded hail estimates.',
+            label: 'Hail research application',
+            caption: 'I built the date filtering, evidence layers, report popups, map behavior, and claims-oriented interface around observed reports and gridded hail estimates.',
           },
           {
             src: 'current_weather_map.png',
             alt: 'Current Weather and Forecasts ArcGIS application displaying hurricane guidance',
-            caption: 'Current Weather & Forecasts: a multi-source application that brings tropical guidance, radar, reports, warnings, outlooks, precipitation, and observations into one interface.',
+            label: 'Hurricane event analysis',
+            caption: 'A multi-source application bringing tropical guidance, radar, reports, warnings, outlooks, precipitation, and observations into one claims-ready interface.',
           },
         ],
       },
@@ -136,9 +243,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           'For a smoke and air-quality proof of concept, I combined surface PM2.5 observations with HRRR-Smoke guidance. The work required clearly separating measured air quality from modeled smoke density, testing practical symbology, and explaining why model output should not be treated as a direct surface observation. I apply the same evidence-first approach when evaluating products such as ProbSevere and radar-derived hail estimates.',
         ],
         bullets: [
-          'Document source limitations and communicate uncertainty to teammates and member companies.',
-          'Pair modeled or remotely sensed products with independent observations when possible.',
-          'Reject technically available data when it cannot answer the intended question responsibly.',
+          'Assess data quality, source limitations, uncertainty, and transparent methodology for operational products.',
+          'Integrate radar, satellite, numerical-model, and observational datasets into regional and national geospatial products.',
+          'Evaluate how variable definition, spatial and temporal resolution, and update behavior affect claims-oriented interpretation.',
         ],
         images: [
           {
@@ -161,19 +268,16 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Replaced hours of repetitive daily processing with monitored, repeatable workflows.',
-      'Improved consistency and reliability across recurring weather and catastrophe products.',
-      'Made complex weather evidence easier for claims professionals to explore and interpret.',
-      'Connected raw data acquisition, cloud processing, ArcGIS services, and user-facing applications.',
-      'Expanded the range of weather products available while documenting uncertainty and limitations.',
-      'Contributed to PLRB receiving a 2025 Esri Special Achievement in GIS Award.',
+      'Delivered monitored daily weather and catastrophe products with fewer manual processing steps.',
+      'Built claims-facing applications that make multi-source event evidence easier to search, compare, and interpret.',
+      'Connected data acquisition, quality control, cloud processing, ArcGIS services, and user-facing applications.',
+      'Expanded weather evidence responsibly by documenting source limits, uncertainty, and appropriate use.',
     ],
     tools: [
-      { label: 'Languages and automation', values: 'Python, ArcPy, JavaScript, TypeScript' },
-      { label: 'Geospatial systems', values: 'ArcGIS Pro, ArcGIS Enterprise, ArcGIS Server, ArcGIS Online, Experience Builder' },
-      { label: 'Cloud and backend', values: 'AWS EC2, S3, RDS, REST APIs' },
-      { label: 'Weather data', values: 'Radar, satellite, numerical models, observations, storm reports, smoke, and air-quality data' },
-      { label: 'Methods', values: 'Data ingestion, quality control, raster and vector analysis, application development, product validation' },
+      { label: 'Geospatial automation', values: 'Python, ArcPy, ArcGIS Enterprise' },
+      { label: 'Claims applications', values: 'Experience Builder, custom widgets, REST APIs' },
+      { label: 'Weather evidence', values: 'Radar, satellite, models, observations, storm reports' },
+      { label: 'Operations', values: 'AWS, quality control, publishing, product validation' },
     ],
   },
   'corteva-field-sensing': {
@@ -200,11 +304,13 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           {
             src: 'smartstick.jpeg',
             alt: 'Corteva Smartstick mobile field-sensing platform',
-            caption: 'The Smartstick mobile sensing platform configured for repeatable, spatially referenced crop-canopy measurements.',
+            label: 'Field collection setup',
+            caption: 'Smartstick platform configured for repeatable, spatially referenced crop-canopy measurements.',
           },
           {
             src: 'enclosure.jpeg',
             alt: 'Smartstick onboard electronics and data-acquisition enclosure',
+            label: 'Smartstick sensor enclosure',
             caption: 'Onboard data acquisition, controls, and electronics integrated into the field platform.',
             treatment: 'portrait',
           },
@@ -245,9 +351,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '03 / Experimentation',
         title: 'Nitrous oxide field experiment',
         paragraphs: [
-          'I contributed to a large nitrous oxide (N2O) experiment using soil-gas flux chambers designed and built by the research team from the ground up. The system measured changes in gas concentration above the soil surface to support emissions research.',
-          'I helped construct the chambers, prepare and install equipment, maintain the system throughout the experiment, support repeatable sampling, troubleshoot field issues, and organize collected data. The work demanded careful attention to placement, sealing, timing, maintenance, and environmental conditions because each could affect measurement quality.',
+          'I contributed to a large nitrous oxide (N2O) field experiment using soil-gas flux chambers designed and built by the research team. The system measured changes in gas concentration above the soil surface and required careful installation, maintenance, sampling, and quality control throughout the campaign.',
         ],
+        highlight: 'Helped build, deploy, maintain, and troubleshoot the chamber and sampling system while supporting consistent field measurements.',
         images: [
           {
             src: 'gas_sampling_build.jpeg',
@@ -263,9 +369,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '04 / Instrumentation',
         title: 'Gold Standard weather station',
         paragraphs: [
-          'I designed and built Corteva\'s Gold Standard automated weather station at the Johnston research fields as a trusted reference for comparing weather instruments and field-sensing systems.',
-          'The work included selecting and installing components, integrating environmental sensors, constructing an antenna-based relay that transmitted measurements to the main facility in real time, maintaining the station, and supporting side-by-side instrument evaluation. It combined meteorology, communications, instrumentation, and field engineering in one operational reference site.',
+          'I designed and built Corteva\'s Gold Standard automated weather station at the Johnston research fields as a trusted reference for comparing weather instruments and field-sensing systems. I integrated environmental sensors, operationalized an antenna-based relay, and maintained the site for side-by-side instrument evaluation.',
         ],
+        highlight: 'Built the real-time field-to-facility data relay that supported reliable weather-instrument comparison at the reference site.',
         images: [
           {
             src: 'gold_standard_field.jpeg',
@@ -312,11 +418,10 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       'Delivered methods, maps, and findings that cross-functional research teams could evaluate.',
     ],
     tools: [
-      { label: 'Programming and geospatial', values: 'Python, ArcPy, ArcGIS Pro, GeoPandas, pandas' },
-      { label: 'Field sensing', values: 'Mobile platforms, infrared radiometers, weather instruments, soil-gas flux chambers' },
-      { label: 'Remote sensing', values: 'Drone imagery, drone LiDAR, GPS-tagged field observations' },
-      { label: 'Data management', values: 'Cloud transfer, quality control, spatial assignment, plot-level summarization' },
-      { label: 'Research methods', values: 'Field experimentation, instrument design, environmental monitoring, statistical analysis, technical presentation' },
+      { label: 'Geospatial automation', values: 'Python, ArcPy, ArcGIS Pro' },
+      { label: 'Field systems', values: 'Smartstick, IRTs, weather station, gas-flux chambers' },
+      { label: 'Spatial evidence', values: 'GPS, plot boundaries, drone imagery, LiDAR' },
+      { label: 'Data workflow', values: 'Cloud transfer, quality control, plot-level analysis' },
     ],
   },
 }
@@ -329,7 +434,11 @@ function SectionMedia({ images, base }: { images: CaseStudyImage[]; base: string
           <a href={`${base}${image.src}`} target="_blank" rel="noreferrer" aria-label={`${image.alt} - open full size`}>
             <img src={`${base}${image.src}`} alt={image.alt} loading="lazy" />
           </a>
-          <figcaption>{image.caption}</figcaption>
+          <figcaption>
+            {image.label && <strong>{image.label}</strong>}
+            {image.label && ' - '}
+            {image.caption}
+          </figcaption>
         </figure>
       ))}
     </div>
@@ -404,6 +513,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
                 <p className="case-kicker">{section.eyebrow}</p>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {section.highlight && <p className="case-highlight"><strong>Highlighted contribution</strong>{section.highlight}</p>}
                 {section.bullets && (
                   <ul className="case-bullets">
                     {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
@@ -415,7 +525,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
               {section.note && <p className="case-media-note">{section.note}</p>}
               {section.code && (
                 <details className="case-code">
-                  <summary>View concise geospatial code example</summary>
+                  <summary>View complete ArcPy processing workflow</summary>
                   <pre><code>{section.code}</code></pre>
                 </details>
               )}
