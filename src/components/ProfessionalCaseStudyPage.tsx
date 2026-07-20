@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CaseStudyFooter } from './CaseStudyFooter'
 import { CaseStudyHeroScene, type HeroSceneVariant } from './CaseStudyHeroScene'
+import { caseStudyUrl } from '../utils/routes'
 
 type CaseStudyImage = {
   src: string
@@ -579,7 +580,7 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
 
         <CaseStudyFooter
           base={base}
-          next={{ label: study.next.label, href: `${base}?work=${study.next.slug}` }}
+          next={{ label: study.next.label, href: caseStudyUrl(study.next.slug) }}
         />
       </div>
     </main>

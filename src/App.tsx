@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { CaseStudyFooter } from './components/CaseStudyFooter'
 import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
 import { portfolio } from './data/portfolio'
+import { getRouteState, caseStudyUrl } from './utils/routes'
 
 // Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
 const WeatherGlobe = lazy(() => import('./components/WeatherGlobe'))
@@ -175,11 +176,54 @@ function App() {
   const base = import.meta.env.BASE_URL
   const resumeUrl = `${base}${portfolio.resumeFile}`
   const thesisUrl = `${base}${portfolio.thesisFile}`
-  const caseStudySlug = new URLSearchParams(window.location.search).get('work')
-  const caseStudy = portfolio.projects.find((project) => project.slug === caseStudySlug)
 
-  if (caseStudy) {
-    return <CaseStudyPage project={caseStudy} base={base} thesisUrl={thesisUrl} />
+  // Redirect legacy ?work=slug URLs to the new path-based routes
+  useEffect(() => {
+    const legacySlug = new URLSearchParams(window.location.search).get('work')
+    if (!legacySlug) return
+
+    const projectExists = portfolio.projects.some(
+      (project) => project.slug === legacySlug,
+    )
+    if (projectExists) {
+      window.location.replace(caseStudyUrl(legacySlug))
+    }
+  }, [])
+
+  const routeState = getRouteState()
+
+  if (routeState.type === 'not-found') {
+    // Relying on public/404.html for direct navigation, but handling soft 404s here
+    return (
+      <main className="case-study-page">
+        <div className="container case-study-container">
+          <h1>404 - Not Found</h1>
+          <p>The case study you are looking for does not exist.</p>
+          <a className="button button-primary" href={base} style={{ marginTop: '2rem', display: 'inline-block' }}>
+            Back to portfolio
+          </a>
+        </div>
+      </main>
+    )
+  }
+
+  if (routeState.type === 'case-study') {
+    const caseStudy = portfolio.projects.find((project) => project.slug === routeState.slug)
+    if (caseStudy) {
+      return <CaseStudyPage project={caseStudy} base={base} thesisUrl={thesisUrl} />
+    }
+    // Handle invalid case study slug
+    return (
+      <main className="case-study-page">
+        <div className="container case-study-container">
+          <h1>404 - Not Found</h1>
+          <p>The case study "{routeState.slug}" does not exist.</p>
+          <a className="button button-primary" href={base} style={{ marginTop: '2rem', display: 'inline-block' }}>
+            Back to portfolio
+          </a>
+        </div>
+      </main>
+    )
   }
 
   return (
@@ -263,7 +307,7 @@ function App() {
                       ))}
                     </ul>
                     {project.slug !== 'boundary-layer-research' && (
-                      <a className="text-link project-case-link" href={`${base}?work=${project.slug}`}>
+                      <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
                         View Work Examples <ArrowIcon />
                       </a>
                     )}
