@@ -58,7 +58,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I’m a meteorologist who uses atmospheric science, geospatial data, and software to solve practical environmental problems. My work spans operational weather and catastrophe analysis, field-sensing research, numerical modeling, and geospatial automation.',
+    'I build automated geospatial and weather-data workflows that turn complex scientific observations into reliable maps, analyses, and operational products. That work spans operational weather and catastrophe systems at PLRB, field-sensing research at Corteva Agriscience, graduate research in atmospheric modeling at Iowa State, and an independently built React and FastAPI weather-intelligence platform.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -73,18 +73,18 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and geospatial analysis.',
+        'Claims professionals need weather evidence that stays accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently. I build and maintain the automated Python and ArcPy workflows, geospatial products, and custom ArcGIS applications that deliver that evidence every day.',
       outcomes: [
-        'Researched, built, and maintained national weather and hazard-data workflows and geospatial products for event verification, catastrophe analysis, and decision support.',
+        'Own daily production workflows that collect, validate, reconcile, and publish national weather and hazard data.',
+        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
       caseStudy: {
         overview:
-          'At PLRB, I contribute to operational weather and geospatial systems used to support event verification, catastrophe analysis, and decision-making. The work requires practical meteorological interpretation alongside reliable automated data processing.',
+          'At PLRB, I build and maintain the operational weather and geospatial systems behind event verification and catastrophe analysis, pairing meteorological interpretation with automated data processing that has to hold up in daily production.',
         examples: [
-          'Automated ingestion, validation, and publication workflows for weather and hazard datasets.',
-          'Raster and vector products that help communicate severe weather, precipitation, smoke, evacuation, earthquake, and outage impacts.',
-          'Cloud-hosted services and APIs that support repeatable, data-driven workflows.',
-          'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+          'Built automated ingestion, validation, and publication workflows for weather and hazard datasets.',
+          'Produced raster and vector products that communicate severe weather, precipitation, smoke, evacuation, earthquake, and outage impacts.',
+          'Built cloud-hosted services and API integrations that support repeatable, data-driven workflows.',
         ],
       },
       tech: ['Python', 'ArcGIS Pro & Enterprise', 'ArcPy', 'AWS'],
@@ -96,16 +96,15 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024',
       accent: 'field',
       description:
-        'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into geospatial analyses.',
+        'Corteva needed a repeatable way to turn raw, GPS-linked field measurements into research-ready evidence. I built and operated the sensing systems, then independently developed the Python and ArcPy pipelines that validated, spatially assigned, and analyzed the data.',
       keyContribution:
-        'Co-engineered Corteva’s Smartstick proof of concept, processed measurements from seven research sites, and compared selected field datasets with drone imagery and LiDAR.',
+        'Co-developed Corteva’s Smartstick field-sensing platform and built the workflow that processed its GPS-linked observations across seven research sites into quality-controlled, plot-level geospatial analyses, then compared selected results with drone imagery and LiDAR.',
       caseStudy: {
         overview:
-          'At Corteva, I built and operated field-sensing systems and the processing workflows that turned raw observations into geospatial analyses for research teams.',
+          'At Corteva, I built and operated field-sensing systems and independently developed the processing workflows that turned their raw observations into plot-level geospatial analyses for research teams.',
         examples: [
           'Built systems ranging from a gold-standard automated weather station and custom N₂O soil-gas flux chambers to hundreds of infrared radiometers deployed across the Americas.',
-          'Developed Python and ArcPy pipelines for quality control, spatial assignment, analysis, visualization, and delivery.',
-          'Co-engineered the Smartstick mobile sensing platform; processed measurements from seven research sites and compared selected field datasets with drone imagery and LiDAR.',
+          'Built the Python and ArcPy pipeline that validated, spatially assigned, visualized, and delivered Smartstick measurements from seven research sites; compared selected results with drone imagery and LiDAR.',
         ],
       },
       tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
@@ -117,9 +116,9 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Studied how historical land-use change affected Midwest rainfall and mesoscale convective systems using WRF and Noah-MP simulations.',
+        'Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.',
       keyContribution:
-        'Research output: a M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
+        'Produced an M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
       caseStudy: {
         overview:
           'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems. The work combined numerical weather and land-surface modeling with geospatial data preparation and multi-source analysis.',
@@ -138,16 +137,15 @@ export const portfolio = {
       kind: 'Iowa State · Undergraduate Research Assistant · 2021',
       accent: 'analysis',
       description:
-        'Conducted boundary-layer meteorology research under Dr. Ian Williams at Iowa State University. Focused on case identification and scientific visualization.',
+        'Boundary-layer meteorology research with Dr. Ian Williams at Iowa State University. I identified the cases worth analyzing and produced the scientific plots and visualizations used to interpret them.',
       keyContribution:
-        'Research contribution: produced case-based plots and visualizations that supported an ongoing research effort, later carried forward by an incoming graduate student.',
+        'Built the case set and visualizations that an incoming graduate student used to carry the project forward.',
       caseStudy: {
         overview:
-          'My undergraduate research focused on boundary-layer meteorology under the guidance of Dr. Ian Williams at Iowa State University. This was separate from my senior thesis on extreme convective wind in Iowa.',
+          'My undergraduate research focused on boundary-layer meteorology with Dr. Ian Williams at Iowa State University, separate from my senior thesis on extreme convective wind in Iowa.',
         examples: [
           'Identified relevant cases for further meteorological analysis.',
-          'Generated scientific plots and visualizations to support interpretation of findings.',
-          'Contributed research that was later carried forward by an incoming graduate student.',
+          'Generated the scientific plots and visualizations used to interpret findings.',
         ],
       },
       tech: ['Boundary-layer meteorology', 'Case identification', 'Data visualization', 'Research collaboration'],
@@ -243,5 +241,5 @@ export const portfolio = {
   ] satisfies EducationItem[],
 
   contactLead:
-    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, research, or related work. Reach me at dylanddermott@gmail.com or via LinkedIn.',
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }

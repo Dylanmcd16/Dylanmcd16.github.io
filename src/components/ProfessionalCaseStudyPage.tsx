@@ -175,7 +175,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     ],
     challengeTitle: 'Turning fragmented weather data into reliable claims decision support',
     challenge:
-      'The role requires analyzing weather, climate, and catastrophe data; building reports, maps, and visualizations; performing GIS-based spatial analysis; and integrating multiple sources for the insurance industry. In practice, I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, downloads fail silently, and maps, tables, and exports must stay synchronized for claims professionals.',
+      'Claims professionals need weather evidence they can trust on the day they ask for it. I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently — and that keep maps, tables, and exports synchronized end to end.',
     next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
@@ -274,6 +274,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       'Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.',
       'Built claims-facing applications that keep displayed maps and downstream records aligned.',
       'Expanded available weather evidence while documenting uncertainty and appropriate use.',
+      'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
     ],
     tools: [
       { label: 'Automation', values: 'Python, ArcPy, scheduled production workflows' },
@@ -301,7 +302,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Field system',
         title: 'Smartstick sensing platform',
         paragraphs: [
-          'I helped design and repeatedly operate Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions while moving through experimental rows. Infrared radiometers and thermocouples measured below-canopy, within-canopy, and upper-canopy temperatures, while additional sensors measured air temperature within and above the canopy.',
+          'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions while moving through experimental rows, and operated it throughout the season. Infrared radiometers and thermocouples measured below-canopy, within-canopy, and upper-canopy temperatures, while additional sensors measured air temperature within and above the canopy.',
           'An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure\'s internal logging and cloud-transfer implementation were handled by others.',
         ],
         bullets: [
@@ -361,7 +362,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '03 / Experimentation',
         title: 'Automated N₂O chamber system',
         paragraphs: [
-          'I helped design and fabricate a sixteen-chamber automated soil-gas system, including wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.',
+          'I co-designed and co-built a sixteen-chamber automated soil-gas system — wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.',
           'I installed, maintained, and debugged the system in the field, then worked with data scientists to review the measurements, explain equipment-related anomalies, and distinguish valid signals from operational artifacts.',
         ],
         images: [
@@ -379,7 +380,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '04 / Instrumentation',
         title: 'Gold Standard instrument-comparison site',
         paragraphs: [
-          'I helped design and build a reference station used to compare weather instruments and quantify how much nominally similar systems could disagree. The site included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors including Davis.',
+          'I co-designed and built a reference station used to compare weather instruments and quantify how much nominally similar systems could disagree. The site included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors including Davis.',
           'A data logger transmitted observations by radio to a computer in the research building. I supported ingestion, maintained the field system, and helped make the measurements available through a web-based visualization site.',
         ],
         images: [
@@ -402,7 +403,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '05 / Fleet operations',
         title: 'Infrared-radiometer fleet tracking',
         paragraphs: [
-          'I helped build, maintain, ship, and support more than 200 infrared radiometers deployed across the Midwest, California, Texas, and South America.',
+          'I built, maintained, shipped, and supported infrared radiometers in a fleet of more than 200 deployed across the Midwest, California, Texas, and South America.',
           'I created sensor-tracking dashboards that consolidated serial numbers, calibration records, deployment locations, shipment status, repair history, operational notes, and data status. The system gave the team a single view of which instruments were available, deployed, in transit, or needed maintenance.',
         ],
         images: [

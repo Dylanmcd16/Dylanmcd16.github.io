@@ -1,6 +1,6 @@
 # Dylan McDermott
 
-> Meteorologist and geospatial data professional specializing in weather and catastrophe analysis, geospatial automation, field sensing, remote sensing, and atmospheric research.
+> Meteorologist and geospatial data professional who builds automated geospatial and weather-data workflows that turn scientific observations into reliable maps, analyses, and operational products.
 
 ## Profile
 
@@ -12,9 +12,9 @@
 
 ## Work Examples
 
-- [PLRB - Meteorologist](https://dylanmcd16.github.io/?work=plrb-weather-systems): Develops weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. Work includes meteorological interpretation, Python and ArcPy automation, ArcGIS applications, cloud services, APIs, and clear communication of uncertainty.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/?work=corteva-field-sensing): Built field-sensing systems and automated data pipelines that converted raw observations into quality-controlled geospatial analyses. Work includes Smartstick field collection, cloud and ArcGIS workflows, drone imagery, LiDAR, a Gold Standard weather station, soil-gas experiments, and infrared-radiometer fleet operations.
-- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/?work=land-use-convective-weather): Studied how historical land-use change affected Midwest rainfall and mesoscale convective systems using WRF and Noah-MP simulations.
+- [PLRB - Meteorologist](https://dylanmcd16.github.io/?work=plrb-weather-systems): Builds and maintains the automated Python and ArcPy workflows, geospatial products, claims-facing ArcGIS applications, cloud services, and APIs that keep weather and catastrophe evidence accurate in daily production.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/?work=corteva-field-sensing): Co-developed the Smartstick field-sensing platform and built the Python and ArcPy workflow that processed its GPS-linked observations into quality-controlled, plot-level geospatial analyses. Compared selected results with drone imagery and LiDAR, co-built a Gold Standard weather station and an automated soil-gas system, and built and maintained infrared radiometers in a fleet of more than 200.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/?work=land-use-convective-weather): Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.
 
 ## Core Capabilities
 
