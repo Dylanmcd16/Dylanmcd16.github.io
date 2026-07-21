@@ -75,7 +75,7 @@ export const portfolio = {
       description:
         'Claims professionals need weather evidence that stays accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently. I build and maintain the automated Python and ArcPy workflows, geospatial products, and custom ArcGIS applications that deliver that evidence every day.',
       outcomes: [
-        'Own daily production workflows that collect, validate, reconcile, and publish national weather and hazard data.',
+        'Built, maintained, and improved daily production workflows that collect, validate, reconcile, and publish national weather and hazard data.',
         'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
       caseStudy: {

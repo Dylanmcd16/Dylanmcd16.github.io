@@ -193,7 +193,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Operations',
         title: 'Daily weather-data production',
         paragraphs: [
-          'I own and support daily workflows for storm-report archiving, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and long-term archives. The systems process hundreds to thousands of reports, files, and features each day; occurrence-number assignment is the primary remaining manual step.',
+          'I built and continue to maintain and improve daily workflows for storm-report archiving, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and long-term archives. The systems process hundreds to thousands of reports, files, and features each day; occurrence-number assignment is the primary remaining manual step.',
           'Python and ArcPy collect and validate NOAA and IEM data, standardize fields, generate maps and exports, publish updates to ArcGIS Server, and alert the team when expected inputs fail. The automation has removed hours of repetitive work from a typical day.',
         ],
         bullets: [
