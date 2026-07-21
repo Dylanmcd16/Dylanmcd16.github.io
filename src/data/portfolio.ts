@@ -73,9 +73,9 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and quality control.',
+        'I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and geospatial analysis.',
       outcomes: [
-        'Built and maintained national weather and hazard-data workflows and geospatial products for event verification, catastrophe analysis, and decision support.',
+        'Researched, built, and maintained national weather and hazard-data workflows and geospatial products for event verification, catastrophe analysis, and decision support.',
       ],
       caseStudy: {
         overview:
