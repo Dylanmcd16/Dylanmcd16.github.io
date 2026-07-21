@@ -96,12 +96,12 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024',
       accent: 'field',
       description:
-        'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into quality-controlled geospatial analyses for research teams.',
+        'Built and operated field-sensing systems and automated data pipelines that transformed raw observations into geospatial analyses.',
       keyContribution:
         'Co-engineered Corteva’s Smartstick proof of concept, processed measurements from seven research sites, and compared selected field datasets with drone imagery and LiDAR.',
       caseStudy: {
         overview:
-          'At Corteva, I built and operated field-sensing systems and the processing workflows that turned raw observations into quality-controlled geospatial analyses for research teams.',
+          'At Corteva, I built and operated field-sensing systems and the processing workflows that turned raw observations into geospatial analyses for research teams.',
         examples: [
           'Built systems ranging from a gold-standard automated weather station and custom N₂O soil-gas flux chambers to hundreds of infrared radiometers deployed across the Americas.',
           'Developed Python and ArcPy pipelines for quality control, spatial assignment, analysis, visualization, and delivery.',
