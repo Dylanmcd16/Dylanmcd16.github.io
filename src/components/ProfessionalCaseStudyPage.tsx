@@ -38,7 +38,7 @@ type ProfessionalCaseStudy = {
   tools: Array<{ label: string; values: string }>
 }
 
-const smartstickCode = `############### ARCGIS ##############################
+const smartstickCode = `############### ARCGIS SECTION #######################
 import arcpy
 import pandas as pd
 import geopandas as gpd
