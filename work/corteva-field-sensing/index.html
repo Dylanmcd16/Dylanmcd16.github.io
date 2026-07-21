@@ -33,14 +33,112 @@
     <div id="root"></div>
     <noscript>
       <main>
-        <h1>Corteva - Field-Sensing Systems & Geospatial Research</h1>
-        <p>I built and operated field-sensing systems and automated data pipelines that transformed raw observations into quality-controlled geospatial analyses for research teams.</p>
-        <h2>Work Examples</h2>
+        <p>Corteva Agriscience - Field Sensing Research Associate</p>
+        <h1>Field-Sensing Systems &amp; Geospatial Research</h1>
+        <p>I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.</p>
         <ul>
-          <li>Developed an automated pipeline to process high-resolution drone imagery and extract plot-level canopy metrics for precision agriculture research.</li>
-          <li>Deployed, calibrated, and maintained arrays of IoT field sensors capturing environmental data such as soil moisture, temperature, and canopy microclimate.</li>
-          <li>Integrated multi-scale sensor networks and GIS tools to identify spatial variability within trial fields.</li>
+          <li>Field sensing</li>
+          <li>Python</li>
+          <li>ArcPy</li>
+          <li>Trimble GPS</li>
+          <li>LiDAR</li>
+          <li>Instrumentation</li>
+          <li>Quality control</li>
         </ul>
+
+        <h2>The challenge: Turning field measurements into reliable research evidence</h2>
+        <p>Field-sensing research requires more than collecting measurements. Sensors must be designed, deployed, maintained, and connected to workflows that identify bad readings, preserve spatial context, and produce data researchers can compare across plots, sites, instruments, and experiments. My work covered that full process—from building and operating field systems to automating the quality control, geospatial processing, visualization, and analysis of their measurements.</p>
+
+        <h2>Smartstick sensing platform</h2>
+        <p>I helped design and repeatedly operate Corteva's Smartstick, a wheeled platform that recorded crop-canopy conditions while moving through experimental rows. Infrared radiometers and thermocouples measured below-canopy, within-canopy, and upper-canopy temperatures, while additional sensors measured air temperature within and above the canopy.</p>
+        <p>An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure's internal logging and cloud-transfer implementation were handled by others.</p>
+        <ul>
+          <li>Collected thousands of spatially referenced measurements per walk.</li>
+          <li>Repeated collection approximately twice a week for two months at each site.</li>
+          <li>Maintained sensors and collection procedures to limit drift and site-to-site inconsistency.</li>
+        </ul>
+        <figure>
+          <img src="/smartstick.jpeg" alt="Corteva Smartstick mobile field-sensing platform" loading="lazy" />
+          <figcaption>Field collection setup - Mobile platform configured to collect canopy and air-temperature measurements with GPS and timestamps.</figcaption>
+        </figure>
+        <figure>
+          <img src="/enclosure.jpeg" alt="Smartstick onboard electronics and data-acquisition enclosure" loading="lazy" />
+          <figcaption>Onboard acquisition - Computer, controls, and sensor electronics integrated into the field platform.</figcaption>
+        </figure>
+
+        <h2>Automated geospatial processing and analysis</h2>
+        <p>I independently built the Python and ArcPy pipeline that processed each collection from raw tabular files through research-ready outputs. It standardized the data, plotted measurements for visual quality control, removed irrelevant or unrealistic readings, excluded bad GPS positions and outliers, converted coordinates to points, and spatially joined every valid observation to its experimental plot, treatment, and genotype.</p>
+        <p>ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, replacing about one hour of manual processing after every walk.</p>
+        <ul>
+          <li>Applied the same workflow to data from seven research sites.</li>
+          <li>Overlaid measurements on drone imagery for spatial review.</li>
+          <li>Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.</li>
+          <li>Found a positive relationship between Smartstick measurements and how experimental corn plots responded to stress.</li>
+        </ul>
+        <figure>
+          <img src="/field_plot_ex.png" alt="Illustrative field plots with GPS-tagged Smartstick measurement points" loading="lazy" />
+          <figcaption>Illustrative workflow: GPS-tagged observations converted to points and assigned to buffered experimental plots.</figcaption>
+        </figure>
+        <figure>
+          <img src="/field_plot_data.png" alt="Illustrative plot-level analysis values derived from field measurements" loading="lazy" />
+          <figcaption>Illustrative plot-level summaries used to compare spatial patterns across an experiment.</figcaption>
+        </figure>
+        <p>These explanatory illustrations do not contain Corteva data or depict a Corteva field.</p>
+
+        <h2>Automated N₂O chamber system</h2>
+        <p>I helped design and fabricate a sixteen-chamber automated soil-gas system, including wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.</p>
+        <p>I installed, maintained, and debugged the system in the field, then worked with data scientists to review the measurements, explain equipment-related anomalies, and distinguish valid signals from operational artifacts.</p>
+        <figure>
+          <img src="/gas_sampling_build.jpeg" alt="Multi-channel soil-gas sampling and valve-control system under construction" loading="lazy" />
+          <figcaption>In-house valve-control and sampling system carrying chamber air to an on-site analyzer.</figcaption>
+        </figure>
+
+        <h2>Gold Standard instrument-comparison site</h2>
+        <p>I helped design and build a reference station used to compare weather instruments and quantify how much nominally similar systems could disagree. The site included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors including Davis.</p>
+        <p>A data logger transmitted observations by radio to a computer in the research building. I supported ingestion, maintained the field system, and helped make the measurements available through a web-based visualization site.</p>
+        <figure>
+          <img src="/gold_standard_field.jpeg" alt="Gold Standard weather station at Corteva field demonstration plots" loading="lazy" />
+          <figcaption>Reference site supporting side-by-side comparisons of precipitation, wind, temperature, and infrared measurements.</figcaption>
+        </figure>
+        <figure>
+          <img src="/gold_standard.jpeg" alt="Dylan McDermott on site during assembly of the reference weather station" loading="lazy" />
+          <figcaption>On site during assembly of the sensor mast, logging enclosures, and radio-linked acquisition system.</figcaption>
+        </figure>
+
+        <h2>Infrared-radiometer fleet tracking</h2>
+        <p>I helped build, maintain, ship, and support more than 200 infrared radiometers deployed across the Midwest, California, Texas, and South America.</p>
+        <p>I created sensor-tracking dashboards that consolidated serial numbers, calibration records, deployment locations, shipment status, repair history, operational notes, and data status. The system gave the team a single view of which instruments were available, deployed, in transit, or needed maintenance.</p>
+        <figure>
+          <img src="/infrared-applications.jpg" alt="Infrared radiometer used for crop-canopy temperature measurements" loading="lazy" />
+          <figcaption>Infrared radiometers built and maintained for distributed crop-canopy research.</figcaption>
+        </figure>
+        <figure>
+          <img src="/field_plot_2.png" alt="Illustrative field map with green and red instrument-status markers" loading="lazy" />
+          <figcaption>Illustrative fleet view showing operational placements and units requiring follow-up; no Corteva data is shown.</figcaption>
+        </figure>
+
+        <h2>Results and impact</h2>
+        <ul>
+          <li>Automated approximately one hour of processing per Smartstick walk—on the order of 100 hours across the collection campaign.</li>
+          <li>Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.</li>
+          <li>Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.</li>
+          <li>Designed, built, maintained, and debugged field instrumentation from individual sensors to multi-month automated experiments.</li>
+          <li>Created centralized tracking for more than 200 distributed infrared radiometers.</li>
+        </ul>
+
+        <h2>Tools and methods</h2>
+        <dl>
+          <dt>Sensing</dt>
+          <dd>IRTs, thermocouples, air-temperature sensors, automated gas chambers</dd>
+          <dt>Geospatial processing</dt>
+          <dd>Python, ArcPy, Trimble GPS, spatial joins, plot buffers</dd>
+          <dt>Research outputs</dt>
+          <dd>Points, shapefiles, maps, tables, plot summaries</dd>
+          <dt>Comparison data</dt>
+          <dd>Drone imagery, LiDAR, experimental treatments, crop-stress response</dd>
+        </dl>
+
+        <p><a href="/work/land-use-convective-weather/">Next: Read my M.S. thesis</a></p>
         <p><a href="/">Return to Portfolio</a></p>
       </main>
     </noscript>

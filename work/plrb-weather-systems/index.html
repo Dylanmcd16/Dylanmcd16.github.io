@@ -33,15 +33,86 @@
     <div id="root"></div>
     <noscript>
       <main>
-        <h1>PLRB - Weather, Catastrophe, & Geospatial Analysis</h1>
-        <p>I develop weather-data workflows and geospatial products for event verification, catastrophe analysis, and decision support. The work connects meteorological interpretation with automation and quality control.</p>
-        <h2>Work Examples</h2>
+        <p>PLRB - Weather &amp; Catastrophe Analyst</p>
+        <h1>Weather, Catastrophe, &amp; Geospatial Analysis</h1>
+        <p>I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.</p>
         <ul>
-          <li>Automated ingestion, validation, and publication workflows for weather and hazard datasets.</li>
-          <li>Raster and vector products that help communicate severe weather, precipitation, smoke, evacuation, earthquake, and outage impacts.</li>
-          <li>Cloud-hosted services and APIs that support repeatable, data-driven workflows.</li>
+          <li>Meteorological analysis</li>
+          <li>Python automation</li>
+          <li>ArcPy</li>
+          <li>ArcGIS Enterprise</li>
+          <li>Data quality control</li>
+          <li>Operational resilience</li>
+          <li>REST APIs</li>
+        </ul>
+
+        <h2>The challenge: Turning fragmented weather data into reliable claims decision support</h2>
+        <p>The role requires analyzing weather, climate, and catastrophe data; building reports, maps, and visualizations; performing GIS-based spatial analysis; and integrating multiple sources for the insurance industry. In practice, I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, downloads fail silently, and maps, tables, and exports must stay synchronized for claims professionals.</p>
+
+        <h2>Daily weather-data production</h2>
+        <p>I own and support daily workflows for storm-report archiving, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and long-term archives. The systems process hundreds to thousands of reports, files, and features each day; occurrence-number assignment is the primary remaining manual step.</p>
+        <p>Python and ArcPy collect and validate NOAA and IEM data, standardize fields, generate maps and exports, publish updates to ArcGIS Server, and alert the team when expected inputs fail. The automation has removed hours of repetitive work from a typical day.</p>
+        <ul>
+          <li>Reconciles reports that arrive after the initial daily run.</li>
+          <li>Detects duplicates, missing timestamps, invalid identifiers, and incomplete city or ZIP fields.</li>
+          <li>Catches silent download failures before incomplete products are distributed.</li>
+          <li>Preserves edits through GIS transformations and keeps maps, tables, and exports synchronized.</li>
+        </ul>
+        <figure>
+          <img src="/track_map_example.jpg" alt="National daily storm-track map generated from automated storm reports" loading="lazy" />
+          <figcaption>Daily storm-track output generated from standardized reports, event groupings, and automated ArcPy map production.</figcaption>
+        </figure>
+        <figure>
+          <img src="/severe_outlook_example.jpeg" alt="Automated Day 2 severe-weather outlook map" loading="lazy" />
+          <figcaption>Recurring SPC outlook product prepared automatically for operational distribution.</figcaption>
+        </figure>
+
+        <h2>Claims-facing weather applications</h2>
+        <p>I build and maintain ArcGIS Experience Builder applications for hail, wind, hurricanes, and current weather. They combine reports, warnings, observations, radar-derived products, precipitation, lightning, and other evidence so claims professionals can investigate a location without handling raw scientific formats.</p>
+        <p>Where standard widgets were insufficient, I developed custom behavior and API integrations for date filtering, layer control, record generation, map synchronization, and location-specific reports.</p>
+        <figure>
+          <img src="/hail_research_map.png" alt="Hail Research ArcGIS Experience Builder application" loading="lazy" />
+          <figcaption>Hail research application - Claims-oriented interface combining observed reports, gridded hail estimates, date controls, and evidence popups.</figcaption>
+        </figure>
+        <figure>
+          <img src="/current_weather_map.png" alt="Current Weather and Forecasts ArcGIS application displaying hurricane guidance" loading="lazy" />
+          <figcaption>Hurricane event analysis - Multi-source application combining tropical guidance, radar, warnings, outlooks, precipitation, and observations.</figcaption>
+        </figure>
+
+        <h2>Scientific validation of weather products</h2>
+        <p>I evaluate whether new datasets are scientifically defensible and operationally useful by testing what each variable represents, its spatial and temporal resolution, known biases, update behavior, and the evidence required for responsible interpretation.</p>
+        <p>Examples include comparing surface PM2.5 observations with HRRR-Smoke guidance and evaluating products such as ProbSevere and radar-derived hail estimates. The emphasis is not simply adding more layers; it is preventing modeled or remotely sensed estimates from being presented as direct observations.</p>
+        <figure>
+          <img src="/smoke_map_example.jpeg" alt="ArcGIS Pro proof of concept comparing PM2.5 observations with HRRR-Smoke output" loading="lazy" />
+          <figcaption>Proof of concept used to test the practical limits of comparing modeled smoke with surface air-quality observations.</figcaption>
+        </figure>
+
+        <h2>Exploratory convective-wind modeling</h2>
+        <p>I conducted an exploratory machine-learning study that matched observed convective gusts with physically relevant environmental predictors, compared estimated and recorded wind speeds, and diagnosed failures caused by sparse station coverage and storm-scale variability.</p>
+        <p>The work clarified where modeled gust estimates may add context and where direct observations and expert meteorological analysis remain necessary.</p>
+
+        <h2>Results and impact</h2>
+        <ul>
+          <li>Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.</li>
+          <li>Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.</li>
+          <li>Built claims-facing applications that keep displayed maps and downstream records aligned.</li>
+          <li>Expanded available weather evidence while documenting uncertainty and appropriate use.</li>
           <li>Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.</li>
         </ul>
+
+        <h2>Tools and methods</h2>
+        <dl>
+          <dt>Automation</dt>
+          <dd>Python, ArcPy, scheduled production workflows</dd>
+          <dt>GIS delivery</dt>
+          <dd>ArcGIS Pro, ArcGIS Server, Experience Builder</dd>
+          <dt>Data sources</dt>
+          <dd>NOAA, IEM, radar, models, observations, warnings</dd>
+          <dt>Reliability</dt>
+          <dd>Validation, reconciliation, monitoring, synchronized exports</dd>
+        </dl>
+
+        <p><a href="/work/corteva-field-sensing/">Next: Corteva - Field-sensing research</a></p>
         <p><a href="/">Return to Portfolio</a></p>
       </main>
     </noscript>
