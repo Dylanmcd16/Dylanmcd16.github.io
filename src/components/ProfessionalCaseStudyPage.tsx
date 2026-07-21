@@ -173,9 +173,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     summary: [
       'I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.',
     ],
-    challengeTitle: 'Keeping daily weather products accurate as the source data changes',
+    challengeTitle: 'Turning fragmented weather data into reliable claims decision support',
     challenge:
-      'Operational weather data rarely arrives cleanly or all at once. Reports can be late, duplicated, incomplete, or silently missing, while GIS transformations and downstream exports must preserve both automated results and human edits. I design workflows that reconcile those conditions without interrupting daily production.',
+      'The role requires analyzing weather, climate, and catastrophe data; building reports, maps, and visualizations; performing GIS-based spatial analysis; and integrating multiple sources for the insurance industry. In practice, I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, downloads fail silently, and maps, tables, and exports must stay synchronized for claims professionals.',
     next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
@@ -270,7 +270,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Automated daily maps, archives, email content, data exports, and ArcGIS updates that previously required hours of manual work.',
+      'Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.',
       'Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.',
       'Built claims-facing applications that keep displayed maps and downstream records aligned.',
       'Expanded available weather evidence while documenting uncertainty and appropriate use.',
@@ -289,9 +289,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     summary: [
       'I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
     ],
-    challengeTitle: 'Turning mobile sensor readings into defensible plot-level evidence',
+    challengeTitle: 'Turning field measurements into reliable research evidence',
     challenge:
-      'A single Smartstick walk produced thousands of temperature measurements with timestamps and Trimble GPS coordinates. Those records had to be checked, filtered, assigned to the correct experimental plots, summarized, mapped, and compared across sites without allowing bad GPS positions, edge effects, or unrealistic sensor values to distort the result.',
+      'Field-sensing research requires more than collecting measurements. Sensors must be designed, deployed, maintained, and connected to workflows that identify bad readings, preserve spatial context, and produce data researchers can compare across plots, sites, instruments, and experiments. My work covered that full process—from building and operating field systems to automating the quality control, geospatial processing, visualization, and analysis of their measurements.',
     next: { label: 'Read my M.S. thesis', slug: 'land-use-convective-weather' },
     tags: ['Field sensing', 'Python', 'ArcPy', 'Trimble GPS', 'LiDAR', 'Instrumentation', 'Quality control'],
     sections: [
