@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://dylanmcd16.github.io/sitemap.xml
 # AI-readable summary: https://dylanmcd16.github.io/llms.txt
+# Detailed AI-readable profile: https://dylanmcd16.github.io/llms-full.txt
