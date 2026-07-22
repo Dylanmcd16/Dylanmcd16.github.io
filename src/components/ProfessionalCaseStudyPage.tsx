@@ -173,9 +173,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     summary: [
       'I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.',
     ],
-    challengeTitle: 'Turning fragmented weather data into reliable claims decision support',
+    challengeTitle: 'Turning authoritative weather data into practical claims decision support',
     challenge:
-      'Claims professionals need weather evidence they can trust on the day they ask for it. I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently — and that keep maps, tables, and exports synchronized end to end.',
+      'PLRB’s goal is to give members fast, reliable access to weather evidence they can use in claims handling, investigations, and catastrophe analysis. Although NOAA, IEM, and other agencies provide extensive public data, those sources are often fragmented, technically complex, inconsistently formatted, or difficult to connect directly to an address or existing insurance workflow. The objective is not merely to display raw weather data, but to transform it into clear, defensible maps, reports, tables, and geospatial services that members can retrieve and interpret without processing the source data themselves.',
     next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',

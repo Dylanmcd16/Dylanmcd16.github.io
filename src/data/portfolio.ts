@@ -74,9 +74,10 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'Claims professionals need weather evidence that stays accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently. I build and maintain the automated Python and ArcPy workflows, geospatial products, and custom ArcGIS applications that deliver that evidence every day.',
+        'PLRB’s goal is to give members fast, defensible access to historical weather evidence for claims handling, investigations, and catastrophe analysis. I build and maintain the Python and ArcPy workflows, geospatial products, and custom ArcGIS applications that transform NOAA, IEM, and other public datasets into ready-to-use national layers, maps, reports, and address-level insights. These production systems validate and reconcile late, duplicated, incomplete, or failed data so members can retrieve reliable weather information without having to process the raw sources themselves.',
       outcomes: [
-        'Built, maintained, and improved daily production workflows that collect, validate, reconcile, and publish national weather and hazard data.',
+        'Built, maintained, and improved daily production workflows that collect, validate, reconcile, transform, and publish national weather and hazard data.',
+        'Developed ArcGIS-based services and JavaScript tools that let members visualize, query, and integrate weather data into their GIS workflows.',
         'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
       caseStudy: {
