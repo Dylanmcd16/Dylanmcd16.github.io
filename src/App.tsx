@@ -344,6 +344,7 @@ function App() {
                 <article className="experience" key={`${item.organization}-${item.role}`}>
                   <h3>{item.role}</h3>
                   <p className="experience-org">{item.organization}</p>
+                  <p className="experience-scope">{item.scope}</p>
                   <p className="experience-period">{item.period}</p>
                 </article>
               ))}

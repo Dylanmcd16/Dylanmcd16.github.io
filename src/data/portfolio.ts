@@ -32,6 +32,7 @@ export type Experience = {
   organization: string
   role: string
   period: string
+  scope: string
 }
 
 export type SkillGroup = {
@@ -49,7 +50,7 @@ export type EducationItem = {
 
 export const portfolio = {
   name: 'Dylan McDermott',
-  role: 'Meteorologist & Geospatial Data Professional',
+  role: 'Meteorologist | Meteorologist & Geospatial Data Professional',
   tagline: 'Atmospheric science · Geospatial data · Automation',
   location: 'West Des Moines, Iowa',
   email: 'dylanddermott@gmail.com',
@@ -156,21 +157,25 @@ export const portfolio = {
   experience: [
     {
       organization: 'Property & Liability Resource Bureau',
+      scope: 'Production weather systems, geospatial automation, and catastrophe decision support',
       role: 'Meteorologist — Weather & Catastrophe Analyst',
       period: '2025 — Present',
     },
     {
       organization: 'Corteva Agriscience',
+      scope: 'Field-sensing systems, automated geospatial pipelines, and research instrumentation',
       role: 'Field Sensing Research Associate',
       period: '2024',
     },
     {
       organization: 'Iowa State University',
+      scope: 'Atmospheric modeling, land-use research, and scientific data analysis',
       role: 'Graduate Research Assistant',
       period: '2022 — 2024',
     },
     {
       organization: 'Iowa State University',
+      scope: 'Boundary-layer meteorology research and scientific visualization',
       role: 'Undergraduate Research Assistant',
       period: '2021',
     },

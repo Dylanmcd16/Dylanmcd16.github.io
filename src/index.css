@@ -1214,7 +1214,8 @@ svg.icon {
 .experience {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 130px;
-  gap: 24px;
+  column-gap: 24px;
+  row-gap: 4px;
   align-items: baseline;
   padding: 14px 0;
 }
@@ -1222,15 +1223,29 @@ svg.icon {
   border-top: 1px solid var(--line);
 }
 .experience h3 {
+  grid-column: 1;
+  grid-row: 1;
   font-size: 1.08rem;
   font-weight: 600;
 }
 .experience-org {
+  grid-column: 2;
+  grid-row: 1;
   font-size: 0.98rem;
   color: var(--accent);
   font-weight: 500;
 }
+.experience-scope {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
 .experience-period {
+  grid-column: 3;
+  grid-row: 1;
   font-size: 0.9rem;
   color: var(--muted-2);
   text-align: right;
@@ -1399,6 +1414,16 @@ footer {
   .experience {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+  .experience h3,
+  .experience-org,
+  .experience-scope,
+  .experience-period {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .experience-scope {
+    margin-top: 0;
   }
   .experience-period {
     text-align: left;
