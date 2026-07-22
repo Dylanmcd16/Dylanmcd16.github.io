@@ -50,7 +50,7 @@ export type EducationItem = {
 
 export const portfolio = {
   name: 'Dylan McDermott',
-  role: 'Meteorologist | Meteorologist & Geospatial Data Professional',
+  role: 'Meteorologist | Geospatial Data Professional',
   tagline: 'Atmospheric science · Geospatial data · Automation',
   location: 'West Des Moines, Iowa',
   email: 'dylanddermott@gmail.com',
