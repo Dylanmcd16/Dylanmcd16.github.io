@@ -1,0 +1,17 @@
+# Regenerable workflow outputs (committed demo images live in docs/images/)
+examples/*/outputs/*
+!examples/*/outputs/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+venv/
+
+# Downloaded data caches
+**/data-cache/
