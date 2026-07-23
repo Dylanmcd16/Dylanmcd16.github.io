@@ -15,3 +15,6 @@ venv/
 
 # Downloaded data caches
 **/data-cache/
+
+# Local-only test suite (not published)
+tests/

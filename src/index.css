@@ -615,6 +615,47 @@ svg.icon {
 .project:not(.is-featured) .project-contribution {
   min-height: 98px;
 }
+/* Thin, full-width horizontal card linking to a standalone page. */
+.project-strip {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 26px;
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(26, 50, 84, 0.05);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.project-strip:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.project-strip-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.project-strip-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.project-strip-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.project-strip-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
 .project-case-link {
   margin-top: 18px;
   color: var(--ink);

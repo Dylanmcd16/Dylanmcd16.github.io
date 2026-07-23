@@ -26,6 +26,10 @@ export default defineConfig({
           rootDirectory,
           'work/land-use-convective-weather/index.html',
         ),
+        technicalProjectExample: resolve(
+          rootDirectory,
+          'work/technical-project-example/index.html',
+        ),
       },
     },
   },
