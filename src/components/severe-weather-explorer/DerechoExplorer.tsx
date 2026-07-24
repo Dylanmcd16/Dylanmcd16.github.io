@@ -48,6 +48,13 @@ const INITIAL_DISPLAY_STATE: ExplorerDisplayState = {
 
 type LoadStatus = 'loading' | 'ready' | 'error'
 
+interface LayerFailures {
+  reports?: boolean
+  warnings?: boolean
+  stations?: boolean
+  assessments?: boolean
+}
+
 interface StationSeries {
   name: string
   times: string[]
@@ -184,12 +191,17 @@ export function DerechoExplorer() {
   const [status, setStatus] = useState<LoadStatus>('loading')
   const [mapReady, setMapReady] = useState(false)
   const [displayState, setDisplayState] = useState<ExplorerDisplayState>(INITIAL_DISPLAY_STATE)
+  const [layerFailures, setLayerFailures] = useState<LayerFailures>({})
 
   const mapRef = useRef<Map | null>(null)
   const timelineRef = useRef<TimelineFrame[]>([])
   const displayStateRef = useRef(displayState)
   const seriesRef = useRef<Record<string, StationSeries>>({})
   const scrubbingRef = useRef(false)
+  // Stations and assessments are off by default, so their (larger) GeoJSON is
+  // fetched lazily the first time the user actually activates the layer.
+  const stationsLoadedRef = useRef(false)
+  const assessmentsLoadedRef = useRef(false)
 
   const {
     frameIndex,
@@ -301,28 +313,68 @@ export function DerechoExplorer() {
       wirePopup('assessment-tracks', assessmentPopupHtml)
       wirePopup('assessment-points', assessmentPopupHtml)
 
-      Promise.all([
+      // Reports and warnings are on by default, so fetch them eagerly — but a
+      // failure in either must not block the base radar/HRRR/satellite
+      // experience from becoming interactive. Stations and assessments are
+      // off by default and loaded lazily (see the effect below), so they are
+      // deliberately not part of this initial fetch.
+      Promise.allSettled([
         loadVectorSource(map, 'reports-source', assetUrl(activeManifest.files.reports)),
         loadVectorSource(map, 'warnings-source', assetUrl(activeManifest.files.warnings)),
-        loadVectorSource(map, 'stations-source', assetUrl(activeManifest.files.stations)),
-        loadVectorSource(map, 'assessments-source', assetUrl(activeManifest.files.assessments)),
-      ])
-        .then(() => {
-          updateMapForFrame({
-            map,
-            frame: frames[0],
-            hrrrVariable: displayStateRef.current.hrrrVariable,
-            radarProduct: displayStateRef.current.radarProduct,
-            satelliteProduct: displayStateRef.current.satelliteProduct,
-            transparentImageUrl: TRANSPARENT_URL,
-          })
-          applyDisplayState(map, displayStateRef.current)
-          setMapReady(true)
+      ]).then(([reportsResult, warningsResult]) => {
+        const failures: LayerFailures = {}
+        if (reportsResult.status === 'rejected') {
+          console.error('Failed to load storm reports:', reportsResult.reason)
+          failures.reports = true
+        }
+        if (warningsResult.status === 'rejected') {
+          console.error('Failed to load warnings:', warningsResult.reason)
+          failures.warnings = true
+        }
+        if (Object.keys(failures).length > 0) {
+          setLayerFailures((current) => ({ ...current, ...failures }))
+        }
+
+        updateMapForFrame({
+          map,
+          frame: frames[0],
+          hrrrVariable: displayStateRef.current.hrrrVariable,
+          radarProduct: displayStateRef.current.radarProduct,
+          satelliteProduct: displayStateRef.current.satelliteProduct,
+          transparentImageUrl: TRANSPARENT_URL,
         })
-        .catch(() => setStatus('error'))
+        applyDisplayState(map, displayStateRef.current)
+        setMapReady(true)
+      })
     },
     [manifest],
   )
+
+  // Lazily fetch station observations / post-event assessments the first time
+  // the user actually activates those layers, rather than blocking initial
+  // load on data most visitors won't look at.
+  useEffect(() => {
+    const map = mapRef.current
+    if (!mapReady || !map || !manifest) return
+
+    if (displayState.stationOverlay !== 'none' && !stationsLoadedRef.current) {
+      stationsLoadedRef.current = true
+      loadVectorSource(map, 'stations-source', assetUrl(manifest.files.stations)).catch((err) => {
+        console.error('Failed to load station observations:', err)
+        setLayerFailures((current) => ({ ...current, stations: true }))
+        stationsLoadedRef.current = false
+      })
+    }
+
+    if (displayState.showPostEventAssessments && !assessmentsLoadedRef.current) {
+      assessmentsLoadedRef.current = true
+      loadVectorSource(map, 'assessments-source', assetUrl(manifest.files.assessments)).catch((err) => {
+        console.error('Failed to load post-event assessments:', err)
+        setLayerFailures((current) => ({ ...current, assessments: true }))
+        assessmentsLoadedRef.current = false
+      })
+    }
+  }, [mapReady, manifest, displayState.stationOverlay, displayState.showPostEventAssessments])
 
   // Repaint rasters and re-filter features whenever the frame changes.
   useEffect(() => {
@@ -439,6 +491,7 @@ export function DerechoExplorer() {
         <StationOverlayControls
           stationOverlay={displayState.stationOverlay}
           onStationOverlay={(stationOverlay: StationOverlay) => patchDisplay({ stationOverlay })}
+          unavailable={layerFailures.stations}
         />
         <OverlayControls
           showReports={displayState.showReports}
@@ -449,6 +502,9 @@ export function DerechoExplorer() {
           onShowPostEventAssessments={(showPostEventAssessments) =>
             patchDisplay({ showPostEventAssessments })
           }
+          reportsUnavailable={layerFailures.reports}
+          warningsUnavailable={layerFailures.warnings}
+          assessmentsUnavailable={layerFailures.assessments}
         />
         <DataStatusPanel
           frame={currentFrame}

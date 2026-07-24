@@ -28,6 +28,47 @@
     <meta name="twitter:image:alt" content="PLRB - Weather, Catastrophe, & Geospatial Analysis" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>PLRB - Weather, Catastrophe, & Geospatial Analysis | Dylan McDermott</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://dylanmcd16.github.io/#person",
+            "name": "Dylan McDermott",
+            "url": "https://dylanmcd16.github.io/",
+            "jobTitle": "Meteorologist and Geospatial Data Professional",
+            "email": "mailto:dylanddermott@gmail.com",
+            "sameAs": [
+              "https://www.linkedin.com/in/dylan-mcdermott-193b18174/",
+              "https://github.com/Dylanmcd16"
+            ]
+          },
+          {
+            "@type": "Article",
+            "headline": "Weather, Catastrophe, & Geospatial Analysis",
+            "description": "Production Python and ArcPy weather-data workflows, validated daily storm-report products, claims-facing ArcGIS Experience Builder applications, and automated tropical cyclone track mapping built at PLRB.",
+            "image": "https://dylanmcd16.github.io/social/plrb-weather-systems.jpg",
+            "url": "https://dylanmcd16.github.io/work/plrb-weather-systems/",
+            "keywords": "ArcPy, ArcGIS Pro, ArcGIS Experience Builder, Python automation, storm reports, catastrophe analysis, data quality control, NOAA, Iowa Environmental Mesonet",
+            "about": "Operational weather and catastrophe geospatial systems",
+            "author": {
+              "@id": "https://dylanmcd16.github.io/#person"
+            },
+            "publisher": {
+              "@id": "https://dylanmcd16.github.io/#person"
+            },
+            "mainEntityOfPage": "https://dylanmcd16.github.io/work/plrb-weather-systems/",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://dylanmcd16.github.io/#website",
+              "name": "Dylan McDermott Portfolio",
+              "url": "https://dylanmcd16.github.io/"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
@@ -50,13 +91,13 @@
         <p>Claims professionals need weather evidence they can trust on the day they ask for it. I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently — and that keep maps, tables, and exports synchronized end to end.</p>
 
         <h2>Daily weather-data production</h2>
-        <p>I built and continue to maintain and improve daily workflows for storm-report archiving, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and long-term archives. The systems process hundreds to thousands of reports, files, and features each day; occurrence-number assignment is the primary remaining manual step.</p>
-        <p>Python and ArcPy collect and validate NOAA and IEM data, standardize fields, generate maps and exports, publish updates to ArcGIS Server, and alert the team when expected inputs fail. The automation has removed hours of repetitive work from a typical day.</p>
+        <p>I built and continue to maintain and improve daily workflows for storm-report processing, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and date-stamped operational archives. The workflows are built to handle large daily report volumes; occurrence-number assignment is the primary remaining manual step, alongside a short surface-analysis review.</p>
+        <p>Python and ArcPy retrieve NOAA and Iowa Environmental Mesonet products, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.</p>
         <ul>
-          <li>Reconciles reports that arrive after the initial daily run.</li>
-          <li>Detects duplicates, missing timestamps, invalid identifiers, and incomplete city or ZIP fields.</li>
-          <li>Catches silent download failures before incomplete products are distributed.</li>
-          <li>Preserves edits through GIS transformations and keeps maps, tables, and exports synchronized.</li>
+          <li>Reconciles reports that arrive after the initial daily run and removes delayed reports already included in the previous published dataset.</li>
+          <li>Validates occurrence numbers and timestamps, removes duplicate records, and repairs missing city or ZIP attributes through spatial joins and nearest-feature analysis.</li>
+          <li>Checks required downloads and source files before dependent imagery and data products are generated.</li>
+          <li>Propagates analyst edits through merged feature classes, dissolves, maps, tables, and final exports.</li>
         </ul>
         <figure>
           <img src="/track_map_example.jpg" alt="National daily storm-track map generated from automated storm reports" loading="lazy" />
@@ -64,7 +105,7 @@
         </figure>
         <figure>
           <img src="/severe_outlook_example.jpeg" alt="Automated Day 2 severe-weather outlook map" loading="lazy" />
-          <figcaption>Recurring SPC outlook product prepared automatically for operational distribution.</figcaption>
+          <figcaption>Recurring SPC outlook imagery retrieved and packaged automatically for operational distribution.</figcaption>
         </figure>
 
         <h2>Claims-facing weather applications</h2>

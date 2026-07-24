@@ -7,9 +7,6 @@ import { getRouteState, caseStudyUrl } from './utils/routes'
 // Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
 const WeatherGlobe = lazy(() => import('./components/WeatherGlobe'))
 
-// Standalone page (not backed by portfolio.projects) reachable at /work/<slug>/.
-const TECHNICAL_PROJECT_EXAMPLE_SLUG = 'technical-project-example'
-
 const navItems = [
   { label: 'Work', href: '#projects' },
   { label: 'Experience', href: '#experience' },
@@ -116,20 +113,6 @@ function CaseStudyPage({
   )
 }
 
-function TechnicalProjectExamplePage({ base }: { base: string }) {
-  return (
-    <main className="case-study-page">
-      <div className="container case-study-container">
-        <a className="text-link case-study-back" href={base}>
-          ← Back to portfolio
-        </a>
-        <h1 className="technical-example-title">Technical Project Example</h1>
-        {/* Intentionally blank for now — content to come. */}
-      </div>
-    </main>
-  )
-}
-
 // ---- Header ---------------------------------------------------------------
 
 function Header({ resumeUrl }: { resumeUrl: string }) {
@@ -225,10 +208,6 @@ function App() {
   }
 
   if (routeState.type === 'case-study') {
-    if (routeState.slug === TECHNICAL_PROJECT_EXAMPLE_SLUG) {
-      return <TechnicalProjectExamplePage base={base} />
-    }
-
     const caseStudy = portfolio.projects.find((project) => project.slug === routeState.slug)
     if (caseStudy) {
       return <CaseStudyPage project={caseStudy} base={base} thesisUrl={thesisUrl} />

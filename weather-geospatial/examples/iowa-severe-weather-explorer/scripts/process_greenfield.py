@@ -1,7 +1,9 @@
 """Convert the provided Sentinel-2 Greenfield before/after imagery into aligned
 web assets for the before/after comparison slider.
 
-Source imagery (Copernicus Browser exports, provided in public/*.zip):
+Source imagery (Copernicus Browser exports, in raw-imagery/*.zip alongside this
+example — kept out of public/ since raw source archives aren't a deployable
+site asset, only the processed webp output below is):
     before: 2024-05-18  (Greenfield, IA tornado struck 2024-05-21)
     after:  2024-05-23
 
@@ -25,9 +27,10 @@ import numpy as np
 import rasterio
 from PIL import Image
 
+EXAMPLE_ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = Path(__file__).resolve().parents[4]
-PUBLIC = REPO_ROOT / "public"
-OUT_DIR = PUBLIC / "data" / "iowa-severe-weather" / "greenfield"
+RAW_IMAGERY = EXAMPLE_ROOT / "raw-imagery"
+OUT_DIR = REPO_ROOT / "public" / "data" / "iowa-severe-weather" / "greenfield"
 
 BEFORE = (
     "Browser_images.zip",
@@ -43,7 +46,7 @@ TARGET_W, TARGET_H = 1280, 720
 
 
 def read_zip_bytes(zip_name: str, member: str) -> bytes:
-    with zipfile.ZipFile(PUBLIC / zip_name) as zf:
+    with zipfile.ZipFile(RAW_IMAGERY / zip_name) as zf:
         return zf.read(member)
 
 

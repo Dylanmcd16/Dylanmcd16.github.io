@@ -277,6 +277,10 @@
   color: #fff;
   box-shadow: var(--shadow-sm);
 }
+.swx-segmented__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
 
 .swx-checkbox {
   display: flex;
@@ -294,6 +298,13 @@
 }
 .swx-checkbox--warn {
   color: #9a3412;
+}
+.swx-checkbox.is-unavailable {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+.swx-checkbox.is-unavailable input {
+  cursor: not-allowed;
 }
 
 .swx-overlay-list {

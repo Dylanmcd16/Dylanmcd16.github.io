@@ -5,20 +5,26 @@
 ## Profile
 
 - Location: West Des Moines, Iowa, USA
-- Current role: Meteorologist - Weather and Catastrophe Analyst, Property & Liability Resource Bureau (2025-Present)
+- Current role: Meteorologist - Weather and Catastrophe Analyst, Property & Liability Resource Bureau (January 2025-Present)
 - Education: M.S. and B.S. in Meteorology, Iowa State University
 - Contact: dylanddermott@gmail.com
 - LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/
 
 ## Work Examples
 
-- [PLRB - Meteorologist](https://dylanmcd16.github.io/?work=plrb-weather-systems): Builds and maintains the automated Python and ArcPy workflows, geospatial products, claims-facing ArcGIS applications, cloud services, and APIs that keep weather and catastrophe evidence accurate in daily production.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/?work=corteva-field-sensing): Co-developed the Smartstick field-sensing platform and built the Python and ArcPy workflow that processed its GPS-linked observations into quality-controlled, plot-level geospatial analyses. Compared selected results with drone imagery and LiDAR, co-built a Gold Standard weather station and an automated soil-gas system, and built and maintained infrared radiometers in a fleet of more than 200.
-- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/?work=land-use-convective-weather): Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.
+- [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Builds and maintains the automated Python and ArcPy workflows, geospatial products, claims-facing ArcGIS applications, cloud services, and APIs that keep weather and catastrophe evidence accurate in daily production.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Co-developed the Smartstick field-sensing platform and built the Python and ArcPy workflow that processed its GPS-linked observations into quality-controlled, plot-level geospatial analyses. Analyzed soil-moisture, evapotranspiration, irrigation, and crop-development data to estimate crop water use and evaluate crop stress. Compared selected results with drone imagery and LiDAR, co-built a Gold Standard weather station and an automated soil-gas system, and built and maintained infrared radiometers in a fleet of more than 200.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.
+- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): A personal end-to-end meteorological data pipeline that reconstructs the August 10, 2020 Iowa derecho from archived NEXRAD radar, IEM storm reports and warning polygons, ASOS/AWOS observations, HRRR model fields, and GOES-16 satellite imagery on one synchronized timeline, plus Sentinel-2 before-and-after damage comparison for the 2024 Greenfield tornado.
+
+## Awards
+
+- Esri Special Achievement in GIS (SAG) Award, 2025 - contributed to the PLRB catastrophe analytics and ArcGIS applications recognized by the award.
+- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform.
 
 ## Core Capabilities
 
-Meteorological analysis, catastrophe research, spatial analysis, Python automation, ArcPy, ArcGIS Enterprise, data integration, REST APIs, radar, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, AWS, SQL, PostgreSQL, React, TypeScript, FastAPI, Git, GitHub, and Linux.
+Meteorological analysis, catastrophe research, spatial analysis, Python automation, ArcPy, ArcGIS Pro, ArcGIS Enterprise and Server, Experience Builder, data quality control and reconciliation, data integration, REST APIs, radar, GOES, MODIS, MRMS, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, machine learning and AI-supported analysis, AWS, SQL, PostgreSQL, MATLAB, R, C++, FORTRAN, React, TypeScript, FastAPI, Git, GitHub, and Linux.
 
 ## Key Links
 

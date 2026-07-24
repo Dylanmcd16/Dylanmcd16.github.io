@@ -193,14 +193,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Operations',
         title: 'Daily weather-data production',
         paragraphs: [
-          'I built and continue to maintain and improve daily workflows for storm-report archiving, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and long-term archives. The systems process hundreds to thousands of reports, files, and features each day; occurrence-number assignment is the primary remaining manual step.',
-          'Python and ArcPy collect and validate NOAA and IEM data, standardize fields, generate maps and exports, publish updates to ArcGIS Server, and alert the team when expected inputs fail. The automation has removed hours of repetitive work from a typical day.',
+          'I built and continue to maintain and improve daily workflows for storm-report processing, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and date-stamped operational archives. The workflows are built to handle large daily report volumes; occurrence-number assignment is the primary remaining manual step, alongside a short surface-analysis review.',
+          'Python and ArcPy retrieve NOAA and Iowa Environmental Mesonet products, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.',
         ],
         bullets: [
-          'Reconciles reports that arrive after the initial daily run.',
-          'Detects duplicates, missing timestamps, invalid identifiers, and incomplete city or ZIP fields.',
-          'Catches silent download failures before incomplete products are distributed.',
-          'Preserves edits through GIS transformations and keeps maps, tables, and exports synchronized.',
+          'Reconciles reports that arrive after the initial daily run and removes delayed reports already included in the previous published dataset.',
+          'Validates occurrence numbers and timestamps, removes duplicate records, and repairs missing city or ZIP attributes through spatial joins and nearest-feature analysis.',
+          'Checks required downloads and source files before dependent imagery and data products are generated.',
+          'Propagates analyst edits through merged feature classes, dissolves, maps, tables, and final exports.',
         ],
         images: [
           {
@@ -212,7 +212,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           {
             src: 'severe_outlook_example.jpeg',
             alt: 'Automated Day 2 severe-weather outlook map',
-            caption: 'Recurring SPC outlook product prepared automatically for operational distribution.',
+            caption: 'Recurring SPC outlook imagery retrieved and packaged automatically for operational distribution.',
           },
         ],
       },
@@ -376,9 +376,19 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         code: smartstickCode,
       },
       {
+        id: 'crop-water-use',
+        navLabel: 'Crop water use',
+        eyebrow: '03 / Analysis',
+        title: 'Crop water-use and stress analysis',
+        paragraphs: [
+          'I analyzed soil-moisture, evapotranspiration, irrigation, crop-development-stage, and field measurements to estimate crop water use and help evaluate crop stress. This work required combining measurements collected at different temporal and spatial scales, reviewing the data for gaps and sensor problems, and interpreting the results alongside agronomists, engineers, and data scientists.',
+          'The analysis connected environmental conditions and irrigation practices with the field-sensing measurements, providing additional context for understanding when and where crops were experiencing stress.',
+        ],
+      },
+      {
         id: 'nitrous-oxide',
         navLabel: 'N₂O experiment',
-        eyebrow: '03 / Experimentation',
+        eyebrow: '04 / Experimentation',
         title: 'Automated N₂O chamber system',
         paragraphs: [
           'I co-designed and co-built a sixteen-chamber automated soil-gas system — wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.',
@@ -396,7 +406,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       {
         id: 'weather-station',
         navLabel: 'Weather station',
-        eyebrow: '04 / Instrumentation',
+        eyebrow: '05 / Instrumentation',
         title: 'Gold Standard instrument-comparison site',
         paragraphs: [
           'I co-designed and built a reference station used to compare weather instruments and quantify how much nominally similar systems could disagree. The site included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors including Davis.',
@@ -419,7 +429,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       {
         id: 'irt-fleet',
         navLabel: 'IRT fleet',
-        eyebrow: '05 / Fleet operations',
+        eyebrow: '06 / Fleet operations',
         title: 'Infrared-radiometer fleet tracking',
         paragraphs: [
           'I built, maintained, shipped, and supported infrared radiometers in a fleet of more than 200 deployed across the Midwest, California, Texas, and South America.',
