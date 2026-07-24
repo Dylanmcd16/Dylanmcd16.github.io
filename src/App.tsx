@@ -411,6 +411,19 @@ function App() {
               ))}
             </div>
 
+            <h2 className="awards-heading">Awards</h2>
+            <ul className="awards-list">
+              {portfolio.awards.map((award) => (
+                <li className="award" key={award.title}>
+                  <p className="award-title">
+                    {award.title}
+                    <span className="award-issuer">{award.issuer}</span>
+                  </p>
+                  <p className="award-description">{award.description}</p>
+                  <p className="award-year">{award.year}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

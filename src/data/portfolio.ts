@@ -40,6 +40,13 @@ export type SkillGroup = {
   items: string[]
 }
 
+export type AwardItem = {
+  title: string
+  issuer: string
+  year: string
+  description: string
+}
+
 export type EducationItem = {
   degree: string
   year: string
@@ -230,6 +237,23 @@ export const portfolio = {
       ],
     },
   ] satisfies SkillGroup[],
+
+  awards: [
+    {
+      title: 'Esri Special Achievement in GIS (SAG) Award',
+      issuer: 'Esri · PLRB',
+      year: '2025',
+      description:
+        'Awarded to PLRB for innovative use of GIS technology. I contributed the catastrophe analytics workflows and ArcGIS applications recognized by the award.',
+    },
+    {
+      title: 'AWS 10,000 AIdeas Competition — Semi-Finalist',
+      issuer: 'Amazon Web Services',
+      year: '2025',
+      description:
+        'Recognized for an independently built weather-intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
+    },
+  ] satisfies AwardItem[],
 
   education: [
     {
