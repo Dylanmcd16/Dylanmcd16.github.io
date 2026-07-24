@@ -1,0 +1,5919 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "19013",
+      "properties": {
+        "county_fips": "19013",
+        "county_name": "Black Hawk",
+        "corn_yield_2020": 169.8,
+        "corn_baseline_yield": 204.0,
+        "corn_departure_bu_acre": -34.2,
+        "corn_departure_percent": -16.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.2,
+        "soy_baseline_yield": 57.5,
+        "soy_departure_bu_acre": -3.3,
+        "soy_departure_percent": -5.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.555622,
+              42.641927
+            ],
+            [
+              -92.081836,
+              42.641927
+            ],
+            [
+              -92.081836,
+              42.468397
+            ],
+            [
+              -92.063889,
+              42.468397
+            ],
+            [
+              -92.063889,
+              42.297444
+            ],
+            [
+              -92.297193,
+              42.297444
+            ],
+            [
+              -92.534087,
+              42.296585
+            ],
+            [
+              -92.534087,
+              42.469256
+            ],
+            [
+              -92.555622,
+              42.469256
+            ],
+            [
+              -92.555622,
+              42.556021
+            ],
+            [
+              -92.555622,
+              42.641927
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19081",
+      "properties": {
+        "county_fips": "19081",
+        "county_name": "Hancock",
+        "corn_yield_2020": 200.0,
+        "corn_baseline_yield": 194.3,
+        "corn_departure_bu_acre": 5.7,
+        "corn_departure_percent": 2.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.0,
+        "soy_baseline_yield": 56.4,
+        "soy_departure_bu_acre": 3.6,
+        "soy_departure_percent": 6.3,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.969804,
+              43.255296
+            ],
+            [
+              -93.496017,
+              43.255296
+            ],
+            [
+              -93.499607,
+              42.908236
+            ],
+            [
+              -93.969804,
+              42.907377
+            ],
+            [
+              -93.969804,
+              43.255296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19179",
+      "properties": {
+        "county_fips": "19179",
+        "county_name": "Wapello",
+        "corn_yield_2020": 170.6,
+        "corn_baseline_yield": 171.4,
+        "corn_departure_bu_acre": -0.8,
+        "corn_departure_percent": -0.5,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 52.0,
+        "soy_baseline_yield": 53.5,
+        "soy_departure_bu_acre": -1.5,
+        "soy_departure_percent": -2.7,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.641765,
+              41.160908
+            ],
+            [
+              -92.408461,
+              41.161767
+            ],
+            [
+              -92.178747,
+              41.162626
+            ],
+            [
+              -92.178747,
+              40.899754
+            ],
+            [
+              -92.638176,
+              40.898895
+            ],
+            [
+              -92.641765,
+              41.160908
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19031",
+      "properties": {
+        "county_fips": "19031",
+        "county_name": "Cedar",
+        "corn_yield_2020": 153.3,
+        "corn_baseline_yield": 208.5,
+        "corn_departure_bu_acre": -55.2,
+        "corn_departure_percent": -26.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.4,
+        "soy_baseline_yield": 60.1,
+        "soy_departure_bu_acre": -3.7,
+        "soy_departure_percent": -6.1,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.367566,
+              41.860183
+            ],
+            [
+              -91.367566,
+              41.947807
+            ],
+            [
+              -90.897369,
+              41.946089
+            ],
+            [
+              -90.897369,
+              41.7717
+            ],
+            [
+              -90.900958,
+              41.59731
+            ],
+            [
+              -91.367566,
+              41.59817
+            ],
+            [
+              -91.367566,
+              41.860183
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19089",
+      "properties": {
+        "county_fips": "19089",
+        "county_name": "Howard",
+        "corn_yield_2020": 188.6,
+        "corn_baseline_yield": 197.1,
+        "corn_departure_bu_acre": -8.5,
+        "corn_departure_percent": -4.3,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.5,
+        "soy_baseline_yield": 54.7,
+        "soy_departure_bu_acre": -0.2,
+        "soy_departure_percent": -0.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.552033,
+              43.500128
+            ],
+            [
+              -92.447944,
+              43.500128
+            ],
+            [
+              -92.078246,
+              43.500987
+            ],
+            [
+              -92.081836,
+              43.213202
+            ],
+            [
+              -92.555622,
+              43.213202
+            ],
+            [
+              -92.552033,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19181",
+      "properties": {
+        "county_fips": "19181",
+        "county_name": "Warren",
+        "corn_yield_2020": 168.0,
+        "corn_baseline_yield": 175.4,
+        "corn_departure_bu_acre": -7.4,
+        "corn_departure_percent": -4.2,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 49.5,
+        "soy_baseline_yield": 52.4,
+        "soy_departure_bu_acre": -2.9,
+        "soy_departure_percent": -5.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.79034,
+              41.512264
+            ],
+            [
+              -93.442178,
+              41.507968
+            ],
+            [
+              -93.413464,
+              41.492505
+            ],
+            [
+              -93.327321,
+              41.490787
+            ],
+            [
+              -93.327321,
+              41.160908
+            ],
+            [
+              -93.557035,
+              41.160908
+            ],
+            [
+              -93.79034,
+              41.161767
+            ],
+            [
+              -93.79034,
+              41.512264
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19185",
+      "properties": {
+        "county_fips": "19185",
+        "county_name": "Wayne",
+        "corn_yield_2020": 168.8,
+        "corn_baseline_yield": 163.9,
+        "corn_departure_bu_acre": 4.9,
+        "corn_departure_percent": 3.0,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 44.6,
+        "soy_baseline_yield": 50.2,
+        "soy_departure_bu_acre": -5.6,
+        "soy_departure_percent": -11.1,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.557035,
+              40.898036
+            ],
+            [
+              -93.097606,
+              40.898036
+            ],
+            [
+              -93.097606,
+              40.58362
+            ],
+            [
+              -93.373981,
+              40.580184
+            ],
+            [
+              -93.557035,
+              40.580184
+            ],
+            [
+              -93.557035,
+              40.898036
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19127",
+      "properties": {
+        "county_fips": "19127",
+        "county_name": "Marshall"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.23041,
+              42.208961
+            ],
+            [
+              -93.000695,
+              42.208961
+            ],
+            [
+              -92.767391,
+              42.20982
+            ],
+            [
+              -92.767391,
+              41.86276
+            ],
+            [
+              -93.23041,
+              41.86276
+            ],
+            [
+              -93.23041,
+              42.208961
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19069",
+      "properties": {
+        "county_fips": "19069",
+        "county_name": "Franklin",
+        "corn_yield_2020": 180.1,
+        "corn_baseline_yield": 203.6,
+        "corn_departure_bu_acre": -23.5,
+        "corn_departure_percent": -11.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.4,
+        "soy_baseline_yield": 57.6,
+        "soy_departure_bu_acre": -2.2,
+        "soy_departure_percent": -3.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.499607,
+              42.908236
+            ],
+            [
+              -93.02582,
+              42.907377
+            ],
+            [
+              -93.02582,
+              42.55688
+            ],
+            [
+              -93.499607,
+              42.557739
+            ],
+            [
+              -93.499607,
+              42.908236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19055",
+      "properties": {
+        "county_fips": "19055",
+        "county_name": "Delaware",
+        "corn_yield_2020": 190.4,
+        "corn_baseline_yield": 209.1,
+        "corn_departure_bu_acre": -18.7,
+        "corn_departure_percent": -8.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 61.1,
+        "soy_baseline_yield": 61.9,
+        "soy_departure_bu_acre": -0.8,
+        "soy_departure_percent": -1.3,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.608049,
+              42.643645
+            ],
+            [
+              -91.134262,
+              42.646222
+            ],
+            [
+              -91.130673,
+              42.295726
+            ],
+            [
+              -91.363977,
+              42.296585
+            ],
+            [
+              -91.597281,
+              42.296585
+            ],
+            [
+              -91.597281,
+              42.469256
+            ],
+            [
+              -91.608049,
+              42.469256
+            ],
+            [
+              -91.608049,
+              42.643645
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19019",
+      "properties": {
+        "county_fips": "19019",
+        "county_name": "Buchanan",
+        "corn_yield_2020": 188.3,
+        "corn_baseline_yield": 208.9,
+        "corn_departure_bu_acre": -20.6,
+        "corn_departure_percent": -9.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.7,
+        "soy_baseline_yield": 57.2,
+        "soy_departure_bu_acre": -0.5,
+        "soy_departure_percent": -0.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.081836,
+              42.641927
+            ],
+            [
+              -91.608049,
+              42.643645
+            ],
+            [
+              -91.608049,
+              42.469256
+            ],
+            [
+              -91.597281,
+              42.469256
+            ],
+            [
+              -91.597281,
+              42.296585
+            ],
+            [
+              -91.830585,
+              42.299162
+            ],
+            [
+              -92.063889,
+              42.297444
+            ],
+            [
+              -92.063889,
+              42.468397
+            ],
+            [
+              -92.081836,
+              42.468397
+            ],
+            [
+              -92.081836,
+              42.641927
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19187",
+      "properties": {
+        "county_fips": "19187",
+        "county_name": "Webster",
+        "corn_yield_2020": 173.1,
+        "corn_baseline_yield": 198.1,
+        "corn_departure_bu_acre": -25.0,
+        "corn_departure_percent": -12.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 50.4,
+        "soy_baseline_yield": 54.3,
+        "soy_departure_bu_acre": -3.9,
+        "soy_departure_percent": -7.1,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.443591,
+              42.645363
+            ],
+            [
+              -93.973394,
+              42.644504
+            ],
+            [
+              -93.969804,
+              42.557739
+            ],
+            [
+              -93.973394,
+              42.471833
+            ],
+            [
+              -93.930322,
+              42.471833
+            ],
+            [
+              -93.930322,
+              42.20982
+            ],
+            [
+              -94.163626,
+              42.20982
+            ],
+            [
+              -94.39693,
+              42.208961
+            ],
+            [
+              -94.39693,
+              42.473551
+            ],
+            [
+              -94.443591,
+              42.473551
+            ],
+            [
+              -94.443591,
+              42.558598
+            ],
+            [
+              -94.443591,
+              42.645363
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19015",
+      "properties": {
+        "county_fips": "19015",
+        "county_name": "Boone",
+        "corn_yield_2020": 160.7,
+        "corn_baseline_yield": 196.3,
+        "corn_departure_bu_acre": -35.6,
+        "corn_departure_percent": -18.1,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 50.9,
+        "soy_baseline_yield": 55.7,
+        "soy_departure_bu_acre": -4.8,
+        "soy_departure_percent": -8.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.163626,
+              42.20982
+            ],
+            [
+              -93.930322,
+              42.20982
+            ],
+            [
+              -93.697018,
+              42.208961
+            ],
+            [
+              -93.697018,
+              41.863619
+            ],
+            [
+              -93.815465,
+              41.863619
+            ],
+            [
+              -94.163626,
+              41.863619
+            ],
+            [
+              -94.163626,
+              42.20982
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19159",
+      "properties": {
+        "county_fips": "19159",
+        "county_name": "Ringgold",
+        "corn_yield_2020": 159.1,
+        "corn_baseline_yield": 162.1,
+        "corn_departure_bu_acre": -3.0,
+        "corn_departure_percent": -1.9,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 50.6,
+        "soy_baseline_yield": 47.7,
+        "soy_departure_bu_acre": 2.9,
+        "soy_departure_percent": 6.0,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.472305,
+              40.899754
+            ],
+            [
+              -94.016465,
+              40.897177
+            ],
+            [
+              -94.016465,
+              40.57417
+            ],
+            [
+              -94.231823,
+              40.571593
+            ],
+            [
+              -94.472305,
+              40.570734
+            ],
+            [
+              -94.472305,
+              40.899754
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19165",
+      "properties": {
+        "county_fips": "19165",
+        "county_name": "Shelby",
+        "corn_yield_2020": 190.5,
+        "corn_baseline_yield": 204.8,
+        "corn_departure_bu_acre": -14.3,
+        "corn_departure_percent": -7.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 52.8,
+        "soy_baseline_yield": 58.5,
+        "soy_departure_bu_acre": -5.7,
+        "soy_departure_percent": -9.7,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.556272,
+              41.863619
+            ],
+            [
+              -95.093253,
+              41.863619
+            ],
+            [
+              -95.093253,
+              41.602465
+            ],
+            [
+              -95.039414,
+              41.602465
+            ],
+            [
+              -95.039414,
+              41.504532
+            ],
+            [
+              -95.154271,
+              41.505391
+            ],
+            [
+              -95.498843,
+              41.50625
+            ],
+            [
+              -95.498843,
+              41.602465
+            ],
+            [
+              -95.559861,
+              41.602465
+            ],
+            [
+              -95.556272,
+              41.863619
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19175",
+      "properties": {
+        "county_fips": "19175",
+        "county_name": "Union",
+        "corn_yield_2020": 179.7,
+        "corn_baseline_yield": 163.9,
+        "corn_departure_bu_acre": 15.8,
+        "corn_departure_percent": 9.6,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 52.1,
+        "soy_baseline_yield": 49.9,
+        "soy_departure_bu_acre": 2.2,
+        "soy_departure_percent": 4.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.472305,
+              41.157472
+            ],
+            [
+              -94.242591,
+              41.157472
+            ],
+            [
+              -94.012876,
+              41.156613
+            ],
+            [
+              -94.016465,
+              40.897177
+            ],
+            [
+              -94.472305,
+              40.899754
+            ],
+            [
+              -94.472305,
+              41.157472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19003",
+      "properties": {
+        "county_fips": "19003",
+        "county_name": "Adams",
+        "corn_yield_2020": 173.3,
+        "corn_baseline_yield": 177.1,
+        "corn_departure_bu_acre": -3.8,
+        "corn_departure_percent": -2.2,
+        "corn_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.928146,
+              41.158331
+            ],
+            [
+              -94.70202,
+              41.158331
+            ],
+            [
+              -94.472305,
+              41.157472
+            ],
+            [
+              -94.472305,
+              40.899754
+            ],
+            [
+              -94.928146,
+              40.900613
+            ],
+            [
+              -94.928146,
+              41.158331
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19123",
+      "properties": {
+        "county_fips": "19123",
+        "county_name": "Mahaska",
+        "corn_yield_2020": 180.8,
+        "corn_baseline_yield": 194.0,
+        "corn_departure_bu_acre": -13.2,
+        "corn_departure_percent": -6.8,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.87148,
+              41.508827
+            ],
+            [
+              -92.756623,
+              41.508827
+            ],
+            [
+              -92.412051,
+              41.509686
+            ],
+            [
+              -92.408461,
+              41.161767
+            ],
+            [
+              -92.641765,
+              41.160908
+            ],
+            [
+              -92.87148,
+              41.160908
+            ],
+            [
+              -92.87148,
+              41.508827
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19001",
+      "properties": {
+        "county_fips": "19001",
+        "county_name": "Adair",
+        "corn_yield_2020": 168.7,
+        "corn_baseline_yield": 173.6,
+        "corn_departure_bu_acre": -4.9,
+        "corn_departure_percent": -2.8,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 48.1,
+        "soy_baseline_yield": 53.7,
+        "soy_departure_bu_acre": -5.6,
+        "soy_departure_percent": -10.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.70202,
+              41.504532
+            ],
+            [
+              -94.242591,
+              41.503673
+            ],
+            [
+              -94.242591,
+              41.157472
+            ],
+            [
+              -94.472305,
+              41.157472
+            ],
+            [
+              -94.70202,
+              41.158331
+            ],
+            [
+              -94.698431,
+              41.331002
+            ],
+            [
+              -94.70202,
+              41.504532
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19079",
+      "properties": {
+        "county_fips": "19079",
+        "county_name": "Hamilton",
+        "corn_yield_2020": 166.2,
+        "corn_baseline_yield": 197.8,
+        "corn_departure_bu_acre": -31.6,
+        "corn_departure_percent": -16.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 51.5,
+        "soy_baseline_yield": 54.8,
+        "soy_departure_bu_acre": -3.3,
+        "soy_departure_percent": -6.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.969804,
+              42.557739
+            ],
+            [
+              -93.499607,
+              42.557739
+            ],
+            [
+              -93.499607,
+              42.470974
+            ],
+            [
+              -93.463714,
+              42.470974
+            ],
+            [
+              -93.463714,
+              42.208961
+            ],
+            [
+              -93.697018,
+              42.208961
+            ],
+            [
+              -93.930322,
+              42.20982
+            ],
+            [
+              -93.930322,
+              42.471833
+            ],
+            [
+              -93.973394,
+              42.471833
+            ],
+            [
+              -93.969804,
+              42.557739
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19083",
+      "properties": {
+        "county_fips": "19083",
+        "county_name": "Hardin",
+        "corn_yield_2020": 155.7,
+        "corn_baseline_yield": 207.6,
+        "corn_departure_bu_acre": -51.9,
+        "corn_departure_percent": -25.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 52.8,
+        "soy_baseline_yield": 57.7,
+        "soy_departure_bu_acre": -4.9,
+        "soy_departure_percent": -8.5,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.499607,
+              42.557739
+            ],
+            [
+              -93.02582,
+              42.55688
+            ],
+            [
+              -93.02582,
+              42.470974
+            ],
+            [
+              -93.004284,
+              42.470974
+            ],
+            [
+              -93.000695,
+              42.208961
+            ],
+            [
+              -93.23041,
+              42.208961
+            ],
+            [
+              -93.463714,
+              42.208961
+            ],
+            [
+              -93.463714,
+              42.470974
+            ],
+            [
+              -93.499607,
+              42.470974
+            ],
+            [
+              -93.499607,
+              42.557739
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19093",
+      "properties": {
+        "county_fips": "19093",
+        "county_name": "Ida",
+        "corn_yield_2020": 188.2,
+        "corn_baseline_yield": 214.2,
+        "corn_departure_bu_acre": -26.1,
+        "corn_departure_percent": -12.2,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 55.5,
+        "soy_baseline_yield": 63.4,
+        "soy_departure_bu_acre": -7.9,
+        "soy_departure_percent": -12.5,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.742915,
+              42.561175
+            ],
+            [
+              -95.387575,
+              42.562035
+            ],
+            [
+              -95.387575,
+              42.47441
+            ],
+            [
+              -95.322968,
+              42.47441
+            ],
+            [
+              -95.322968,
+              42.210679
+            ],
+            [
+              -95.67113,
+              42.211538
+            ],
+            [
+              -95.66754,
+              42.47441
+            ],
+            [
+              -95.742915,
+              42.47527
+            ],
+            [
+              -95.742915,
+              42.561175
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19125",
+      "properties": {
+        "county_fips": "19125",
+        "county_name": "Marion"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.327321,
+              41.507968
+            ],
+            [
+              -92.87148,
+              41.508827
+            ],
+            [
+              -92.87148,
+              41.160908
+            ],
+            [
+              -93.097606,
+              41.160908
+            ],
+            [
+              -93.327321,
+              41.160908
+            ],
+            [
+              -93.327321,
+              41.490787
+            ],
+            [
+              -93.327321,
+              41.507968
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19157",
+      "properties": {
+        "county_fips": "19157",
+        "county_name": "Poweshiek",
+        "corn_yield_2020": 138.2,
+        "corn_baseline_yield": 209.0,
+        "corn_departure_bu_acre": -70.8,
+        "corn_departure_percent": -33.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.8,
+        "soy_baseline_yield": 56.4,
+        "soy_departure_bu_acre": -1.6,
+        "soy_departure_percent": -2.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.767391,
+              41.86276
+            ],
+            [
+              -92.297193,
+              41.86276
+            ],
+            [
+              -92.300783,
+              41.775995
+            ],
+            [
+              -92.297193,
+              41.509686
+            ],
+            [
+              -92.412051,
+              41.509686
+            ],
+            [
+              -92.756623,
+              41.508827
+            ],
+            [
+              -92.756623,
+              41.601606
+            ],
+            [
+              -92.767391,
+              41.601606
+            ],
+            [
+              -92.767391,
+              41.86276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19153",
+      "properties": {
+        "county_fips": "19153",
+        "county_name": "Polk",
+        "corn_yield_2020": 150.2,
+        "corn_baseline_yield": 194.0,
+        "corn_departure_bu_acre": -43.8,
+        "corn_departure_percent": -22.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 50.2,
+        "soy_baseline_yield": 53.8,
+        "soy_departure_bu_acre": -3.6,
+        "soy_departure_percent": -6.7,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.815465,
+              41.863619
+            ],
+            [
+              -93.697018,
+              41.863619
+            ],
+            [
+              -93.348856,
+              41.86276
+            ],
+            [
+              -93.348856,
+              41.600747
+            ],
+            [
+              -93.327321,
+              41.600747
+            ],
+            [
+              -93.327321,
+              41.507968
+            ],
+            [
+              -93.327321,
+              41.490787
+            ],
+            [
+              -93.413464,
+              41.492505
+            ],
+            [
+              -93.442178,
+              41.507968
+            ],
+            [
+              -93.79034,
+              41.512264
+            ],
+            [
+              -93.79034,
+              41.600747
+            ],
+            [
+              -93.815465,
+              41.600747
+            ],
+            [
+              -93.815465,
+              41.863619
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19121",
+      "properties": {
+        "county_fips": "19121",
+        "county_name": "Madison",
+        "corn_yield_2020": 172.0,
+        "corn_baseline_yield": 174.3,
+        "corn_departure_bu_acre": -2.3,
+        "corn_departure_percent": -1.3,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 51.4,
+        "soy_baseline_yield": 53.3,
+        "soy_departure_bu_acre": -1.9,
+        "soy_departure_percent": -3.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.242591,
+              41.503673
+            ],
+            [
+              -93.898018,
+              41.502814
+            ],
+            [
+              -93.79034,
+              41.512264
+            ],
+            [
+              -93.79034,
+              41.161767
+            ],
+            [
+              -94.012876,
+              41.156613
+            ],
+            [
+              -94.242591,
+              41.157472
+            ],
+            [
+              -94.242591,
+              41.503673
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19177",
+      "properties": {
+        "county_fips": "19177",
+        "county_name": "Van Buren",
+        "corn_yield_2020": 153.5,
+        "corn_baseline_yield": 165.5,
+        "corn_departure_bu_acre": -12.0,
+        "corn_departure_percent": -7.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 44.2,
+        "soy_baseline_yield": 49.5,
+        "soy_departure_bu_acre": -5.3,
+        "soy_departure_percent": -10.7,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.178747,
+              40.899754
+            ],
+            [
+              -91.719317,
+              40.901472
+            ],
+            [
+              -91.719317,
+              40.813848
+            ],
+            [
+              -91.715728,
+              40.598224
+            ],
+            [
+              -91.730085,
+              40.613687
+            ],
+            [
+              -91.941853,
+              40.605956
+            ],
+            [
+              -92.178747,
+              40.600801
+            ],
+            [
+              -92.178747,
+              40.899754
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19087",
+      "properties": {
+        "county_fips": "19087",
+        "county_name": "Henry",
+        "corn_yield_2020": 172.0,
+        "corn_baseline_yield": 185.6,
+        "corn_departure_bu_acre": -13.6,
+        "corn_departure_percent": -7.3,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.9,
+        "soy_baseline_yield": 58.5,
+        "soy_departure_bu_acre": -3.6,
+        "soy_departure_percent": -6.2,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.719317,
+              40.901472
+            ],
+            [
+              -91.715728,
+              41.162626
+            ],
+            [
+              -91.486013,
+              41.162626
+            ],
+            [
+              -91.371155,
+              41.160908
+            ],
+            [
+              -91.371155,
+              41.074143
+            ],
+            [
+              -91.371155,
+              40.812989
+            ],
+            [
+              -91.410638,
+              40.812989
+            ],
+            [
+              -91.719317,
+              40.813848
+            ],
+            [
+              -91.719317,
+              40.901472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19033",
+      "properties": {
+        "county_fips": "19033",
+        "county_name": "Cerro Gordo",
+        "corn_yield_2020": 182.5,
+        "corn_baseline_yield": 195.1,
+        "corn_departure_bu_acre": -12.6,
+        "corn_departure_percent": -6.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 59.8,
+        "soy_baseline_yield": 55.4,
+        "soy_departure_bu_acre": 4.4,
+        "soy_departure_percent": 7.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.496017,
+              43.255296
+            ],
+            [
+              -93.02582,
+              43.255296
+            ],
+            [
+              -93.02582,
+              43.213202
+            ],
+            [
+              -93.02582,
+              42.907377
+            ],
+            [
+              -93.499607,
+              42.908236
+            ],
+            [
+              -93.496017,
+              43.255296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19197",
+      "properties": {
+        "county_fips": "19197",
+        "county_name": "Wright",
+        "corn_yield_2020": 186.0,
+        "corn_baseline_yield": 196.6,
+        "corn_departure_bu_acre": -10.6,
+        "corn_departure_percent": -5.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.9,
+        "soy_baseline_yield": 56.5,
+        "soy_departure_bu_acre": -0.6,
+        "soy_departure_percent": -1.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.973394,
+              42.644504
+            ],
+            [
+              -93.969804,
+              42.907377
+            ],
+            [
+              -93.499607,
+              42.908236
+            ],
+            [
+              -93.499607,
+              42.557739
+            ],
+            [
+              -93.969804,
+              42.557739
+            ],
+            [
+              -93.973394,
+              42.644504
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19105",
+      "properties": {
+        "county_fips": "19105",
+        "county_name": "Jones",
+        "corn_yield_2020": 171.6,
+        "corn_baseline_yield": 203.4,
+        "corn_departure_bu_acre": -31.8,
+        "corn_departure_percent": -15.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.0,
+        "soy_baseline_yield": 57.6,
+        "soy_departure_bu_acre": -3.6,
+        "soy_departure_percent": -6.2,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.363977,
+              42.296585
+            ],
+            [
+              -91.130673,
+              42.295726
+            ],
+            [
+              -90.897369,
+              42.294867
+            ],
+            [
+              -90.897369,
+              42.033713
+            ],
+            [
+              -90.897369,
+              41.946089
+            ],
+            [
+              -91.367566,
+              41.947807
+            ],
+            [
+              -91.363977,
+              42.296585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19027",
+      "properties": {
+        "county_fips": "19027",
+        "county_name": "Carroll",
+        "corn_yield_2020": 150.6,
+        "corn_baseline_yield": 207.6,
+        "corn_departure_bu_acre": -57.0,
+        "corn_departure_percent": -27.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.8,
+        "soy_baseline_yield": 59.0,
+        "soy_departure_bu_acre": -4.2,
+        "soy_departure_percent": -7.1,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.089664,
+              42.210679
+            ],
+            [
+              -94.859949,
+              42.20982
+            ],
+            [
+              -94.630234,
+              42.20982
+            ],
+            [
+              -94.630234,
+              41.86276
+            ],
+            [
+              -94.745092,
+              41.86276
+            ],
+            [
+              -95.093253,
+              41.863619
+            ],
+            [
+              -95.089664,
+              42.210679
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19073",
+      "properties": {
+        "county_fips": "19073",
+        "county_name": "Greene",
+        "corn_yield_2020": 153.8,
+        "corn_baseline_yield": 199.9,
+        "corn_departure_bu_acre": -46.1,
+        "corn_departure_percent": -23.1,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 49.0,
+        "soy_baseline_yield": 56.7,
+        "soy_departure_bu_acre": -7.7,
+        "soy_departure_percent": -13.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.630234,
+              42.20982
+            ],
+            [
+              -94.39693,
+              42.208961
+            ],
+            [
+              -94.163626,
+              42.20982
+            ],
+            [
+              -94.163626,
+              41.863619
+            ],
+            [
+              -94.282073,
+              41.86276
+            ],
+            [
+              -94.630234,
+              41.86276
+            ],
+            [
+              -94.630234,
+              42.20982
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19063",
+      "properties": {
+        "county_fips": "19063",
+        "county_name": "Emmet",
+        "corn_yield_2020": 186.1,
+        "corn_baseline_yield": 191.9,
+        "corn_departure_bu_acre": -5.8,
+        "corn_departure_percent": -3.0,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 56.0,
+        "soy_baseline_yield": 55.6,
+        "soy_departure_bu_acre": 0.4,
+        "soy_departure_percent": 0.8,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.913789,
+              43.500128
+            ],
+            [
+              -94.852771,
+              43.500987
+            ],
+            [
+              -94.443591,
+              43.500987
+            ],
+            [
+              -94.443591,
+              43.255296
+            ],
+            [
+              -94.913789,
+              43.255296
+            ],
+            [
+              -94.913789,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19131",
+      "properties": {
+        "county_fips": "19131",
+        "county_name": "Mitchell",
+        "corn_yield_2020": 203.3,
+        "corn_baseline_yield": 200.5,
+        "corn_departure_bu_acre": 2.8,
+        "corn_departure_percent": 1.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 59.4,
+        "soy_baseline_yield": 56.1,
+        "soy_departure_bu_acre": 3.3,
+        "soy_departure_percent": 5.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.02582,
+              43.499269
+            ],
+            [
+              -92.552033,
+              43.500128
+            ],
+            [
+              -92.555622,
+              43.213202
+            ],
+            [
+              -93.02582,
+              43.213202
+            ],
+            [
+              -93.02582,
+              43.255296
+            ],
+            [
+              -93.02582,
+              43.499269
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19137",
+      "properties": {
+        "county_fips": "19137",
+        "county_name": "Montgomery",
+        "corn_yield_2020": 184.6,
+        "corn_baseline_yield": 193.2,
+        "corn_departure_bu_acre": -8.6,
+        "corn_departure_percent": -4.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 49.2,
+        "soy_baseline_yield": 55.0,
+        "soy_departure_bu_acre": -5.8,
+        "soy_departure_percent": -10.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.383986,
+              41.160049
+            ],
+            [
+              -95.154271,
+              41.15919
+            ],
+            [
+              -94.928146,
+              41.158331
+            ],
+            [
+              -94.928146,
+              40.900613
+            ],
+            [
+              -95.383986,
+              40.901472
+            ],
+            [
+              -95.383986,
+              41.160049
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19017",
+      "properties": {
+        "county_fips": "19017",
+        "county_name": "Bremer",
+        "corn_yield_2020": 187.6,
+        "corn_baseline_yield": 210.3,
+        "corn_departure_bu_acre": -22.7,
+        "corn_departure_percent": -10.8,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.555622,
+              42.907377
+            ],
+            [
+              -92.081836,
+              42.907377
+            ],
+            [
+              -92.081836,
+              42.641927
+            ],
+            [
+              -92.555622,
+              42.641927
+            ],
+            [
+              -92.555622,
+              42.907377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19183",
+      "properties": {
+        "county_fips": "19183",
+        "county_name": "Washington",
+        "corn_yield_2020": 185.4,
+        "corn_baseline_yield": 203.4,
+        "corn_departure_bu_acre": -18.0,
+        "corn_departure_percent": -8.8,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 53.2,
+        "soy_baseline_yield": 58.5,
+        "soy_departure_bu_acre": -5.3,
+        "soy_departure_percent": -9.1,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.945442,
+              41.510545
+            ],
+            [
+              -91.830585,
+              41.511405
+            ],
+            [
+              -91.518316,
+              41.511405
+            ],
+            [
+              -91.514727,
+              41.469311
+            ],
+            [
+              -91.482424,
+              41.42378
+            ],
+            [
+              -91.486013,
+              41.162626
+            ],
+            [
+              -91.715728,
+              41.162626
+            ],
+            [
+              -91.945442,
+              41.163485
+            ],
+            [
+              -91.945442,
+              41.510545
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19141",
+      "properties": {
+        "county_fips": "19141",
+        "county_name": "O'Brien",
+        "corn_yield_2020": 199.5,
+        "corn_baseline_yield": 207.2,
+        "corn_departure_bu_acre": -7.7,
+        "corn_departure_percent": -3.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 62.0,
+        "soy_baseline_yield": 60.9,
+        "soy_departure_bu_acre": 1.1,
+        "soy_departure_percent": 1.7,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.861362,
+              43.257873
+            ],
+            [
+              -95.387575,
+              43.255296
+            ],
+            [
+              -95.387575,
+              42.909954
+            ],
+            [
+              -95.857773,
+              42.909095
+            ],
+            [
+              -95.861362,
+              42.996719
+            ],
+            [
+              -95.861362,
+              43.257873
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19151",
+      "properties": {
+        "county_fips": "19151",
+        "county_name": "Pocahontas",
+        "corn_yield_2020": 186.2,
+        "corn_baseline_yield": 195.6,
+        "corn_departure_bu_acre": -9.4,
+        "corn_departure_percent": -4.8,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 54.6,
+        "soy_baseline_yield": 56.6,
+        "soy_departure_bu_acre": -2.0,
+        "soy_departure_percent": -3.6,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.913789,
+              42.909954
+            ],
+            [
+              -94.443591,
+              42.908236
+            ],
+            [
+              -94.443591,
+              42.645363
+            ],
+            [
+              -94.443591,
+              42.558598
+            ],
+            [
+              -94.913789,
+              42.560316
+            ],
+            [
+              -94.913789,
+              42.909954
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19051",
+      "properties": {
+        "county_fips": "19051",
+        "county_name": "Davis",
+        "corn_yield_2020": 170.0,
+        "corn_baseline_yield": 149.6,
+        "corn_departure_bu_acre": 20.4,
+        "corn_departure_percent": 13.6,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 42.0,
+        "soy_baseline_yield": 49.7,
+        "soy_departure_bu_acre": -7.7,
+        "soy_departure_percent": -15.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.638176,
+              40.898895
+            ],
+            [
+              -92.178747,
+              40.899754
+            ],
+            [
+              -92.178747,
+              40.600801
+            ],
+            [
+              -92.351033,
+              40.597365
+            ],
+            [
+              -92.638176,
+              40.590493
+            ],
+            [
+              -92.638176,
+              40.898895
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19047",
+      "properties": {
+        "county_fips": "19047",
+        "county_name": "Crawford",
+        "corn_yield_2020": 181.2,
+        "corn_baseline_yield": 216.6,
+        "corn_departure_bu_acre": -35.4,
+        "corn_departure_percent": -16.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.2,
+        "soy_baseline_yield": 61.5,
+        "soy_departure_bu_acre": -7.3,
+        "soy_departure_percent": -11.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.67113,
+              42.211538
+            ],
+            [
+              -95.322968,
+              42.210679
+            ],
+            [
+              -95.089664,
+              42.210679
+            ],
+            [
+              -95.093253,
+              41.863619
+            ],
+            [
+              -95.556272,
+              41.863619
+            ],
+            [
+              -95.67113,
+              41.86276
+            ],
+            [
+              -95.67113,
+              42.211538
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19075",
+      "properties": {
+        "county_fips": "19075",
+        "county_name": "Grundy",
+        "corn_yield_2020": 182.7,
+        "corn_baseline_yield": 210.1,
+        "corn_departure_bu_acre": -27.4,
+        "corn_departure_percent": -13.1,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.9,
+        "soy_baseline_yield": 61.4,
+        "soy_departure_bu_acre": -0.5,
+        "soy_departure_percent": -0.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.02582,
+              42.55688
+            ],
+            [
+              -92.555622,
+              42.556021
+            ],
+            [
+              -92.555622,
+              42.469256
+            ],
+            [
+              -92.534087,
+              42.469256
+            ],
+            [
+              -92.534087,
+              42.296585
+            ],
+            [
+              -92.767391,
+              42.296585
+            ],
+            [
+              -92.767391,
+              42.20982
+            ],
+            [
+              -93.000695,
+              42.208961
+            ],
+            [
+              -93.004284,
+              42.470974
+            ],
+            [
+              -93.02582,
+              42.470974
+            ],
+            [
+              -93.02582,
+              42.55688
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19009",
+      "properties": {
+        "county_fips": "19009",
+        "county_name": "Audubon",
+        "corn_yield_2020": 170.8,
+        "corn_baseline_yield": 200.6,
+        "corn_departure_bu_acre": -29.8,
+        "corn_departure_percent": -14.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 48.3,
+        "soy_baseline_yield": 57.6,
+        "soy_departure_bu_acre": -9.3,
+        "soy_departure_percent": -16.2,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.093253,
+              41.863619
+            ],
+            [
+              -94.745092,
+              41.86276
+            ],
+            [
+              -94.745092,
+              41.602465
+            ],
+            [
+              -94.70202,
+              41.602465
+            ],
+            [
+              -94.70202,
+              41.504532
+            ],
+            [
+              -95.039414,
+              41.504532
+            ],
+            [
+              -95.039414,
+              41.602465
+            ],
+            [
+              -95.093253,
+              41.602465
+            ],
+            [
+              -95.093253,
+              41.863619
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19113",
+      "properties": {
+        "county_fips": "19113",
+        "county_name": "Linn",
+        "corn_yield_2020": 164.9,
+        "corn_baseline_yield": 209.2,
+        "corn_departure_bu_acre": -44.3,
+        "corn_departure_percent": -21.2,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.830585,
+              42.299162
+            ],
+            [
+              -91.597281,
+              42.296585
+            ],
+            [
+              -91.363977,
+              42.296585
+            ],
+            [
+              -91.367566,
+              41.947807
+            ],
+            [
+              -91.367566,
+              41.860183
+            ],
+            [
+              -91.830585,
+              41.861901
+            ],
+            [
+              -91.834174,
+              41.949525
+            ],
+            [
+              -91.830585,
+              42.299162
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19107",
+      "properties": {
+        "county_fips": "19107",
+        "county_name": "Keokuk",
+        "corn_yield_2020": 163.5,
+        "corn_baseline_yield": 189.0,
+        "corn_departure_bu_acre": -25.5,
+        "corn_departure_percent": -13.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 51.6,
+        "soy_baseline_yield": 55.1,
+        "soy_departure_bu_acre": -3.5,
+        "soy_departure_percent": -6.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.412051,
+              41.509686
+            ],
+            [
+              -92.297193,
+              41.509686
+            ],
+            [
+              -91.945442,
+              41.510545
+            ],
+            [
+              -91.945442,
+              41.163485
+            ],
+            [
+              -92.178747,
+              41.162626
+            ],
+            [
+              -92.408461,
+              41.161767
+            ],
+            [
+              -92.412051,
+              41.509686
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19161",
+      "properties": {
+        "county_fips": "19161",
+        "county_name": "Sac",
+        "corn_yield_2020": 161.0,
+        "corn_baseline_yield": 209.5,
+        "corn_departure_bu_acre": -48.5,
+        "corn_departure_percent": -23.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 47.1,
+        "soy_baseline_yield": 60.4,
+        "soy_departure_bu_acre": -13.3,
+        "soy_departure_percent": -22.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.387575,
+              42.562035
+            ],
+            [
+              -94.913789,
+              42.560316
+            ],
+            [
+              -94.913789,
+              42.47441
+            ],
+            [
+              -94.85636,
+              42.47441
+            ],
+            [
+              -94.859949,
+              42.20982
+            ],
+            [
+              -95.089664,
+              42.210679
+            ],
+            [
+              -95.322968,
+              42.210679
+            ],
+            [
+              -95.322968,
+              42.47441
+            ],
+            [
+              -95.387575,
+              42.47441
+            ],
+            [
+              -95.387575,
+              42.562035
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19193",
+      "properties": {
+        "county_fips": "19193",
+        "county_name": "Woodbury",
+        "corn_yield_2020": 191.0,
+        "corn_baseline_yield": 208.8,
+        "corn_departure_bu_acre": -17.8,
+        "corn_departure_percent": -8.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.6,
+        "soy_baseline_yield": 58.4,
+        "soy_departure_bu_acre": -1.8,
+        "soy_departure_percent": -3.1,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.500257,
+              42.561175
+            ],
+            [
+              -95.861362,
+              42.560316
+            ],
+            [
+              -95.742915,
+              42.561175
+            ],
+            [
+              -95.742915,
+              42.47527
+            ],
+            [
+              -95.66754,
+              42.47441
+            ],
+            [
+              -95.67113,
+              42.211538
+            ],
+            [
+              -96.356685,
+              42.214974
+            ],
+            [
+              -96.324381,
+              42.229578
+            ],
+            [
+              -96.356685,
+              42.276827
+            ],
+            [
+              -96.374631,
+              42.318062
+            ],
+            [
+              -96.414113,
+              42.342974
+            ],
+            [
+              -96.414113,
+              42.408263
+            ],
+            [
+              -96.38181,
+              42.446061
+            ],
+            [
+              -96.396167,
+              42.48386
+            ],
+            [
+              -96.446417,
+              42.490733
+            ],
+            [
+              -96.493078,
+              42.517363
+            ],
+            [
+              -96.478721,
+              42.556021
+            ],
+            [
+              -96.500257,
+              42.561175
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19155",
+      "properties": {
+        "county_fips": "19155",
+        "county_name": "Pottawattamie",
+        "corn_yield_2020": 176.3,
+        "corn_baseline_yield": 204.5,
+        "corn_departure_bu_acre": -28.2,
+        "corn_departure_percent": -13.8,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 48.0,
+        "soy_baseline_yield": 58.6,
+        "soy_departure_bu_acre": -10.6,
+        "soy_departure_percent": -18.2,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.997755,
+              41.507109
+            ],
+            [
+              -95.498843,
+              41.50625
+            ],
+            [
+              -95.154271,
+              41.505391
+            ],
+            [
+              -95.154271,
+              41.15919
+            ],
+            [
+              -95.383986,
+              41.160049
+            ],
+            [
+              -95.879309,
+              41.160049
+            ],
+            [
+              -95.839826,
+              41.174653
+            ],
+            [
+              -95.92238,
+              41.190975
+            ],
+            [
+              -95.911612,
+              41.227056
+            ],
+            [
+              -95.929559,
+              41.281177
+            ],
+            [
+              -95.882898,
+              41.316398
+            ],
+            [
+              -95.954684,
+              41.339593
+            ],
+            [
+              -95.936737,
+              41.391136
+            ],
+            [
+              -95.933148,
+              41.464156
+            ],
+            [
+              -96.004934,
+              41.472747
+            ],
+            [
+              -95.997755,
+              41.507109
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19139",
+      "properties": {
+        "county_fips": "19139",
+        "county_name": "Muscatine",
+        "corn_yield_2020": 172.8,
+        "corn_baseline_yield": 194.1,
+        "corn_departure_bu_acre": -21.3,
+        "corn_departure_percent": -11.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.6,
+        "soy_baseline_yield": 58.8,
+        "soy_departure_bu_acre": -3.2,
+        "soy_departure_percent": -5.5,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.367566,
+              41.422921
+            ],
+            [
+              -91.367566,
+              41.59817
+            ],
+            [
+              -90.900958,
+              41.59731
+            ],
+            [
+              -90.782511,
+              41.596451
+            ],
+            [
+              -90.7861,
+              41.452988
+            ],
+            [
+              -90.847118,
+              41.455566
+            ],
+            [
+              -90.929672,
+              41.421203
+            ],
+            [
+              -90.976333,
+              41.434089
+            ],
+            [
+              -91.04453,
+              41.416049
+            ],
+            [
+              -91.073244,
+              41.333579
+            ],
+            [
+              -91.367566,
+              41.336156
+            ],
+            [
+              -91.367566,
+              41.422921
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19129",
+      "properties": {
+        "county_fips": "19129",
+        "county_name": "Mills",
+        "corn_yield_2020": 182.2,
+        "corn_baseline_yield": 193.8,
+        "corn_departure_bu_acre": -11.6,
+        "corn_departure_percent": -6.0,
+        "corn_baseline_years": 3,
+        "soy_yield_2020": 49.3,
+        "soy_baseline_yield": null,
+        "soy_departure_bu_acre": null,
+        "soy_departure_percent": null,
+        "soy_baseline_years": 2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.879309,
+              41.160049
+            ],
+            [
+              -95.383986,
+              41.160049
+            ],
+            [
+              -95.383986,
+              40.901472
+            ],
+            [
+              -95.814701,
+              40.901472
+            ],
+            [
+              -95.839826,
+              40.94013
+            ],
+            [
+              -95.829059,
+              40.977928
+            ],
+            [
+              -95.861362,
+              40.99511
+            ],
+            [
+              -95.879309,
+              41.053526
+            ],
+            [
+              -95.864951,
+              41.080157
+            ],
+            [
+              -95.879309,
+              41.160049
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19143",
+      "properties": {
+        "county_fips": "19143",
+        "county_name": "Osceola",
+        "corn_yield_2020": 185.3,
+        "corn_baseline_yield": 196.5,
+        "corn_departure_bu_acre": -11.2,
+        "corn_departure_percent": -5.7,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.861362,
+              43.500128
+            ],
+            [
+              -95.455772,
+              43.500987
+            ],
+            [
+              -95.387575,
+              43.500128
+            ],
+            [
+              -95.387575,
+              43.255296
+            ],
+            [
+              -95.861362,
+              43.257873
+            ],
+            [
+              -95.861362,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19065",
+      "properties": {
+        "county_fips": "19065",
+        "county_name": "Fayette",
+        "corn_yield_2020": 180.1,
+        "corn_baseline_yield": 200.5,
+        "corn_departure_bu_acre": -20.4,
+        "corn_departure_percent": -10.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.9,
+        "soy_baseline_yield": 57.4,
+        "soy_departure_bu_acre": -1.5,
+        "soy_departure_percent": -2.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.081836,
+              42.907377
+            ],
+            [
+              -92.081836,
+              43.082625
+            ],
+            [
+              -91.60446,
+              43.081766
+            ],
+            [
+              -91.608049,
+              42.643645
+            ],
+            [
+              -92.081836,
+              42.641927
+            ],
+            [
+              -92.081836,
+              42.907377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19099",
+      "properties": {
+        "county_fips": "19099",
+        "county_name": "Jasper"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.348856,
+              41.86276
+            ],
+            [
+              -93.23041,
+              41.86276
+            ],
+            [
+              -92.767391,
+              41.86276
+            ],
+            [
+              -92.767391,
+              41.601606
+            ],
+            [
+              -92.756623,
+              41.601606
+            ],
+            [
+              -92.756623,
+              41.508827
+            ],
+            [
+              -92.87148,
+              41.508827
+            ],
+            [
+              -93.327321,
+              41.507968
+            ],
+            [
+              -93.327321,
+              41.600747
+            ],
+            [
+              -93.348856,
+              41.600747
+            ],
+            [
+              -93.348856,
+              41.86276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19057",
+      "properties": {
+        "county_fips": "19057",
+        "county_name": "Des Moines",
+        "corn_yield_2020": 190.2,
+        "corn_baseline_yield": 191.7,
+        "corn_departure_bu_acre": -1.5,
+        "corn_departure_percent": -0.8,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.7,
+        "soy_baseline_yield": 58.7,
+        "soy_departure_bu_acre": 2.0,
+        "soy_departure_percent": 3.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.371155,
+              41.074143
+            ],
+            [
+              -90.947619,
+              41.072425
+            ],
+            [
+              -90.947619,
+              41.069848
+            ],
+            [
+              -90.944029,
+              41.012291
+            ],
+            [
+              -90.965565,
+              40.921231
+            ],
+            [
+              -91.005047,
+              40.904908
+            ],
+            [
+              -91.055298,
+              40.84821
+            ],
+            [
+              -91.09119,
+              40.825016
+            ],
+            [
+              -91.112726,
+              40.696157
+            ],
+            [
+              -91.281423,
+              40.752855
+            ],
+            [
+              -91.292191,
+              40.772613
+            ],
+            [
+              -91.410638,
+              40.812989
+            ],
+            [
+              -91.371155,
+              40.812989
+            ],
+            [
+              -91.371155,
+              41.074143
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19169",
+      "properties": {
+        "county_fips": "19169",
+        "county_name": "Story",
+        "corn_yield_2020": 148.4,
+        "corn_baseline_yield": 196.4,
+        "corn_departure_bu_acre": -48.0,
+        "corn_departure_percent": -24.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 52.2,
+        "soy_baseline_yield": 54.0,
+        "soy_departure_bu_acre": -1.8,
+        "soy_departure_percent": -3.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.697018,
+              42.208961
+            ],
+            [
+              -93.463714,
+              42.208961
+            ],
+            [
+              -93.23041,
+              42.208961
+            ],
+            [
+              -93.23041,
+              41.86276
+            ],
+            [
+              -93.348856,
+              41.86276
+            ],
+            [
+              -93.697018,
+              41.863619
+            ],
+            [
+              -93.697018,
+              42.208961
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19149",
+      "properties": {
+        "county_fips": "19149",
+        "county_name": "Plymouth"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.536149,
+              42.909095
+            ],
+            [
+              -95.857773,
+              42.909095
+            ],
+            [
+              -95.861362,
+              42.560316
+            ],
+            [
+              -96.500257,
+              42.561175
+            ],
+            [
+              -96.514614,
+              42.630759
+            ],
+            [
+              -96.575632,
+              42.682303
+            ],
+            [
+              -96.629471,
+              42.705497
+            ],
+            [
+              -96.63306,
+              42.770786
+            ],
+            [
+              -96.593578,
+              42.793122
+            ],
+            [
+              -96.58281,
+              42.837793
+            ],
+            [
+              -96.543328,
+              42.851538
+            ],
+            [
+              -96.536149,
+              42.909095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19007",
+      "properties": {
+        "county_fips": "19007",
+        "county_name": "Appanoose",
+        "corn_yield_2020": 143.6,
+        "corn_baseline_yield": 169.4,
+        "corn_departure_bu_acre": -25.7,
+        "corn_departure_percent": -15.2,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 39.1,
+        "soy_baseline_yield": 50.0,
+        "soy_departure_bu_acre": -10.9,
+        "soy_departure_percent": -21.8,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.097606,
+              40.898036
+            ],
+            [
+              -92.638176,
+              40.898895
+            ],
+            [
+              -92.638176,
+              40.590493
+            ],
+            [
+              -92.713551,
+              40.589633
+            ],
+            [
+              -93.097606,
+              40.58362
+            ],
+            [
+              -93.097606,
+              40.898036
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19061",
+      "properties": {
+        "county_fips": "19061",
+        "county_name": "Dubuque",
+        "corn_yield_2020": 197.1,
+        "corn_baseline_yield": 210.4,
+        "corn_departure_bu_acre": -13.3,
+        "corn_departure_percent": -6.3,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.134262,
+              42.646222
+            ],
+            [
+              -90.897369,
+              42.645363
+            ],
+            [
+              -90.897369,
+              42.67543
+            ],
+            [
+              -90.707136,
+              42.634196
+            ],
+            [
+              -90.642529,
+              42.540558
+            ],
+            [
+              -90.642529,
+              42.508773
+            ],
+            [
+              -90.642529,
+              42.468397
+            ],
+            [
+              -90.563564,
+              42.43833
+            ],
+            [
+              -90.556386,
+              42.415994
+            ],
+            [
+              -90.473832,
+              42.381632
+            ],
+            [
+              -90.664064,
+              42.382491
+            ],
+            [
+              -90.664064,
+              42.294867
+            ],
+            [
+              -90.897369,
+              42.294867
+            ],
+            [
+              -91.130673,
+              42.295726
+            ],
+            [
+              -91.134262,
+              42.646222
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19071",
+      "properties": {
+        "county_fips": "19071",
+        "county_name": "Fremont",
+        "corn_yield_2020": 194.8,
+        "corn_baseline_yield": 190.1,
+        "corn_departure_bu_acre": 4.7,
+        "corn_departure_percent": 2.5,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 54.8,
+        "soy_baseline_yield": 54.6,
+        "soy_departure_bu_acre": 0.2,
+        "soy_departure_percent": 0.4,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.832648,
+              40.783781
+            ],
+            [
+              -95.847005,
+              40.811271
+            ],
+            [
+              -95.839826,
+              40.872264
+            ],
+            [
+              -95.814701,
+              40.901472
+            ],
+            [
+              -95.383986,
+              40.901472
+            ],
+            [
+              -95.383986,
+              40.728801
+            ],
+            [
+              -95.369629,
+              40.727942
+            ],
+            [
+              -95.373218,
+              40.580184
+            ],
+            [
+              -95.764451,
+              40.585338
+            ],
+            [
+              -95.750094,
+              40.609392
+            ],
+            [
+              -95.785987,
+              40.657499
+            ],
+            [
+              -95.832648,
+              40.671244
+            ],
+            [
+              -95.886487,
+              40.72107
+            ],
+            [
+              -95.879309,
+              40.752855
+            ],
+            [
+              -95.832648,
+              40.783781
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19053",
+      "properties": {
+        "county_fips": "19053",
+        "county_name": "Decatur",
+        "corn_yield_2020": 159.3,
+        "corn_baseline_yield": 172.1,
+        "corn_departure_bu_acre": -12.8,
+        "corn_departure_percent": -7.4,
+        "corn_baseline_years": 3,
+        "soy_yield_2020": 47.4,
+        "soy_baseline_yield": 50.5,
+        "soy_departure_bu_acre": -3.1,
+        "soy_departure_percent": -6.2,
+        "soy_baseline_years": 3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.016465,
+              40.897177
+            ],
+            [
+              -93.557035,
+              40.898036
+            ],
+            [
+              -93.557035,
+              40.580184
+            ],
+            [
+              -93.775982,
+              40.577607
+            ],
+            [
+              -94.016465,
+              40.57417
+            ],
+            [
+              -94.016465,
+              40.897177
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19191",
+      "properties": {
+        "county_fips": "19191",
+        "county_name": "Winneshiek",
+        "corn_yield_2020": 178.2,
+        "corn_baseline_yield": 198.9,
+        "corn_departure_bu_acre": -20.7,
+        "corn_departure_percent": -10.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 53.6,
+        "soy_baseline_yield": 55.2,
+        "soy_departure_bu_acre": -1.6,
+        "soy_departure_percent": -2.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.081836,
+              43.213202
+            ],
+            [
+              -92.078246,
+              43.500987
+            ],
+            [
+              -91.730085,
+              43.500987
+            ],
+            [
+              -91.611638,
+              43.500128
+            ],
+            [
+              -91.611638,
+              43.342061
+            ],
+            [
+              -91.60446,
+              43.081766
+            ],
+            [
+              -92.081836,
+              43.082625
+            ],
+            [
+              -92.081836,
+              43.213202
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19041",
+      "properties": {
+        "county_fips": "19041",
+        "county_name": "Clay",
+        "corn_yield_2020": 168.1,
+        "corn_baseline_yield": 189.2,
+        "corn_departure_bu_acre": -21.1,
+        "corn_departure_percent": -11.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 50.3,
+        "soy_baseline_yield": 56.7,
+        "soy_departure_bu_acre": -6.4,
+        "soy_departure_percent": -11.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.387575,
+              43.255296
+            ],
+            [
+              -94.913789,
+              43.255296
+            ],
+            [
+              -94.913789,
+              42.909954
+            ],
+            [
+              -95.387575,
+              42.909954
+            ],
+            [
+              -95.387575,
+              43.255296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19103",
+      "properties": {
+        "county_fips": "19103",
+        "county_name": "Johnson",
+        "corn_yield_2020": 161.8,
+        "corn_baseline_yield": 196.6,
+        "corn_departure_bu_acre": -34.8,
+        "corn_departure_percent": -17.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 51.8,
+        "soy_baseline_yield": 56.7,
+        "soy_departure_bu_acre": -4.9,
+        "soy_departure_percent": -8.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.830585,
+              41.861901
+            ],
+            [
+              -91.367566,
+              41.860183
+            ],
+            [
+              -91.367566,
+              41.59817
+            ],
+            [
+              -91.367566,
+              41.422921
+            ],
+            [
+              -91.482424,
+              41.42378
+            ],
+            [
+              -91.514727,
+              41.469311
+            ],
+            [
+              -91.518316,
+              41.511405
+            ],
+            [
+              -91.830585,
+              41.511405
+            ],
+            [
+              -91.826996,
+              41.600747
+            ],
+            [
+              -91.830585,
+              41.861901
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19117",
+      "properties": {
+        "county_fips": "19117",
+        "county_name": "Lucas",
+        "corn_yield_2020": 149.2,
+        "corn_baseline_yield": null,
+        "corn_departure_bu_acre": null,
+        "corn_departure_percent": null,
+        "corn_baseline_years": 2,
+        "soy_yield_2020": 43.8,
+        "soy_baseline_yield": 46.6,
+        "soy_departure_bu_acre": -2.8,
+        "soy_departure_percent": -6.0,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.557035,
+              41.160908
+            ],
+            [
+              -93.327321,
+              41.160908
+            ],
+            [
+              -93.097606,
+              41.160908
+            ],
+            [
+              -93.097606,
+              40.898036
+            ],
+            [
+              -93.557035,
+              40.898036
+            ],
+            [
+              -93.557035,
+              41.160908
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19135",
+      "properties": {
+        "county_fips": "19135",
+        "county_name": "Monroe",
+        "corn_yield_2020": 153.8,
+        "corn_baseline_yield": 169.8,
+        "corn_departure_bu_acre": -16.0,
+        "corn_departure_percent": -9.4,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 45.4,
+        "soy_baseline_yield": 53.1,
+        "soy_departure_bu_acre": -7.7,
+        "soy_departure_percent": -14.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.097606,
+              41.160908
+            ],
+            [
+              -92.87148,
+              41.160908
+            ],
+            [
+              -92.641765,
+              41.160908
+            ],
+            [
+              -92.638176,
+              40.898895
+            ],
+            [
+              -93.097606,
+              40.898036
+            ],
+            [
+              -93.097606,
+              41.160908
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19095",
+      "properties": {
+        "county_fips": "19095",
+        "county_name": "Iowa",
+        "corn_yield_2020": 151.1,
+        "corn_baseline_yield": 205.8,
+        "corn_departure_bu_acre": -54.7,
+        "corn_departure_percent": -26.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 49.8,
+        "soy_baseline_yield": 55.7,
+        "soy_departure_bu_acre": -5.9,
+        "soy_departure_percent": -10.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.297193,
+              41.86276
+            ],
+            [
+              -91.830585,
+              41.861901
+            ],
+            [
+              -91.826996,
+              41.600747
+            ],
+            [
+              -91.830585,
+              41.511405
+            ],
+            [
+              -91.945442,
+              41.510545
+            ],
+            [
+              -92.297193,
+              41.509686
+            ],
+            [
+              -92.300783,
+              41.775995
+            ],
+            [
+              -92.297193,
+              41.86276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19011",
+      "properties": {
+        "county_fips": "19011",
+        "county_name": "Benton",
+        "corn_yield_2020": 144.8,
+        "corn_baseline_yield": 203.0,
+        "corn_departure_bu_acre": -58.2,
+        "corn_departure_percent": -28.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.7,
+        "soy_baseline_yield": 58.8,
+        "soy_departure_bu_acre": -2.1,
+        "soy_departure_percent": -3.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.297193,
+              42.297444
+            ],
+            [
+              -92.063889,
+              42.297444
+            ],
+            [
+              -91.830585,
+              42.299162
+            ],
+            [
+              -91.834174,
+              41.949525
+            ],
+            [
+              -91.830585,
+              41.861901
+            ],
+            [
+              -92.297193,
+              41.86276
+            ],
+            [
+              -92.297193,
+              42.297444
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19109",
+      "properties": {
+        "county_fips": "19109",
+        "county_name": "Kossuth",
+        "corn_yield_2020": 190.7,
+        "corn_baseline_yield": 197.6,
+        "corn_departure_bu_acre": -6.9,
+        "corn_departure_percent": -3.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.2,
+        "soy_baseline_yield": 59.3,
+        "soy_departure_bu_acre": 0.9,
+        "soy_departure_percent": 1.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.443591,
+              43.500987
+            ],
+            [
+              -94.24618,
+              43.500128
+            ],
+            [
+              -93.969804,
+              43.499269
+            ],
+            [
+              -93.969804,
+              43.255296
+            ],
+            [
+              -93.969804,
+              42.907377
+            ],
+            [
+              -94.443591,
+              42.908236
+            ],
+            [
+              -94.443591,
+              43.255296
+            ],
+            [
+              -94.443591,
+              43.500987
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19163",
+      "properties": {
+        "county_fips": "19163",
+        "county_name": "Scott",
+        "corn_yield_2020": 181.3,
+        "corn_baseline_yield": 207.1,
+        "corn_departure_bu_acre": -25.8,
+        "corn_departure_percent": -12.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 61.0,
+        "soy_baseline_yield": 62.6,
+        "soy_departure_bu_acre": -1.6,
+        "soy_departure_percent": -2.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.897369,
+              41.7717
+            ],
+            [
+              -90.7861,
+              41.7717
+            ],
+            [
+              -90.714315,
+              41.73476
+            ],
+            [
+              -90.674832,
+              41.761391
+            ],
+            [
+              -90.577921,
+              41.758814
+            ],
+            [
+              -90.538439,
+              41.775995
+            ],
+            [
+              -90.470243,
+              41.773418
+            ],
+            [
+              -90.409225,
+              41.729606
+            ],
+            [
+              -90.315903,
+              41.728747
+            ],
+            [
+              -90.312314,
+              41.69782
+            ],
+            [
+              -90.344617,
+              41.647136
+            ],
+            [
+              -90.341028,
+              41.590438
+            ],
+            [
+              -90.398457,
+              41.572398
+            ],
+            [
+              -90.463064,
+              41.523431
+            ],
+            [
+              -90.556386,
+              41.52429
+            ],
+            [
+              -90.592279,
+              41.513123
+            ],
+            [
+              -90.649707,
+              41.465015
+            ],
+            [
+              -90.73585,
+              41.450411
+            ],
+            [
+              -90.7861,
+              41.452988
+            ],
+            [
+              -90.782511,
+              41.596451
+            ],
+            [
+              -90.900958,
+              41.59731
+            ],
+            [
+              -90.897369,
+              41.7717
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19085",
+      "properties": {
+        "county_fips": "19085",
+        "county_name": "Harrison",
+        "corn_yield_2020": 180.2,
+        "corn_baseline_yield": 190.8,
+        "corn_departure_bu_acre": -10.6,
+        "corn_departure_percent": -5.6,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 52.1,
+        "soy_baseline_yield": 54.1,
+        "soy_departure_bu_acre": -2.1,
+        "soy_departure_percent": -3.8,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.137738,
+              41.866196
+            ],
+            [
+              -95.67113,
+              41.86276
+            ],
+            [
+              -95.556272,
+              41.863619
+            ],
+            [
+              -95.559861,
+              41.602465
+            ],
+            [
+              -95.498843,
+              41.602465
+            ],
+            [
+              -95.498843,
+              41.50625
+            ],
+            [
+              -95.997755,
+              41.507109
+            ],
+            [
+              -95.997755,
+              41.538894
+            ],
+            [
+              -96.030059,
+              41.539753
+            ],
+            [
+              -96.037238,
+              41.507968
+            ],
+            [
+              -96.091077,
+              41.532022
+            ],
+            [
+              -96.080309,
+              41.580129
+            ],
+            [
+              -96.119791,
+              41.613633
+            ],
+            [
+              -96.094666,
+              41.647136
+            ],
+            [
+              -96.123381,
+              41.683216
+            ],
+            [
+              -96.083898,
+              41.69782
+            ],
+            [
+              -96.105434,
+              41.74421
+            ],
+            [
+              -96.07672,
+              41.761391
+            ],
+            [
+              -96.065952,
+              41.800908
+            ],
+            [
+              -96.109023,
+              41.820666
+            ],
+            [
+              -96.137738,
+              41.866196
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19115",
+      "properties": {
+        "county_fips": "19115",
+        "county_name": "Louisa",
+        "corn_yield_2020": 181.6,
+        "corn_baseline_yield": 193.9,
+        "corn_departure_bu_acre": -12.3,
+        "corn_departure_percent": -6.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 53.3,
+        "soy_baseline_yield": 57.1,
+        "soy_departure_bu_acre": -3.8,
+        "soy_departure_percent": -6.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.482424,
+              41.42378
+            ],
+            [
+              -91.367566,
+              41.422921
+            ],
+            [
+              -91.367566,
+              41.336156
+            ],
+            [
+              -91.073244,
+              41.333579
+            ],
+            [
+              -91.112726,
+              41.239083
+            ],
+            [
+              -91.04094,
+              41.166063
+            ],
+            [
+              -90.99428,
+              41.160908
+            ],
+            [
+              -90.947619,
+              41.096479
+            ],
+            [
+              -90.947619,
+              41.072425
+            ],
+            [
+              -91.371155,
+              41.074143
+            ],
+            [
+              -91.371155,
+              41.160908
+            ],
+            [
+              -91.486013,
+              41.162626
+            ],
+            [
+              -91.482424,
+              41.42378
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19145",
+      "properties": {
+        "county_fips": "19145",
+        "county_name": "Page",
+        "corn_yield_2020": 181.6,
+        "corn_baseline_yield": 184.8,
+        "corn_departure_bu_acre": -3.2,
+        "corn_departure_percent": -1.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 52.4,
+        "soy_baseline_yield": 53.8,
+        "soy_departure_bu_acre": -1.4,
+        "soy_departure_percent": -2.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.383986,
+              40.901472
+            ],
+            [
+              -94.928146,
+              40.900613
+            ],
+            [
+              -94.928146,
+              40.727083
+            ],
+            [
+              -94.913789,
+              40.727083
+            ],
+            [
+              -94.913789,
+              40.575029
+            ],
+            [
+              -95.200932,
+              40.578466
+            ],
+            [
+              -95.373218,
+              40.580184
+            ],
+            [
+              -95.369629,
+              40.727942
+            ],
+            [
+              -95.383986,
+              40.728801
+            ],
+            [
+              -95.383986,
+              40.901472
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19043",
+      "properties": {
+        "county_fips": "19043",
+        "county_name": "Clayton",
+        "corn_yield_2020": 191.1,
+        "corn_baseline_yield": 203.2,
+        "corn_departure_bu_acre": -12.1,
+        "corn_departure_percent": -6.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.1,
+        "soy_baseline_yield": 58.8,
+        "soy_departure_bu_acre": 1.3,
+        "soy_departure_percent": 2.1,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.60446,
+              43.081766
+            ],
+            [
+              -91.177334,
+              43.080048
+            ],
+            [
+              -91.155798,
+              42.988128
+            ],
+            [
+              -91.14503,
+              42.904799
+            ],
+            [
+              -91.101958,
+              42.883323
+            ],
+            [
+              -91.066065,
+              42.751028
+            ],
+            [
+              -90.979922,
+              42.698625
+            ],
+            [
+              -90.897369,
+              42.67543
+            ],
+            [
+              -90.897369,
+              42.645363
+            ],
+            [
+              -91.134262,
+              42.646222
+            ],
+            [
+              -91.608049,
+              42.643645
+            ],
+            [
+              -91.60446,
+              43.081766
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19091",
+      "properties": {
+        "county_fips": "19091",
+        "county_name": "Humboldt",
+        "corn_yield_2020": 188.4,
+        "corn_baseline_yield": 192.6,
+        "corn_departure_bu_acre": -4.2,
+        "corn_departure_percent": -2.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.9,
+        "soy_baseline_yield": 56.2,
+        "soy_departure_bu_acre": 0.7,
+        "soy_departure_percent": 1.3,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.443591,
+              42.908236
+            ],
+            [
+              -93.969804,
+              42.907377
+            ],
+            [
+              -93.973394,
+              42.644504
+            ],
+            [
+              -94.443591,
+              42.645363
+            ],
+            [
+              -94.443591,
+              42.908236
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19101",
+      "properties": {
+        "county_fips": "19101",
+        "county_name": "Jefferson",
+        "corn_yield_2020": 167.3,
+        "corn_baseline_yield": 178.4,
+        "corn_departure_bu_acre": -11.1,
+        "corn_departure_percent": -6.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 53.8,
+        "soy_baseline_yield": 53.3,
+        "soy_departure_bu_acre": 0.5,
+        "soy_departure_percent": 0.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.178747,
+              41.162626
+            ],
+            [
+              -91.945442,
+              41.163485
+            ],
+            [
+              -91.715728,
+              41.162626
+            ],
+            [
+              -91.719317,
+              40.901472
+            ],
+            [
+              -92.178747,
+              40.899754
+            ],
+            [
+              -92.178747,
+              41.162626
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19167",
+      "properties": {
+        "county_fips": "19167",
+        "county_name": "Sioux",
+        "corn_yield_2020": 201.8,
+        "corn_baseline_yield": 207.8,
+        "corn_departure_bu_acre": -6.0,
+        "corn_departure_percent": -2.9,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.554096,
+              43.259591
+            ],
+            [
+              -96.098256,
+              43.257014
+            ],
+            [
+              -95.861362,
+              43.257873
+            ],
+            [
+              -95.861362,
+              42.996719
+            ],
+            [
+              -95.857773,
+              42.909095
+            ],
+            [
+              -96.536149,
+              42.909095
+            ],
+            [
+              -96.500257,
+              42.959779
+            ],
+            [
+              -96.521792,
+              42.977819
+            ],
+            [
+              -96.493078,
+              43.001873
+            ],
+            [
+              -96.511024,
+              43.04998
+            ],
+            [
+              -96.453596,
+              43.083484
+            ],
+            [
+              -96.435649,
+              43.120423
+            ],
+            [
+              -96.467953,
+              43.15049
+            ],
+            [
+              -96.475131,
+              43.221792
+            ],
+            [
+              -96.561275,
+              43.22437
+            ],
+            [
+              -96.554096,
+              43.259591
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19049",
+      "properties": {
+        "county_fips": "19049",
+        "county_name": "Dallas",
+        "corn_yield_2020": 139.7,
+        "corn_baseline_yield": 188.5,
+        "corn_departure_bu_acre": -48.8,
+        "corn_departure_percent": -25.9,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 47.1,
+        "soy_baseline_yield": 55.1,
+        "soy_departure_bu_acre": -8.0,
+        "soy_departure_percent": -14.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.282073,
+              41.86276
+            ],
+            [
+              -94.163626,
+              41.863619
+            ],
+            [
+              -93.815465,
+              41.863619
+            ],
+            [
+              -93.815465,
+              41.600747
+            ],
+            [
+              -93.79034,
+              41.600747
+            ],
+            [
+              -93.79034,
+              41.512264
+            ],
+            [
+              -93.898018,
+              41.502814
+            ],
+            [
+              -94.242591,
+              41.503673
+            ],
+            [
+              -94.242591,
+              41.600747
+            ],
+            [
+              -94.278484,
+              41.601606
+            ],
+            [
+              -94.282073,
+              41.86276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19029",
+      "properties": {
+        "county_fips": "19029",
+        "county_name": "Cass",
+        "corn_yield_2020": 177.5,
+        "corn_baseline_yield": 191.4,
+        "corn_departure_bu_acre": -13.9,
+        "corn_departure_percent": -7.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 49.3,
+        "soy_baseline_yield": 56.6,
+        "soy_departure_bu_acre": -7.3,
+        "soy_departure_percent": -13.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.154271,
+              41.505391
+            ],
+            [
+              -95.039414,
+              41.504532
+            ],
+            [
+              -94.70202,
+              41.504532
+            ],
+            [
+              -94.698431,
+              41.331002
+            ],
+            [
+              -94.70202,
+              41.158331
+            ],
+            [
+              -94.928146,
+              41.158331
+            ],
+            [
+              -95.154271,
+              41.15919
+            ],
+            [
+              -95.154271,
+              41.505391
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19039",
+      "properties": {
+        "county_fips": "19039",
+        "county_name": "Clarke",
+        "corn_yield_2020": 155.2,
+        "corn_baseline_yield": 159.4,
+        "corn_departure_bu_acre": -4.2,
+        "corn_departure_percent": -2.6,
+        "corn_baseline_years": 3,
+        "soy_yield_2020": 45.9,
+        "soy_baseline_yield": 46.4,
+        "soy_departure_bu_acre": -0.5,
+        "soy_departure_percent": -1.0,
+        "soy_baseline_years": 3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.012876,
+              41.156613
+            ],
+            [
+              -93.79034,
+              41.161767
+            ],
+            [
+              -93.557035,
+              41.160908
+            ],
+            [
+              -93.557035,
+              40.898036
+            ],
+            [
+              -94.016465,
+              40.897177
+            ],
+            [
+              -94.012876,
+              41.156613
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19133",
+      "properties": {
+        "county_fips": "19133",
+        "county_name": "Monona",
+        "corn_yield_2020": 178.4,
+        "corn_baseline_yield": 187.0,
+        "corn_departure_bu_acre": -8.6,
+        "corn_departure_percent": -4.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.0,
+        "soy_baseline_yield": 55.3,
+        "soy_departure_bu_acre": 0.7,
+        "soy_departure_percent": 1.2,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.356685,
+              42.214974
+            ],
+            [
+              -95.67113,
+              42.211538
+            ],
+            [
+              -95.67113,
+              41.86276
+            ],
+            [
+              -96.137738,
+              41.866196
+            ],
+            [
+              -96.162863,
+              41.905713
+            ],
+            [
+              -96.141327,
+              41.915163
+            ],
+            [
+              -96.130559,
+              41.971861
+            ],
+            [
+              -96.187988,
+              41.977015
+            ],
+            [
+              -96.184399,
+              42.002787
+            ],
+            [
+              -96.238238,
+              42.012236
+            ],
+            [
+              -96.220292,
+              42.025981
+            ],
+            [
+              -96.274131,
+              42.047458
+            ],
+            [
+              -96.270542,
+              42.11876
+            ],
+            [
+              -96.349506,
+              42.166867
+            ],
+            [
+              -96.356685,
+              42.214974
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19025",
+      "properties": {
+        "county_fips": "19025",
+        "county_name": "Calhoun",
+        "corn_yield_2020": 159.6,
+        "corn_baseline_yield": 197.8,
+        "corn_departure_bu_acre": -38.2,
+        "corn_departure_percent": -19.3,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 47.7,
+        "soy_baseline_yield": 56.6,
+        "soy_departure_bu_acre": -8.9,
+        "soy_departure_percent": -15.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.913789,
+              42.560316
+            ],
+            [
+              -94.443591,
+              42.558598
+            ],
+            [
+              -94.443591,
+              42.473551
+            ],
+            [
+              -94.39693,
+              42.473551
+            ],
+            [
+              -94.39693,
+              42.208961
+            ],
+            [
+              -94.630234,
+              42.20982
+            ],
+            [
+              -94.859949,
+              42.20982
+            ],
+            [
+              -94.85636,
+              42.47441
+            ],
+            [
+              -94.913789,
+              42.47441
+            ],
+            [
+              -94.913789,
+              42.560316
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19097",
+      "properties": {
+        "county_fips": "19097",
+        "county_name": "Jackson",
+        "corn_yield_2020": 185.6,
+        "corn_baseline_yield": 196.5,
+        "corn_departure_bu_acre": -10.9,
+        "corn_departure_percent": -5.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.7,
+        "soy_baseline_yield": 59.2,
+        "soy_departure_bu_acre": -4.5,
+        "soy_departure_percent": -7.6,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.897369,
+              42.294867
+            ],
+            [
+              -90.664064,
+              42.294867
+            ],
+            [
+              -90.664064,
+              42.382491
+            ],
+            [
+              -90.473832,
+              42.381632
+            ],
+            [
+              -90.419992,
+              42.330088
+            ],
+            [
+              -90.43076,
+              42.278545
+            ],
+            [
+              -90.376921,
+              42.214974
+            ],
+            [
+              -90.319492,
+              42.193498
+            ],
+            [
+              -90.208224,
+              42.152263
+            ],
+            [
+              -90.161563,
+              42.117042
+            ],
+            [
+              -90.168742,
+              42.075807
+            ],
+            [
+              -90.154385,
+              42.032854
+            ],
+            [
+              -90.897369,
+              42.033713
+            ],
+            [
+              -90.897369,
+              42.294867
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19037",
+      "properties": {
+        "county_fips": "19037",
+        "county_name": "Chickasaw",
+        "corn_yield_2020": 185.7,
+        "corn_baseline_yield": 201.8,
+        "corn_departure_bu_acre": -16.1,
+        "corn_departure_percent": -8.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.9,
+        "soy_baseline_yield": 53.9,
+        "soy_departure_bu_acre": 2.0,
+        "soy_departure_percent": 3.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.555622,
+              43.213202
+            ],
+            [
+              -92.081836,
+              43.213202
+            ],
+            [
+              -92.081836,
+              43.082625
+            ],
+            [
+              -92.081836,
+              42.907377
+            ],
+            [
+              -92.555622,
+              42.907377
+            ],
+            [
+              -92.555622,
+              43.213202
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19077",
+      "properties": {
+        "county_fips": "19077",
+        "county_name": "Guthrie",
+        "corn_yield_2020": 151.3,
+        "corn_baseline_yield": 192.8,
+        "corn_departure_bu_acre": -41.5,
+        "corn_departure_percent": -21.5,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 45.5,
+        "soy_baseline_yield": 55.6,
+        "soy_departure_bu_acre": -10.1,
+        "soy_departure_percent": -18.2,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.745092,
+              41.86276
+            ],
+            [
+              -94.630234,
+              41.86276
+            ],
+            [
+              -94.282073,
+              41.86276
+            ],
+            [
+              -94.278484,
+              41.601606
+            ],
+            [
+              -94.242591,
+              41.600747
+            ],
+            [
+              -94.242591,
+              41.503673
+            ],
+            [
+              -94.70202,
+              41.504532
+            ],
+            [
+              -94.70202,
+              41.602465
+            ],
+            [
+              -94.745092,
+              41.602465
+            ],
+            [
+              -94.745092,
+              41.86276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19189",
+      "properties": {
+        "county_fips": "19189",
+        "county_name": "Winnebago",
+        "corn_yield_2020": 207.1,
+        "corn_baseline_yield": 198.4,
+        "corn_departure_bu_acre": 8.7,
+        "corn_departure_percent": 4.4,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.8,
+        "soy_baseline_yield": 57.6,
+        "soy_departure_bu_acre": 3.2,
+        "soy_departure_percent": 5.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.969804,
+              43.499269
+            ],
+            [
+              -93.646768,
+              43.499269
+            ],
+            [
+              -93.496017,
+              43.499269
+            ],
+            [
+              -93.496017,
+              43.255296
+            ],
+            [
+              -93.969804,
+              43.255296
+            ],
+            [
+              -93.969804,
+              43.499269
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19059",
+      "properties": {
+        "county_fips": "19059",
+        "county_name": "Dickinson",
+        "corn_yield_2020": 182.2,
+        "corn_baseline_yield": 181.8,
+        "corn_departure_bu_acre": 0.4,
+        "corn_departure_percent": 0.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 55.5,
+        "soy_baseline_yield": 54.3,
+        "soy_departure_bu_acre": 1.2,
+        "soy_departure_percent": 2.3,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.387575,
+              43.500128
+            ],
+            [
+              -94.913789,
+              43.500128
+            ],
+            [
+              -94.913789,
+              43.255296
+            ],
+            [
+              -95.387575,
+              43.255296
+            ],
+            [
+              -95.387575,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19111",
+      "properties": {
+        "county_fips": "19111",
+        "county_name": "Lee",
+        "corn_yield_2020": 174.3,
+        "corn_baseline_yield": 178.3,
+        "corn_departure_bu_acre": -4.0,
+        "corn_departure_percent": -2.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 52.1,
+        "soy_baseline_yield": 56.3,
+        "soy_departure_bu_acre": -4.2,
+        "soy_departure_percent": -7.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.719317,
+              40.813848
+            ],
+            [
+              -91.410638,
+              40.812989
+            ],
+            [
+              -91.292191,
+              40.772613
+            ],
+            [
+              -91.281423,
+              40.752855
+            ],
+            [
+              -91.112726,
+              40.696157
+            ],
+            [
+              -91.119905,
+              40.672962
+            ],
+            [
+              -91.184512,
+              40.637741
+            ],
+            [
+              -91.249119,
+              40.6386
+            ],
+            [
+              -91.360388,
+              40.60166
+            ],
+            [
+              -91.407048,
+              40.542385
+            ],
+            [
+              -91.367566,
+              40.512318
+            ],
+            [
+              -91.381923,
+              40.435003
+            ],
+            [
+              -91.374745,
+              40.39205
+            ],
+            [
+              -91.417816,
+              40.378305
+            ],
+            [
+              -91.486013,
+              40.384318
+            ],
+            [
+              -91.525495,
+              40.410949
+            ],
+            [
+              -91.529084,
+              40.459056
+            ],
+            [
+              -91.564977,
+              40.460775
+            ],
+            [
+              -91.622406,
+              40.509741
+            ],
+            [
+              -91.618817,
+              40.540667
+            ],
+            [
+              -91.683424,
+              40.552694
+            ],
+            [
+              -91.715728,
+              40.598224
+            ],
+            [
+              -91.719317,
+              40.813848
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19173",
+      "properties": {
+        "county_fips": "19173",
+        "county_name": "Taylor",
+        "corn_yield_2020": 166.2,
+        "corn_baseline_yield": 162.7,
+        "corn_departure_bu_acre": 3.5,
+        "corn_departure_percent": 2.1,
+        "corn_baseline_years": 4,
+        "soy_yield_2020": 47.0,
+        "soy_baseline_yield": 51.4,
+        "soy_departure_bu_acre": -4.4,
+        "soy_departure_percent": -8.6,
+        "soy_baseline_years": 3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.928146,
+              40.900613
+            ],
+            [
+              -94.472305,
+              40.899754
+            ],
+            [
+              -94.472305,
+              40.570734
+            ],
+            [
+              -94.633824,
+              40.571593
+            ],
+            [
+              -94.913789,
+              40.575029
+            ],
+            [
+              -94.913789,
+              40.727083
+            ],
+            [
+              -94.928146,
+              40.727083
+            ],
+            [
+              -94.928146,
+              40.900613
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19023",
+      "properties": {
+        "county_fips": "19023",
+        "county_name": "Butler",
+        "corn_yield_2020": 192.8,
+        "corn_baseline_yield": 206.6,
+        "corn_departure_bu_acre": -13.8,
+        "corn_departure_percent": -6.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.2,
+        "soy_baseline_yield": 56.9,
+        "soy_departure_bu_acre": -2.7,
+        "soy_departure_percent": -4.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.02582,
+              42.907377
+            ],
+            [
+              -92.555622,
+              42.907377
+            ],
+            [
+              -92.555622,
+              42.641927
+            ],
+            [
+              -92.555622,
+              42.556021
+            ],
+            [
+              -93.02582,
+              42.55688
+            ],
+            [
+              -93.02582,
+              42.907377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19067",
+      "properties": {
+        "county_fips": "19067",
+        "county_name": "Floyd",
+        "corn_yield_2020": 187.4,
+        "corn_baseline_yield": 196.7,
+        "corn_departure_bu_acre": -9.3,
+        "corn_departure_percent": -4.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 54.0,
+        "soy_baseline_yield": 54.7,
+        "soy_departure_bu_acre": -0.7,
+        "soy_departure_percent": -1.4,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.02582,
+              43.213202
+            ],
+            [
+              -92.555622,
+              43.213202
+            ],
+            [
+              -92.555622,
+              42.907377
+            ],
+            [
+              -93.02582,
+              42.907377
+            ],
+            [
+              -93.02582,
+              43.213202
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19195",
+      "properties": {
+        "county_fips": "19195",
+        "county_name": "Worth",
+        "corn_yield_2020": 205.7,
+        "corn_baseline_yield": 193.7,
+        "corn_departure_bu_acre": 12.0,
+        "corn_departure_percent": 6.2,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 58.2,
+        "soy_baseline_yield": 55.4,
+        "soy_departure_bu_acre": 2.8,
+        "soy_departure_percent": 5.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.496017,
+              43.499269
+            ],
+            [
+              -93.050945,
+              43.499269
+            ],
+            [
+              -93.02582,
+              43.499269
+            ],
+            [
+              -93.02582,
+              43.255296
+            ],
+            [
+              -93.496017,
+              43.255296
+            ],
+            [
+              -93.496017,
+              43.499269
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19035",
+      "properties": {
+        "county_fips": "19035",
+        "county_name": "Cherokee",
+        "corn_yield_2020": 185.7,
+        "corn_baseline_yield": 211.0,
+        "corn_departure_bu_acre": -25.3,
+        "corn_departure_percent": -12.0,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 57.2,
+        "soy_baseline_yield": 63.6,
+        "soy_departure_bu_acre": -6.4,
+        "soy_departure_percent": -10.0,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.857773,
+              42.909095
+            ],
+            [
+              -95.387575,
+              42.909954
+            ],
+            [
+              -95.387575,
+              42.562035
+            ],
+            [
+              -95.742915,
+              42.561175
+            ],
+            [
+              -95.861362,
+              42.560316
+            ],
+            [
+              -95.857773,
+              42.909095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19147",
+      "properties": {
+        "county_fips": "19147",
+        "county_name": "Palo Alto",
+        "corn_yield_2020": 181.1,
+        "corn_baseline_yield": 189.0,
+        "corn_departure_bu_acre": -7.9,
+        "corn_departure_percent": -4.2,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.913789,
+              43.255296
+            ],
+            [
+              -94.443591,
+              43.255296
+            ],
+            [
+              -94.443591,
+              42.908236
+            ],
+            [
+              -94.913789,
+              42.909954
+            ],
+            [
+              -94.913789,
+              43.255296
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19171",
+      "properties": {
+        "county_fips": "19171",
+        "county_name": "Tama",
+        "corn_yield_2020": 132.7,
+        "corn_baseline_yield": 209.5,
+        "corn_departure_bu_acre": -76.8,
+        "corn_departure_percent": -36.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 56.2,
+        "soy_baseline_yield": 58.9,
+        "soy_departure_bu_acre": -2.7,
+        "soy_departure_percent": -4.6,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.534087,
+              42.296585
+            ],
+            [
+              -92.297193,
+              42.297444
+            ],
+            [
+              -92.297193,
+              41.86276
+            ],
+            [
+              -92.767391,
+              41.86276
+            ],
+            [
+              -92.767391,
+              42.20982
+            ],
+            [
+              -92.767391,
+              42.296585
+            ],
+            [
+              -92.534087,
+              42.296585
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19021",
+      "properties": {
+        "county_fips": "19021",
+        "county_name": "Buena Vista",
+        "corn_yield_2020": 183.9,
+        "corn_baseline_yield": 195.1,
+        "corn_departure_bu_acre": -11.2,
+        "corn_departure_percent": -5.8,
+        "corn_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -95.387575,
+              42.909954
+            ],
+            [
+              -94.913789,
+              42.909954
+            ],
+            [
+              -94.913789,
+              42.560316
+            ],
+            [
+              -95.387575,
+              42.562035
+            ],
+            [
+              -95.387575,
+              42.909954
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19119",
+      "properties": {
+        "county_fips": "19119",
+        "county_name": "Lyon",
+        "corn_yield_2020": 197.0,
+        "corn_baseline_yield": 200.3,
+        "corn_departure_bu_acre": -3.3,
+        "corn_departure_percent": -1.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 60.8,
+        "soy_baseline_yield": 61.3,
+        "soy_departure_bu_acre": -0.5,
+        "soy_departure_percent": -0.8,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -96.597167,
+              43.500128
+            ],
+            [
+              -96.453596,
+              43.500128
+            ],
+            [
+              -96.051595,
+              43.500128
+            ],
+            [
+              -95.861362,
+              43.500128
+            ],
+            [
+              -95.861362,
+              43.257873
+            ],
+            [
+              -96.098256,
+              43.257014
+            ],
+            [
+              -96.554096,
+              43.259591
+            ],
+            [
+              -96.579221,
+              43.295672
+            ],
+            [
+              -96.528971,
+              43.299967
+            ],
+            [
+              -96.525382,
+              43.394463
+            ],
+            [
+              -96.604346,
+              43.449443
+            ],
+            [
+              -96.579221,
+              43.481228
+            ],
+            [
+              -96.597167,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19005",
+      "properties": {
+        "county_fips": "19005",
+        "county_name": "Allamakee",
+        "corn_yield_2020": 196.3,
+        "corn_baseline_yield": 191.3,
+        "corn_departure_bu_acre": 5.0,
+        "corn_departure_percent": 2.6,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 58.8,
+        "soy_baseline_yield": 54.1,
+        "soy_departure_bu_acre": 4.7,
+        "soy_departure_percent": 8.7,
+        "soy_baseline_years": 4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.611638,
+              43.500128
+            ],
+            [
+              -91.216816,
+              43.500128
+            ],
+            [
+              -91.234762,
+              43.455457
+            ],
+            [
+              -91.206048,
+              43.422812
+            ],
+            [
+              -91.202459,
+              43.348933
+            ],
+            [
+              -91.105548,
+              43.313712
+            ],
+            [
+              -91.058887,
+              43.248423
+            ],
+            [
+              -91.123494,
+              43.19688
+            ],
+            [
+              -91.14503,
+              43.152209
+            ],
+            [
+              -91.177334,
+              43.131591
+            ],
+            [
+              -91.177334,
+              43.080048
+            ],
+            [
+              -91.60446,
+              43.081766
+            ],
+            [
+              -91.611638,
+              43.342061
+            ],
+            [
+              -91.611638,
+              43.500128
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "19045",
+      "properties": {
+        "county_fips": "19045",
+        "county_name": "Clinton",
+        "corn_yield_2020": 178.4,
+        "corn_baseline_yield": 204.5,
+        "corn_departure_bu_acre": -26.1,
+        "corn_departure_percent": -12.7,
+        "corn_baseline_years": 5,
+        "soy_yield_2020": 57.0,
+        "soy_baseline_yield": 59.3,
+        "soy_departure_bu_acre": -2.3,
+        "soy_departure_percent": -3.9,
+        "soy_baseline_years": 5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.897369,
+              42.033713
+            ],
+            [
+              -90.154385,
+              42.032854
+            ],
+            [
+              -90.140028,
+              42.0088
+            ],
+            [
+              -90.165153,
+              41.956397
+            ],
+            [
+              -90.150795,
+              41.928908
+            ],
+            [
+              -90.183099,
+              41.84472
+            ],
+            [
+              -90.17951,
+              41.809498
+            ],
+            [
+              -90.244117,
+              41.782867
+            ],
+            [
+              -90.315903,
+              41.728747
+            ],
+            [
+              -90.409225,
+              41.729606
+            ],
+            [
+              -90.470243,
+              41.773418
+            ],
+            [
+              -90.538439,
+              41.775995
+            ],
+            [
+              -90.577921,
+              41.758814
+            ],
+            [
+              -90.674832,
+              41.761391
+            ],
+            [
+              -90.714315,
+              41.73476
+            ],
+            [
+              -90.7861,
+              41.7717
+            ],
+            [
+              -90.897369,
+              41.7717
+            ],
+            [
+              -90.897369,
+              41.946089
+            ],
+            [
+              -90.897369,
+              42.033713
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

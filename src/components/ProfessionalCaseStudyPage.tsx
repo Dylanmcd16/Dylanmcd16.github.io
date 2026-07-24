@@ -268,6 +268,24 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           'The work clarified where modeled gust estimates may add context and where direct observations and expert meteorological analysis remain necessary.',
         ],
       },
+      {
+        id: 'tropical-cyclone-tracks',
+        navLabel: 'Tropical cyclone tracks',
+        eyebrow: '05 / Automation',
+        title: 'Automated Tropical Cyclone Track Mapping',
+        paragraphs: [
+          'I developed a Python and ArcPy workflow that converts National Hurricane Center GIS archive data into publication-ready tropical cyclone track maps. Using ArcPy’s mapping and data-access APIs, the script dynamically locates the required feature layers and fields, constructs data-source-safe SQL definition queries, and filters the track points, track lines, and cumulative wind-history polygons by STORMID. It then reads storm metadata with arcpy.da.SearchCursor, parses the full track chronology to determine the storm year and month, and calculates the combined spatial extent of the filtered features so each layout automatically centers and scales to the selected cyclone.',
+          'The workflow also updates named ArcGIS Pro layout elements with the storm name, date, source attribution, and production date; validates missing layers, fields, records, layouts, and text elements; and exports both portrait and landscape products at 300 DPI. Output filenames are normalized programmatically, producing consistent deliverables such as 2026_bertha_track.jpg and 2026_bertha_track_landscape.jpg. This replaced a repetitive manual GIS production process with a reusable, error-checked mapping pipeline.',
+        ],
+        images: [
+          {
+            src: '2026_bertha_track.jpg',
+            alt: 'Automated tropical cyclone track map generated from National Hurricane Center GIS archive data',
+            caption: 'Track map produced automatically from NHC GIS data, with layout extent, storm metadata, and export handled programmatically.',
+            treatment: 'portrait',
+          },
+        ],
+      },
     ],
     results: [
       'Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.',
