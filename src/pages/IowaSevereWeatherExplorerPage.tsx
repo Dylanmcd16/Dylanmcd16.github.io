@@ -21,8 +21,8 @@ export function IowaSevereWeatherExplorerPage() {
         <p className="case-study-overview">
           An end-to-end meteorological and geospatial engineering demonstration combining radar,
           surface observations, numerical weather prediction, satellite imagery, storm reports,
-          warnings, and post-event damage analysis. This is independent work, not part of any
-          employer&apos;s systems.
+          warnings, and post-event damage analysis. This is independent work to briefly demonstrate my 
+          capabilities in meteorology, geospatial engineering, and full-stack web development.
         </p>
 
         {/* EVENT INTRODUCTION */}
@@ -40,7 +40,7 @@ export function IowaSevereWeatherExplorerPage() {
             archives for the peak central- and eastern-Iowa crossing (11:30&nbsp;AM–1:00&nbsp;PM
             CDT): a five-minute NEXRAD reflectivity replay, IEM storm reports and warning polygons,
             ASOS/AWOS surface observations, HRRR model fields from the 12Z cycle, and GOES-16
-            satellite imagery — all synchronized to one timeline, each keeping its own valid time.
+            satellite imagery, synchronized to one timeline, each keeping its own valid time.
           </p>
         </section>
 
@@ -56,7 +56,7 @@ export function IowaSevereWeatherExplorerPage() {
           <p>
             A separate demonstration, and a different event. On May 21, 2024, a violent tornado
             struck Greenfield, Iowa. Drag the divider to compare Sentinel-2 imagery from before and
-            after — the post-event scene shows the damage scar cutting through town.
+            after. The post-event scene shows the damage scar cutting through town.
           </p>
           <BeforeAfterSlider
             beforeSrc={assetUrl('data/iowa-severe-weather/greenfield/before.webp')}
@@ -79,8 +79,8 @@ export function IowaSevereWeatherExplorerPage() {
             composite (N0Q); storm reports, warning polygons, and ASOS/AWOS observations also come
             from the IEM archive. HRRR model fields are byte-range subset from the NOAA HRRR archive
             on AWS, and satellite imagery is GOES-16 ABI Cloud &amp; Moisture Imagery. Post-event
-            damage assessments are real NWS survey products — damage points, tornado tracks, and
-            damage polygons — from the NOAA Damage Assessment Toolkit (DAT).
+            damage assessments are real NWS survey products. Damage points, tornado tracks, and
+            damage polygons from the NOAA Damage Assessment Toolkit (DAT).
           </p>
         </section>
 
