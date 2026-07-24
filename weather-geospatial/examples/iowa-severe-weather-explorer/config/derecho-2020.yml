@@ -1,0 +1,71 @@
+# Iowa Severe Weather Data Explorer — event configuration
+# August 10, 2020 Iowa derecho. All processing scripts read this file.
+
+event:
+  id: "20200810-iowa-derecho"
+  title: "August 10, 2020 Iowa Derecho"
+  timezone: "America/Chicago"
+
+# Canonical five-minute timeline. The committed run uses a tractable window over
+# the peak central/eastern-Iowa crossing; widen start/end to process more of the
+# event. Times are UTC.
+timeline:
+  start: "2020-08-10T16:30:00Z"
+  end: "2020-08-10T18:00:00Z"
+  step_minutes: 5
+
+# Display domain (EPSG:4326) — the bounding box of the state of Iowa plus a hair
+# of margin. Rasters are rendered across this box and then clipped to the actual
+# Iowa state boundary (see domain.py). Iowa: ~[-96.63,-90.14] x [40.38,43.50].
+domain:
+  lon_min: -96.75
+  lon_max: -90.05
+  lat_min: 40.30
+  lat_max: 43.58
+
+radar:
+  # Reflectivity: IEM's archived national NEXRAD base-reflectivity composite
+  # (N0Q, 0.005° EPSG:4326, 5-minute cadence). Direct per-site Level II for the
+  # composite is blocked for anonymous access in some networks.
+  source: "iem-n0q-composite"
+  tolerance_minutes: 6
+  # Velocity: single-site NEXRAD Level II base velocity (velocity is radar-
+  # relative, so a single central radar is the correct representation). KDMX (Des
+  # Moines) covers essentially all of Iowa. Level II comes from the Google Cloud
+  # public mirror as hourly tars.
+  velocity_site: "KDMX"
+  velocity_tolerance_minutes: 6
+
+satellite:
+  # GOES-16 ABI L2 Cloud & Moisture Imagery, CONUS sector (noaa-goes16).
+  product: "ABI-L2-MCMIPC"
+  # Satellite is heavier to download; process every Nth frame and let the others
+  # fall back to "no scan at this time" honestly.
+  every_n_frames: 3
+  tolerance_minutes: 8
+  bands:
+    visible: 2 # 0.64 µm red visible
+    infrared: 13 # 10.3 µm clean IR window
+
+hrrr:
+  # One fixed initialization cycle for an honest forecast progression.
+  cycle: "2020-08-10T12:00:00Z"
+  variables:
+    - composite_reflectivity
+    - wind_gust
+    - wind_speed_10m
+    - temperature_2m
+    - dewpoint_2m
+    - mucape
+
+stations:
+  # IEM ASOS/AWOS. The domain is the state of Iowa, so Iowa networks only.
+  networks: ["IA_ASOS", "AWOS"]
+  preferred_tolerance_minutes: 3
+  max_tolerance_minutes: 7
+  stale_after_minutes: 10
+
+reports:
+  states: ["IA"]
+
+output_root: "public/data/iowa-severe-weather"

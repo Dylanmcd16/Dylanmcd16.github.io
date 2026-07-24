@@ -123,7 +123,7 @@ function TechnicalProjectExamplePage({ base }: { base: string }) {
         <a className="text-link case-study-back" href={base}>
           ← Back to portfolio
         </a>
-        <h1>Technical Project Example</h1>
+        <h1 className="technical-example-title">Technical Project Example</h1>
         {/* Intentionally blank for now — content to come. */}
       </div>
     </main>
@@ -355,11 +355,15 @@ function App() {
 
               <a
                 className="project-strip"
-                href={caseStudyUrl(TECHNICAL_PROJECT_EXAMPLE_SLUG)}
+                href={`${base}projects/iowa-severe-weather-explorer/`}
               >
                 <span className="project-strip-label">
-                  <span className="project-kind">Walkthrough</span>
-                  <span className="project-strip-title">Technical Project Example</span>
+                  <span className="project-kind">Independent project</span>
+                  <span className="project-strip-title">Iowa Severe Weather Data Explorer</span>
+                  <span className="project-strip-sub">
+                    An end-to-end meteorological data pipeline combining radar, observations, model
+                    output, satellite imagery, storm reports, and post-event damage analysis.
+                  </span>
                 </span>
                 <span className="project-strip-cta">
                   View <ArrowIcon />

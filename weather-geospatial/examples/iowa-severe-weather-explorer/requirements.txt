@@ -1,0 +1,15 @@
+# Iowa Severe Weather Data Explorer pipeline dependencies.
+requests
+pyyaml
+numpy
+pandas
+pillow
+boto3
+rasterio
+xarray
+netCDF4
+cfgrib
+metpy
+geopandas
+shapely
+pyproj

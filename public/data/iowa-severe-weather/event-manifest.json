@@ -1,0 +1,40 @@
+{
+  "event": {
+    "id": "20200810-iowa-derecho",
+    "title": "August 10, 2020 Iowa Derecho",
+    "startTimeUtc": "2020-08-10T16:30:00Z",
+    "endTimeUtc": "2020-08-10T18:00:00Z",
+    "timezone": "America/Chicago"
+  },
+  "map": {
+    "viewBounds": [
+      [
+        -96.9,
+        40.25
+      ],
+      [
+        -89.1,
+        43.75
+      ]
+    ],
+    "maxBounds": [
+      [
+        -97.4,
+        39.8
+      ],
+      [
+        -88.6,
+        44.1
+      ]
+    ],
+    "maximumZoom": 11
+  },
+  "files": {
+    "timeline": "data/iowa-severe-weather/timeline.json",
+    "reports": "data/iowa-severe-weather/reports.geojson",
+    "warnings": "data/iowa-severe-weather/warnings.geojson",
+    "stations": "data/iowa-severe-weather/stations.geojson",
+    "stationsSeries": "data/iowa-severe-weather/stations-series.json",
+    "assessments": "data/iowa-severe-weather/assessments.geojson"
+  }
+}

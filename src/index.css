@@ -644,6 +644,12 @@ svg.icon {
   font-size: 1.15rem;
   font-weight: 600;
 }
+.project-strip-sub {
+  margin-top: 3px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
 .project-strip-cta {
   display: inline-flex;
   align-items: center;
@@ -760,6 +766,11 @@ svg.icon {
   font-size: clamp(2.6rem, 6vw, 4.8rem);
   letter-spacing: -0.055em;
   line-height: 0.98;
+}
+.case-study-page h1.technical-example-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 .case-study-overview {
   max-width: 720px;

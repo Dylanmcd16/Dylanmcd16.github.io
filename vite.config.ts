@@ -30,6 +30,10 @@ export default defineConfig({
           rootDirectory,
           'work/technical-project-example/index.html',
         ),
+        iowaSevereWeatherExplorer: resolve(
+          rootDirectory,
+          'projects/iowa-severe-weather-explorer/index.html',
+        ),
       },
     },
   },

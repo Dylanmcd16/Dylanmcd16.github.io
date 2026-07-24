@@ -1,0 +1,3618 @@
+[
+  {
+    "index": 0,
+    "validTimeUtc": "2020-08-10T16:30:00Z",
+    "displayTimeCentral": "11:30 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-00.webp",
+      "validTimeUtc": "2020-08-10T16:30:00Z",
+      "sourceTimeUtc": "2020-08-10T16:30:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_00.webp",
+      "validTimeUtc": "2020-08-10T16:30:00Z",
+      "sourceTimeUtc": "2020-08-10T16:31:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_00.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_00.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_00.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 1,
+    "validTimeUtc": "2020-08-10T16:35:00Z",
+    "displayTimeCentral": "11:35 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-01.webp",
+      "validTimeUtc": "2020-08-10T16:35:00Z",
+      "sourceTimeUtc": "2020-08-10T16:35:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 2,
+    "validTimeUtc": "2020-08-10T16:40:00Z",
+    "displayTimeCentral": "11:40 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-02.webp",
+      "validTimeUtc": "2020-08-10T16:40:00Z",
+      "sourceTimeUtc": "2020-08-10T16:40:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 3,
+    "validTimeUtc": "2020-08-10T16:45:00Z",
+    "displayTimeCentral": "11:45 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-03.webp",
+      "validTimeUtc": "2020-08-10T16:45:00Z",
+      "sourceTimeUtc": "2020-08-10T16:45:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_03.webp",
+      "validTimeUtc": "2020-08-10T16:45:00Z",
+      "sourceTimeUtc": "2020-08-10T16:46:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_03.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_03.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_03.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 4,
+    "validTimeUtc": "2020-08-10T16:50:00Z",
+    "displayTimeCentral": "11:50 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-04.webp",
+      "validTimeUtc": "2020-08-10T16:50:00Z",
+      "sourceTimeUtc": "2020-08-10T16:50:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 5,
+    "validTimeUtc": "2020-08-10T16:55:00Z",
+    "displayTimeCentral": "11:55 AM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-05.webp",
+      "validTimeUtc": "2020-08-10T16:55:00Z",
+      "sourceTimeUtc": "2020-08-10T16:55:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 4,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f04.webp",
+          "validTimeUtc": "2020-08-10T16:00:00Z",
+          "sourceTimeUtc": "2020-08-10T16:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 6,
+    "validTimeUtc": "2020-08-10T17:00:00Z",
+    "displayTimeCentral": "12:00 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-06.webp",
+      "validTimeUtc": "2020-08-10T17:00:00Z",
+      "sourceTimeUtc": "2020-08-10T17:00:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_06.webp",
+      "validTimeUtc": "2020-08-10T17:00:00Z",
+      "sourceTimeUtc": "2020-08-10T17:01:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_06.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_06.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_06.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 7,
+    "validTimeUtc": "2020-08-10T17:05:00Z",
+    "displayTimeCentral": "12:05 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-07.webp",
+      "validTimeUtc": "2020-08-10T17:05:00Z",
+      "sourceTimeUtc": "2020-08-10T17:05:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 8,
+    "validTimeUtc": "2020-08-10T17:10:00Z",
+    "displayTimeCentral": "12:10 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-08.webp",
+      "validTimeUtc": "2020-08-10T17:10:00Z",
+      "sourceTimeUtc": "2020-08-10T17:10:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 9,
+    "validTimeUtc": "2020-08-10T17:15:00Z",
+    "displayTimeCentral": "12:15 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-09.webp",
+      "validTimeUtc": "2020-08-10T17:15:00Z",
+      "sourceTimeUtc": "2020-08-10T17:15:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_09.webp",
+      "validTimeUtc": "2020-08-10T17:15:00Z",
+      "sourceTimeUtc": "2020-08-10T17:16:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_09.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_09.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_09.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 10,
+    "validTimeUtc": "2020-08-10T17:20:00Z",
+    "displayTimeCentral": "12:20 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-10.webp",
+      "validTimeUtc": "2020-08-10T17:20:00Z",
+      "sourceTimeUtc": "2020-08-10T17:20:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 11,
+    "validTimeUtc": "2020-08-10T17:25:00Z",
+    "displayTimeCentral": "12:25 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-11.webp",
+      "validTimeUtc": "2020-08-10T17:25:00Z",
+      "sourceTimeUtc": "2020-08-10T17:25:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 12,
+    "validTimeUtc": "2020-08-10T17:30:00Z",
+    "displayTimeCentral": "12:30 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-12.webp",
+      "validTimeUtc": "2020-08-10T17:30:00Z",
+      "sourceTimeUtc": "2020-08-10T17:30:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_12.webp",
+      "validTimeUtc": "2020-08-10T17:30:00Z",
+      "sourceTimeUtc": "2020-08-10T17:31:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_12.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_12.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_12.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 13,
+    "validTimeUtc": "2020-08-10T17:35:00Z",
+    "displayTimeCentral": "12:35 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-13.webp",
+      "validTimeUtc": "2020-08-10T17:35:00Z",
+      "sourceTimeUtc": "2020-08-10T17:35:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 14,
+    "validTimeUtc": "2020-08-10T17:40:00Z",
+    "displayTimeCentral": "12:40 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-14.webp",
+      "validTimeUtc": "2020-08-10T17:40:00Z",
+      "sourceTimeUtc": "2020-08-10T17:40:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 15,
+    "validTimeUtc": "2020-08-10T17:45:00Z",
+    "displayTimeCentral": "12:45 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-15.webp",
+      "validTimeUtc": "2020-08-10T17:45:00Z",
+      "sourceTimeUtc": "2020-08-10T17:45:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_15.webp",
+      "validTimeUtc": "2020-08-10T17:45:00Z",
+      "sourceTimeUtc": "2020-08-10T17:46:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_15.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_15.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_15.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 16,
+    "validTimeUtc": "2020-08-10T17:50:00Z",
+    "displayTimeCentral": "12:50 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-16.webp",
+      "validTimeUtc": "2020-08-10T17:50:00Z",
+      "sourceTimeUtc": "2020-08-10T17:50:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 17,
+    "validTimeUtc": "2020-08-10T17:55:00Z",
+    "displayTimeCentral": "12:55 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-17.webp",
+      "validTimeUtc": "2020-08-10T17:55:00Z",
+      "sourceTimeUtc": "2020-08-10T17:55:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": null,
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 5,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f05.webp",
+          "validTimeUtc": "2020-08-10T17:00:00Z",
+          "sourceTimeUtc": "2020-08-10T17:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  },
+  {
+    "index": 18,
+    "validTimeUtc": "2020-08-10T18:00:00Z",
+    "displayTimeCentral": "1:00 PM CDT",
+    "radar": {
+      "url": "data/iowa-severe-weather/radar/frame-18.webp",
+      "validTimeUtc": "2020-08-10T18:00:00Z",
+      "sourceTimeUtc": "2020-08-10T18:00:00Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true
+    },
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_18.webp",
+      "validTimeUtc": "2020-08-10T18:00:00Z",
+      "sourceTimeUtc": "2020-08-10T18:01:19Z",
+      "coordinates": [
+        [
+          -97.0,
+          44.0
+        ],
+        [
+          -89.0,
+          44.0
+        ],
+        [
+          -89.0,
+          40.0
+        ],
+        [
+          -97.0,
+          40.0
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_18.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_18.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_18.webp"
+      }
+    },
+    "hrrr": {
+      "cycleTimeUtc": "2020-08-10T12:00:00Z",
+      "forecastHour": 6,
+      "variables": {
+        "composite_reflectivity": {
+          "url": "data/iowa-severe-weather/hrrr/composite_reflectivity_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_gust": {
+          "url": "data/iowa-severe-weather/hrrr/wind_gust_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "wind_speed_10m": {
+          "url": "data/iowa-severe-weather/hrrr/wind_speed_10m_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "temperature_2m": {
+          "url": "data/iowa-severe-weather/hrrr/temperature_2m_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "dewpoint_2m": {
+          "url": "data/iowa-severe-weather/hrrr/dewpoint_2m_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        },
+        "mucape": {
+          "url": "data/iowa-severe-weather/hrrr/mucape_f06.webp",
+          "validTimeUtc": "2020-08-10T18:00:00Z",
+          "sourceTimeUtc": "2020-08-10T18:00:00Z",
+          "coordinates": [
+            [
+              -97.0,
+              44.0
+            ],
+            [
+              -89.0,
+              44.0
+            ],
+            [
+              -89.0,
+              40.0
+            ],
+            [
+              -97.0,
+              40.0
+            ]
+          ],
+          "available": true
+        }
+      }
+    }
+  }
+]
