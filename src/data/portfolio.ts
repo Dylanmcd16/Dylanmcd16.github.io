@@ -66,7 +66,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I build automated geospatial and weather-data workflows that turn complex scientific observations into reliable maps, analyses, and operational products. That work spans operational weather and catastrophe systems at PLRB, field-sensing research at Corteva Agriscience, graduate research in atmospheric modeling at Iowa State, and an independently built React and FastAPI weather-intelligence platform.',
+    'I’m a meteorologist and researcher who enjoys using science, programming, and geospatial tools to solve complex problems. My experience spans operational weather and catastrophe analysis at PLRB, field-sensing research at Corteva, and atmospheric modeling at Iowa State.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -251,7 +251,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently built weather-intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
+        'Recognized for an independently built AI driven weather-intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
     },
   ] satisfies AwardItem[],
 
