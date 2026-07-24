@@ -521,7 +521,8 @@ svg.icon {
   padding: clamp(30px, 3vw, 40px);
 }
 .project.is-featured .project-screenshot {
-  width: min(100%, 320px);
+  width: 100%;
+  justify-self: stretch;
 }
 .project-kind {
   font-size: 0.76rem;
@@ -744,6 +745,50 @@ svg.icon {
   display: block;
   width: 100%;
   height: auto;
+}
+.project-screenshot a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.project-screenshot-cue {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(7, 17, 31, 0.82);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+.project-screenshot-cue svg {
+  width: 13px;
+  height: 13px;
+}
+.project-screenshot a:hover .project-screenshot-cue,
+.project-screenshot a:focus-visible .project-screenshot-cue {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-screenshot a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (hover: none) {
+  .project-screenshot-cue {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ----------------------------------------------------------- Case studies -- */

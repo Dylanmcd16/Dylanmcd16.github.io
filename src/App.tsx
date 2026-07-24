@@ -32,13 +32,26 @@ function ExternalIcon() {
   )
 }
 
+const ESRI_AWARD_POST_URL =
+  'https://www.linkedin.com/posts/dylan-mcdermott-193b18174_plrb-esri-sagawards-activity-7384242498338172929-TbnD'
+
 function ProjectScreenshot() {
   return (
     <div className="project-screenshot">
-      <img
-        src={`${import.meta.env.BASE_URL}Screenshot 2026-07-17 154353.png`}
-        alt="LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
-      />
+      <a
+        href={ESRI_AWARD_POST_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Read the LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
+      >
+        <img
+          src={`${import.meta.env.BASE_URL}Screenshot 2026-07-17 154353.png`}
+          alt="LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
+        />
+        <span className="project-screenshot-cue">
+          View on LinkedIn <ExternalIcon />
+        </span>
+      </a>
     </div>
   )
 }
