@@ -1,11 +1,14 @@
 import { DerechoExplorer } from '../components/severe-weather-explorer/DerechoExplorer'
 import { BeforeAfterSlider } from '../components/severe-weather-explorer/BeforeAfterSlider'
+import { CaseStudyFooter } from '../components/CaseStudyFooter'
 import { assetUrl } from '../lib/severe-weather/assetUrl'
 import '../index.css'
 import '../styles/severe-weather-explorer.css'
 
 const base = import.meta.env.BASE_URL
-const githubUrl = 'https://github.com/Dylanmcd16'
+const repoUrl = 'https://github.com/Dylanmcd16/Dylanmcd16.github.io'
+const pipelineUrl = `${repoUrl}/tree/main/weather-geospatial/examples/iowa-severe-weather-explorer`
+const frontendUrl = `${repoUrl}/tree/main/src/components/severe-weather-explorer`
 
 export function IowaSevereWeatherExplorerPage() {
   return (
@@ -19,10 +22,9 @@ export function IowaSevereWeatherExplorerPage() {
         <p className="project-kind">Independent project · Meteorology &amp; geospatial engineering</p>
         <h1 className="swx-page__title">Iowa Severe Weather Data Explorer</h1>
         <p className="case-study-overview">
-          An end-to-end meteorological and geospatial engineering demonstration combining radar,
-          surface observations, numerical weather prediction, satellite imagery, storm reports,
-          warnings, and post-event damage analysis. This is independent work to briefly demonstrate my 
-          capabilities in meteorology, geospatial engineering, and full-stack web development.
+          An independent, end-to-end demonstration of meteorology, geospatial engineering, and
+          full-stack development: a Python pipeline that pulls seven archived data sources into
+          a single reconstructed severe-weather event, and a browser application that replays it.
         </p>
 
         {/* EVENT INTRODUCTION */}
@@ -31,17 +33,57 @@ export function IowaSevereWeatherExplorerPage() {
           <p>
             On August 10, 2020, a fast-moving derecho crossed Iowa, producing widespread
             100+ mph winds, extensive crop and structural damage, and prolonged power outages.
-            The replay below reconstructs the event on one canonical five-minute timeline so that
-            radar, storm reports, warnings, and surface observations can be read together, while
-            each dataset keeps its own true valid time.
+            The replay below reconstructs the peak central- and eastern-Iowa crossing
+            (11:30&nbsp;AM–1:00&nbsp;PM CDT) on one canonical five-minute timeline, so radar,
+            storm reports, warnings, and surface observations can be read together.
           </p>
           <p className="swx-note">
-            <strong>Real archived data.</strong> Every layer below is processed from public
-            archives for the peak central- and eastern-Iowa crossing (11:30&nbsp;AM–1:00&nbsp;PM
-            CDT): a five-minute NEXRAD reflectivity replay, IEM storm reports and warning polygons,
-            ASOS/AWOS surface observations, HRRR model fields from the 12Z cycle, and GOES-16
-            satellite imagery, synchronized to one timeline, each keeping its own valid time.
+            <strong>Real archived data, honestly timed.</strong> Nothing here is simulated. Each
+            source keeps its own true valid or observation time rather than being resampled to
+            look simultaneous — a five-minute radar frame, an hourly model field, and a surface
+            observation are not the same moment, and the interface does not pretend otherwise.
           </p>
+        </section>
+
+        {/* WHAT I BUILT */}
+        <section className="swx-section" aria-labelledby="swx-build-heading">
+          <h2 id="swx-build-heading">What I built</h2>
+          <p>
+            The browser never parses Level II radar, GRIB2, or NetCDF. A Python pipeline does all
+            of the scientific work ahead of deployment, reprojecting every source onto one Iowa
+            display grid, clipping it to the state boundary, and writing compact transparent WebP
+            rasters and GeoJSON alongside a manifest and timeline that the front end consumes
+            directly. Each source is a separate module, and the orchestrator validates the full
+            output set before any of it is served.
+          </p>
+          <ul className="swx-build-list">
+            <li>
+              <strong>HRRR without downloading HRRR.</strong> Full GRIB2 files are large and
+              mostly irrelevant. The pipeline parses each file&apos;s <code>.idx</code> sidecar to
+              locate the six variables it needs, requests only those messages over HTTP byte
+              ranges, then reprojects them from the native Lambert-Conformal grid onto the
+              display grid.
+            </li>
+            <li>
+              <strong>Reconciling seven clocks.</strong> Radar, warnings, reports, observations,
+              model output, and satellite imagery all arrive on different cadences. Each is
+              matched to the nearest timeline frame while retaining its real timestamp, so the
+              replay stays synchronized without misrepresenting when anything was measured.
+            </li>
+            <li>
+              <strong>Deliberate source choices.</strong> Anonymous access to the Level II bucket
+              is blocked on some networks, so reflectivity uses IEM&apos;s archived national N0Q
+              composite on a fixed grid. Radial velocity is drawn from a single site rather than
+              composited, because velocity is radar-relative and a velocity mosaic is not
+              physically meaningful.
+            </li>
+            <li>
+              <strong>Front end.</strong> A React and TypeScript application handling frame
+              preloading, playback, layer composition, station popup charts, and a
+              before/after imagery comparison, with the map and control logic covered by unit
+              tests.
+            </li>
+          </ul>
         </section>
 
         {/* MAIN MAP */}
@@ -88,12 +130,23 @@ export function IowaSevereWeatherExplorerPage() {
         <section className="swx-section" aria-labelledby="swx-source-heading">
           <h2 id="swx-source-heading">Source code</h2>
           <p>
-            The frontend and the Python processing pipeline are open source.{' '}
-            <a className="text-link" href={githubUrl} target="_blank" rel="noreferrer">
-              View the code on GitHub ↗
+            Both halves are open source. The pipeline includes its own README covering the
+            processing phases, configuration, and the reasoning behind each source choice.
+          </p>
+          <p className="swx-source-links">
+            <a className="text-link" href={pipelineUrl} target="_blank" rel="noreferrer">
+              Python data pipeline ↗
+            </a>
+            <a className="text-link" href={frontendUrl} target="_blank" rel="noreferrer">
+              React front end ↗
             </a>
           </p>
         </section>
+
+        <CaseStudyFooter
+          base={base}
+          next={{ label: 'PLRB — production weather systems', href: `${base}work/plrb-weather-systems/` }}
+        />
       </div>
     </main>
   )

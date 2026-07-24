@@ -18,7 +18,7 @@ function formatUtc(value: string | null | undefined): string {
   if (!value) {
     return 'unavailable'
   }
-  return value.replace('T', ' ').replace('Z', 'Z')
+  return value.replace('T', ' ')
 }
 
 // Persistent, honest data-time readout. Each source shows its own valid/scan
@@ -59,7 +59,7 @@ export function DataStatusPanel({
     const satAvailable = Boolean(frame.satellite?.available)
     rows.push({
       label: 'Satellite scan',
-      value: satAvailable ? formatUtc(frame.satellite?.sourceTimeUtc) : 'not in this demo',
+      value: satAvailable ? formatUtc(frame.satellite?.sourceTimeUtc) : 'outside processed window',
       missing: !satAvailable,
     })
   }
@@ -71,7 +71,7 @@ export function DataStatusPanel({
       rows.push({ label: 'Forecast hour', value: `F${String(hrrr.forecastHour).padStart(2, '0')}` })
       rows.push({ label: 'HRRR variable', value: hrrrVariable.replace(/_/g, ' ') })
     } else {
-      rows.push({ label: 'HRRR', value: 'not in this demo', missing: true })
+      rows.push({ label: 'HRRR', value: 'outside processed window', missing: true })
     }
   }
 

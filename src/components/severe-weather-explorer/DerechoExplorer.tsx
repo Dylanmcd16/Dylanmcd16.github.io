@@ -467,6 +467,7 @@ export function DerechoExplorer() {
         <DynamicLegend
           primaryLayer={displayState.primaryLayer}
           radarProduct={displayState.radarProduct}
+          satelliteProduct={displayState.satelliteProduct}
           hrrrVariable={displayState.hrrrVariable}
           stationOverlay={displayState.stationOverlay}
           showReports={displayState.showReports}

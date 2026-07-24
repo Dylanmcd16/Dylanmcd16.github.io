@@ -43,6 +43,57 @@
   color: var(--muted);
 }
 
+.swx-build-list {
+  max-width: 720px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.swx-build-list li {
+  padding: 14px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.swx-build-list li + li {
+  border-top: 1px solid var(--line);
+}
+.swx-build-list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.swx-build-list code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.swx-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.swx-legend__unit {
+  font-weight: 400;
+  opacity: 0.72;
+}
+.swx-legend__note {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  opacity: 0.72;
+  text-wrap: pretty;
+}
+
 .swx-pipeline {
   list-style: none;
   padding: 0;
