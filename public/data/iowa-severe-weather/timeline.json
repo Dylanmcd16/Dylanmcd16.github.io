@@ -9,23 +9,28 @@
       "sourceTimeUtc": "2020-08-10T16:30:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-00.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-00.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:32:49Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_00.webp",
@@ -33,20 +38,20 @@
       "sourceTimeUtc": "2020-08-10T16:31:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -66,20 +71,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -90,20 +95,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -114,20 +119,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -138,20 +143,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -162,20 +167,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -186,20 +191,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -217,25 +222,58 @@
       "sourceTimeUtc": "2020-08-10T16:35:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-01.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-01.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:32:49Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_01.webp",
+      "validTimeUtc": "2020-08-10T16:35:00Z",
+      "sourceTimeUtc": "2020-08-10T16:36:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_01.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_01.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_01.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 4,
@@ -246,20 +284,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -270,20 +308,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -294,20 +332,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -318,20 +356,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -342,20 +380,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -366,20 +404,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -397,25 +435,58 @@
       "sourceTimeUtc": "2020-08-10T16:40:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-02.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-02.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:39:44Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_02.webp",
+      "validTimeUtc": "2020-08-10T16:40:00Z",
+      "sourceTimeUtc": "2020-08-10T16:41:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_02.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_02.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_02.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 4,
@@ -426,20 +497,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -450,20 +521,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -474,20 +545,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -498,20 +569,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -522,20 +593,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -546,20 +617,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -577,23 +648,28 @@
       "sourceTimeUtc": "2020-08-10T16:45:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-03.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-03.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:45:55Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_03.webp",
@@ -601,20 +677,20 @@
       "sourceTimeUtc": "2020-08-10T16:46:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -634,20 +710,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -658,20 +734,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -682,20 +758,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -706,20 +782,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -730,20 +806,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -754,20 +830,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -785,25 +861,58 @@
       "sourceTimeUtc": "2020-08-10T16:50:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-04.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-04.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:52:26Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_04.webp",
+      "validTimeUtc": "2020-08-10T16:50:00Z",
+      "sourceTimeUtc": "2020-08-10T16:51:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_04.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_04.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_04.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 4,
@@ -814,20 +923,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -838,20 +947,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -862,20 +971,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -886,20 +995,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -910,20 +1019,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -934,20 +1043,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -965,25 +1074,58 @@
       "sourceTimeUtc": "2020-08-10T16:55:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-05.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-05.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T16:52:26Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_05.webp",
+      "validTimeUtc": "2020-08-10T16:55:00Z",
+      "sourceTimeUtc": "2020-08-10T16:56:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_05.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_05.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_05.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 4,
@@ -994,20 +1136,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1018,20 +1160,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1042,20 +1184,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1066,20 +1208,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1090,20 +1232,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1114,20 +1256,20 @@
           "sourceTimeUtc": "2020-08-10T16:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1145,23 +1287,28 @@
       "sourceTimeUtc": "2020-08-10T17:00:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-06.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-06.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:04:48Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_06.webp",
@@ -1169,20 +1316,20 @@
       "sourceTimeUtc": "2020-08-10T17:01:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -1202,20 +1349,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1226,20 +1373,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1250,20 +1397,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1274,20 +1421,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1298,20 +1445,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1322,20 +1469,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1353,25 +1500,58 @@
       "sourceTimeUtc": "2020-08-10T17:05:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-07.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-07.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:04:48Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_07.webp",
+      "validTimeUtc": "2020-08-10T17:05:00Z",
+      "sourceTimeUtc": "2020-08-10T17:06:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_07.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_07.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_07.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -1382,20 +1562,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1406,20 +1586,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1430,20 +1610,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1454,20 +1634,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1478,20 +1658,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1502,20 +1682,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1533,25 +1713,58 @@
       "sourceTimeUtc": "2020-08-10T17:10:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-08.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-08.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:11:19Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_08.webp",
+      "validTimeUtc": "2020-08-10T17:10:00Z",
+      "sourceTimeUtc": "2020-08-10T17:11:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_08.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_08.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_08.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -1562,20 +1775,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1586,20 +1799,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1610,20 +1823,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1634,20 +1847,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1658,20 +1871,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1682,20 +1895,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1713,23 +1926,28 @@
       "sourceTimeUtc": "2020-08-10T17:15:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-09.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-09.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:18:01Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_09.webp",
@@ -1737,20 +1955,20 @@
       "sourceTimeUtc": "2020-08-10T17:16:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -1770,20 +1988,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1794,20 +2012,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1818,20 +2036,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1842,20 +2060,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1866,20 +2084,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1890,20 +2108,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1921,25 +2139,58 @@
       "sourceTimeUtc": "2020-08-10T17:20:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-10.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-10.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:18:01Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_10.webp",
+      "validTimeUtc": "2020-08-10T17:20:00Z",
+      "sourceTimeUtc": "2020-08-10T17:21:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_10.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_10.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_10.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -1950,20 +2201,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1974,20 +2225,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -1998,20 +2249,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2022,20 +2273,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2046,20 +2297,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2070,20 +2321,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2101,25 +2352,58 @@
       "sourceTimeUtc": "2020-08-10T17:25:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-11.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-11.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:24:31Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_11.webp",
+      "validTimeUtc": "2020-08-10T17:25:00Z",
+      "sourceTimeUtc": "2020-08-10T17:26:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_11.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_11.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_11.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -2130,20 +2414,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2154,20 +2438,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2178,20 +2462,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2202,20 +2486,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2226,20 +2510,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2250,20 +2534,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2281,23 +2565,28 @@
       "sourceTimeUtc": "2020-08-10T17:30:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-12.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-12.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:31:13Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_12.webp",
@@ -2305,20 +2594,20 @@
       "sourceTimeUtc": "2020-08-10T17:31:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -2338,20 +2627,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2362,20 +2651,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2386,20 +2675,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2410,20 +2699,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2434,20 +2723,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2458,20 +2747,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2489,25 +2778,58 @@
       "sourceTimeUtc": "2020-08-10T17:35:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-13.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-13.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:37:44Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_13.webp",
+      "validTimeUtc": "2020-08-10T17:35:00Z",
+      "sourceTimeUtc": "2020-08-10T17:36:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_13.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_13.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_13.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -2518,20 +2840,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2542,20 +2864,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2566,20 +2888,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2590,20 +2912,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2614,20 +2936,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2638,20 +2960,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2669,25 +2991,58 @@
       "sourceTimeUtc": "2020-08-10T17:40:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-14.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-14.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:37:44Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_14.webp",
+      "validTimeUtc": "2020-08-10T17:40:00Z",
+      "sourceTimeUtc": "2020-08-10T17:41:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_14.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_14.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_14.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -2698,20 +3053,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2722,20 +3077,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2746,20 +3101,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2770,20 +3125,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2794,20 +3149,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2818,20 +3173,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2849,23 +3204,28 @@
       "sourceTimeUtc": "2020-08-10T17:45:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-15.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-15.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:44:40Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_15.webp",
@@ -2873,20 +3233,20 @@
       "sourceTimeUtc": "2020-08-10T17:46:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -2906,20 +3266,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2930,20 +3290,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2954,20 +3314,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -2978,20 +3338,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3002,20 +3362,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3026,20 +3386,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3057,25 +3417,58 @@
       "sourceTimeUtc": "2020-08-10T17:50:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-16.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-16.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:50:50Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_16.webp",
+      "validTimeUtc": "2020-08-10T17:50:00Z",
+      "sourceTimeUtc": "2020-08-10T17:51:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_16.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_16.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_16.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -3086,20 +3479,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3110,20 +3503,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3134,20 +3527,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3158,20 +3551,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3182,20 +3575,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3206,20 +3599,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3237,25 +3630,58 @@
       "sourceTimeUtc": "2020-08-10T17:55:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-17.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-17.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T17:50:50Z"
     },
-    "satellite": null,
+    "satellite": {
+      "url": "data/iowa-severe-weather/satellite/sandwich_17.webp",
+      "validTimeUtc": "2020-08-10T17:55:00Z",
+      "sourceTimeUtc": "2020-08-10T17:56:19Z",
+      "coordinates": [
+        [
+          -96.75,
+          43.58
+        ],
+        [
+          -90.05,
+          43.58
+        ],
+        [
+          -90.05,
+          40.3
+        ],
+        [
+          -96.75,
+          40.3
+        ]
+      ],
+      "available": true,
+      "products": {
+        "visible": "data/iowa-severe-weather/satellite/visible_17.webp",
+        "infrared": "data/iowa-severe-weather/satellite/infrared_17.webp",
+        "sandwich": "data/iowa-severe-weather/satellite/sandwich_17.webp"
+      }
+    },
     "hrrr": {
       "cycleTimeUtc": "2020-08-10T12:00:00Z",
       "forecastHour": 5,
@@ -3266,20 +3692,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3290,20 +3716,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3314,20 +3740,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3338,20 +3764,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3362,20 +3788,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3386,20 +3812,20 @@
           "sourceTimeUtc": "2020-08-10T17:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3417,23 +3843,28 @@
       "sourceTimeUtc": "2020-08-10T18:00:00Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
-      "available": true
+      "available": true,
+      "products": {
+        "reflectivity": "data/iowa-severe-weather/radar/frame-18.webp",
+        "velocity": "data/iowa-severe-weather/radar/velocity-18.webp"
+      },
+      "velocitySourceTimeUtc": "2020-08-10T18:03:14Z"
     },
     "satellite": {
       "url": "data/iowa-severe-weather/satellite/sandwich_18.webp",
@@ -3441,20 +3872,20 @@
       "sourceTimeUtc": "2020-08-10T18:01:19Z",
       "coordinates": [
         [
-          -97.0,
-          44.0
+          -96.75,
+          43.58
         ],
         [
-          -89.0,
-          44.0
+          -90.05,
+          43.58
         ],
         [
-          -89.0,
-          40.0
+          -90.05,
+          40.3
         ],
         [
-          -97.0,
-          40.0
+          -96.75,
+          40.3
         ]
       ],
       "available": true,
@@ -3474,20 +3905,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3498,20 +3929,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3522,20 +3953,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3546,20 +3977,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3570,20 +4001,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true
@@ -3594,20 +4025,20 @@
           "sourceTimeUtc": "2020-08-10T18:00:00Z",
           "coordinates": [
             [
-              -97.0,
-              44.0
+              -96.75,
+              43.58
             ],
             [
-              -89.0,
-              44.0
+              -90.05,
+              43.58
             ],
             [
-              -89.0,
-              40.0
+              -90.05,
+              40.3
             ],
             [
-              -97.0,
-              40.0
+              -96.75,
+              40.3
             ]
           ],
           "available": true

@@ -1,6 +1,33 @@
 import { useEffect, useRef } from 'react'
-import { Map, NavigationControl, type LngLatBoundsLike } from 'maplibre-gl'
+import { Map, NavigationControl, type LngLatBoundsLike, type StyleSpecification } from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+
+// Satellite basemap: Esri World Imagery with a light label overlay so cities
+// stay readable beneath the weather layers.
+const SATELLITE_STYLE: StyleSpecification = {
+  version: 8,
+  sources: {
+    'esri-imagery': {
+      type: 'raster',
+      tiles: [
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      ],
+      tileSize: 256,
+      maxzoom: 18,
+      attribution: 'Imagery © Esri, Maxar, Earthstar Geographics',
+    },
+    'carto-labels': {
+      type: 'raster',
+      tiles: ['https://basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '© CARTO © OpenStreetMap contributors',
+    },
+  },
+  layers: [
+    { id: 'esri-imagery', type: 'raster', source: 'esri-imagery' },
+    { id: 'carto-labels', type: 'raster', source: 'carto-labels', paint: { 'raster-opacity': 0.9 } },
+  ],
+}
 
 interface DerechoMapProps {
   viewBounds: LngLatBoundsLike
@@ -22,7 +49,7 @@ export function DerechoMap({ viewBounds, maxBounds, maximumZoom, onMapReady }: D
 
     const map = new Map({
       container: containerRef.current,
-      style: 'https://tiles.openfreemap.org/styles/positron',
+      style: SATELLITE_STYLE,
       maxBounds,
       maxZoom: maximumZoom,
       dragRotate: false,

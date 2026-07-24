@@ -1,19 +1,27 @@
 import type {
   HrrrVariable,
   PrimaryWeatherLayer,
+  RadarProduct,
   SatelliteProduct,
 } from '../../lib/severe-weather/mapTypes'
 
 interface MeteorologicalLayerControlsProps {
   primaryLayer: PrimaryWeatherLayer
+  radarProduct: RadarProduct
   satelliteUnderRadar: boolean
   satelliteProduct: SatelliteProduct
   hrrrVariable: HrrrVariable
   onPrimaryLayer: (layer: PrimaryWeatherLayer) => void
+  onRadarProduct: (product: RadarProduct) => void
   onSatelliteUnderRadar: (value: boolean) => void
   onSatelliteProduct: (product: SatelliteProduct) => void
   onHrrrVariable: (variable: HrrrVariable) => void
 }
+
+const RADAR_PRODUCTS: { value: RadarProduct; label: string }[] = [
+  { value: 'reflectivity', label: 'Reflectivity' },
+  { value: 'velocity', label: 'Velocity' },
+]
 
 const SATELLITE_PRODUCTS: { value: SatelliteProduct; label: string }[] = [
   { value: 'sandwich', label: 'Sandwich' },
@@ -38,10 +46,12 @@ const HRRR_VARIABLES: { value: HrrrVariable; label: string }[] = [
 
 export function MeteorologicalLayerControls({
   primaryLayer,
+  radarProduct,
   satelliteUnderRadar,
   satelliteProduct,
   hrrrVariable,
   onPrimaryLayer,
+  onRadarProduct,
   onSatelliteUnderRadar,
   onSatelliteProduct,
   onHrrrVariable,
@@ -63,6 +73,27 @@ export function MeteorologicalLayerControls({
           </button>
         ))}
       </div>
+
+      {primaryLayer === 'radar' && (
+        <label className="swx-field">
+          <span>Radar product</span>
+          <div className="swx-segmented" role="group" aria-label="Radar product">
+            {RADAR_PRODUCTS.map((product) => (
+              <button
+                key={product.value}
+                type="button"
+                className={`swx-segmented__button ${
+                  radarProduct === product.value ? 'is-active' : ''
+                }`}
+                aria-pressed={radarProduct === product.value}
+                onClick={() => onRadarProduct(product.value)}
+              >
+                {product.label}
+              </button>
+            ))}
+          </div>
+        </label>
+      )}
 
       {primaryLayer === 'radar' && (
         <label className="swx-checkbox">

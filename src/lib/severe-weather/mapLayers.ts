@@ -1,5 +1,10 @@
 import type { FeatureCollection, Geometry } from 'geojson'
-import type { GeoJSONSource, ImageSource, Map } from 'maplibre-gl'
+import type {
+  DataDrivenPropertyValueSpecification,
+  GeoJSONSource,
+  ImageSource,
+  Map,
+} from 'maplibre-gl'
 import type { ImageCoordinates } from './mapTypes'
 
 const EMPTY_COLLECTION: FeatureCollection<Geometry> = {
@@ -117,14 +122,32 @@ export function addWeatherLayers(map: Map): void {
     },
   })
 
+  // Damage severity ramp (estimated mph from the NWS survey products).
+  const damageWindColor: DataDrivenPropertyValueSpecification<string> = [
+    'case',
+    ['!', ['has', 'windspeed_mph']],
+    '#9ca3af',
+    [
+      'step',
+      ['to-number', ['get', 'windspeed_mph']],
+      '#facc15', // < 70 mph
+      70,
+      '#f97316', // 70–89
+      90,
+      '#dc2626', // 90–109
+      110,
+      '#7e22ce', // 110+
+    ],
+  ] as DataDrivenPropertyValueSpecification<string>
+
   map.addLayer({
     id: 'assessment-fill',
     type: 'fill',
     source: 'assessments-source',
     layout: { visibility: 'none' },
     paint: {
-      'fill-color': '#a855f7',
-      'fill-opacity': 0.22,
+      'fill-color': damageWindColor,
+      'fill-opacity': 0.28,
     },
   })
 
@@ -132,11 +155,26 @@ export function addWeatherLayers(map: Map): void {
     id: 'assessment-outline',
     type: 'line',
     source: 'assessments-source',
+    filter: ['==', ['geometry-type'], 'Polygon'],
     layout: { visibility: 'none' },
     paint: {
-      'line-color': '#7e22ce',
+      'line-color': damageWindColor,
       'line-width': 2,
       'line-dasharray': [2, 1.5],
+    },
+  })
+
+  // Surveyed damage / tornado track lines (NWS DAT), drawn solid and thicker.
+  map.addLayer({
+    id: 'assessment-tracks',
+    type: 'line',
+    source: 'assessments-source',
+    filter: ['==', ['geometry-type'], 'LineString'],
+    layout: { visibility: 'none', 'line-cap': 'round' },
+    paint: {
+      'line-color': '#dc2626',
+      'line-width': 4,
+      'line-opacity': 0.9,
     },
   })
 
@@ -149,9 +187,9 @@ export function addWeatherLayers(map: Map): void {
     layout: { visibility: 'none' },
     paint: {
       'circle-radius': 6,
-      'circle-color': '#a855f7',
-      'circle-stroke-color': '#3b0764',
-      'circle-stroke-width': 2,
+      'circle-color': damageWindColor,
+      'circle-stroke-color': '#1f2937',
+      'circle-stroke-width': 1.5,
     },
   })
 
@@ -223,6 +261,26 @@ export function addWeatherLayers(map: Map): void {
       'text-halo-width': 1.6,
     },
   })
+}
+
+// Draw the Iowa state boundary above the weather rasters but beneath the
+// vector features, so the clipped domain reads as the state itself.
+export function addIowaBoundary(map: Map, url: string): void {
+  map.addSource('iowa-source', { type: 'geojson', data: url })
+  map.addLayer(
+    {
+      id: 'iowa-boundary',
+      type: 'line',
+      source: 'iowa-source',
+      // Light stroke so the state outline reads against satellite imagery.
+      paint: {
+        'line-color': '#f8fafc',
+        'line-width': 2,
+        'line-opacity': 0.9,
+      },
+    },
+    map.getLayer('warning-fill') ? 'warning-fill' : undefined,
+  )
 }
 
 export function updateRasterSource(

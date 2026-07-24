@@ -1,6 +1,7 @@
 import type {
   HrrrVariable,
   PrimaryWeatherLayer,
+  RadarProduct,
   StationOverlay,
   TimelineFrame,
 } from '../../lib/severe-weather/mapTypes'
@@ -8,6 +9,7 @@ import type {
 interface DataStatusPanelProps {
   frame: TimelineFrame
   primaryLayer: PrimaryWeatherLayer
+  radarProduct: RadarProduct
   stationOverlay: StationOverlay
   hrrrVariable: HrrrVariable
 }
@@ -24,6 +26,7 @@ function formatUtc(value: string | null | undefined): string {
 export function DataStatusPanel({
   frame,
   primaryLayer,
+  radarProduct,
   stationOverlay,
   hrrrVariable,
 }: DataStatusPanelProps) {
@@ -31,12 +34,26 @@ export function DataStatusPanel({
     { label: 'Map timeline', value: `${frame.displayTimeCentral} · ${formatUtc(frame.validTimeUtc)}` },
   ]
 
-  const radarAvailable = Boolean(frame.radar?.available)
-  rows.push({
-    label: 'Radar scan',
-    value: radarAvailable ? formatUtc(frame.radar?.sourceTimeUtc ?? frame.radar?.validTimeUtc) : 'no scan at this time',
-    missing: !radarAvailable,
-  })
+  const showingVelocity = primaryLayer === 'radar' && radarProduct === 'velocity'
+  if (showingVelocity) {
+    const velocityAvailable = Boolean(frame.radar?.products?.velocity)
+    rows.push({
+      label: 'KDMX velocity scan',
+      value: velocityAvailable
+        ? formatUtc(frame.radar?.velocitySourceTimeUtc ?? frame.radar?.sourceTimeUtc)
+        : 'no scan at this time',
+      missing: !velocityAvailable,
+    })
+  } else {
+    const radarAvailable = Boolean(frame.radar?.available)
+    rows.push({
+      label: 'Radar scan',
+      value: radarAvailable
+        ? formatUtc(frame.radar?.sourceTimeUtc ?? frame.radar?.validTimeUtc)
+        : 'no scan at this time',
+      missing: !radarAvailable,
+    })
+  }
 
   if (primaryLayer === 'satellite' || primaryLayer === 'radar') {
     const satAvailable = Boolean(frame.satellite?.available)

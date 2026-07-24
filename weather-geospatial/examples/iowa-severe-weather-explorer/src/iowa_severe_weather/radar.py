@@ -18,7 +18,6 @@ import requests
 from PIL import Image
 
 from .config import Config, Domain
-from .domain import apply_mask, iowa_mask
 
 # IEM uscomp N0Q georeferencing (from the product world file).
 COMP_ORIGIN_LON = -126.0
@@ -58,8 +57,6 @@ def _download(stamp: datetime) -> Image.Image | None:
 def process(config: Config, output_dir: Path, rel_prefix: str) -> list[RasterRef | None]:
     domain = config.domain
     box = _crop_box(domain)
-    width, height = box[2] - box[0], box[3] - box[1]
-    mask = iowa_mask(config, domain, width, height)
     tolerance = int(config.get("radar", "tolerance_minutes", default=6))
     offsets = [0]
     for step in range(5, tolerance + 1, 5):
@@ -81,7 +78,7 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[RasterRef
             refs.append(None)
             continue
 
-        rgba = apply_mask(_to_rgba(source.crop(box)), mask)
+        rgba = _to_rgba(source.crop(box))
         rel_url = f"{rel_prefix}/frame-{index:02d}.webp"
         out_path = output_dir / f"frame-{index:02d}.webp"
         out_path.parent.mkdir(parents=True, exist_ok=True)

@@ -23,7 +23,6 @@ from pyproj import Geod
 from scipy.spatial import cKDTree
 
 from .config import Config
-from .domain import apply_mask, iowa_mask
 from .grid import GRID_H, GRID_W, colorize, save_rgba_webp
 
 GCS = "https://storage.googleapis.com/gcp-public-data-nexrad-l2/{y}/{m:02d}/{d:02d}/{site}/NWS_NEXRAD_NXL2DPBL_{site}_{y}{m:02d}{d:02d}{hh}0000_{y}{m:02d}{d:02d}{hh}5959.tar"
@@ -125,8 +124,6 @@ def _grid_volume(config, raw: bytes) -> np.ndarray | None:
 def process(config: Config, output_dir: Path, rel_prefix: str) -> list[RasterRef | None]:
     site = config.get("radar", "velocity_site", default="KDMX")
     tol = timedelta(minutes=int(config.get("radar", "velocity_tolerance_minutes", default=6)))
-    domain = config.domain
-    mask = iowa_mask(config, domain, GRID_W, GRID_H)
     frames = config.frame_times
 
     # Load every hour tar the window touches (± tolerance), index all volumes.
@@ -160,7 +157,7 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[RasterRef
             continue
 
         dt, grid = chosen
-        rgba = apply_mask(colorize(grid, VELOCITY, alpha=225, floor=-45), mask)
+        rgba = colorize(grid, VELOCITY, alpha=225, floor=-45)
         rel_url = f"{rel_prefix}/velocity-{index:02d}.webp"
         save_rgba_webp(rgba, output_dir / f"velocity-{index:02d}.webp")
         refs.append(RasterRef(url=rel_url, valid_time=frame_time, source_time=dt, available=True))

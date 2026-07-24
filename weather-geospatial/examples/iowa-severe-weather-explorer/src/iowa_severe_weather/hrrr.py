@@ -18,8 +18,7 @@ import rasterio
 import requests
 
 from .config import Config, parse_utc
-from .domain import apply_mask, iowa_mask
-from .grid import COLORMAPS, GRID_H, GRID_W, colorize, reproject_to_domain, save_rgba_webp
+from .grid import COLORMAPS, colorize, reproject_to_domain, save_rgba_webp
 
 BASE = "https://noaa-hrrr-bdp-pds.s3.amazonaws.com/hrrr.{ymd}/conus/hrrr.t{hh}z.wrfsfcf{ff:02d}.grib2"
 
@@ -109,7 +108,6 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[HrrrHour]
     ymd = cycle.strftime("%Y%m%d")
     hh = cycle.strftime("%H")
 
-    mask = iowa_mask(config, domain, GRID_W, GRID_H)
     forecast_hours = sorted(
         {max(0, math.floor((ft - cycle).total_seconds() / 3600)) for ft in config.frame_times}
     )
@@ -146,7 +144,7 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[HrrrHour]
             grid_vals = reproject_to_domain(field_vals, crs, transform, domain)
             floor = 5.0 if variable == "composite_reflectivity" else None
             alpha = 210 if variable != "composite_reflectivity" else 235
-            rgba = apply_mask(colorize(grid_vals, COLORMAPS[variable], alpha=alpha, floor=floor), mask)
+            rgba = colorize(grid_vals, COLORMAPS[variable], alpha=alpha, floor=floor)
 
             rel_url = f"{rel_prefix}/{variable}_f{ff:02d}.webp"
             save_rgba_webp(rgba, output_dir / f"{variable}_f{ff:02d}.webp")

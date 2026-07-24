@@ -6,288 +6,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -90.83,
-          42.7
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0000",
-        "event_time_ms": 1597080600000,
-        "event_time_utc": "2020-08-10T17:30:00Z",
-        "event_type": "wind_damage",
-        "magnitude": null,
-        "magnitude_units": null,
-        "measured": false,
-        "source": "Public",
-        "location": "2 SSW BURTON, GRANT Co, WI",
-        "remarks": "POSSIBLE TORNADO DAMAGE. RELAYED VIA EMERGENCY MANAGEMENT.",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -91.06,
-          42.81
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0001",
-        "event_time_ms": 1597080060000,
-        "event_time_utc": "2020-08-10T17:21:00Z",
-        "event_type": "estimated_wind",
-        "magnitude": 50.0,
-        "magnitude_units": "mph",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "2 SSE GLEN HAVEN, GRANT Co, WI",
-        "remarks": ".",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -91.06,
-          42.81
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0002",
-        "event_time_ms": 1597080060000,
-        "event_time_utc": "2020-08-10T17:21:00Z",
-        "event_type": "estimated_wind",
-        "magnitude": 50.0,
-        "magnitude_units": "mph",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "2 SSE GLEN HAVEN, GRANT Co, WI",
-        "remarks": "",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.93,
-          42.88
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0003",
-        "event_time_ms": 1597081740000,
-        "event_time_utc": "2020-08-10T17:49:00Z",
-        "event_type": "estimated_wind",
-        "magnitude": 60.0,
-        "magnitude_units": "mph",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "BLOOMINGTON, GRANT Co, WI",
-        "remarks": ".",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.71,
-          42.85
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0004",
-        "event_time_ms": 1597081800000,
-        "event_time_utc": "2020-08-10T17:50:00Z",
-        "event_type": "estimated_wind",
-        "magnitude": 60.0,
-        "magnitude_units": "mph",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "LANCASTER, GRANT Co, WI",
-        "remarks": ".",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.71,
-          42.85
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0005",
-        "event_time_ms": 1597081800000,
-        "event_time_utc": "2020-08-10T17:50:00Z",
-        "event_type": "estimated_wind",
-        "magnitude": 60.0,
-        "magnitude_units": "mph",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "LANCASTER, GRANT Co, WI",
-        "remarks": "",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.97,
-          42.94
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0006",
-        "event_time_ms": 1597080600000,
-        "event_time_utc": "2020-08-10T17:30:00Z",
-        "event_type": "measured_wind",
-        "magnitude": 63.0,
-        "magnitude_units": "mph",
-        "measured": true,
-        "source": "Fire Dept/Rescue",
-        "location": "PATCH GROVE, GRANT Co, WI",
-        "remarks": ".",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -91.06,
-          42.81
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0007",
-        "event_time_ms": 1597080240000,
-        "event_time_utc": "2020-08-10T17:24:00Z",
-        "event_type": "hail",
-        "magnitude": 0.25,
-        "magnitude_units": "inch",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "2 SSE GLEN HAVEN, GRANT Co, WI",
-        "remarks": ".",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.97,
-          42.94
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0008",
-        "event_time_ms": 1597080480000,
-        "event_time_utc": "2020-08-10T17:28:00Z",
-        "event_type": "hail",
-        "magnitude": 0.7,
-        "magnitude_units": "inch",
-        "measured": false,
-        "source": "Fire Dept/Rescue",
-        "location": "PATCH GROVE, GRANT Co, WI",
-        "remarks": "",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -92.77,
-          44.07
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0009",
-        "event_time_ms": 1597077300000,
-        "event_time_utc": "2020-08-10T16:35:00Z",
-        "event_type": "other",
-        "magnitude": 0.14,
-        "magnitude_units": "inch",
-        "measured": true,
-        "source": "Public",
-        "location": "1 WNW MANTORVILLE, DODGE Co, MN",
-        "remarks": "",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -91.14,
-          43.04
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0010",
-        "event_time_ms": 1597081380000,
-        "event_time_utc": "2020-08-10T17:43:00Z",
-        "event_type": "other",
-        "magnitude": 1.25,
-        "magnitude_units": "inch",
-        "measured": false,
-        "source": "Public",
-        "location": "PRAIRIE DU CHIEN, CRAWFORD Co, WI",
-        "remarks": "",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -90.83,
-          42.69
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0011",
-        "event_time_ms": 1597080720000,
-        "event_time_utc": "2020-08-10T17:32:00Z",
-        "event_type": "tornado",
-        "magnitude": null,
-        "magnitude_units": null,
-        "measured": false,
-        "source": "Nws Storm Survey",
-        "location": "2 SSW BURTON, GRANT Co, WI",
-        "remarks": "A BRIEF TORNADO TOUCHED DOWN DAMAGING HARDWOOD TREES, TWO OUTBUILDINGS, AND DOWNING POWER LINES. OBSERVER OF TORNADO SAW CORN STALKS AND METAL MATERIAL FROM THE OUTBUILDINGS BEING LOFTED. TORNADO TRACKED FOR APPROXIMATELY 1/2 MILE BEFORE DISSIPATING WITH AN ESTIMATED WIDTH OF 50 YARDS.",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -93.09,
           42.24
         ]
       },
       "properties": {
-        "report_id": "lsr-0012",
+        "report_id": "lsr-0000",
         "event_time_ms": 1597078020000,
         "event_time_utc": "2020-08-10T16:47:00Z",
         "event_type": "wind_damage",
@@ -310,7 +34,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0013",
+        "report_id": "lsr-0001",
         "event_time_ms": 1597078260000,
         "event_time_utc": "2020-08-10T16:51:00Z",
         "event_type": "wind_damage",
@@ -333,7 +57,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0014",
+        "report_id": "lsr-0002",
         "event_time_ms": 1597078680000,
         "event_time_utc": "2020-08-10T16:58:00Z",
         "event_type": "wind_damage",
@@ -356,7 +80,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0015",
+        "report_id": "lsr-0003",
         "event_time_ms": 1597078800000,
         "event_time_utc": "2020-08-10T17:00:00Z",
         "event_type": "wind_damage",
@@ -379,7 +103,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0016",
+        "report_id": "lsr-0004",
         "event_time_ms": 1597078860000,
         "event_time_utc": "2020-08-10T17:01:00Z",
         "event_type": "wind_damage",
@@ -402,7 +126,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0017",
+        "report_id": "lsr-0005",
         "event_time_ms": 1597079400000,
         "event_time_utc": "2020-08-10T17:10:00Z",
         "event_type": "wind_damage",
@@ -425,7 +149,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0018",
+        "report_id": "lsr-0006",
         "event_time_ms": 1597079700000,
         "event_time_utc": "2020-08-10T17:15:00Z",
         "event_type": "wind_damage",
@@ -448,7 +172,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0019",
+        "report_id": "lsr-0007",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -471,7 +195,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0020",
+        "report_id": "lsr-0008",
         "event_time_ms": 1597079940000,
         "event_time_utc": "2020-08-10T17:19:00Z",
         "event_type": "estimated_wind",
@@ -494,7 +218,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0021",
+        "report_id": "lsr-0009",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "estimated_wind",
@@ -517,7 +241,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0022",
+        "report_id": "lsr-0010",
         "event_time_ms": 1597077780000,
         "event_time_utc": "2020-08-10T16:43:00Z",
         "event_type": "estimated_wind",
@@ -540,7 +264,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0023",
+        "report_id": "lsr-0011",
         "event_time_ms": 1597078500000,
         "event_time_utc": "2020-08-10T16:55:00Z",
         "event_type": "estimated_wind",
@@ -563,7 +287,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0024",
+        "report_id": "lsr-0012",
         "event_time_ms": 1597077300000,
         "event_time_utc": "2020-08-10T16:35:00Z",
         "event_type": "measured_wind",
@@ -586,7 +310,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0025",
+        "report_id": "lsr-0013",
         "event_time_ms": 1597078620000,
         "event_time_utc": "2020-08-10T16:57:00Z",
         "event_type": "measured_wind",
@@ -609,7 +333,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0026",
+        "report_id": "lsr-0014",
         "event_time_ms": 1597078680000,
         "event_time_utc": "2020-08-10T16:58:00Z",
         "event_type": "estimated_wind",
@@ -632,7 +356,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0027",
+        "report_id": "lsr-0015",
         "event_time_ms": 1597077000000,
         "event_time_utc": "2020-08-10T16:30:00Z",
         "event_type": "measured_wind",
@@ -655,7 +379,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0028",
+        "report_id": "lsr-0016",
         "event_time_ms": 1597077480000,
         "event_time_utc": "2020-08-10T16:38:00Z",
         "event_type": "measured_wind",
@@ -678,7 +402,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0029",
+        "report_id": "lsr-0017",
         "event_time_ms": 1597077600000,
         "event_time_utc": "2020-08-10T16:40:00Z",
         "event_type": "measured_wind",
@@ -701,7 +425,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0030",
+        "report_id": "lsr-0018",
         "event_time_ms": 1597078800000,
         "event_time_utc": "2020-08-10T17:00:00Z",
         "event_type": "estimated_wind",
@@ -724,7 +448,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0031",
+        "report_id": "lsr-0019",
         "event_time_ms": 1597077780000,
         "event_time_utc": "2020-08-10T16:43:00Z",
         "event_type": "measured_wind",
@@ -747,7 +471,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0032",
+        "report_id": "lsr-0020",
         "event_time_ms": 1597078260000,
         "event_time_utc": "2020-08-10T16:51:00Z",
         "event_type": "estimated_wind",
@@ -770,7 +494,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0033",
+        "report_id": "lsr-0021",
         "event_time_ms": 1597078200000,
         "event_time_utc": "2020-08-10T16:50:00Z",
         "event_type": "measured_wind",
@@ -793,7 +517,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0034",
+        "report_id": "lsr-0022",
         "event_time_ms": 1597078320000,
         "event_time_utc": "2020-08-10T16:52:00Z",
         "event_type": "measured_wind",
@@ -816,7 +540,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0035",
+        "report_id": "lsr-0023",
         "event_time_ms": 1597077000000,
         "event_time_utc": "2020-08-10T16:30:00Z",
         "event_type": "tornado",
@@ -839,7 +563,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0036",
+        "report_id": "lsr-0024",
         "event_time_ms": 1597077360000,
         "event_time_utc": "2020-08-10T16:36:00Z",
         "event_type": "tornado",
@@ -862,7 +586,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0037",
+        "report_id": "lsr-0025",
         "event_time_ms": 1597077540000,
         "event_time_utc": "2020-08-10T16:39:00Z",
         "event_type": "tornado",
@@ -885,7 +609,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0038",
+        "report_id": "lsr-0026",
         "event_time_ms": 1597078860000,
         "event_time_utc": "2020-08-10T17:01:00Z",
         "event_type": "tornado",
@@ -908,7 +632,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0039",
+        "report_id": "lsr-0027",
         "event_time_ms": 1597080000000,
         "event_time_utc": "2020-08-10T17:20:00Z",
         "event_type": "wind_damage",
@@ -931,7 +655,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0040",
+        "report_id": "lsr-0028",
         "event_time_ms": 1597080300000,
         "event_time_utc": "2020-08-10T17:25:00Z",
         "event_type": "wind_damage",
@@ -954,7 +678,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0041",
+        "report_id": "lsr-0029",
         "event_time_ms": 1597080480000,
         "event_time_utc": "2020-08-10T17:28:00Z",
         "event_type": "wind_damage",
@@ -977,7 +701,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0042",
+        "report_id": "lsr-0030",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1000,7 +724,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0043",
+        "report_id": "lsr-0031",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1023,7 +747,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0044",
+        "report_id": "lsr-0032",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1046,7 +770,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0045",
+        "report_id": "lsr-0033",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1069,7 +793,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0046",
+        "report_id": "lsr-0034",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1092,7 +816,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0047",
+        "report_id": "lsr-0035",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1115,7 +839,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0048",
+        "report_id": "lsr-0036",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1138,7 +862,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0049",
+        "report_id": "lsr-0037",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "wind_damage",
@@ -1161,7 +885,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0050",
+        "report_id": "lsr-0038",
         "event_time_ms": 1597080660000,
         "event_time_utc": "2020-08-10T17:31:00Z",
         "event_type": "wind_damage",
@@ -1184,7 +908,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0051",
+        "report_id": "lsr-0039",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "wind_damage",
@@ -1207,7 +931,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0052",
+        "report_id": "lsr-0040",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "wind_damage",
@@ -1230,7 +954,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0053",
+        "report_id": "lsr-0041",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "wind_damage",
@@ -1253,7 +977,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0054",
+        "report_id": "lsr-0042",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "wind_damage",
@@ -1276,7 +1000,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0055",
+        "report_id": "lsr-0043",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "wind_damage",
@@ -1299,7 +1023,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0056",
+        "report_id": "lsr-0044",
         "event_time_ms": 1597081020000,
         "event_time_utc": "2020-08-10T17:37:00Z",
         "event_type": "wind_damage",
@@ -1322,7 +1046,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0057",
+        "report_id": "lsr-0045",
         "event_time_ms": 1597081080000,
         "event_time_utc": "2020-08-10T17:38:00Z",
         "event_type": "wind_damage",
@@ -1345,7 +1069,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0058",
+        "report_id": "lsr-0046",
         "event_time_ms": 1597081080000,
         "event_time_utc": "2020-08-10T17:38:00Z",
         "event_type": "wind_damage",
@@ -1368,7 +1092,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0059",
+        "report_id": "lsr-0047",
         "event_time_ms": 1597081140000,
         "event_time_utc": "2020-08-10T17:39:00Z",
         "event_type": "wind_damage",
@@ -1391,7 +1115,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0060",
+        "report_id": "lsr-0048",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "wind_damage",
@@ -1414,7 +1138,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0061",
+        "report_id": "lsr-0049",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "wind_damage",
@@ -1437,7 +1161,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0062",
+        "report_id": "lsr-0050",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "wind_damage",
@@ -1460,7 +1184,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0063",
+        "report_id": "lsr-0051",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "wind_damage",
@@ -1483,7 +1207,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0064",
+        "report_id": "lsr-0052",
         "event_time_ms": 1597081320000,
         "event_time_utc": "2020-08-10T17:42:00Z",
         "event_type": "wind_damage",
@@ -1506,7 +1230,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0065",
+        "report_id": "lsr-0053",
         "event_time_ms": 1597081380000,
         "event_time_utc": "2020-08-10T17:43:00Z",
         "event_type": "wind_damage",
@@ -1524,35 +1248,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -92.18,
-          40.46
-        ]
-      },
-      "properties": {
-        "report_id": "lsr-0066",
-        "event_time_ms": 1597081740000,
-        "event_time_utc": "2020-08-10T17:49:00Z",
-        "event_type": "wind_damage",
-        "magnitude": null,
-        "magnitude_units": null,
-        "measured": false,
-        "source": "Trained Spotter",
-        "location": "MEMPHIS, SCOTLAND Co, MO",
-        "remarks": "TRAINED SPOTTER REPORTED TREES DOWN IN MEMPHIS. THIS HAPPENED BEFORE ANY RAIN OR STORMS ARRIVED.",
-        "delayed_report": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           -91.45,
           41.03
         ]
       },
       "properties": {
-        "report_id": "lsr-0067",
+        "report_id": "lsr-0054",
         "event_time_ms": 1597081860000,
         "event_time_utc": "2020-08-10T17:51:00Z",
         "event_type": "wind_damage",
@@ -1575,7 +1276,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0068",
+        "report_id": "lsr-0055",
         "event_time_ms": 1597082100000,
         "event_time_utc": "2020-08-10T17:55:00Z",
         "event_type": "wind_damage",
@@ -1598,7 +1299,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0069",
+        "report_id": "lsr-0056",
         "event_time_ms": 1597082160000,
         "event_time_utc": "2020-08-10T17:56:00Z",
         "event_type": "wind_damage",
@@ -1621,7 +1322,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0070",
+        "report_id": "lsr-0057",
         "event_time_ms": 1597082220000,
         "event_time_utc": "2020-08-10T17:57:00Z",
         "event_type": "wind_damage",
@@ -1644,7 +1345,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0071",
+        "report_id": "lsr-0058",
         "event_time_ms": 1597082280000,
         "event_time_utc": "2020-08-10T17:58:00Z",
         "event_type": "wind_damage",
@@ -1667,7 +1368,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0072",
+        "report_id": "lsr-0059",
         "event_time_ms": 1597082280000,
         "event_time_utc": "2020-08-10T17:58:00Z",
         "event_type": "wind_damage",
@@ -1690,7 +1391,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0073",
+        "report_id": "lsr-0060",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1713,7 +1414,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0074",
+        "report_id": "lsr-0061",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1736,7 +1437,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0075",
+        "report_id": "lsr-0062",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1759,7 +1460,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0076",
+        "report_id": "lsr-0063",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1782,7 +1483,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0077",
+        "report_id": "lsr-0064",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1805,7 +1506,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0078",
+        "report_id": "lsr-0065",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "wind_damage",
@@ -1828,7 +1529,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0079",
+        "report_id": "lsr-0066",
         "event_time_ms": 1597082100000,
         "event_time_utc": "2020-08-10T17:55:00Z",
         "event_type": "measured_wind",
@@ -1851,7 +1552,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0080",
+        "report_id": "lsr-0067",
         "event_time_ms": 1597080900000,
         "event_time_utc": "2020-08-10T17:35:00Z",
         "event_type": "measured_wind",
@@ -1874,7 +1575,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0081",
+        "report_id": "lsr-0068",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "estimated_wind",
@@ -1897,7 +1598,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0082",
+        "report_id": "lsr-0069",
         "event_time_ms": 1597082400000,
         "event_time_utc": "2020-08-10T18:00:00Z",
         "event_type": "measured_wind",
@@ -1920,7 +1621,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0083",
+        "report_id": "lsr-0070",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "measured_wind",
@@ -1943,7 +1644,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0084",
+        "report_id": "lsr-0071",
         "event_time_ms": 1597081140000,
         "event_time_utc": "2020-08-10T17:39:00Z",
         "event_type": "measured_wind",
@@ -1966,7 +1667,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0085",
+        "report_id": "lsr-0072",
         "event_time_ms": 1597081140000,
         "event_time_utc": "2020-08-10T17:39:00Z",
         "event_type": "measured_wind",
@@ -1989,7 +1690,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0086",
+        "report_id": "lsr-0073",
         "event_time_ms": 1597079700000,
         "event_time_utc": "2020-08-10T17:15:00Z",
         "event_type": "measured_wind",
@@ -2012,7 +1713,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0087",
+        "report_id": "lsr-0074",
         "event_time_ms": 1597080480000,
         "event_time_utc": "2020-08-10T17:28:00Z",
         "event_type": "estimated_wind",
@@ -2035,7 +1736,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0088",
+        "report_id": "lsr-0075",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "estimated_wind",
@@ -2058,7 +1759,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0089",
+        "report_id": "lsr-0076",
         "event_time_ms": 1597081440000,
         "event_time_utc": "2020-08-10T17:44:00Z",
         "event_type": "measured_wind",
@@ -2081,7 +1782,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0090",
+        "report_id": "lsr-0077",
         "event_time_ms": 1597081500000,
         "event_time_utc": "2020-08-10T17:45:00Z",
         "event_type": "estimated_wind",
@@ -2104,7 +1805,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0091",
+        "report_id": "lsr-0078",
         "event_time_ms": 1597081800000,
         "event_time_utc": "2020-08-10T17:50:00Z",
         "event_type": "estimated_wind",
@@ -2127,7 +1828,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0092",
+        "report_id": "lsr-0079",
         "event_time_ms": 1597081860000,
         "event_time_utc": "2020-08-10T17:51:00Z",
         "event_type": "measured_wind",
@@ -2150,7 +1851,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0093",
+        "report_id": "lsr-0080",
         "event_time_ms": 1597080720000,
         "event_time_utc": "2020-08-10T17:32:00Z",
         "event_type": "measured_wind",
@@ -2173,7 +1874,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0094",
+        "report_id": "lsr-0081",
         "event_time_ms": 1597081920000,
         "event_time_utc": "2020-08-10T17:52:00Z",
         "event_type": "measured_wind",
@@ -2196,7 +1897,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0095",
+        "report_id": "lsr-0082",
         "event_time_ms": 1597080840000,
         "event_time_utc": "2020-08-10T17:34:00Z",
         "event_type": "measured_wind",
@@ -2219,7 +1920,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0096",
+        "report_id": "lsr-0083",
         "event_time_ms": 1597077780000,
         "event_time_utc": "2020-08-10T16:43:00Z",
         "event_type": "measured_wind",
@@ -2242,7 +1943,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0097",
+        "report_id": "lsr-0084",
         "event_time_ms": 1597081380000,
         "event_time_utc": "2020-08-10T17:43:00Z",
         "event_type": "measured_wind",
@@ -2265,7 +1966,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0098",
+        "report_id": "lsr-0085",
         "event_time_ms": 1597080300000,
         "event_time_utc": "2020-08-10T17:25:00Z",
         "event_type": "estimated_wind",
@@ -2288,7 +1989,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0099",
+        "report_id": "lsr-0086",
         "event_time_ms": 1597080660000,
         "event_time_utc": "2020-08-10T17:31:00Z",
         "event_type": "estimated_wind",
@@ -2311,7 +2012,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0100",
+        "report_id": "lsr-0087",
         "event_time_ms": 1597081740000,
         "event_time_utc": "2020-08-10T17:49:00Z",
         "event_type": "estimated_wind",
@@ -2334,7 +2035,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0101",
+        "report_id": "lsr-0088",
         "event_time_ms": 1597080600000,
         "event_time_utc": "2020-08-10T17:30:00Z",
         "event_type": "measured_wind",
@@ -2357,7 +2058,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0102",
+        "report_id": "lsr-0089",
         "event_time_ms": 1597081200000,
         "event_time_utc": "2020-08-10T17:40:00Z",
         "event_type": "measured_wind",
@@ -2380,7 +2081,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0103",
+        "report_id": "lsr-0090",
         "event_time_ms": 1597082100000,
         "event_time_utc": "2020-08-10T17:55:00Z",
         "event_type": "measured_wind",
@@ -2403,7 +2104,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0104",
+        "report_id": "lsr-0091",
         "event_time_ms": 1597080300000,
         "event_time_utc": "2020-08-10T17:25:00Z",
         "event_type": "estimated_wind",
@@ -2426,7 +2127,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0105",
+        "report_id": "lsr-0092",
         "event_time_ms": 1597080480000,
         "event_time_utc": "2020-08-10T17:28:00Z",
         "event_type": "measured_wind",
@@ -2449,7 +2150,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0106",
+        "report_id": "lsr-0093",
         "event_time_ms": 1597080480000,
         "event_time_utc": "2020-08-10T17:28:00Z",
         "event_type": "estimated_wind",
@@ -2472,7 +2173,7 @@
         ]
       },
       "properties": {
-        "report_id": "lsr-0107",
+        "report_id": "lsr-0094",
         "event_time_ms": 1597080660000,
         "event_time_utc": "2020-08-10T17:31:00Z",
         "event_type": "tornado",

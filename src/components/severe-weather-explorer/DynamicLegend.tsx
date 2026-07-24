@@ -1,16 +1,36 @@
+import { useState } from 'react'
 import type {
   HrrrVariable,
   PrimaryWeatherLayer,
+  RadarProduct,
   StationOverlay,
 } from '../../lib/severe-weather/mapTypes'
 
+// Start minimized on small screens so the legend doesn't cover the map.
+function initiallyCollapsed(): boolean {
+  return typeof window !== 'undefined' && window.matchMedia('(max-width: 640px)').matches
+}
+
 interface DynamicLegendProps {
   primaryLayer: PrimaryWeatherLayer
+  radarProduct: RadarProduct
   hrrrVariable: HrrrVariable
   stationOverlay: StationOverlay
   showReports: boolean
   showWarnings: boolean
+  showAssessments: boolean
 }
+
+// Matches the damage severity ramp in mapLayers.ts.
+const DAMAGE_WIND_CLASSES: { color: string; label: string }[] = [
+  { color: '#facc15', label: '< 70 mph' },
+  { color: '#f97316', label: '70–89 mph' },
+  { color: '#dc2626', label: '90–109 mph' },
+  { color: '#7e22ce', label: '110+ mph' },
+]
+
+// Matches the pipeline's diverging velocity colormap (velocity.py).
+const VELOCITY_STOPS = ['#00ff00', '#00af00', '#19501e', '#878787', '#5f1919', '#c80000', '#ff5a5a']
 
 const REFLECTIVITY_STOPS = ['#04e9e7', '#019ff4', '#02fd02', '#fdf802', '#fd9500', '#fd0000', '#f800fd']
 
@@ -67,21 +87,57 @@ function gradient(stops: string[]): string {
 
 export function DynamicLegend({
   primaryLayer,
+  radarProduct,
   hrrrVariable,
   stationOverlay,
   showReports,
   showWarnings,
+  showAssessments,
 }: DynamicLegendProps) {
   const hrrrLegend = HRRR_LEGENDS[hrrrVariable]
+  const [collapsed, setCollapsed] = useState(initiallyCollapsed)
+
+  if (collapsed) {
+    return (
+      <button
+        type="button"
+        className="swx-legend swx-legend--collapsed"
+        aria-expanded={false}
+        onClick={() => setCollapsed(false)}
+      >
+        Legend +
+      </button>
+    )
+  }
+
   return (
     <div className="swx-legend">
-      {primaryLayer === 'radar' && (
+      <button
+        type="button"
+        className="swx-legend__toggle"
+        aria-expanded={true}
+        onClick={() => setCollapsed(true)}
+      >
+        Legend −
+      </button>
+      {primaryLayer === 'radar' && radarProduct === 'reflectivity' && (
         <div className="swx-legend__item">
           <span className="swx-legend__label">Reflectivity (dBZ)</span>
           <span className="swx-legend__bar" style={{ background: gradient(REFLECTIVITY_STOPS) }} />
           <span className="swx-legend__scale">
             <span>5</span>
             <span>75+</span>
+          </span>
+        </div>
+      )}
+
+      {primaryLayer === 'radar' && radarProduct === 'velocity' && (
+        <div className="swx-legend__item">
+          <span className="swx-legend__label">Base velocity (m/s) — KDMX</span>
+          <span className="swx-legend__bar" style={{ background: gradient(VELOCITY_STOPS) }} />
+          <span className="swx-legend__scale">
+            <span>−40 toward</span>
+            <span>+40 away</span>
           </span>
         </div>
       )}
@@ -131,6 +187,20 @@ export function DynamicLegend({
               <li key={symbol.label}>
                 <span className="swx-legend__dot" style={{ background: symbol.color }} />
                 {symbol.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {showAssessments && (
+        <div className="swx-legend__item">
+          <span className="swx-legend__label">Damage survey (est. wind)</span>
+          <ul className="swx-legend__symbols">
+            {DAMAGE_WIND_CLASSES.map((cls) => (
+              <li key={cls.label}>
+                <span className="swx-legend__dot" style={{ background: cls.color }} />
+                {cls.label}
               </li>
             ))}
           </ul>

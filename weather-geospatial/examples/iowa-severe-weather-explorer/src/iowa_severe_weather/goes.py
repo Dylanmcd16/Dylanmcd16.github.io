@@ -22,8 +22,7 @@ from botocore.config import Config as BotoConfig
 from rasterio.crs import CRS
 
 from .config import Config
-from .domain import apply_mask, iowa_mask
-from .grid import COLORMAPS, GRID_H, GRID_W, colorize, grayscale, reproject_to_domain, save_rgba_webp
+from .grid import COLORMAPS, colorize, grayscale, reproject_to_domain, save_rgba_webp
 
 BUCKET = "noaa-goes16"
 
@@ -114,7 +113,6 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[Satellite
     tol = timedelta(minutes=int(config.get("satellite", "tolerance_minutes", default=8)))
     bands = config.get("satellite", "bands", default={"visible": 2, "infrared": 13})
     domain = config.domain
-    mask = iowa_mask(config, domain, GRID_W, GRID_H)
     s3 = _client()
 
     refs: list[SatelliteRef | None] = []
@@ -148,9 +146,9 @@ def process(config: Config, output_dir: Path, rel_prefix: str) -> list[Satellite
             "infrared": f"{rel_prefix}/infrared_{index:02d}.webp",
             "sandwich": f"{rel_prefix}/sandwich_{index:02d}.webp",
         }
-        save_rgba_webp(apply_mask(grayscale(vis, alpha=255), mask), output_dir / f"visible_{index:02d}.webp")
-        save_rgba_webp(apply_mask(colorize(ir_c, COLORMAPS["infrared"], alpha=255, floor=None), mask), output_dir / f"infrared_{index:02d}.webp")
-        save_rgba_webp(apply_mask(_sandwich(vis, ir_c), mask), output_dir / f"sandwich_{index:02d}.webp")
+        save_rgba_webp(grayscale(vis, alpha=255), output_dir / f"visible_{index:02d}.webp")
+        save_rgba_webp(colorize(ir_c, COLORMAPS["infrared"], alpha=255, floor=None), output_dir / f"infrared_{index:02d}.webp")
+        save_rgba_webp(_sandwich(vis, ir_c), output_dir / f"sandwich_{index:02d}.webp")
 
         refs.append(
             SatelliteRef(

@@ -22,6 +22,8 @@ export type StationOverlay = 'none' | 'temperature' | 'dewpoint' | 'wind' | 'gus
 
 export type SatelliteProduct = 'sandwich' | 'visible' | 'infrared'
 
+export type RadarProduct = 'reflectivity' | 'velocity'
+
 export interface RasterFrameReference {
   url: string
   validTimeUtc: string
@@ -29,8 +31,11 @@ export interface RasterFrameReference {
   coordinates: ImageCoordinates
   available: boolean
   statusMessage?: string
-  // Satellite frames carry alternate product rasters keyed by SatelliteProduct.
-  products?: Partial<Record<SatelliteProduct, string>>
+  // Frames may carry alternate product rasters (satellite: sandwich/visible/
+  // infrared; radar: reflectivity/velocity) keyed by product name.
+  products?: Partial<Record<string, string>>
+  // Radar frames: actual KDMX Level II scan time backing the velocity product.
+  velocitySourceTimeUtc?: string
 }
 
 export interface HrrrFrameSet {
@@ -70,11 +75,13 @@ export interface EventManifest {
     stations: string
     stationsSeries?: string
     assessments: string
+    iowa?: string
   }
 }
 
 export interface ExplorerDisplayState {
   primaryLayer: PrimaryWeatherLayer
+  radarProduct: RadarProduct
   satelliteUnderRadar: boolean
   satelliteProduct: SatelliteProduct
   stationOverlay: StationOverlay

@@ -4,6 +4,7 @@ import type { ExplorerDisplayState } from './mapTypes'
 
 const base: ExplorerDisplayState = {
   primaryLayer: 'radar',
+  radarProduct: 'reflectivity',
   satelliteUnderRadar: false,
   satelliteProduct: 'sandwich',
   stationOverlay: 'none',

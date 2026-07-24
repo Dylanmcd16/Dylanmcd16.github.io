@@ -1,5 +1,11 @@
 import type { Map } from 'maplibre-gl'
-import type { HrrrVariable, ImageCoordinates, SatelliteProduct, TimelineFrame } from './mapTypes'
+import type {
+  HrrrVariable,
+  ImageCoordinates,
+  RadarProduct,
+  SatelliteProduct,
+  TimelineFrame,
+} from './mapTypes'
 import { applyTimelineFilters } from './mapFilters'
 import { updateRasterSource } from './mapLayers'
 import { assetUrl } from './assetUrl'
@@ -15,6 +21,7 @@ interface UpdateFrameOptions {
   map: Map
   frame: TimelineFrame
   hrrrVariable: HrrrVariable
+  radarProduct: RadarProduct
   satelliteProduct: SatelliteProduct
   transparentImageUrl: string
 }
@@ -28,6 +35,18 @@ function satelliteUrl(frame: TimelineFrame, product: SatelliteProduct): string |
   return assetUrl(rel)
 }
 
+// Resolve the radar raster URL for the selected product. Velocity is only shown
+// when the frame actually carries a velocity raster — no silent substitution.
+export function radarUrl(frame: TimelineFrame, product: RadarProduct): string | null {
+  const radar = frame.radar
+  if (!radar?.available) return null
+  if (product === 'reflectivity') {
+    return assetUrl(radar.products?.reflectivity ?? radar.url)
+  }
+  const velocity = radar.products?.velocity
+  return velocity ? assetUrl(velocity) : null
+}
+
 // Point every raster source at the correct image for this frame, then apply the
 // time-based feature filters. Missing rasters fall back to the transparent image
 // rather than silently carrying a stale frame forward.
@@ -35,11 +54,13 @@ export function updateMapForFrame({
   map,
   frame,
   hrrrVariable,
+  radarProduct,
   satelliteProduct,
   transparentImageUrl,
 }: UpdateFrameOptions): void {
-  if (frame.radar?.available) {
-    updateRasterSource(map, 'radar-source', assetUrl(frame.radar.url), frame.radar.coordinates)
+  const radar = radarUrl(frame, radarProduct)
+  if (radar && frame.radar) {
+    updateRasterSource(map, 'radar-source', radar, frame.radar.coordinates)
   } else {
     updateRasterSource(
       map,

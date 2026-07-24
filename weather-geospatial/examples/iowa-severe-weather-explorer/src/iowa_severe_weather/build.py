@@ -7,8 +7,9 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from . import assessments, goes, hrrr, radar, reports, stations, warnings
+from . import assessments, goes, hrrr, radar, reports, stations, velocity, warnings
 from .config import Config, central_label, iso_z, load_config
+from .domain import iowa_polygon
 
 
 def _write_json(path: Path, data) -> None:
@@ -38,13 +39,18 @@ def _latest_hrrr(hours, frame_time):
 
 
 def run(config: Config, sources: set[str] | None = None) -> None:
-    sources = sources or {"reports", "warnings", "stations", "assessments", "radar", "hrrr", "goes"}
+    sources = sources or {
+        "reports", "warnings", "stations", "assessments", "radar", "velocity", "hrrr", "goes",
+    }
     out = config.output_root
     coordinates = config.domain.corners
     frames = config.frame_times
 
     print(f"Output: {out}")
     print(f"Frames: {len(frames)}  ({iso_z(frames[0])} -> {iso_z(frames[-1])})")
+
+    # Ensure the Iowa boundary polygon exists in the output (front-end draws it).
+    iowa_polygon(config)
 
     # --- Vector layers ------------------------------------------------------
     if "reports" in sources:
@@ -65,11 +71,22 @@ def run(config: Config, sources: set[str] | None = None) -> None:
         _write_json(out / "assessments.geojson", fc)
         print(f"assessments: {len(fc['features'])}")
 
+    # Vector-only runs must not clobber the timeline/manifest with empty rasters.
+    raster_sources = {"radar", "velocity", "goes", "hrrr"}
+    if not raster_sources <= sources:
+        print("vector-only run: leaving timeline.json and event-manifest.json untouched")
+        return
+
     # --- Raster layers ------------------------------------------------------
-    radar_refs = radar.process(config, out / "radar", "data/iowa-severe-weather/radar") if "radar" in sources else [None] * len(frames)
+    radar_refs =radar.process(config, out / "radar", "data/iowa-severe-weather/radar") if "radar" in sources else [None] * len(frames)
+    velocity_refs = velocity.process(config, out / "radar", "data/iowa-severe-weather/radar") if "velocity" in sources else [None] * len(frames)
     goes_refs = goes.process(config, out / "satellite", "data/iowa-severe-weather/satellite") if "goes" in sources else [None] * len(frames)
     hrrr_hours = hrrr.process(config, out / "hrrr", "data/iowa-severe-weather/hrrr") if "hrrr" in sources else []
-    print(f"radar frames: {sum(r is not None for r in radar_refs)} | satellite frames: {sum(r is not None for r in goes_refs)} | hrrr hours: {len(hrrr_hours)}")
+    print(
+        f"radar frames: {sum(r is not None for r in radar_refs)} | "
+        f"velocity frames: {sum(r is not None for r in velocity_refs)} | "
+        f"satellite frames: {sum(r is not None for r in goes_refs)} | hrrr hours: {len(hrrr_hours)}"
+    )
 
     # --- Timeline -----------------------------------------------------------
     cycle = config.get("hrrr", "cycle")
@@ -85,12 +102,26 @@ def run(config: Config, sources: set[str] | None = None) -> None:
                     name: _raster_ref(ref, coordinates) for name, ref in hour.variables.items()
                 },
             }
+        radar_ref = _raster_ref(radar_refs[index], coordinates)
+        vel = velocity_refs[index]
+        if vel is not None and vel.available:
+            if radar_ref is None:
+                # Velocity exists but reflectivity doesn't: still expose the frame.
+                radar_ref = _raster_ref(vel, coordinates)
+                radar_ref["products"] = {"velocity": vel.url}
+            else:
+                radar_ref["products"] = {
+                    "reflectivity": radar_ref["url"],
+                    "velocity": vel.url,
+                }
+                radar_ref["velocitySourceTimeUtc"] = iso_z(vel.source_time)
+
         timeline.append(
             {
                 "index": index,
                 "validTimeUtc": iso_z(frame_time),
                 "displayTimeCentral": central_label(frame_time),
-                "radar": _raster_ref(radar_refs[index], coordinates),
+                "radar": radar_ref,
                 "satellite": _raster_ref(goes_refs[index], coordinates),
                 "hrrr": hrrr_block,
             }
@@ -119,6 +150,7 @@ def run(config: Config, sources: set[str] | None = None) -> None:
             "stations": "data/iowa-severe-weather/stations.geojson",
             "stationsSeries": "data/iowa-severe-weather/stations-series.json",
             "assessments": "data/iowa-severe-weather/assessments.geojson",
+            "iowa": "data/iowa-severe-weather/iowa.geojson",
         },
     }
     _write_json(out / "event-manifest.json", manifest)

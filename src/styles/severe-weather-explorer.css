@@ -4,9 +4,9 @@
    ========================================================================== */
 
 .swx-page__title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  letter-spacing: -0.035em;
-  line-height: 1.05;
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
 .swx-section {
@@ -19,8 +19,14 @@
   max-width: 720px;
   color: var(--ink-soft);
 }
-.swx-section--wide {
-  max-width: none;
+/* Break only the interactive widgets out of the article column — centered
+   full-bleed capped at 1600px — while headings and copy stay in the column. */
+.swx-explorer,
+.comparison {
+  width: min(1600px, calc(100vw - 2 * var(--pad)));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .swx-note {
@@ -37,15 +43,12 @@
   color: var(--muted);
 }
 
-.swx-pipeline,
-.swx-decisions {
+.swx-pipeline {
   list-style: none;
   padding: 0;
   margin: 20px 0 0;
   display: grid;
   gap: 12px;
-}
-.swx-pipeline {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 .swx-pipeline li {
@@ -65,22 +68,6 @@
   color: var(--accent);
   margin-bottom: 6px;
 }
-.swx-decisions li {
-  padding-left: 18px;
-  position: relative;
-  color: var(--ink-soft);
-}
-.swx-decisions li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 /* ---- Explorer shell ---------------------------------------------------- */
 
 .swx-explorer {
@@ -106,7 +93,7 @@
 .swx-explorer__stage {
   grid-area: stage;
   position: relative;
-  height: min(68vh, 600px);
+  height: min(74vh, 720px);
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--line-strong);
@@ -169,6 +156,36 @@
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
   font-size: 0.78rem;
+}
+@media (max-width: 640px) {
+  /* Clear the map attribution strip on small screens. */
+  .swx-legend {
+    bottom: 38px;
+  }
+}
+.swx-legend--collapsed {
+  border: 1px solid var(--line);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 8px 14px;
+}
+.swx-legend__toggle {
+  align-self: flex-end;
+  margin: -4px -4px -2px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 2px 4px;
+}
+.swx-legend__toggle:hover {
+  color: var(--ink);
 }
 .swx-legend__label {
   display: block;
@@ -499,6 +516,8 @@
 /* ---- Before/after comparison ------------------------------------------- */
 
 .comparison {
+  /* Source imagery is 1280px wide; cap just above that to avoid mushy upscaling. */
+  width: min(1360px, calc(100vw - 2 * var(--pad)));
   margin: 20px 0 0;
 }
 .comparison__viewport {

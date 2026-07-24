@@ -22,10 +22,12 @@ export function BeforeAfterSlider({
   return (
     <figure className="comparison">
       <div className="comparison__viewport">
-        <img className="comparison__image" src={beforeSrc} alt={`${alt}, before`} />
+        {/* Base image fills the frame; the clipped overlay reveals the BEFORE
+            scene on the left of the divider, matching the corner labels. */}
+        <img className="comparison__image" src={afterSrc} alt={`${alt}, after`} />
 
         <div className="comparison__after" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}>
-          <img className="comparison__image" src={afterSrc} alt={`${alt}, after`} />
+          <img className="comparison__image" src={beforeSrc} alt={`${alt}, before`} />
         </div>
 
         <div className="comparison__divider" style={{ left: `${position}%` }} aria-hidden="true" />

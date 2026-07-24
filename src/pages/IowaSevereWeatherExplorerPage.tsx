@@ -32,7 +32,7 @@ export function IowaSevereWeatherExplorerPage() {
             On August 10, 2020, a fast-moving derecho crossed Iowa, producing widespread
             100+ mph winds, extensive crop and structural damage, and prolonged power outages.
             The replay below reconstructs the event on one canonical five-minute timeline so that
-            radar, storm reports, warnings, and surface observations can be read together — while
+            radar, storm reports, warnings, and surface observations can be read together, while
             each dataset keeps its own true valid time.
           </p>
           <p className="swx-note">
@@ -45,41 +45,9 @@ export function IowaSevereWeatherExplorerPage() {
         </section>
 
         {/* MAIN MAP */}
-        <section className="swx-section swx-section--wide" aria-labelledby="swx-map-heading">
-          <h2 id="swx-map-heading">Derecho replay — radar &amp; storm reports</h2>
+        <section className="swx-section" aria-labelledby="swx-map-heading">
+          <h2 id="swx-map-heading">Derecho replay experience</h2>
           <DerechoExplorer />
-        </section>
-
-        {/* DATA PIPELINE */}
-        <section className="swx-section" aria-labelledby="swx-pipeline-heading">
-          <h2 id="swx-pipeline-heading">How the data pipeline works</h2>
-          <p>
-            The browser never parses raw scientific formats. An offline Python pipeline converts
-            Level II radar, GRIB2 model output, and archived observations into compact static web
-            assets — transparent WebP rasters plus GeoJSON — and emits a single manifest and
-            timeline the React app loads. Everything is synchronized to five-minute frames, and
-            each frame records the actual source scan or observation time.
-          </p>
-          <ul className="swx-pipeline">
-            <li>
-              <span className="swx-pipeline__step">Acquire</span>
-              Pull archived NEXRAD volumes, IEM observations, HRRR cycles, and GOES imagery.
-            </li>
-            <li>
-              <span className="swx-pipeline__step">Process</span>
-              Crop the national NEXRAD reflectivity composite, reproject HRRR and GOES onto the
-              Iowa grid, and match each observation to its nearest frame.
-            </li>
-            <li>
-              <span className="swx-pipeline__step">Validate</span>
-              Fail the build on gaps: non-sequential frames, missing rasters, or out-of-domain
-              coordinates.
-            </li>
-            <li>
-              <span className="swx-pipeline__step">Publish</span>
-              Write a manifest, a timeline, and GeoJSON that the app filters by time in the browser.
-            </li>
-          </ul>
         </section>
 
         {/* GREENFIELD BEFORE/AFTER */}
@@ -103,35 +71,6 @@ export function IowaSevereWeatherExplorerPage() {
           </p>
         </section>
 
-        {/* ENGINEERING DECISIONS */}
-        <section className="swx-section" aria-labelledby="swx-decisions-heading">
-          <h2 id="swx-decisions-heading">Engineering decisions &amp; data quality</h2>
-          <ul className="swx-decisions">
-            <li>
-              <strong>Honest timing.</strong> A radar scan, a satellite image, and a station
-              observation near the same frame are never presented as simultaneous — each carries its
-              own valid time.
-            </li>
-            <li>
-              <strong>Missing data is shown, not hidden.</strong> Frames with no acceptable source
-              fall back to a transparent raster; stale observations are flagged rather than carried
-              forward.
-            </li>
-            <li>
-              <strong>No false precision.</strong> The first version plots station observations
-              directly instead of interpolating a smooth surface a sparse network cannot support.
-            </li>
-            <li>
-              <strong>Contemporaneous vs. post-event.</strong> Damage surveys and estimated wind
-              swaths are off by default and clearly labeled as post-event analysis.
-            </li>
-            <li>
-              <strong>Constrained navigation.</strong> The map is locked to Iowa: the user can zoom
-              in and pan within a small buffer, but cannot zoom out past the statewide view.
-            </li>
-          </ul>
-        </section>
-
         {/* DATA SOURCES & LIMITATIONS */}
         <section className="swx-section" aria-labelledby="swx-sources-heading">
           <h2 id="swx-sources-heading">Data sources &amp; limitations</h2>
@@ -139,14 +78,9 @@ export function IowaSevereWeatherExplorerPage() {
             Radar is the Iowa Environmental Mesonet&apos;s archived national NEXRAD base-reflectivity
             composite (N0Q); storm reports, warning polygons, and ASOS/AWOS observations also come
             from the IEM archive. HRRR model fields are byte-range subset from the NOAA HRRR archive
-            on AWS, and satellite imagery is GOES-16 ABI Cloud &amp; Moisture Imagery. The estimated
-            wind-impact swath is derived from the full storm-report set after the event.
-          </p>
-          <p className="swx-note">
-            Direct per-site NEXRAD Level II is blocked for anonymous access in some networks, so
-            this build uses the national composite rather than a hand-built multi-radar mosaic. The
-            IEM also experienced an outage during this derecho, so the station pipeline inspects
-            completeness rather than assuming every timestamp is present.
+            on AWS, and satellite imagery is GOES-16 ABI Cloud &amp; Moisture Imagery. Post-event
+            damage assessments are real NWS survey products — damage points, tornado tracks, and
+            damage polygons — from the NOAA Damage Assessment Toolkit (DAT).
           </p>
         </section>
 

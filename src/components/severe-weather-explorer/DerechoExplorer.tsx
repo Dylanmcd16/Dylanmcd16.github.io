@@ -5,12 +5,18 @@ import type {
   ExplorerDisplayState,
   HrrrVariable,
   PrimaryWeatherLayer,
+  RadarProduct,
   SatelliteProduct,
   StationOverlay,
   TimelineFrame,
 } from '../../lib/severe-weather/mapTypes'
 import { assetUrl } from '../../lib/severe-weather/assetUrl'
-import { addWeatherLayers, addWeatherSources, loadVectorSource } from '../../lib/severe-weather/mapLayers'
+import {
+  addIowaBoundary,
+  addWeatherLayers,
+  addWeatherSources,
+  loadVectorSource,
+} from '../../lib/severe-weather/mapLayers'
 import { updateMapForFrame } from '../../lib/severe-weather/mapController'
 import { applyDisplayState } from '../../lib/severe-weather/displayState'
 import { applyStationOverlay } from '../../lib/severe-weather/stationOverlay'
@@ -30,6 +36,7 @@ const TRANSPARENT_URL = assetUrl('data/iowa-severe-weather/transparent.png')
 
 const INITIAL_DISPLAY_STATE: ExplorerDisplayState = {
   primaryLayer: 'radar',
+  radarProduct: 'reflectivity',
   satelliteUnderRadar: false,
   satelliteProduct: 'sandwich',
   stationOverlay: 'none',
@@ -149,13 +156,25 @@ function stationPopupHtml(
 }
 
 function assessmentPopupHtml(props: Record<string, unknown>): string {
+  const wind = props.windspeed_mph
+    ? `<div><dt>Est. wind</dt><dd>${escapeHtml(props.windspeed_mph)} mph</dd></div>`
+    : ''
+  const damage = props.damage
+    ? `<div><dt>Damage</dt><dd>${escapeHtml(props.damage)}</dd></div>`
+    : ''
+  const comments = props.comments
+    ? `<p class="swx-popup__remarks">${escapeHtml(props.comments)}</p>`
+    : ''
   return `
     <div class="swx-popup">
       <p class="swx-popup__kind">${escapeHtml(String(props.kind).replace(/_/g, ' '))} · ${escapeHtml(props.rating)}</p>
       <dl>
         <div><dt>Survey</dt><dd>${escapeHtml(props.survey)}</dd></div>
+        ${wind}
+        ${damage}
       </dl>
-      <p class="swx-popup__remarks">${escapeHtml(props.note)}</p>
+      ${comments}
+      <span class="swx-popup__flag">${escapeHtml(props.note)}</span>
     </div>`
 }
 
@@ -251,6 +270,9 @@ export function DerechoExplorer() {
 
       addWeatherSources(map, TRANSPARENT_URL, frames[0].radar?.coordinates)
       addWeatherLayers(map)
+      if (activeManifest.files.iowa) {
+        addIowaBoundary(map, assetUrl(activeManifest.files.iowa))
+      }
 
       const wirePopup = (
         layerId: string,
@@ -276,6 +298,7 @@ export function DerechoExplorer() {
       wirePopup('warning-fill', warningPopupHtml)
       wirePopup('station-points', (props) => stationPopupHtml(props, seriesRef.current))
       wirePopup('assessment-fill', assessmentPopupHtml)
+      wirePopup('assessment-tracks', assessmentPopupHtml)
       wirePopup('assessment-points', assessmentPopupHtml)
 
       Promise.all([
@@ -289,6 +312,7 @@ export function DerechoExplorer() {
             map,
             frame: frames[0],
             hrrrVariable: displayStateRef.current.hrrrVariable,
+            radarProduct: displayStateRef.current.radarProduct,
             satelliteProduct: displayStateRef.current.satelliteProduct,
             transparentImageUrl: TRANSPARENT_URL,
           })
@@ -309,6 +333,7 @@ export function DerechoExplorer() {
       map,
       frame: currentFrame,
       hrrrVariable: displayState.hrrrVariable,
+      radarProduct: displayState.radarProduct,
       satelliteProduct: displayState.satelliteProduct,
       transparentImageUrl: TRANSPARENT_URL,
     })
@@ -319,6 +344,7 @@ export function DerechoExplorer() {
     frameIndex,
     timeline,
     displayState.hrrrVariable,
+    displayState.radarProduct,
     displayState.satelliteProduct,
   ])
 
@@ -388,20 +414,24 @@ export function DerechoExplorer() {
         />
         <DynamicLegend
           primaryLayer={displayState.primaryLayer}
+          radarProduct={displayState.radarProduct}
           hrrrVariable={displayState.hrrrVariable}
           stationOverlay={displayState.stationOverlay}
           showReports={displayState.showReports}
           showWarnings={displayState.showWarnings}
+          showAssessments={displayState.showPostEventAssessments}
         />
       </div>
 
       <div className="swx-explorer__panel">
         <MeteorologicalLayerControls
           primaryLayer={displayState.primaryLayer}
+          radarProduct={displayState.radarProduct}
           satelliteUnderRadar={displayState.satelliteUnderRadar}
           satelliteProduct={displayState.satelliteProduct}
           hrrrVariable={displayState.hrrrVariable}
           onPrimaryLayer={(primaryLayer: PrimaryWeatherLayer) => patchDisplay({ primaryLayer })}
+          onRadarProduct={(radarProduct: RadarProduct) => patchDisplay({ radarProduct })}
           onSatelliteUnderRadar={(satelliteUnderRadar) => patchDisplay({ satelliteUnderRadar })}
           onSatelliteProduct={(satelliteProduct: SatelliteProduct) => patchDisplay({ satelliteProduct })}
           onHrrrVariable={(hrrrVariable: HrrrVariable) => patchDisplay({ hrrrVariable })}
@@ -423,6 +453,7 @@ export function DerechoExplorer() {
         <DataStatusPanel
           frame={currentFrame}
           primaryLayer={displayState.primaryLayer}
+          radarProduct={displayState.radarProduct}
           stationOverlay={displayState.stationOverlay}
           hrrrVariable={displayState.hrrrVariable}
         />

@@ -119,7 +119,7 @@ def colorize(values: np.ndarray, stops: ColorStops, alpha: int = 220, floor: flo
     else:
         valid &= values >= vs[0]
 
-    v = np.clip(values, vs[0], vs[-1])
+    v = np.nan_to_num(np.clip(values, vs[0], vs[-1]), nan=vs[0])
     for c in range(3):
         rgba[..., c] = np.interp(v, vs, cols[:, c]).astype(np.uint8)
     rgba[..., 3] = np.where(valid, alpha, 0).astype(np.uint8)

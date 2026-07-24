@@ -39,9 +39,8 @@ radar:
 satellite:
   # GOES-16 ABI L2 Cloud & Moisture Imagery, CONUS sector (noaa-goes16).
   product: "ABI-L2-MCMIPC"
-  # Satellite is heavier to download; process every Nth frame and let the others
-  # fall back to "no scan at this time" honestly.
-  every_n_frames: 3
+  # GOES CONUS scans every 5 minutes — process a scan for every frame.
+  every_n_frames: 1
   tolerance_minutes: 8
   bands:
     visible: 2 # 0.64 µm red visible

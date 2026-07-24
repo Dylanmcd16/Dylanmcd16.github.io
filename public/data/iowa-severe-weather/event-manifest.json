@@ -9,22 +9,22 @@
   "map": {
     "viewBounds": [
       [
-        -96.9,
-        40.25
+        -96.65,
+        40.55
       ],
       [
-        -89.1,
-        43.75
+        -90.14999999999999,
+        43.33
       ]
     ],
     "maxBounds": [
       [
-        -97.4,
-        39.8
+        -97.15,
+        40.099999999999994
       ],
       [
-        -88.6,
-        44.1
+        -89.64999999999999,
+        43.68
       ]
     ],
     "maximumZoom": 11
@@ -35,6 +35,7 @@
     "warnings": "data/iowa-severe-weather/warnings.geojson",
     "stations": "data/iowa-severe-weather/stations.geojson",
     "stationsSeries": "data/iowa-severe-weather/stations-series.json",
-    "assessments": "data/iowa-severe-weather/assessments.geojson"
+    "assessments": "data/iowa-severe-weather/assessments.geojson",
+    "iowa": "data/iowa-severe-weather/iowa.geojson"
   }
 }

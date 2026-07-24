@@ -4,415 +4,2294 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.98701999999997,
+          41.918079999999975
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-000",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 120,
+        "office": "DVN",
+        "damage": "Other (O)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Grain bins damaged and destroyed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.83053999999998,
+          42.69400000000002
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-001",
+        "kind": "damage_point",
+        "rating": "EF0",
+        "windspeed_mph": 70,
+        "office": "ARX",
+        "damage": "Other (O)",
+        "survey": "NWS ARX damage survey (DAT)",
+        "comments": "Metal roof removed from shed.  Metal roofing removed from small barn. Empty hay wagon pushed.  Power line blown down.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.83112999999997,
+          42.69398000000001
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-002",
+        "kind": "damage_point",
+        "rating": "EF0",
+        "windspeed_mph": 85,
+        "office": "ARX",
+        "damage": "Trees: Hardwood (TH)",
+        "survey": "NWS ARX damage survey (DAT)",
+        "comments": "Large branches snapped. Smaller hardwood trunk snapped. Power line down. ",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.72185999999999,
+          41.957690000000014
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-003",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 140,
+        "office": "DVN",
+        "damage": "Apartments, Condos, Townhouses [3 stories or less] (ACT)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Roof removed from apartment complex. Most exterior walls and some interior walls destroyed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.54323,
+          42.059680000000014
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-004",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 130,
+        "office": "DVN",
+        "damage": "Free-Standing Towers (FST)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Estimated 200 foot tall radio transmission tower collapsed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.54286000000002,
+          42.059619999999995
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-005",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 130,
+        "office": "DVN",
+        "damage": "Free-Standing Towers (FST)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Estimated 200 foot tall radio transmission tower collapsed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.53471000000002,
+          42.05734000000001
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-006",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 120,
+        "office": "DVN",
+        "damage": "Other (O)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Grain bins damaged and destroyed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.53476999999998,
+          42.05768999999998
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-007",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 120,
+        "office": "DVN",
+        "damage": "Other (O)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Grains bins damaged and destroyed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.72532999999999,
+          41.95837999999998
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-008",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 130,
+        "office": "DVN",
+        "damage": "Strip Mall (SM)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "Roof lifted off small strip mall, with some exterior walls collapsed.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.81509,
+          41.256399999999985
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-009",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 74,
+        "office": "OAX",
+        "damage": "Trees: Hardwood (TH)",
+        "survey": "NWS OAX damage survey (DAT)",
+        "comments": "Large Branch from tree fell on house.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -95.68241,
+          41.39055000000002
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-010",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 79,
+        "office": "OAX",
+        "damage": "One- or Two-Family Residences (FR12)",
+        "survey": "NWS OAX damage survey (DAT)",
+        "comments": "Shingles removed from roof.  Soffet removed from underside of eaves.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.18833000000001,
+          41.94684000000001
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-0-011",
+        "kind": "damage_point",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 100,
+        "office": "DVN",
+        "damage": "One- or Two-Family Residences (FR12)",
+        "survey": "NWS DVN damage survey (DAT)",
+        "comments": "None",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -90.83115369699999,
+            42.693989061000025
+          ],
+          [
+            -90.82044846399998,
+            42.69469481300001
+          ],
+          [
+            -90.82044846399998,
+            42.694680618999996
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-1-000",
+        "kind": "damage_track",
+        "rating": "EF0",
+        "windspeed_mph": 75,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "A  brief tornado touched down damaging hardwood trees, two outbuildings, and downing power lines. Observer of tornado saw corn stalks and metal material from the buildings being lofted. ",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -91.728955945,
+            41.90629491200002
+          ],
+          [
+            -91.72719641600003,
+            41.905512396000006
+          ],
+          [
+            -91.72522230999999,
+            41.90500136000003
+          ],
+          [
+            -91.72423847599998,
+            41.905132313000024
+          ],
+          [
+            -91.720866403,
+            41.90378763299998
+          ],
+          [
+            -91.71762629400001,
+            41.90348419700001
+          ],
+          [
+            -91.71483679699998,
+            41.903500167999994
+          ],
+          [
+            -91.71209021499999,
+            41.90300508600001
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-1-001",
+        "kind": "damage_track",
+        "rating": "UNKNOWN",
+        "windspeed_mph": null,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "A brief tornado moved through cropland just north of the Eastern Iowa  Airport. The path was found in high resolution satellite imagery. The tornado was on the leading edge of a larger swath of straight line winds that snapped trees and destroyed outbuildings and grain bins. There was no damage directly attributable to the tornado from which an EF-scale rating could be assigned. Thus, the tornado is designated EF-U.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              -92.09145220965142,
-              40.338924449931525
+              -91.12924065099998,
+              42.64699540999999
             ],
             [
-              -92.1035093387709,
-              40.330968303333115
+              -90.87106194,
+              42.67123339099999
             ],
             [
-              -92.11627587502504,
-              40.32420885192261
+              -90.70077385399998,
+              42.61870582400002
             ],
             [
-              -92.1296334160918,
-              40.31870878574583
+              -90.629362721,
+              42.505418905
             ],
             [
-              -92.14345807841754,
-              40.31451911477084
+              -89.40438713499998,
+              42.505418905
             ],
             [
-              -92.15762164616608,
-              40.31167869579968
+              -87.78939690099998,
+              42.481116378000024
             ],
             [
-              -92.17199276034731,
-              40.31021387209376
+              -87.014860768,
+              42.460857057
             ],
             [
-              -92.18643813709663,
-              40.310138229055156
+              -87.05331291599998,
+              42.66719438400003
             ],
             [
-              -92.20082380380663,
-              40.31145246822979
+              -87.377409596,
+              42.723716604
             ],
             [
-              -92.21501634164633,
-              40.31414440080097
+              -87.65206779900001,
+              42.776155456000026
             ],
             [
-              -92.22888412294459,
-              40.31818906063375
+              -87.970671315,
+              42.76809082800003
             ],
             [
-              -92.24229853196144,
-              40.323548935821485
+              -88.838591237,
+              42.719681009
             ],
             [
-              -92.2551351577255,
-              40.33017431658734
+              -89.59664787700001,
+              42.69949909500002
             ],
             [
-              -92.26727494787464,
-              40.33800375631406
+              -90.189909596,
+              42.76809082800003
             ],
             [
-              -92.27860531279846,
-              40.346964641426155
+              -90.79965080699998,
+              43.01760588299999
             ],
             [
-              -93.68860531279846,
-              41.57696464142615
+              -90.92599358000001,
+              43.009572768
             ],
             [
-              -93.69922095319544,
-              41.58718568493112
+              -91.06332268199998,
+              42.94527002699999
             ],
             [
-              -93.70878243396405,
-              41.5983990535989
+              -91.11276115800001,
+              42.864797049
             ],
             [
-              -93.71719747128223,
-              41.61049652020567
+              -91.10726799399998,
+              42.71564515099999
             ],
             [
-              -93.72438484636957,
-              41.62336132454627
-            ],
-            [
-              -93.73027518938056,
-              41.63686930035988
-            ],
-            [
-              -93.73481164893624,
-              41.65089007373613
-            ],
-            [
-              -93.73795044083242,
-              41.66528832143509
-            ],
-            [
-              -93.73966127062828,
-              41.67992507697647
-            ],
-            [
-              -93.73992762603706,
-              41.69465907189178
-            ],
-            [
-              -93.73874693629637,
-              41.70934809919465
-            ],
-            [
-              -93.73613059698023,
-              41.7238503859092
-            ],
-            [
-              -93.73210386001331,
-              41.7380259614096
-            ],
-            [
-              -93.7267055899488,
-              41.75173800836397
-            ],
-            [
-              -93.4467055899488,
-              42.37173800836398
-            ],
-            [
-              -93.43999564730058,
-              42.38484070872797
-            ],
-            [
-              -93.43203367851525,
-              42.39722259631561
-            ],
-            [
-              -93.4228963676452,
-              42.408764417542564
-            ],
-            [
-              -93.41267171880644,
-              42.41935500974959
-            ],
-            [
-              -93.40145820858537,
-              42.428892371842586
-            ],
-            [
-              -93.38936383758181,
-              42.43728464669507
-            ],
-            [
-              -93.3765050902237,
-              42.44445100585097
-            ],
-            [
-              -93.36300581287139,
-              42.450322428007226
-            ],
-            [
-              -93.34899602101719,
-              42.454842363778106
-            ],
-            [
-              -91.00899602101718,
-              43.0848423637781
-            ],
-            [
-              -90.99443386846158,
-              43.08799657452793
-            ],
-            [
-              -90.97963062927965,
-              43.08969051733386
-            ],
-            [
-              -90.96473236560638,
-              43.089907478225385
-            ],
-            [
-              -90.94988607717423,
-              43.088645316470306
-            ],
-            [
-              -90.93523825088094,
-              43.08591648569707
-            ],
-            [
-              -90.92093341541752,
-              43.08174791101604
-            ],
-            [
-              -90.66093341541752,
-              42.99174791101604
-            ],
-            [
-              -90.6474685909224,
-              42.98634450072801
-            ],
-            [
-              -90.6345887778894,
-              42.97966552193929
-            ],
-            [
-              -90.62241447317548,
-              42.97177345971464
-            ],
-            [
-              -90.61105957326731,
-              42.962742148098904
-            ],
-            [
-              -90.60063030872479,
-              42.952656079363905
-            ],
-            [
-              -90.59122425034298,
-              42.94160961354253
-            ],
-            [
-              -90.58292939633023,
-              42.92970609564519
-            ],
-            [
-              -90.57582334904265,
-              42.91705688881741
-            ],
-            [
-              -90.56997258897661,
-              42.90378033248398
-            ],
-            [
-              -90.56543185281166,
-              42.89000063522659
-            ],
-            [
-              -90.56224362132252,
-              42.875846712752704
-            ],
-            [
-              -90.56043772195102,
-              42.86145098182701
-            ],
-            [
-              -90.56003104975592,
-              42.84694812144877
-            ],
-            [
-              -90.56102740935157,
-              42.83247381286489
-            ],
-            [
-              -90.60102740935157,
-              42.49247381286489
-            ],
-            [
-              -90.60272461462068,
-              42.481540188662365
-            ],
-            [
-              -90.60522315929488,
-              42.47076141700515
-            ],
-            [
-              -90.89522315929489,
-              41.40076141700515
-            ],
-            [
-              -90.89986267173926,
-              41.38650673661163
-            ],
-            [
-              -90.90590181969387,
-              41.372786325509
-            ],
-            [
-              -90.91328028656761,
-              41.35973721766838
-            ],
-            [
-              -90.9219243791884,
-              41.347489742352785
-            ],
-            [
-              -90.93174776382105,
-              41.33616622244059
-            ],
-            [
-              -91.40174776382105,
-              40.846166222440594
-            ],
-            [
-              -91.41122306802637,
-              40.837114581500195
-            ],
-            [
-              -91.42145220965142,
-              40.82892444993153
-            ],
-            [
-              -92.09145220965142,
-              40.338924449931525
+              -91.12924065099998,
+              42.64699540999999
             ]
           ]
         ]
       },
       "properties": {
-        "assessment_id": "estimated-wind-swath",
-        "kind": "estimated_wind_swath",
-        "rating": "96 severe wind reports",
-        "survey": "Estimated wind-impact area derived from the full storm-report set",
+        "assessment_id": "dat-2-000",
+        "kind": "damage_polygon",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 70,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Approximate 60-70mph wind corridor",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -90.83,
-          42.69
+          [
+            [
+              -92.29626464799998,
+              41.98660654899999
+            ],
+            [
+              -92.04083251899999,
+              41.93557318699999
+            ],
+            [
+              -91.66441345200002,
+              41.89265211200001
+            ],
+            [
+              -91.25274406199998,
+              41.90293272399998
+            ],
+            [
+              -90.95867919900002,
+              41.872241707
+            ],
+            [
+              -90.900992368,
+              41.90703220400002
+            ],
+            [
+              -90.91743334699999,
+              41.970291556999996
+            ],
+            [
+              -91.304709994,
+              42.15585840199998
+            ],
+            [
+              -91.650697708,
+              42.186464555999976
+            ],
+            [
+              -92.295578003,
+              42.17985008199997
+            ],
+            [
+              -92.29626464799998,
+              41.98660654899999
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0011",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-001",
+        "kind": "damage_polygon",
+        "rating": "EF1",
+        "windspeed_mph": 100,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "PRELIM polygon (100+ mph)",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -93.07,
-          42.0
+          [
+            [
+              -92.180908203,
+              41.10269986499998
+            ],
+            [
+              -91.08227539,
+              40.762610532999986
+            ],
+            [
+              -90.44548034600001,
+              40.512503562999996
+            ],
+            [
+              -90.43957519499997,
+              41.15235240499999
+            ],
+            [
+              -89.86828613300003,
+              41.15235240499999
+            ],
+            [
+              -89.85729980500003,
+              41.23502313
+            ],
+            [
+              -89.63757324199997,
+              41.23502313
+            ],
+            [
+              -89.63757324199997,
+              41.156488421000006
+            ],
+            [
+              -89.32995605500003,
+              41.14407959099998
+            ],
+            [
+              -89.335449219,
+              41.115116521999994
+            ],
+            [
+              -89.14318847700002,
+              41.110977897
+            ],
+            [
+              -89.170654297,
+              41.58931687400002
+            ],
+            [
+              -89.62109375,
+              41.58520828500002
+            ],
+            [
+              -89.62658691399997,
+              41.93350443999998
+            ],
+            [
+              -89.69250488300003,
+              41.93350443999998
+            ],
+            [
+              -89.687011719,
+              42.20264166099997
+            ],
+            [
+              -89.39944458100001,
+              42.20671072099998
+            ],
+            [
+              -89.40507507400002,
+              42.503246499
+            ],
+            [
+              -90.620437622,
+              42.50537259499998
+            ],
+            [
+              -90.70645494899998,
+              42.638616243
+            ],
+            [
+              -90.88851387900002,
+              42.67501248100001
+            ],
+            [
+              -90.89571190200002,
+              42.64341683700002
+            ],
+            [
+              -91.12717544499998,
+              42.643635517999996
+            ],
+            [
+              -91.27867208100002,
+              42.47007099899997
+            ],
+            [
+              -91.32401519299998,
+              42.431555462999995
+            ],
+            [
+              -91.38442518300002,
+              42.39809211099998
+            ],
+            [
+              -91.46796611399998,
+              42.37427092899998
+            ],
+            [
+              -91.56510358399998,
+              42.36237697500002
+            ],
+            [
+              -91.65958578700003,
+              42.35025037700001
+            ],
+            [
+              -92.29626464799998,
+              42.29616373099998
+            ],
+            [
+              -92.290771484,
+              41.507095436999975
+            ],
+            [
+              -92.411621094,
+              41.507095436999975
+            ],
+            [
+              -92.40612793000003,
+              41.16475966899998
+            ],
+            [
+              -92.18640136699997,
+              41.160624176
+            ],
+            [
+              -92.180908203,
+              41.10269986499998
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0035",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-002",
+        "kind": "damage_polygon",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 80,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Prelim Polygon (60-80 mph)",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -93.07,
-          42.12
+          [
+            [
+              -92.290771484,
+              41.63449408700001
+            ],
+            [
+              -91.48327636699997,
+              41.61806967000001
+            ],
+            [
+              -90.86007690399998,
+              41.47870478200002
+            ],
+            [
+              -90.43977616799998,
+              41.376108148000014
+            ],
+            [
+              -90.144415842,
+              41.29959185199999
+            ],
+            [
+              -89.85826110800002,
+              41.18536436400001
+            ],
+            [
+              -89.73924244199998,
+              41.15021527800002
+            ],
+            [
+              -89.557968028,
+              41.08676171399998
+            ],
+            [
+              -89.388595581,
+              41.05225026800002
+            ],
+            [
+              -89.09013377899998,
+              41.03015354799999
+            ],
+            [
+              -89.00773631800001,
+              41.076410194999994
+            ],
+            [
+              -89.04435718799999,
+              41.119185958
+            ],
+            [
+              -89.135910034,
+              41.10952931700001
+            ],
+            [
+              -89.17614746100003,
+              41.58109943599999
+            ],
+            [
+              -89.62109375,
+              41.58109943599999
+            ],
+            [
+              -89.629470825,
+              41.931461168
+            ],
+            [
+              -89.68165588400001,
+              41.931461168
+            ],
+            [
+              -89.68989563000002,
+              42.18290300299998
+            ],
+            [
+              -90.32710266100003,
+              42.15033091999999
+            ],
+            [
+              -91.07142639199998,
+              42.18432764800002
+            ],
+            [
+              -91.82398986800001,
+              42.231119578000005
+            ],
+            [
+              -92.29626464799998,
+              42.225018248000026
+            ],
+            [
+              -92.290771484,
+              41.63449408700001
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0036",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-003",
+        "kind": "damage_polygon",
+        "rating": "EF0",
+        "windspeed_mph": 100,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Prelim Polygon (80-100 mph)",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -92.98,
-          42.09
+          [
+            [
+              -90.44808830699998,
+              40.518919804999996
+            ],
+            [
+              -90.32723869799997,
+              40.48132656299998
+            ],
+            [
+              -89.92074455699998,
+              40.443712257000016
+            ],
+            [
+              -89.73397697899998,
+              40.309801970000024
+            ],
+            [
+              -89.50875725200001,
+              40.22597293000001
+            ],
+            [
+              -89.46481194,
+              40.11683989900001
+            ],
+            [
+              -89.56918205699998,
+              40.01173885399999
+            ],
+            [
+              -89.71200432299997,
+              39.813710164999975
+            ],
+            [
+              -89.717497487,
+              39.720819242999994
+            ],
+            [
+              -89.61862053300001,
+              39.64472438500002
+            ],
+            [
+              -89.29452385399998,
+              39.61934080100002
+            ],
+            [
+              -89.06381096299998,
+              39.61510929799999
+            ],
+            [
+              -88.498015065,
+              39.55160571800002
+            ],
+            [
+              -88.38265861899998,
+              39.41593699499998
+            ],
+            [
+              -88.23983635399998,
+              39.35649872900001
+            ],
+            [
+              -87.58614983000001,
+              39.339507070000025
+            ],
+            [
+              -87.53121819,
+              39.35649872900001
+            ],
+            [
+              -87.53121819,
+              40.489682437
+            ],
+            [
+              -87.93771233000001,
+              40.48550462999998
+            ],
+            [
+              -87.93771233000001,
+              40.39771061599998
+            ],
+            [
+              -88.45406975200001,
+              40.39771061599998
+            ],
+            [
+              -88.45956291599998,
+              40.61906543399999
+            ],
+            [
+              -88.574919362,
+              40.614895692000005
+            ],
+            [
+              -88.58590569,
+              40.760681782000006
+            ],
+            [
+              -88.93746819,
+              40.75652089099998
+            ],
+            [
+              -88.93746819,
+              40.926903772
+            ],
+            [
+              -89.047331471,
+              40.93105397900001
+            ],
+            [
+              -89.05831779900001,
+              41.10512724
+            ],
+            [
+              -89.34396233000001,
+              41.10098798500002
+            ],
+            [
+              -89.34396233000001,
+              41.146505435999984
+            ],
+            [
+              -89.62411369799997,
+              41.15064182100002
+            ],
+            [
+              -89.64059319,
+              41.23331470400001
+            ],
+            [
+              -89.86581291599998,
+              41.24157624999998
+            ],
+            [
+              -89.86581291599998,
+              41.15064182100002
+            ],
+            [
+              -90.442595143,
+              41.146505435999984
+            ],
+            [
+              -90.44808830699998,
+              40.518919804999996
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0037",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-004",
+        "kind": "damage_polygon",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 70,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Approximate 60-70mph wind corridor",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -92.62,
-          42.16
+          [
+            [
+              -95.32052483000001,
+              42.475039270000025
+            ],
+            [
+              -95.639128346,
+              42.44464488
+            ],
+            [
+              -96.22689690099998,
+              42.483141949000014
+            ],
+            [
+              -96.39993156899999,
+              42.473013435999974
+            ],
+            [
+              -96.696562428,
+              42.39192632300001
+            ],
+            [
+              -96.82290520100003,
+              42.26603401099999
+            ],
+            [
+              -96.80367912700001,
+              42.09914439400001
+            ],
+            [
+              -96.64437736899998,
+              42.005330558000026
+            ],
+            [
+              -96.430143971,
+              41.55063006
+            ],
+            [
+              -96.24612297499999,
+              41.173387271000024
+            ],
+            [
+              -96.26534904900001,
+              41.08649853999998
+            ],
+            [
+              -96.18844475200001,
+              40.98290957699999
+            ],
+            [
+              -96.045622487,
+              41.036796181
+            ],
+            [
+              -95.83138908799998,
+              41.04301102900001
+            ],
+            [
+              -95.50729240800001,
+              41.20025807899998
+            ],
+            [
+              -95.15572990800001,
+              41.33444667600003
+            ],
+            [
+              -95.15847649,
+              41.50333721099997
+            ],
+            [
+              -95.04586662700001,
+              41.50333721099997
+            ],
+            [
+              -95.048613209,
+              41.60199611799999
+            ],
+            [
+              -95.09530510399998,
+              41.604049911000004
+            ],
+            [
+              -95.09805168600002,
+              41.866395480999984
+            ],
+            [
+              -95.66934074800002,
+              41.86230457400001
+            ],
+            [
+              -95.66934074800002,
+              42.211131196
+            ],
+            [
+              -95.32601799399998,
+              42.21316548599998
+            ],
+            [
+              -95.32052483000001,
+              42.475039270000025
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0038",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-005",
+        "kind": "damage_polygon",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 70,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Approximate 60-70mph wind corridor",
         "note": "Post-event analysis. Not available during the live event."
       }
     },
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Polygon",
         "coordinates": [
-          -91.73,
-          41.9
+          [
+            [
+              -92.17555308099998,
+              41.10112293999998
+            ],
+            [
+              -92.17725663200002,
+              41.16063068
+            ],
+            [
+              -92.413134415,
+              41.15902221900001
+            ],
+            [
+              -92.41178154699998,
+              41.50964205499997
+            ],
+            [
+              -92.29366179200002,
+              41.50860626899998
+            ],
+            [
+              -92.29660868399998,
+              42.297815539
+            ],
+            [
+              -92.47650980700001,
+              42.33437242399998
+            ],
+            [
+              -92.57264017799997,
+              42.359036317000005
+            ],
+            [
+              -92.70083689500001,
+              42.388001488999976
+            ],
+            [
+              -92.80994486600002,
+              42.40220019499998
+            ],
+            [
+              -92.923310039,
+              42.40929834299999
+            ],
+            [
+              -93.00852156799999,
+              42.415906717999974
+            ],
+            [
+              -93.224129436,
+              42.447969133000015
+            ],
+            [
+              -93.486016033,
+              42.48833765400002
+            ],
+            [
+              -93.77852702000001,
+              42.50251364000002
+            ],
+            [
+              -94.024352921,
+              42.51060922099998
+            ],
+            [
+              -94.241296084,
+              42.50963857400001
+            ],
+            [
+              -94.47750984200002,
+              42.51267066999998
+            ],
+            [
+              -94.82854533,
+              42.50909425499998
+            ],
+            [
+              -95.05672200700002,
+              42.497728365
+            ],
+            [
+              -95.3227756,
+              42.47470289400002
+            ],
+            [
+              -95.321538353,
+              42.211245932
+            ],
+            [
+              -95.67098968099998,
+              42.21125067899999
+            ],
+            [
+              -95.672042514,
+              41.86152187699997
+            ],
+            [
+              -95.090740917,
+              41.86330728899998
+            ],
+            [
+              -95.09409156499999,
+              41.687272371999995
+            ],
+            [
+              -95.09047997900001,
+              41.603147983999975
+            ],
+            [
+              -95.04823652099998,
+              41.60388207599999
+            ],
+            [
+              -95.04648300999997,
+              41.50395521799999
+            ],
+            [
+              -95.15804384299997,
+              41.50425241099998
+            ],
+            [
+              -95.15634009600001,
+              41.333515413999976
+            ],
+            [
+              -94.99251314700001,
+              41.37763741700002
+            ],
+            [
+              -94.78517450999999,
+              41.409571700000015
+            ],
+            [
+              -94.36217570000002,
+              41.448681668999996
+            ],
+            [
+              -94.15048519099997,
+              41.45444463899997
+            ],
+            [
+              -93.99330973299999,
+              41.444975907000014
+            ],
+            [
+              -93.82262218900001,
+              41.412694080999984
+            ],
+            [
+              -93.40966105199999,
+              41.312046469999984
+            ],
+            [
+              -92.84935831799999,
+              41.227407481
+            ],
+            [
+              -92.308281658,
+              41.11162576800001
+            ],
+            [
+              -92.17555308099998,
+              41.10112293999998
+            ]
+          ]
         ]
       },
       "properties": {
-        "assessment_id": "tor-lsr-0107",
-        "kind": "tornado_report",
-        "rating": "surveyed track",
-        "survey": "Derived from tornado storm reports",
+        "assessment_id": "dat-2-006",
+        "kind": "damage_polygon",
+        "rating": "TSTM/Wind",
+        "windspeed_mph": 58,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Severe Wind Damage (58MPH+)",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.27801068100001,
+              41.90932056499997
+            ],
+            [
+              -90.33980877699997,
+              41.90114398399999
+            ],
+            [
+              -90.35834820500003,
+              41.874051581
+            ],
+            [
+              -90.33019574000002,
+              41.834158848000015
+            ],
+            [
+              -90.274577454,
+              41.79628889600002
+            ],
+            [
+              -90.20797283899998,
+              41.77427309900003
+            ],
+            [
+              -90.13587506099998,
+              41.784513945000015
+            ],
+            [
+              -90.10909588599998,
+              41.81471491299999
+            ],
+            [
+              -90.11184246800002,
+              41.86996116400002
+            ],
+            [
+              -90.180507019,
+              41.910853557999985
+            ],
+            [
+              -90.27801068100001,
+              41.90932056499997
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-007",
+        "kind": "damage_polygon",
+        "rating": "EF1",
+        "windspeed_mph": 100,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "100+ mph intermittent winds.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.24777824199998,
+              41.875575599
+            ],
+            [
+              -90.26425773400001,
+              41.86790603399999
+            ],
+            [
+              -90.26425773400001,
+              41.855632817000014
+            ],
+            [
+              -90.25807792500001,
+              41.84131108700001
+            ],
+            [
+              -90.21893913100001,
+              41.83107931699999
+            ],
+            [
+              -90.17980033700002,
+              41.833125800999994
+            ],
+            [
+              -90.16606742599998,
+              41.84642635900002
+            ],
+            [
+              -90.172933882,
+              41.85972415100002
+            ],
+            [
+              -90.18529350099999,
+              41.871996583
+            ],
+            [
+              -90.19902641099998,
+              41.875575599
+            ],
+            [
+              -90.24777824199998,
+              41.875575599
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-008",
+        "kind": "damage_polygon",
+        "rating": "EF2",
+        "windspeed_mph": 120,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "120+ mph intermittent winds.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.18183373400001,
+              42.02255541400001
+            ],
+            [
+              -92.162607659,
+              42.004189301
+            ],
+            [
+              -92.040384759,
+              41.98020333900001
+            ],
+            [
+              -91.80280541299999,
+              41.95110185300001
+            ],
+            [
+              -91.702555169,
+              41.94599495800003
+            ],
+            [
+              -91.66478966599999,
+              41.954676436
+            ],
+            [
+              -91.60917138000002,
+              41.97560925099998
+            ],
+            [
+              -91.55113578800001,
+              42.00713328799998
+            ],
+            [
+              -91.51522226399999,
+              42.03878592299998
+            ],
+            [
+              -91.50866311300001,
+              42.06523266300002
+            ],
+            [
+              -91.54164338499999,
+              42.07332228500002
+            ],
+            [
+              -91.57597171999998,
+              42.06269868499999
+            ],
+            [
+              -91.62472390099998,
+              42.037703464
+            ],
+            [
+              -91.68264244900001,
+              42.014903511
+            ],
+            [
+              -91.75336693700001,
+              42.001127766000025
+            ],
+            [
+              -91.822031488,
+              41.99755578999998
+            ],
+            [
+              -91.86185692700002,
+              41.99602488199997
+            ],
+            [
+              -91.89756249300001,
+              42.00163803200002
+            ],
+            [
+              -91.94700096999998,
+              42.012862848
+            ],
+            [
+              -91.96142052599998,
+              42.02255541400001
+            ],
+            [
+              -91.99849938300002,
+              42.059271728
+            ],
+            [
+              -92.02733849399999,
+              42.08628545900001
+            ],
+            [
+              -92.06647728799999,
+              42.09749532799998
+            ],
+            [
+              -92.12690209300001,
+              42.10055222099999
+            ],
+            [
+              -92.172220697,
+              42.07660261299998
+            ],
+            [
+              -92.184580316,
+              42.05213410699997
+            ],
+            [
+              -92.18526696100002,
+              42.043465916
+            ],
+            [
+              -92.18183373400001,
+              42.02255541400001
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-009",
+        "kind": "damage_polygon",
+        "rating": "EF2",
+        "windspeed_mph": 120,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "120+ mph intermittent winds.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.01430122,
+              41.95796688399997
+            ],
+            [
+              -91.045886913,
+              41.953626516999975
+            ],
+            [
+              -91.06064979199999,
+              41.93830521299998
+            ],
+            [
+              -91.056873241,
+              41.918382013999974
+            ],
+            [
+              -91.04966346399999,
+              41.89615264399998
+            ],
+            [
+              -90.99988166399999,
+              41.88797437699998
+            ],
+            [
+              -90.96383277500001,
+              41.88362924699999
+            ],
+            [
+              -90.94323341,
+              41.89743040399998
+            ],
+            [
+              -90.948383251,
+              41.926300954
+            ],
+            [
+              -90.97275916699999,
+              41.94800913300003
+            ],
+            [
+              -91.01430122,
+              41.95796688399997
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-010",
+        "kind": "damage_polygon",
+        "rating": "EF2",
+        "windspeed_mph": 120,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "120+ mph intermittent winds.",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.29577026300001,
+              41.98744040899999
+            ],
+            [
+              -92.29508361799998,
+              42.14291527199998
+            ],
+            [
+              -92.29508361799998,
+              42.17956197900003
+            ],
+            [
+              -92.30714022699999,
+              42.179278237000005
+            ],
+            [
+              -92.32429698300001,
+              42.18397739699998
+            ],
+            [
+              -92.33822739700003,
+              42.19006486500001
+            ],
+            [
+              -92.351148234,
+              42.19737469900002
+            ],
+            [
+              -92.36440048200001,
+              42.20194673999998
+            ],
+            [
+              -92.388632239,
+              42.21016884199997
+            ],
+            [
+              -92.420436403,
+              42.217430895999996
+            ],
+            [
+              -92.44548942900002,
+              42.22399742699997
+            ],
+            [
+              -92.471551514,
+              42.226865893000024
+            ],
+            [
+              -92.68235168500001,
+              42.23754252100002
+            ],
+            [
+              -92.85263977099999,
+              42.24110099500001
+            ],
+            [
+              -92.99820861799998,
+              42.23459391900002
+            ],
+            [
+              -93.193215942,
+              42.218221587000016
+            ],
+            [
+              -93.34977111799998,
+              42.19594433200001
+            ],
+            [
+              -93.399209595,
+              42.17803545700002
+            ],
+            [
+              -93.40470275899997,
+              42.13680542499998
+            ],
+            [
+              -93.34702453599999,
+              42.11643500700001
+            ],
+            [
+              -93.17941436799998,
+              42.07885987999998
+            ],
+            [
+              -92.97898254400002,
+              42.03345983600002
+            ],
+            [
+              -92.881410217,
+              42.002877463999994
+            ],
+            [
+              -92.82903866599997,
+              41.98944227700002
+            ],
+            [
+              -92.77756301099998,
+              41.978068786999984
+            ],
+            [
+              -92.76122624499999,
+              41.976606790000005
+            ],
+            [
+              -92.74131964100002,
+              41.97788023300001
+            ],
+            [
+              -92.68783905200002,
+              41.98461818499999
+            ],
+            [
+              -92.640533758,
+              41.992651506000016
+            ],
+            [
+              -92.610975828,
+              41.99523228100003
+            ],
+            [
+              -92.57939733299997,
+              41.99625161300003
+            ],
+            [
+              -92.546779711,
+              41.99573939200002
+            ],
+            [
+              -92.50866470400001,
+              41.995235950999984
+            ],
+            [
+              -92.29577026300001,
+              41.98744040899999
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-011",
+        "kind": "damage_polygon",
+        "rating": "EF1",
+        "windspeed_mph": 100,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Intermittent 100 mph+ winds",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -94.50902557400002,
+              41.97678112699998
+            ],
+            [
+              -94.47574247900002,
+              41.95495162399999
+            ],
+            [
+              -94.42807006800001,
+              41.94711631000001
+            ],
+            [
+              -94.34195645300002,
+              41.92978171599998
+            ],
+            [
+              -94.20140838600003,
+              41.909364341000014
+            ],
+            [
+              -94.01470947199999,
+              41.88687623999999
+            ],
+            [
+              -93.80915183799999,
+              41.872479037000005
+            ],
+            [
+              -93.59166717599999,
+              41.849037485
+            ],
+            [
+              -93.425175153,
+              41.82703396800002
+            ],
+            [
+              -93.33348846500002,
+              41.81834097199999
+            ],
+            [
+              -93.29847379199998,
+              41.82423516799997
+            ],
+            [
+              -93.270918902,
+              41.844692716
+            ],
+            [
+              -93.29047890200002,
+              41.864932486999976
+            ],
+            [
+              -93.31975555399998,
+              41.87665175799998
+            ],
+            [
+              -93.552940369,
+              41.92775780699998
+            ],
+            [
+              -93.70565033000003,
+              41.95533806399999
+            ],
+            [
+              -93.83885955800002,
+              41.971676290000005
+            ],
+            [
+              -94.392089844,
+              42.001329673999976
+            ],
+            [
+              -94.452560146,
+              41.999107632999994
+            ],
+            [
+              -94.50902557400002,
+              41.97678112699998
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-012",
+        "kind": "damage_polygon",
+        "rating": "EF1",
+        "windspeed_mph": 100,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "Intermittent 100+ mph winds",
+        "note": "Post-event analysis. Not available during the live event."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -93.71354704599997,
+                42.07914021900001
+              ],
+              [
+                -93.68944578899999,
+                42.075725525999985
+              ],
+              [
+                -93.60540037800001,
+                42.076846789
+              ],
+              [
+                -93.51097356999998,
+                42.06043934799999
+              ],
+              [
+                -93.42824583800001,
+                42.04116053600001
+              ],
+              [
+                -93.33486204799999,
+                42.03198083000001
+              ],
+              [
+                -93.18417892600002,
+                41.98975822599999
+              ],
+              [
+                -93.05067663900002,
+                41.95734656600001
+              ],
+              [
+                -93.02183095800001,
+                41.94508463
+              ],
+              [
+                -93.018055317,
+                41.93334144099998
+              ],
+              [
+                -93.04036545299999,
+                41.923118295999984
+              ],
+              [
+                -93.078471552,
+                41.920311019999986
+              ],
+              [
+                -93.16660693199998,
+                41.92092394500003
+              ],
+              [
+                -93.304272003,
+                41.928296491000026
+              ],
+              [
+                -93.53913415800002,
+                41.95531615499999
+              ],
+              [
+                -93.72840467200001,
+                41.98092623399998
+              ],
+              [
+                -93.81017708799999,
+                41.98604412399999
+              ],
+              [
+                -93.88468555499998,
+                41.99098448000001
+              ],
+              [
+                -93.93750062499998,
+                41.997156184999994
+              ],
+              [
+                -94.04062237199997,
+                42.00291674800002
+              ],
+              [
+                -94.08911620499998,
+                42.007627919000015
+              ],
+              [
+                -94.13970220599998,
+                42.01879584400001
+              ],
+              [
+                -94.19663798599998,
+                42.034327061
+              ],
+              [
+                -94.24361477299999,
+                42.05086108199998
+              ],
+              [
+                -94.298340215,
+                42.066119103999995
+              ],
+              [
+                -94.34343959099999,
+                42.083220837
+              ],
+              [
+                -94.38925364099998,
+                42.095246058999976
+              ],
+              [
+                -94.42815447599997,
+                42.114888431
+              ],
+              [
+                -94.49163835500002,
+                42.15191758399999
+              ],
+              [
+                -94.53862027100001,
+                42.17806618499998
+              ],
+              [
+                -94.57404489100003,
+                42.19151289400003
+              ],
+              [
+                -94.63086862400002,
+                42.200534812
+              ],
+              [
+                -94.72144828199998,
+                42.210761042
+              ],
+              [
+                -94.80127212100001,
+                42.219829515000015
+              ],
+              [
+                -94.86030334200001,
+                42.225326070999984
+              ],
+              [
+                -94.92737473900002,
+                42.231841825000004
+              ],
+              [
+                -94.99530209699998,
+                42.236674661999984
+              ],
+              [
+                -95.05839185600001,
+                42.23323322900001
+              ],
+              [
+                -95.07788182899998,
+                42.22265932200003
+              ],
+              [
+                -95.04125281900002,
+                42.204503128
+              ],
+              [
+                -94.99137238600002,
+                42.184787907999976
+              ],
+              [
+                -94.926860798,
+                42.148139662000006
+              ],
+              [
+                -94.876030432,
+                42.09787277800001
+              ],
+              [
+                -94.83343860899998,
+                42.048285158
+              ],
+              [
+                -94.77702400700002,
+                41.97976833400003
+              ],
+              [
+                -94.74883198600003,
+                41.951187283000024
+              ],
+              [
+                -94.72433742300001,
+                41.92453008199999
+              ],
+              [
+                -94.71002853300001,
+                41.91050813800001
+              ],
+              [
+                -94.69961462200001,
+                41.89649572500002
+              ],
+              [
+                -94.679915854,
+                41.87228908200001
+              ],
+              [
+                -94.67076527,
+                41.85997639599998
+              ],
+              [
+                -94.660514223,
+                41.85052487500002
+              ],
+              [
+                -94.652005669,
+                41.841933805
+              ],
+              [
+                -94.64051638799998,
+                41.83324119600002
+              ],
+              [
+                -94.62732657800001,
+                41.825456642999995
+              ],
+              [
+                -94.61098568199998,
+                41.815806383999984
+              ],
+              [
+                -94.58440511499998,
+                41.80021594700003
+              ],
+              [
+                -94.56325994600002,
+                41.787194563000014
+              ],
+              [
+                -94.53939684099998,
+                41.778281037
+              ],
+              [
+                -94.49983192799999,
+                41.765135579
+              ],
+              [
+                -94.44349136400001,
+                41.751946601999975
+              ],
+              [
+                -94.379656646,
+                41.74620426500002
+              ],
+              [
+                -94.26576111999998,
+                41.734637238000005
+              ],
+              [
+                -94.20839135300002,
+                41.730540088
+              ],
+              [
+                -94.169237802,
+                41.729518719
+              ],
+              [
+                -94.13692318400001,
+                41.732611824
+              ],
+              [
+                -94.08758157,
+                41.735930387999986
+              ],
+              [
+                -94.031278004,
+                41.738553502
+              ],
+              [
+                -93.98018987199998,
+                41.73897903400001
+              ],
+              [
+                -93.91312941500001,
+                41.73964805100002
+              ],
+              [
+                -93.82106435100002,
+                41.74061278400001
+              ],
+              [
+                -93.676337262,
+                41.732283610000025
+              ],
+              [
+                -93.589943576,
+                41.72774414100002
+              ],
+              [
+                -93.28307823099999,
+                41.69969308999998
+              ],
+              [
+                -93.17588647299999,
+                41.68779508
+              ],
+              [
+                -93.04223667399998,
+                41.675853313999994
+              ],
+              [
+                -92.88543647900002,
+                41.669476815999985
+              ],
+              [
+                -92.76050678600001,
+                41.66321350099997
+              ],
+              [
+                -92.55586293200003,
+                41.654601216
+              ],
+              [
+                -92.408338861,
+                41.64593156500001
+              ],
+              [
+                -92.29280882500001,
+                41.63138088699998
+              ],
+              [
+                -92.29528075000002,
+                41.94317531500002
+              ],
+              [
+                -92.29528075000002,
+                41.984020821
+              ],
+              [
+                -92.29528074900003,
+                42.22345919600002
+              ],
+              [
+                -92.46694212599999,
+                42.26285419499999
+              ],
+              [
+                -92.67430906999999,
+                42.286377791999996
+              ],
+              [
+                -92.81026487999998,
+                42.30562707299998
+              ],
+              [
+                -92.98604612999998,
+                42.311872936999976
+              ],
+              [
+                -93.09759633800002,
+                42.30653301900003
+              ],
+              [
+                -93.21172200799998,
+                42.297548624
+              ],
+              [
+                -93.32936888400002,
+                42.275252174
+              ],
+              [
+                -93.42714720499998,
+                42.258026453000014
+              ],
+              [
+                -93.501825441,
+                42.24767224499999
+              ],
+              [
+                -93.55623728,
+                42.244839187000025
+              ],
+              [
+                -93.59297803499999,
+                42.23910400800003
+              ],
+              [
+                -93.623266565,
+                42.24105964900002
+              ],
+              [
+                -93.644745166,
+                42.22905224300001
+              ],
+              [
+                -93.617863629,
+                42.21883694799999
+              ],
+              [
+                -93.58303127099998,
+                42.204103628999974
+              ],
+              [
+                -93.568624403,
+                42.18685701499999
+              ],
+              [
+                -93.59119457399999,
+                42.15825919500003
+              ],
+              [
+                -93.65373201599999,
+                42.12462409300002
+              ],
+              [
+                -93.68324713599998,
+                42.11239290100002
+              ],
+              [
+                -93.714241502,
+                42.09531665899999
+              ],
+              [
+                -93.71354704599997,
+                42.07914021900001
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -93.713452534,
+                42.096210927000016
+              ],
+              [
+                -93.68391829199999,
+                42.11251298500002
+              ],
+              [
+                -93.68323164600002,
+                42.11302235699998
+              ],
+              [
+                -93.713452534,
+                42.096210927000016
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "assessment_id": "dat-2-013",
+        "kind": "damage_polygon",
+        "rating": "EF0",
+        "windspeed_mph": 75,
+        "office": null,
+        "damage": null,
+        "survey": "NWS  damage survey (DAT)",
+        "comments": "None",
         "note": "Post-event analysis. Not available during the live event."
       }
     }

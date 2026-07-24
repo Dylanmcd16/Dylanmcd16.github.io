@@ -36,6 +36,7 @@ export function applyDisplayState(map: Map, state: ExplorerDisplayState): void {
 
   setVisibility(map, 'assessment-fill', state.showPostEventAssessments)
   setVisibility(map, 'assessment-outline', state.showPostEventAssessments)
+  setVisibility(map, 'assessment-tracks', state.showPostEventAssessments)
   setVisibility(map, 'assessment-points', state.showPostEventAssessments)
 
   setVisibility(map, 'station-points', showStations)
