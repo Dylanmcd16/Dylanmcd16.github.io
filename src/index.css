@@ -908,6 +908,17 @@ svg.icon {
   object-position: center;
 }
 
+/* --- PLRB weather scene: enlarge the photograph so it fills the taller
+   hero and balances the multi-line title, summary, and tag list without
+   reworking the copy. Reaching further left widens the visible image. --- */
+
+.professional-case-study--plrb-weather-systems .case-hero {
+  min-height: 460px;
+}
+.professional-case-study--plrb-weather-systems .case-hero-scene--plrb {
+  left: 32%;
+}
+
 /* --- Corteva field-data scene (quiet, right-side, no D3, no motion) --- */
 
 .professional-case-study--corteva-field-sensing .case-hero {
@@ -1502,7 +1513,8 @@ footer {
 
 @media (max-width: 900px) {
   .case-hero-scene--plrb,
-  .case-hero-scene--corteva {
+  .case-hero-scene--corteva,
+  .professional-case-study--plrb-weather-systems .case-hero-scene--plrb {
     left: 56%;
     opacity: 0.55;
   }
