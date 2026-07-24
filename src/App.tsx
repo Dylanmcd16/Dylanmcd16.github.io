@@ -359,7 +359,7 @@ function App() {
               >
                 <span className="project-strip-label">
                   <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Personal Project - Iowa Severe Weather Explorer</span>
+                  <span className="project-strip-title">Personal Project Demonstration - Iowa Severe Weather Explorer</span>
                   <span className="project-strip-sub">
                     An end-to-end meteorological data pipeline combining radar, observations, model
                     output, satellite imagery, storm reports, and post-event damage analysis.

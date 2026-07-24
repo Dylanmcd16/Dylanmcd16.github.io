@@ -266,6 +266,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         paragraphs: [
           'I conducted an exploratory machine-learning study that matched observed convective gusts with physically relevant environmental predictors, compared estimated and recorded wind speeds, and diagnosed failures caused by sparse station coverage and storm-scale variability.',
           'The work clarified where modeled gust estimates may add context and where direct observations and expert meteorological analysis remain necessary.',
+          'This is a work in progress.'
         ],
       },
       {
