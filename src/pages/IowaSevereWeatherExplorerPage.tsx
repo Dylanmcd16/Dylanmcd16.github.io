@@ -97,7 +97,7 @@ export function IowaSevereWeatherExplorerPage() {
           <h2 id="swx-greenfield-heading">Greenfield tornado damage comparison</h2>
           <p>
             A separate demonstration, and a different event. On May 21, 2024, a violent tornado
-            struck Greenfield, Iowa. Drag the divider to compare Sentinel-2 imagery from before and
+            struck Greenfield, Iowa. Drag the divider to compare **Sentinel-2 imagery** from before and
             after. The post-event scene shows the damage scar cutting through town.
           </p>
           <BeforeAfterSlider
