@@ -49,41 +49,16 @@ export function IowaSevereWeatherExplorerPage() {
         <section className="swx-section" aria-labelledby="swx-build-heading">
           <h2 id="swx-build-heading">What I built</h2>
           <p>
-            The browser never parses Level II radar, GRIB2, or NetCDF. A Python pipeline does all
-            of the scientific work ahead of deployment, reprojecting every source onto one Iowa
-            display grid, clipping it to the state boundary, and writing compact transparent WebP
-            rasters and GeoJSON alongside a manifest and timeline that the front end consumes
-            directly. Each source is a separate module, and the orchestrator validates the full
-            output set before any of it is served.
+            This is a demonstration of the August 10, 2020 Iowa derecho, where I put together an
+            interactive display of NEXRAD radar reflectivity and radial velocity, GOES-16
+            satellite imagery (visible, infrared, and sandwich), HRRR model fields (composite
+            reflectivity, surface wind gust, 10&nbsp;m wind speed, 2&nbsp;m temperature,
+            2&nbsp;m dew point, and MUCAPE), NWS warning polygons, local storm reports, ASOS/AWOS
+            surface observations, and NWS damage assessments — built from an archived N0Q
+            reflectivity composite, NEXRAD Level&nbsp;II velocity, HRRR GRIB2, and GOES-16 NetCDF,
+            and served to the browser as WebP rasters, GeoJSON, and JSON — with layer toggles, a
+            time slider, and a start/stop button to play back the event.
           </p>
-          <ul className="swx-build-list">
-            <li>
-              <strong>HRRR without downloading HRRR.</strong> Full GRIB2 files are large and
-              mostly irrelevant. The pipeline parses each file&apos;s <code>.idx</code> sidecar to
-              locate the six variables it needs, requests only those messages over HTTP byte
-              ranges, then reprojects them from the native Lambert-Conformal grid onto the
-              display grid.
-            </li>
-            <li>
-              <strong>Reconciling seven clocks.</strong> Radar, warnings, reports, observations,
-              model output, and satellite imagery all arrive on different cadences. Each is
-              matched to the nearest timeline frame while retaining its real timestamp, so the
-              replay stays synchronized without misrepresenting when anything was measured.
-            </li>
-            <li>
-              <strong>Deliberate source choices.</strong> Anonymous access to the Level II bucket
-              is blocked on some networks, so reflectivity uses IEM&apos;s archived national N0Q
-              composite on a fixed grid. Radial velocity is drawn from a single site rather than
-              composited, because velocity is radar-relative and a velocity mosaic is not
-              physically meaningful.
-            </li>
-            <li>
-              <strong>Front end.</strong> A React and TypeScript application handling frame
-              preloading, playback, layer composition, station popup charts, and a
-              before/after imagery comparison, with the map and control logic covered by unit
-              tests.
-            </li>
-          </ul>
         </section>
 
         {/* MAIN MAP */}
@@ -94,7 +69,7 @@ export function IowaSevereWeatherExplorerPage() {
 
         {/* GREENFIELD BEFORE/AFTER */}
         <section className="swx-section" aria-labelledby="swx-greenfield-heading">
-          <h2 id="swx-greenfield-heading">Greenfield tornado damage comparison</h2>
+          <h2 id="swx-greenfield-heading">Greenfield tornado damage Sentinel-2 imagery comparison</h2>
           <p>
             A separate demonstration, and a different event. On May 21, 2024, a violent tornado
             struck Greenfield, Iowa. Drag the divider to compare **Sentinel-2 imagery** from before and
