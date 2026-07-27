@@ -311,34 +311,39 @@ function App() {
                         </ul>
                       </div>
                     )}
-                    {!project.featured && project.keyContribution && (
-                      <p className="project-contribution">{project.keyContribution}</p>
-                    )}
-                    <ul className="tech-list" aria-label="Technologies">
-                      {project.tech.map((tech) => (
-                        <li key={tech}>{tech}</li>
-                      ))}
-                    </ul>
-                    {project.slug !== 'boundary-layer-research' && (
-                      <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
-                        View Work Examples <ArrowIcon />
-                      </a>
-                    )}
-                    {project.links.length > 0 && (
-                      <div className="project-links">
-                        {project.links.map((link) => (
-                          <a
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-link"
-                          >
-                            {link.label} <ExternalIcon />
-                          </a>
+                    {/* Trailing block is grouped so the card can align its
+                        kind / title / description rows against sibling cards
+                        via subgrid, with everything below sharing one row. */}
+                    <div className="project-foot">
+                      {!project.featured && project.keyContribution && (
+                        <p className="project-contribution">{project.keyContribution}</p>
+                      )}
+                      <ul className="tech-list" aria-label="Technologies">
+                        {project.tech.map((tech) => (
+                          <li key={tech}>{tech}</li>
                         ))}
-                      </div>
-                    )}
+                      </ul>
+                      {project.slug !== 'boundary-layer-research' && (
+                        <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
+                          View Work Examples <ArrowIcon />
+                        </a>
+                      )}
+                      {project.links.length > 0 && (
+                        <div className="project-links">
+                          {project.links.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="text-link"
+                            >
+                              {link.label} <ExternalIcon />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                   {project.featured && <ProjectScreenshot />}
                 </article>
