@@ -413,13 +413,6 @@ svg.icon {
   flex-wrap: wrap;
   gap: var(--s2);
 }
-.hero-tagline {
-  margin-top: var(--s5);
-  font-size: 0.94rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
 
 /* --------------------------------------------------------- Weather globe -- */
 /* Live CesiumJS globe with NASA GIBS precipitation, ported from Atmosky.
@@ -590,20 +583,24 @@ svg.icon {
    .project-grid and adopts them via subgrid, so the kind label, title,
    description and footer line up across the row no matter how long the copy
    is. This replaces the fixed min-height values that used to fake it.
-   .project-body is display:contents so its children become grid items of the
-   card itself. Baseline support: Chrome 117+, Safari 16+, Firefox 71+. */
+   .project-body and .project-foot are display:contents so their children
+   become grid items of the card itself — that gives the footer rows
+   (contribution rule, tech pills, case-study link) their own shared rows, so
+   the divider above the contribution sits at the same height on every card.
+   Baseline support: Chrome 117+, Safari 16+, Firefox 71+. */
 @supports (grid-template-rows: subgrid) {
   .project:not(.is-featured) {
     display: grid;
-    grid-row: span 4;
+    grid-row: span 6;
     grid-template-rows: subgrid;
     row-gap: var(--s3);
   }
-  .project:not(.is-featured) .project-body {
+  .project:not(.is-featured) .project-body,
+  .project:not(.is-featured) .project-foot {
     display: contents;
   }
   .project.is-featured {
-    grid-row: span 4;
+    grid-row: span 6;
   }
 }
 .project:hover {
@@ -670,8 +667,19 @@ svg.icon {
 @supports (grid-template-rows: subgrid) {
   .project:not(.is-featured) .project-kind,
   .project:not(.is-featured) h3,
-  .project:not(.is-featured) .project-description {
+  .project:not(.is-featured) .project-description,
+  .project:not(.is-featured) .project-case-link {
     margin-top: 0;
+  }
+  .project:not(.is-featured) .project-contribution {
+    margin-bottom: 0;
+  }
+  /* Pills and link hug the top of their row so short cards don't leave the
+     footer floating in the middle of a tall shared row. */
+  .project:not(.is-featured) .tech-list,
+  .project:not(.is-featured) .project-case-link,
+  .project:not(.is-featured) .project-links {
+    align-self: start;
   }
 }
 /* The old `padding-top` here was dead — the `padding: 0` shorthand below it
@@ -1484,37 +1492,69 @@ svg.icon {
 
 /* ------------------------------------------------------ Skills / Education -- */
 
+/* Three pillars, three columns. The section is a scannable index, not a
+   fifth case study — the project pages carry the detail. */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--s3);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s4);
 }
 .skill-group {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--r-md);
-  padding: var(--s3);
+  padding: var(--s4);
   box-shadow: var(--shadow-sm);
 }
-.skill-group h3 {
-  font-size: 0.9rem;
-  font-weight: 600;
+/* Same subgrid treatment as the work cards: the chips start at one height
+   across the row even though the summary lines wrap differently. Chip counts
+   are left uneven on purpose — the categories aren't the same size. */
+@supports (grid-template-rows: subgrid) {
+  .skill-group {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--s3);
+  }
 }
-.skill-group ul {
-  list-style: none;
+.skill-group h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.skill-strengths {
   margin: var(--s2) 0 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.skill-tools {
+  list-style: none;
+  margin: var(--s3) 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--s1);
 }
-.skill-group li {
+.skill-tools li {
   font-size: 0.72rem;
   color: var(--ink-soft);
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 3px var(--s2);
+}
+/* Subgrid supplies the row rhythm, so the per-element top margins would
+   double up. */
+@supports (grid-template-rows: subgrid) {
+  .skill-strengths,
+  .skill-tools {
+    margin-top: 0;
+    align-self: start;
+  }
 }
 
 .education-heading {
@@ -1712,6 +1752,10 @@ footer {
   /* .project-grid needs no override — auto-fit handles the reflow. */
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  /* Three cards into two columns: the widest card takes the orphan row. */
+  .skill-group:last-child {
+    grid-column: 1 / -1;
   }
   .globe-stage {
     width: 630px;

@@ -277,7 +277,6 @@ function App() {
                   LinkedIn
                 </a>
               </div>
-              <p className="hero-tagline">{portfolio.tagline}</p>
             </div>
             <Suspense fallback={<div className="globe-wrap" aria-hidden="true" />}>
               <WeatherGlobe />
@@ -323,9 +322,9 @@ function App() {
                           <li key={tech}>{tech}</li>
                         ))}
                       </ul>
-                      {project.slug !== 'boundary-layer-research' && (
+                      {project.caseStudyLabel && (
                         <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
-                          View Work Examples <ArrowIcon />
+                          {project.caseStudyLabel} <ArrowIcon />
                         </a>
                       )}
                       {project.links.length > 0 && (
@@ -419,10 +418,13 @@ function App() {
             <div className="skills-grid">
               {portfolio.skills.map((group) => (
                 <div className="skill-group" key={group.title}>
+                  {/* Title, one-line summary, chips — the hierarchy is the
+                      label, so no eyebrow text above any of the three. */}
                   <h3>{group.title}</h3>
-                  <ul>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
+                  <p className="skill-strengths">{group.strengths}</p>
+                  <ul className="skill-tools" aria-label={`${group.title} tools`}>
+                    {group.tools.map((tool) => (
+                      <li key={tool}>{tool}</li>
                     ))}
                   </ul>
                 </div>

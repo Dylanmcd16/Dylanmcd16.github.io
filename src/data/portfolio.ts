@@ -15,6 +15,9 @@ export type Project = {
   accent: 'operations' | 'field' | 'modeling' | 'analysis'
   outcomes?: string[]
   keyContribution?: string
+  // Descriptive link text: clearer than a repeated "View Work Examples" when
+  // assistive tech lists links out of context. Omit to hide the link.
+  caseStudyLabel?: string
   caseStudy: {
     overview: string
     examples: string[]
@@ -35,9 +38,14 @@ export type Experience = {
   scope: string
 }
 
+// An index, not a case study: this section says what Dylan can do and which
+// technologies he knows. Where he used them, what he built, and why it
+// mattered is the Work section's job — so no employers, evidence lines, or
+// per-card links here, and no proficiency bars or ratings anywhere.
 export type SkillGroup = {
   title: string
-  items: string[]
+  strengths: string
+  tools: string[]
 }
 
 export type AwardItem = {
@@ -58,15 +66,16 @@ export type EducationItem = {
 export const portfolio = {
   name: 'Dylan McDermott',
   role: 'Meteorologist | Geospatial Data Professional',
-  tagline: 'Atmospheric science · Geospatial data · Automation',
   location: 'West Des Moines, Iowa',
   email: 'dylanddermott@gmail.com',
   resumeFile: 'resume.pdf',
   thesisFile: 'McDermott_iastate_0097M_21473.pdf',
   photo: 'photo-avatar.jpg',
 
+  // Deliberately one sentence: PLRB, Corteva, and Iowa State all appear in
+  // Work and Experience immediately below.
   heroStatement:
-    'I’m a meteorologist and researcher who enjoys using science, programming, and geospatial tools to solve complex problems. My experience spans operational weather and catastrophe analysis at PLRB, field-sensing research at Corteva, and atmospheric modeling at Iowa State.',
+    'I’m a meteorologist and researcher who enjoys science, programming, geospatial work, and solving technical problems.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -81,10 +90,10 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'PLRB’s goal is to give members fast, defensible access to historical weather evidence for claims handling, investigations, and catastrophe analysis. I build and maintain the Python and ArcPy workflows, geospatial products, and custom ArcGIS applications that transform NOAA, IEM, and other public datasets into ready-to-use national layers, maps, reports, and address-level insights. These production systems validate and reconcile late, duplicated, incomplete, or failed data so members can retrieve reliable weather information without having to process the raw sources themselves.',
+        'I build and maintain the Python, ArcPy, and ArcGIS systems that transform NOAA, IEM, and other public data into production weather layers, maps, reports, and address-level insights. These workflows validate late, duplicate, incomplete, and failed source data so PLRB members can use reliable weather evidence without processing the raw datasets themselves.',
       outcomes: [
-        'Built, maintained, and improved daily production workflows that collect, validate, reconcile, transform, and publish national weather and hazard data.',
-        'Developed ArcGIS-based services and JavaScript tools that let members visualize, query, and integrate weather data into their GIS workflows.',
+        'Automated daily ingestion, validation, reconciliation, and publication of national weather and hazard data.',
+        'Built ArcGIS services and JavaScript tools for querying and integrating weather evidence.',
         'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
       caseStudy: {
@@ -97,6 +106,7 @@ export const portfolio = {
         ],
       },
       tech: ['Python', 'ArcGIS Pro & Enterprise', 'ArcPy', 'AWS'],
+      caseStudyLabel: 'View PLRB work',
       links: [],
     },
     {
@@ -117,6 +127,7 @@ export const portfolio = {
         ],
       },
       tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
+      caseStudyLabel: 'View field-sensing work',
       links: [],
     },
     {
@@ -138,6 +149,7 @@ export const portfolio = {
         ],
       },
       tech: ['WRF', 'Noah-MP', 'Python', 'xarray'],
+      caseStudyLabel: 'View modeling research',
       links: [],
     },
     {
@@ -191,49 +203,39 @@ export const portfolio = {
 
   skills: [
     {
-      title: 'Meteorology',
-      items: [
-        'Radar applications',
-        'Numerical weather prediction',
-        'Numerical modeling',
-        'Remote sensing',
-      ],
-    },
-    {
-      title: 'Geospatial',
-      items: [
+      title: 'Geospatial Systems',
+      strengths:
+        'GIS automation, spatial and raster analysis, remote sensing, web GIS publishing, and field-sensor data workflows',
+      tools: [
         'ArcGIS Pro',
-        'ArcGIS Enterprise',
-        'Experience Builder',
+        'ArcGIS Enterprise / Online',
         'ArcPy',
+        'Experience Builder',
         'GeoPandas',
         'Rasterio',
-        'Spatial and raster analysis',
+        'LiDAR',
+        'Drone imagery',
       ],
     },
     {
-      title: 'Data & Automation',
-      items: [
+      title: 'Meteorology & Modeling',
+      strengths:
+        'Radar and severe-weather analysis, numerical weather prediction, atmospheric modeling, and land-surface modeling',
+      tools: ['WRF', 'Noah-MP', 'NEXRAD / MRMS', 'GOES / MODIS', 'ERA5', 'CESM'],
+    },
+    {
+      title: 'Data Engineering & Software',
+      strengths:
+        'Automated data pipelines, data quality control and reconciliation, API integration, cloud-hosted services, and scientific web applications',
+      tools: [
         'Python',
-        'pandas',
-        'xarray',
-        'Automated data pipelines',
-        'Data quality control',
-        'REST API integration',
-        'NetCDF, GRIB, and GeoTIFF',
-      ],
-    },
-    {
-      title: 'Software & Cloud',
-      items: [
-        'TypeScript',
-        'JavaScript',
-        'React',
-        'FastAPI',
+        'pandas / xarray',
+        'NetCDF / GRIB / GeoTIFF',
+        'REST APIs',
         'AWS',
-        'SQL and PostgreSQL',
-        'Git and GitHub',
-        'Linux',
+        'SQL / PostgreSQL',
+        'FastAPI',
+        'React / TypeScript',
       ],
     },
   ] satisfies SkillGroup[],

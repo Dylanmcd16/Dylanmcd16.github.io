@@ -38,7 +38,7 @@ export function IowaSevereWeatherExplorerPage() {
             storm reports, warnings, and surface observations can be read together.
           </p>
           <p className="swx-note">
-            <strong>Real archived data, honestly timed.</strong> Nothing here is simulated. Each
+            <strong>Real archived data.</strong> Nothing here is simulated. Each
             source keeps its own true valid or observation time rather than being resampled to
             look simultaneous — a five-minute radar frame, an hourly model field, and a surface
             observation are not the same moment, and the interface does not pretend otherwise.
