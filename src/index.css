@@ -1547,6 +1547,26 @@ svg.icon {
   border-radius: 999px;
   padding: 3px var(--s2);
 }
+/* A working method, not a skill category — its own labelled note below the
+   cards, deliberately unboxed so it doesn't read as a fourth category. */
+.skills-note {
+  margin-top: var(--s4);
+}
+.skills-note-label {
+  margin: 0 0 var(--s1);
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.skills-note > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
 /* Subgrid supplies the row rhythm, so the per-element top margins would
    double up. */
 @supports (grid-template-rows: subgrid) {

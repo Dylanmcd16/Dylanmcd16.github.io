@@ -430,6 +430,10 @@ function App() {
                 </div>
               ))}
             </div>
+            <div className="skills-note">
+              <p className="skills-note-label">{portfolio.skillsNote.label}</p>
+              <p>{portfolio.skillsNote.body}</p>
+            </div>
 
             <h2 className="awards-heading">Awards</h2>
             <ul className="awards-list">

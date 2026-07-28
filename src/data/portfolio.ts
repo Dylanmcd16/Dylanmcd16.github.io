@@ -240,6 +240,13 @@ export const portfolio = {
     },
   ] satisfies SkillGroup[],
 
+  // A working method rather than a skill category, so it sits below the cards
+  // as its own labelled note instead of becoming a chip or a fourth card.
+  skillsNote: {
+    label: 'AI-assisted work',
+    body: 'I’m highly experienced in using generative AI effectively for research, coding, debugging, and technical problem-solving, while independently verifying information, testing outputs, and applying my own judgment to the final work.',
+  },
+
   awards: [
     {
       title: 'Esri Special Achievement in GIS (SAG) Award',
@@ -253,7 +260,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently built AI driven weather-intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
+        'Recognized for an independently built AI-driven weather intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
     },
   ] satisfies AwardItem[],
 
