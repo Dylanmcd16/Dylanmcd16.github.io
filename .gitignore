@@ -14,9 +14,11 @@ blob-report/
 .env.*
 !.env.example
 
-# Editor and OS files
+# Editor, agent, and OS files
 .vscode/
 .idea/
+.claude/
+.codebase-memory/
 .DS_Store
 Thumbs.db
 
