@@ -282,6 +282,9 @@ function App() {
               <WeatherGlobe />
             </Suspense>
           </div>
+          {/* Soft fade at the bottom of the hero so the growing globe blends
+              into the Work Examples section instead of being cut off abruptly. */}
+          <div className="hero-fade" aria-hidden="true" />
         </section>
 
         {/* WORK EXAMPLES */}
