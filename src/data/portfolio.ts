@@ -72,10 +72,8 @@ export const portfolio = {
   thesisFile: 'McDermott_iastate_0097M_21473.pdf',
   photo: 'photo-avatar.jpg',
 
-  // Deliberately one sentence: PLRB, Corteva, and Iowa State all appear in
-  // Work and Experience immediately below.
   heroStatement:
-    'I’m a meteorologist and researcher who enjoys science, programming, geospatial work, and solving technical problems.',
+    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I enjoy investigating complex scientific questions, working with environmental and geospatial data, and developing practical solutions through programming, analysis, and automation. My experience spans atmospheric research, agriculture research, geospatial technology, weather-data systems, and the development of tools that make scientific information more useful.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
