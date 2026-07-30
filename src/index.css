@@ -1828,6 +1828,14 @@ footer {
   body {
     font-size: 1rem;
   }
+  /* Scroll-linked opacity starts the Work section partially transparent on
+     mobile Safari, where the first card is immediately in view. Keep mobile
+     sections fully readable instead of animating their entrance. */
+  .section > .container {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
   .menu-button {
     display: flex;
   }
