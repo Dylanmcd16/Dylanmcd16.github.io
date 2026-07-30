@@ -27,11 +27,9 @@ export function WorkIndexPage({ base }: { base: string }) {
         <a className="text-link case-study-back" href={base}>
           ← Back to portfolio
         </a>
-        <h1>Work by role</h1>
+        <h1>Work Examples by role</h1>
         <p className="work-index-intro">
-          The projects in this portfolio come from operational weather and geospatial work
-          at PLRB, field-sensing research at Corteva, and atmospheric modeling research at
-          Iowa State.
+          Click on a role to see work examples for that position.
         </p>
 
         <ul className="work-index-list">
@@ -61,8 +59,8 @@ export function WorkIndexPage({ base }: { base: string }) {
                 <img
                   src={`${base}${role.workIndex.image}`}
                   alt=""
-                  width="720"
-                  height="240"
+                  width="840"
+                  height="168"
                   loading="lazy"
                   decoding="async"
                 />

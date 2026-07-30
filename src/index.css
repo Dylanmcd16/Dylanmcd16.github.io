@@ -1127,12 +1127,18 @@ svg.icon {
 .work-row-media {
   position: absolute;
   right: 0;
-  bottom: var(--s4);
-  width: clamp(200px, 21%, 280px);
-  /* Short enough to clear the link above it inside the row's existing height. */
-  height: 68px;
+  /* Flush with the row's bottom edge, so it reads as part of the hover band
+     rather than floating inside it. */
+  bottom: 0;
+  /* Capped so its left edge still clears the description text; the mask does
+     the rest of the blending. */
+  width: clamp(300px, 30%, 420px);
+  /* Tall as the remaining space allows without crowding the link above it. */
+  height: 84px;
   overflow: hidden;
-  border-radius: var(--r-sm);
+  /* Bottom-right matches the row's own radius so the corner nests inside the
+     hover band instead of poking through it. */
+  border-radius: var(--r-sm) var(--r-sm) var(--r-md) var(--r-sm);
   opacity: 0;
   clip-path: inset(0 100% 0 0);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 24%);

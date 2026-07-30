@@ -32,7 +32,7 @@ export type Project = {
     period: string
     summary: string
     linkLabel: string
-    // Decorative strip revealed on row hover. Pre-cropped to 720×240 in
+    // Decorative strip revealed on row hover. Pre-cropped to 840×168 in
     // /public/work-index so the index doesn't pull the multi-megabyte
     // originals the case studies use.
     image: string
