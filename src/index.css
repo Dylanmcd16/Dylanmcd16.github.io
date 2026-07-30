@@ -978,13 +978,273 @@ svg.icon {
   justify-self: start;
 }
 
+/* ------------------------------------------------------------ Work index -- */
+
+/* Landing page for the header's "Work" link. An index, so it reads as ruled
+   editorial rows rather than cards: no panels, no shadows, no repeated
+   buttons — just three lines of hierarchy the eye can run down. */
+.work-index-container {
+  max-width: 1400px;
+}
+/* Shorter than the case-study display size so "Work by role" stays on one
+   line and the rows start higher up the page. */
+.work-index-page h1 {
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+}
+.work-index-intro {
+  max-width: 880px;
+  margin: var(--s5) 0 0;
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.work-index-list {
+  position: relative;
+  margin: var(--s6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+/* Dividers are drawn as inset pseudo-element rules instead of borders, so the
+   hover background can bleed past them without the rounded corners clipping a
+   straight border line. The list closes with a matching rule. */
+.work-row::before,
+.work-index-list::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background: var(--line);
+}
+/* Inset by the row's own negative margin so every rule lands on the container
+   edge, including the one that closes the list. */
+.work-row::before {
+  top: 0;
+  left: var(--s4);
+  right: var(--s4);
+}
+.work-index-list::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.work-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.7fr) minmax(180px, 0.9fr);
+  align-items: start;
+  gap: var(--s5);
+  /* Bleeds past the text column so the hover band reads as a row, not a box
+     drawn around the copy. */
+  padding: var(--s6) var(--s4);
+  margin-inline: calc(var(--s4) * -1);
+  transition: background 0.16s ease;
+}
+.work-row:hover,
+.work-row:focus-within {
+  background: color-mix(in srgb, var(--accent-soft) 60%, transparent);
+  border-radius: var(--r-md);
+}
+
+.work-row-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+.work-row-org {
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.work-row-period {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.work-row-main h2 {
+  margin: 0;
+  font-size: 1.32rem;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+}
+.work-row-main p {
+  max-width: 640px;
+  margin: var(--s2) 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+/* Third column is the link alone. justify-self keeps it hugging the left of
+   its track rather than stretching across it. */
+.work-row-link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: var(--s1);
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+/* Stretched link: the row is the click target, but only one link exists. */
+.work-row-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-md);
+}
+.work-row-link svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.16s ease;
+}
+.work-row:hover .work-row-link {
+  color: var(--accent-strong);
+}
+.work-row:hover .work-row-link svg {
+  transform: translateX(3px);
+}
+/* The stretched ::after swallows the link's own outline, so the focus ring is
+   drawn on the row instead. */
+.work-row:focus-within {
+  border-radius: var(--r-md);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.work-row-link:focus-visible {
+  outline: none;
+}
+
+/* Hover strip: sits in the dead space under the link, so it never displaces
+   copy or changes the row's height. It wipes in left-to-right via clip-path
+   while the static mask feathers its leading edge into the page — a hard
+   rectangle appearing beside the text would read as a layout glitch.
+   Absolutely positioned and pointer-events:none so it can't interfere with
+   the stretched link covering the row. */
+.work-row-media {
+  position: absolute;
+  right: 0;
+  bottom: var(--s4);
+  width: clamp(200px, 21%, 280px);
+  /* Short enough to clear the link above it inside the row's existing height. */
+  height: 68px;
+  overflow: hidden;
+  border-radius: var(--r-sm);
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 24%);
+  mask-image: linear-gradient(to right, transparent, #000 24%);
+  transition: opacity 0.26s ease, clip-path 0.44s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+.work-row:hover .work-row-media,
+.work-row:focus-within .work-row-media {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+.work-row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Below this the third column is too narrow for the strip to clear the
+   description, and once the row stacks there is no dead space left at all. */
+@media (max-width: 1100px) {
+  .work-row-media {
+    display: none;
+  }
+}
+
+/* One primary next step; the rest are quiet text links underneath. */
+.work-index-next {
+  margin-top: var(--s8);
+}
+.work-index-next .case-kicker {
+  margin-bottom: var(--s4);
+  font-size: 0.74rem;
+}
+.work-next-feature {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--s1);
+  color: var(--ink);
+}
+.work-next-feature-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 1.28rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+.work-next-feature-title svg {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.16s ease;
+}
+.work-next-feature:hover .work-next-feature-title {
+  color: var(--accent-strong);
+}
+.work-next-feature:hover .work-next-feature-title svg {
+  transform: translateX(3px);
+}
+.work-next-feature-sub {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+.work-next-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s5);
+  margin-top: var(--s6);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+}
+.work-next-links a {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.work-next-links a:hover {
+  color: var(--ink);
+}
+
+/* Below the three-column measure the row stacks: meta becomes a single line,
+   copy and link follow. */
+@media (max-width: 880px) {
+  .work-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s3);
+    padding-block: var(--s5);
+  }
+  .work-row-meta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: var(--s2);
+  }
+  .work-row-period::before {
+    content: '·';
+    margin-right: var(--s2);
+    color: var(--muted-2);
+  }
+  /* Stacked, the link reads as the row's closing line rather than a column. */
+  .work-row-link {
+    margin-top: var(--s1);
+  }
+}
+
 /* ------------------------------------------------ Professional case study -- */
 
 .professional-case-study {
   padding-top: var(--s7);
 }
 .professional-case-container {
-  max-width: 1120px;
+  max-width: 1400px;
 }
 .professional-case-study .case-study-back {
   display: inline-flex;
@@ -1000,18 +1260,16 @@ svg.icon {
 .case-hero-copy {
   position: relative;
   z-index: 2;
-  max-width: 940px;
+  max-width: 1120px;
 }
 .professional-case-study .case-hero h1 {
-  max-width: 900px;
+  max-width: 1080px;
   font-size: clamp(2.6rem, 6vw, 5rem);
 }
 .case-hero-summary {
   display: grid;
   gap: var(--s3);
-  /* Intro copy earns a slightly wider measure than body prose, but 820px at
-     this size was ~88 characters — well past the comfortable range. */
-  max-width: 72ch;
+  max-width: 80ch;
   margin-top: var(--s6);
   color: var(--ink-soft);
   font-size: 1.12rem;
@@ -1211,7 +1469,10 @@ svg.icon {
   color: var(--ink-soft);
   font-size: 1.03rem;
   line-height: 1.76;
-  max-width: var(--measure);
+  /* Deliberately unconstrained: the paragraphs share the section's left and
+     right edges with the bullets and the media grid below them, so any reading
+     measure here reads as a misalignment rather than as typography. */
+  max-width: none;
 }
 .case-section-copy > p.case-highlight {
   max-width: none;
@@ -1409,6 +1670,12 @@ svg.icon {
 }
 .thesis-reader-page {
   padding-bottom: var(--s6);
+}
+/* Matches the other work pages, and the embedded PDF is the one thing here
+   that gets strictly more readable with the extra width. Scoped to this page
+   so the explorer and 404 keep the narrower 820px container. */
+.thesis-reader-page .case-study-container {
+  max-width: 1400px;
 }
 .thesis-reader-page .case-study-back {
   display: inline-flex;

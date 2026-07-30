@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { CaseStudyFooter } from './CaseStudyFooter'
 import { CaseStudyHeroScene, type HeroSceneVariant } from './CaseStudyHeroScene'
+import { ESRI_SAG_AWARD_POST_URL } from '../data/portfolio'
 import { caseStudyUrl } from '../utils/routes'
 
 type CaseStudyImage = {
@@ -9,6 +10,10 @@ type CaseStudyImage = {
   caption: string
   label?: string
   treatment?: 'portrait' | 'smoke'
+  // Sends the figure somewhere other than the full-size file, for screenshots
+  // whose useful destination is the page they were captured from.
+  href?: string
+  hrefLabel?: string
 }
 
 type CaseStudySection = {
@@ -287,6 +292,26 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           },
         ],
       },
+      {
+        id: 'esri-sag-award',
+        navLabel: 'Esri SAG Award',
+        eyebrow: '06 / Recognition',
+        title: 'Esri Special Achievement in GIS (SAG) Award',
+        paragraphs: [
+          'PLRB received Esri’s 2025 Special Achievement in GIS (SAG) Award, which recognizes organizations for innovative use of GIS technology. Esri presents the award to a small share of its user community each year, selected from hundreds of thousands of organizations worldwide.',
+          'The recognized work is the body of catastrophe analytics and claims-facing GIS delivery described on this page: the automated storm-report and weather-data pipelines, the ArcGIS Experience Builder applications used by member claims professionals, and the ArcGIS Server services and map products that keep those applications supplied with validated data. I built and maintain the production automation and applications behind that work as part of PLRB’s Weather & Catastrophe team.',
+        ],
+        images: [
+          {
+            src: 'Screenshot 2026-07-17 154353.png',
+            alt: 'LinkedIn post announcing PLRB’s 2025 Esri Special Achievement in GIS Award',
+            caption: 'PLRB’s Weather & Catastrophe team accepting the 2025 Esri SAG Award. Open the announcement on LinkedIn.',
+            treatment: 'portrait',
+            href: ESRI_SAG_AWARD_POST_URL,
+            hrefLabel: 'Read the LinkedIn post announcing PLRB’s 2025 Esri Special Achievement in GIS Award',
+          },
+        ],
+      },
     ],
     results: [
       'Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.',
@@ -470,7 +495,12 @@ function SectionMedia({ images, base }: { images: CaseStudyImage[]; base: string
     <div className={`case-media-grid ${images.length === 1 ? 'is-single' : ''}`}>
       {images.map((image) => (
         <figure className={`case-media ${image.treatment ? `case-media--${image.treatment}` : ''}`} key={image.src}>
-          <a href={`${base}${image.src}`} target="_blank" rel="noreferrer" aria-label={`${image.alt} - open full size`}>
+          <a
+            href={image.href ?? `${base}${image.src}`}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={image.hrefLabel ?? `${image.alt} - open full size`}
+          >
             <img src={`${base}${image.src}`} alt={image.alt} loading="lazy" />
           </a>
           <figcaption>

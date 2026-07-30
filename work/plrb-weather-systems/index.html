@@ -132,6 +132,22 @@
         <p>I conducted an exploratory machine-learning study that matched observed convective gusts with physically relevant environmental predictors, compared estimated and recorded wind speeds, and diagnosed failures caused by sparse station coverage and storm-scale variability.</p>
         <p>The work clarified where modeled gust estimates may add context and where direct observations and expert meteorological analysis remain necessary.</p>
 
+        <h2>Automated Tropical Cyclone Track Mapping</h2>
+        <p>I developed a Python and ArcPy workflow that converts National Hurricane Center GIS archive data into publication-ready tropical cyclone track maps. Using ArcPy&rsquo;s mapping and data-access APIs, the script dynamically locates the required feature layers and fields, constructs data-source-safe SQL definition queries, and filters the track points, track lines, and cumulative wind-history polygons by STORMID. It then reads storm metadata with arcpy.da.SearchCursor, parses the full track chronology to determine the storm year and month, and calculates the combined spatial extent of the filtered features so each layout automatically centers and scales to the selected cyclone.</p>
+        <p>The workflow also updates named ArcGIS Pro layout elements with the storm name, date, source attribution, and production date; validates missing layers, fields, records, layouts, and text elements; and exports both portrait and landscape products at 300 DPI. Output filenames are normalized programmatically, producing consistent deliverables such as 2026_bertha_track.jpg and 2026_bertha_track_landscape.jpg. This replaced a repetitive manual GIS production process with a reusable, error-checked mapping pipeline.</p>
+        <figure>
+          <img src="/2026_bertha_track.jpg" alt="Automated tropical cyclone track map generated from National Hurricane Center GIS archive data" loading="lazy" />
+          <figcaption>Track map produced automatically from NHC GIS data, with layout extent, storm metadata, and export handled programmatically.</figcaption>
+        </figure>
+
+        <h2>Esri Special Achievement in GIS (SAG) Award</h2>
+        <p>PLRB received Esri&rsquo;s 2025 Special Achievement in GIS (SAG) Award, which recognizes organizations for innovative use of GIS technology. Esri presents the award to a small share of its user community each year, selected from hundreds of thousands of organizations worldwide.</p>
+        <p>The recognized work is the body of catastrophe analytics and claims-facing GIS delivery described on this page: the automated storm-report and weather-data pipelines, the ArcGIS Experience Builder applications used by member claims professionals, and the ArcGIS Server services and map products that keep those applications supplied with validated data. I built and maintain the production automation and applications behind that work as part of PLRB&rsquo;s Weather &amp; Catastrophe team.</p>
+        <figure>
+          <img src="/Screenshot%202026-07-17%20154353.png" alt="LinkedIn post announcing PLRB&rsquo;s 2025 Esri Special Achievement in GIS Award" loading="lazy" />
+          <figcaption>PLRB&rsquo;s Weather &amp; Catastrophe team accepting the 2025 Esri SAG Award. <a href="https://www.linkedin.com/posts/dylan-mcdermott-193b18174_plrb-esri-sagawards-activity-7384242498338172929-TbnD">Read the announcement on LinkedIn</a>.</figcaption>
+        </figure>
+
         <h2>Results and impact</h2>
         <ul>
           <li>Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.</li>

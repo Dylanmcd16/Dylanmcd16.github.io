@@ -1,14 +1,16 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { CaseStudyFooter } from './components/CaseStudyFooter'
 import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
-import { portfolio } from './data/portfolio'
-import { getRouteState, caseStudyUrl } from './utils/routes'
+import { WorkIndexPage } from './components/WorkIndexPage'
+import { ESRI_SAG_AWARD_POST_URL, portfolio } from './data/portfolio'
+import { getRouteState, caseStudyUrl, workIndexUrl } from './utils/routes'
 
 // Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
 const WeatherGlobe = lazy(() => import('./components/WeatherGlobe'))
 
+// "Work" leaves the page for the work index; the rest are in-page anchors.
 const navItems = [
-  { label: 'Work', href: '#projects' },
+  { label: 'Work', href: workIndexUrl() },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
@@ -32,14 +34,11 @@ function ExternalIcon() {
   )
 }
 
-const ESRI_AWARD_POST_URL =
-  'https://www.linkedin.com/posts/dylan-mcdermott-193b18174_plrb-esri-sagawards-activity-7384242498338172929-TbnD'
-
 function ProjectScreenshot() {
   return (
     <div className="project-screenshot">
       <a
-        href={ESRI_AWARD_POST_URL}
+        href={ESRI_SAG_AWARD_POST_URL}
         target="_blank"
         rel="noreferrer"
         aria-label="Read the LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
@@ -218,6 +217,10 @@ function App() {
         </div>
       </main>
     )
+  }
+
+  if (routeState.type === 'work-index') {
+    return <WorkIndexPage base={base} />
   }
 
   if (routeState.type === 'case-study') {

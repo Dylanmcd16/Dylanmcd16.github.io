@@ -2,6 +2,11 @@
 // Portfolio content. Edit this file to change almost all visible text.
 // ---------------------------------------------------------------------------
 
+// Announcement post for the 2025 Esri SAG Award, linked from both the homepage
+// screenshot and the PLRB case study.
+export const ESRI_SAG_AWARD_POST_URL =
+  'https://www.linkedin.com/posts/dylan-mcdermott-193b18174_plrb-esri-sagawards-activity-7384242498338172929-TbnD'
+
 export type ProjectLink = {
   label: string
   href: string
@@ -18,6 +23,20 @@ export type Project = {
   // Descriptive link text: clearer than a repeated "View Work Examples" when
   // assistive tech lists links out of context. Omit to hide the link.
   caseStudyLabel?: string
+  // Row copy for the /work/ index. Its job is scanning, not explaining, so the
+  // summary stays near 20 words — deliberately shorter than the case-study
+  // overview. The index carries no technology pills; `tech` is for the
+  // homepage cards and case studies. Omit to leave a role off the index.
+  workIndex?: {
+    organization: string
+    period: string
+    summary: string
+    linkLabel: string
+    // Decorative strip revealed on row hover. Pre-cropped to 720×240 in
+    // /public/work-index so the index doesn't pull the multi-megabyte
+    // originals the case studies use.
+    image: string
+  }
   caseStudy: {
     overview: string
     examples: string[]
@@ -94,6 +113,14 @@ export const portfolio = {
         'Built ArcGIS services and JavaScript tools for querying and integrating weather evidence.',
         'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
+      workIndex: {
+        organization: 'PLRB',
+        period: '2025 — Present',
+        summary:
+          'Production weather systems, automated geospatial processing, event verification, and catastrophe analysis.',
+        linkLabel: 'Explore PLRB work',
+        image: 'work-index/plrb-weather-systems.jpg',
+      },
       caseStudy: {
         overview:
           'At PLRB, I build and maintain the operational weather and geospatial systems behind event verification and catastrophe analysis, pairing meteorological interpretation with automated data processing that has to hold up in daily production.',
@@ -116,6 +143,14 @@ export const portfolio = {
         'Corteva needed a repeatable way to turn raw, GPS-linked field measurements into research-ready evidence. I built and operated the sensing systems, then independently developed the Python and ArcPy pipelines that validated, spatially assigned, and analyzed the data.',
       keyContribution:
         'Co-developed Corteva’s Smartstick field-sensing platform and built the workflow that processed its GPS-linked observations across seven research sites into quality-controlled, plot-level geospatial analyses, then compared selected results with drone imagery and LiDAR.',
+      workIndex: {
+        organization: 'Corteva Agriscience',
+        period: '2024',
+        summary:
+          'Field-sensing systems, sensor-data processing, quality control, and plot-level geospatial analysis for agricultural research.',
+        linkLabel: 'Explore Corteva work',
+        image: 'work-index/corteva-field-sensing.jpg',
+      },
       caseStudy: {
         overview:
           'At Corteva, I built and operated field-sensing systems and independently developed the processing workflows that turned their raw observations into plot-level geospatial analyses for research teams.',
@@ -137,6 +172,14 @@ export const portfolio = {
         'Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.',
       keyContribution:
         'Produced an M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
+      workIndex: {
+        organization: 'Iowa State University',
+        period: '2022 — 2024',
+        summary:
+          'Graduate research combining numerical weather modeling, land-surface simulations, and geospatial analysis.',
+        linkLabel: 'Explore Iowa State research',
+        image: 'work-index/land-use-convective-weather.jpg',
+      },
       caseStudy: {
         overview:
           'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems. The work combined numerical weather and land-surface modeling with geospatial data preparation and multi-source analysis.',

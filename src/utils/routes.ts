@@ -2,8 +2,14 @@ export function caseStudyUrl(slug: string): string {
   return `${import.meta.env.BASE_URL}work/${encodeURIComponent(slug)}/`
 }
 
-export type RouteState = 
+/** Landing page listing the roles that have case studies. */
+export function workIndexUrl(): string {
+  return `${import.meta.env.BASE_URL}work/`
+}
+
+export type RouteState =
   | { type: 'home' }
+  | { type: 'work-index' }
   | { type: 'case-study'; slug: string }
   | { type: 'not-found' }
 
@@ -24,7 +30,15 @@ export function getRouteState(): RouteState {
     return { type: 'home' }
   }
 
-  if (segments.length !== 2 || segments[0] !== 'work') {
+  if (segments[0] !== 'work') {
+    return { type: 'not-found' }
+  }
+
+  if (segments.length === 1) {
+    return { type: 'work-index' }
+  }
+
+  if (segments.length !== 2) {
     return { type: 'not-found' }
   }
 

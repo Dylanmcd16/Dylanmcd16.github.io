@@ -14,6 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(rootDirectory, 'index.html'),
+        workIndex: resolve(rootDirectory, 'work/index.html'),
         plrb: resolve(
           rootDirectory,
           'work/plrb-weather-systems/index.html',
