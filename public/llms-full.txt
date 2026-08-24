@@ -26,7 +26,7 @@ Other Corteva work included co-designing and building the Gold Standard automate
 
 ## Master's Thesis - Iowa State University
 
-Dylan earned an M.S. in Meteorology from Iowa State University in 2024. His thesis, "Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems," examined how historical U.S. land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
+Dylan earned an M.S. in Meteorology from Iowa State University in 2024. His thesis, "Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems," examined how historical U.S. land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
 
 The research used WRF and Noah-MP simulations at multiple resolutions; geospatial land-surface datasets translated from CESM/LUMIP inputs, evaluating present-day versus 1850 vegetation scenarios; and analysis of ERA5, CESM, WRF, GOES, MODIS, MRMS, radar, and observational precipitation datasets using Python, xarray, MATLAB, NumPy, and NetCDF.
 
@@ -44,8 +44,8 @@ Since 2025 Dylan has been developing a full-stack platform that integrates more 
 
 ## Education
 
-- M.S. in Meteorology, Iowa State University, 2024. Thesis: Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems.
-- B.S. in Meteorology, Iowa State University, 2022. Senior thesis: Extreme Convective Wind Magnitude and Duration in Iowa. Dean's List honors.
+- M.S. in Meteorology, Iowa State University, 2024. Thesis: Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems.
+- B.S. in Meteorology, Iowa State University, 2022. Senior thesis: Extreme Convective Wind Magnitude and Duration in Iowa.
 
 ## Awards
 

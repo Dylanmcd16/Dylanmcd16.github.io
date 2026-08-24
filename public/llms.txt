@@ -12,10 +12,10 @@
 
 ## Work Examples
 
-- [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Builds and maintains the automated Python and ArcPy workflows, geospatial products, claims-facing ArcGIS applications, cloud services, and APIs that keep weather and catastrophe evidence accurate in daily production.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Co-developed the Smartstick field-sensing platform and built the Python and ArcPy workflow that processed its GPS-linked observations into quality-controlled, plot-level geospatial analyses. Analyzed soil-moisture, evapotranspiration, irrigation, and crop-development data to estimate crop water use and evaluate crop stress. Compared selected results with drone imagery and LiDAR, co-built a Gold Standard weather station and an automated soil-gas system, and built and maintained infrared radiometers in a fleet of more than 200.
-- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.
-- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): A personal end-to-end meteorological data pipeline that reconstructs the August 10, 2020 Iowa derecho from archived NEXRAD radar, IEM storm reports and warning polygons, ASOS/AWOS observations, HRRR model fields, and GOES-16 satellite imagery on one synchronized timeline, plus Sentinel-2 before-and-after damage comparison for the 2024 Greenfield tornado.
+- [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Automates weather-data pipelines and builds claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform used across seven research sites, saving approximately 100 processing hours and producing quality-controlled plot-level analyses.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation scenarios to quantify effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
+- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, synchronizing NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
 
 ## Awards
 

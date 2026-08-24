@@ -107,7 +107,7 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'I build and maintain the Python, ArcPy, and ArcGIS systems that transform NOAA, IEM, and other public data into production weather layers, maps, reports, and address-level insights. These workflows validate late, duplicate, incomplete, and failed source data so PLRB members can use reliable weather evidence without processing the raw datasets themselves.',
+        'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.',
       outcomes: [
         'Automated daily ingestion, validation, reconciliation, and publication of national weather and hazard data.',
         'Built ArcGIS services and JavaScript tools for querying and integrating weather evidence.',
@@ -140,9 +140,7 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024',
       accent: 'field',
       description:
-        'Corteva needed a repeatable way to turn raw, GPS-linked field measurements into research-ready evidence. I built and operated the sensing systems, then independently developed the Python and ArcPy pipelines that validated, spatially assigned, and analyzed the data.',
-      keyContribution:
-        'Co-developed Corteva’s Smartstick field-sensing platform and built the workflow that processed its GPS-linked observations across seven research sites into quality-controlled, plot-level geospatial analyses, then compared selected results with drone imagery and LiDAR.',
+        'Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform used across seven research sites, saving approximately 100 processing hours and producing quality-controlled plot-level analyses.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024',
@@ -169,7 +167,7 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Designed and ran WRF and Noah-MP simulations to determine how historical land-use change affected Midwest rainfall and mesoscale convective systems.',
+        'Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation scenarios to quantify effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
       keyContribution:
         'Produced an M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
       workIndex: {
@@ -310,7 +308,7 @@ export const portfolio = {
       degree: 'M.S. in Meteorology — Iowa State University',
       year: '2024',
       workLabel: 'Thesis',
-      work: 'Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems',
+      work: 'Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems',
     },
     {
       degree: 'B.S. in Meteorology — Iowa State University',

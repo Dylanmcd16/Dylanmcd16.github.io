@@ -78,7 +78,7 @@ function CaseStudyPage({
           <iframe
             className="thesis-reader"
             src={thesisUrl}
-            title="M.S. thesis: Impacts of U.S. Deforestation on Rainfall from Mesoscale Convective Systems"
+            title="M.S. thesis: Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems"
           />
           <CaseStudyFooter
             base={base}
@@ -360,8 +360,9 @@ function App() {
                   <span className="project-kind">Technical project</span>
                   <span className="project-strip-title">Personal Project Demonstration - Iowa Severe Weather Explorer</span>
                   <span className="project-strip-sub">
-                    An end-to-end meteorological data pipeline combining radar, observations, model
-                    output, satellite imagery, storm reports, and post-event damage analysis.
+                    Built an interactive replay of the August 10, 2020 Iowa derecho, synchronizing
+                    NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and
+                    damage data on one timeline.
                   </span>
                 </span>
                 <span className="project-strip-cta">

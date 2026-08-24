@@ -280,8 +280,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '05 / Automation',
         title: 'Automated Tropical Cyclone Track Mapping',
         paragraphs: [
-          'I developed a Python and ArcPy workflow that converts National Hurricane Center GIS archive data into publication-ready tropical cyclone track maps. Using ArcPy’s mapping and data-access APIs, the script dynamically locates the required feature layers and fields, constructs data-source-safe SQL definition queries, and filters the track points, track lines, and cumulative wind-history polygons by STORMID. It then reads storm metadata with arcpy.da.SearchCursor, parses the full track chronology to determine the storm year and month, and calculates the combined spatial extent of the filtered features so each layout automatically centers and scales to the selected cyclone.',
-          'The workflow also updates named ArcGIS Pro layout elements with the storm name, date, source attribution, and production date; validates missing layers, fields, records, layouts, and text elements; and exports both portrait and landscape products at 300 DPI. Output filenames are normalized programmatically, producing consistent deliverables such as 2026_bertha_track.jpg and 2026_bertha_track_landscape.jpg. This replaced a repetitive manual GIS production process with a reusable, error-checked mapping pipeline.',
+          'I built a Python and ArcPy workflow that converts National Hurricane Center GIS archives into publication-ready tropical-cyclone track maps. The workflow filters data by storm, reads track chronology and metadata, calculates the display extent, updates ArcGIS Pro layouts, validates required inputs, and exports standardized portrait and landscape products at 300 DPI.',
+          'This replaced a repetitive manual process with a reusable, error-checked mapping pipeline.',
         ],
         images: [
           {
@@ -314,11 +314,10 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Automated daily maps, archives, email alert content, data exports, and ArcGIS updates that previously required hours of manual work.',
+      'Automated recurring maps, archives, alerts, exports, and ArcGIS updates that previously required hours of manual work.',
       'Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.',
-      'Built claims-facing applications that keep displayed maps and downstream records aligned.',
-      'Expanded available weather evidence while documenting uncertainty and appropriate use.',
-      'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+      'Built claims-facing applications that combine multi-source weather evidence while preserving appropriate scientific interpretation.',
+      'Contributed to PLRB’s 2025 Esri SAG recognition.',
     ],
     tools: [
       { label: 'Automation', values: 'Python, ArcPy, scheduled production workflows' },
