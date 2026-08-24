@@ -158,7 +158,7 @@ export const portfolio = {
         ],
       },
       tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
-      caseStudyLabel: 'View field-sensing work',
+      caseStudyLabel: 'View Corteva Agriscience work',
       links: [],
     },
     {
@@ -188,7 +188,7 @@ export const portfolio = {
         ],
       },
       tech: ['WRF', 'Noah-MP', 'Python', 'xarray'],
-      caseStudyLabel: 'View modeling research',
+      caseStudyLabel: 'View M.S. Research',
       links: [],
     },
     {
@@ -318,4 +318,6 @@ export const portfolio = {
     },
   ] satisfies EducationItem[],
 
+  contactLead:
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }

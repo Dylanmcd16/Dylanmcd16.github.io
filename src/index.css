@@ -586,9 +586,9 @@ svg.icon {
    description and footer line up across the row no matter how long the copy
    is. This replaces the fixed min-height values that used to fake it.
    .project-body and .project-foot are display:contents so their children
-   become grid items of the card itself — that gives the footer rows
-   (contribution rule, tech pills, case-study link) their own shared rows, so
-   the divider above the contribution sits at the same height on every card.
+   become grid items of the card itself. Footer elements use explicit rows so
+   a card without a contribution still reserves that shared row instead of
+   shifting its technology pills and case-study link upward.
    Baseline support: Chrome 117+, Safari 16+, Firefox 71+. */
 @supports (grid-template-rows: subgrid) {
   .project:not(.is-featured) {
@@ -601,6 +601,13 @@ svg.icon {
   .project:not(.is-featured) .project-foot {
     display: contents;
   }
+  .project:not(.is-featured) .project-kind { grid-row: 1; }
+  .project:not(.is-featured) h3 { grid-row: 2; }
+  .project:not(.is-featured) .project-description { grid-row: 3; }
+  .project:not(.is-featured) .project-contribution { grid-row: 4; }
+  .project:not(.is-featured) .tech-list { grid-row: 5; }
+  .project:not(.is-featured) .project-case-link,
+  .project:not(.is-featured) .project-links { grid-row: 6; }
   .project.is-featured {
     grid-row: span 6;
   }
@@ -792,6 +799,8 @@ svg.icon {
   margin-top: var(--s4);
   color: var(--ink);
   font-weight: 700;
+  justify-self: start;
+  white-space: nowrap;
 }
 .project-case-link svg {
   width: 16px;
