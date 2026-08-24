@@ -318,6 +318,4 @@ export const portfolio = {
     },
   ] satisfies EducationItem[],
 
-  contactLead:
-    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }
