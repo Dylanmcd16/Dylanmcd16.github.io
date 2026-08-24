@@ -307,7 +307,7 @@ function App() {
                     <p className="project-description">{project.description}</p>
                     {project.featured && project.outcomes && (
                       <div className="project-outcomes">
-                        <p>{project.outcomes.length === 1 ? 'Highlighted contribution' : 'Selected contributions'}</p>
+                        <p>{project.outcomes.length === 1 ? 'Highlighted contribution' : 'Contributions'}</p>
                         <ul>
                           {project.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
                         </ul>
