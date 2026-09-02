@@ -173,7 +173,7 @@ arcgis_output_csv = run_arcgis_operations(
 const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'plrb-weather-systems': {
     title: 'Weather, Catastrophe, & Geospatial Analysis',
-    role: 'PLRB - Weather & Catastrophe Analyst',
+    role: 'PLRB — Meteorologist',
     scene: 'plrb',
     summary: [
       'I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.',
@@ -251,7 +251,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '03 / Research',
         title: 'Scientific validation of weather products',
         paragraphs: [
-          'I evaluate whether new datasets are scientifically defensible and operationally useful by testing what each variable represents, its spatial and temporal resolution, known biases, update behavior, and the evidence required for responsible interpretation.',
+          'I evaluate whether new datasets are scientifically defensible and operationally useful by testing what each variable represents, its spatial and temporal resolution, bias, provenance, update behavior, and the evidence required for responsible interpretation.',
           'Examples include comparing surface PM2.5 observations with HRRR-Smoke guidance and evaluating products such as ProbSevere and radar-derived hail estimates. The emphasis is not simply adding more layers; it is preventing modeled or remotely sensed estimates from being presented as direct observations.',
         ],
         images: [
@@ -328,7 +328,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
   },
   'corteva-field-sensing': {
     title: 'Field-Sensing Systems & Geospatial Research',
-    role: 'Corteva Agriscience - Field Sensing Research Associate',
+    role: 'Corteva Agriscience — Field Sensing Research Associate (Contract)',
     scene: 'corteva',
     summary: [
       'I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
@@ -376,7 +376,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Automated geospatial processing and analysis',
         paragraphs: [
           'I independently built the Python and ArcPy pipeline that processed each collection from raw tabular files through research-ready outputs. It standardized the data, plotted measurements for visual quality control, removed irrelevant or unrealistic readings, excluded bad GPS positions and outliers, converted coordinates to points, and spatially joined every valid observation to its experimental plot, treatment, and genotype.',
-          'ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, replacing about one hour of manual processing after every walk.',
+          'ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, automating approximately one hour of processing per collection (weeks across the campaign).',
         ],
         bullets: [
           'Applied the same workflow to data from seven research sites.',

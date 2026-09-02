@@ -5,7 +5,7 @@
 ## Profile
 
 - Location: West Des Moines, Iowa, USA
-- Current role: Meteorologist - Weather and Catastrophe Analyst, Property & Liability Resource Bureau (January 2025-Present)
+- Current role: Meteorologist, Property & Liability Resource Bureau (January 2025-Present)
 - Education: M.S. and B.S. in Meteorology, Iowa State University
 - Contact: dylanddermott@gmail.com
 - LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/
@@ -13,18 +13,18 @@
 ## Work Examples
 
 - [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Automates weather-data pipelines and builds claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform used across seven research sites, saving approximately 100 processing hours and producing quality-controlled plot-level analyses.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform across seven research sites — automating approximately one hour of processing per collection (weeks across the campaign) and delivering quality-controlled plot summaries.
 - [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation scenarios to quantify effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
 - [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, synchronizing NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
 
 ## Awards
 
 - Esri Special Achievement in GIS (SAG) Award, 2025 - contributed to the PLRB catastrophe analytics and ArcGIS applications recognized by the award.
-- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform.
+- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (full-stack platform bridging atmospheric data systems with applied AI, demonstrating automated evidence extraction and report generation).
 
 ## Core Capabilities
 
-Meteorological analysis, catastrophe research, spatial analysis, Python automation, ArcPy, ArcGIS Pro, ArcGIS Enterprise and Server, Experience Builder, data quality control and reconciliation, data integration, REST APIs, radar, GOES, MODIS, MRMS, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, machine learning and AI-supported analysis, AWS, SQL, PostgreSQL, MATLAB, R, C++, FORTRAN, React, TypeScript, FastAPI, Git, GitHub, and Linux.
+Meteorological analysis, catastrophe modeling, severe weather verification, spatial analysis, Spatial ETL, Python automation, ArcPy, ArcGIS Pro, ArcGIS Enterprise and Server, Experience Builder, data quality control and reconciliation, data integration, REST APIs, radar, GOES, MODIS, MRMS, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, machine learning and AI-supported analysis, AWS, SQL, PostgreSQL, MATLAB, R, C++, FORTRAN, React, TypeScript, FastAPI, Git, GitHub, and Linux.
 
 ## Key Links
 

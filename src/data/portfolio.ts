@@ -109,9 +109,10 @@ export const portfolio = {
       description:
         'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.',
       outcomes: [
-        'Automated daily ingestion, validation, reconciliation, and publication of national weather and hazard data.',
-        'Built ArcGIS services and JavaScript tools for querying and integrating weather evidence.',
-        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
+        'Automate the processing of hundreds to thousands of reports and features daily while reconciling late reports and detecting duplicates, invalid IDs, and silent download failures.',
+        'Develop claims-facing ArcGIS Experience Builder applications with custom REST API integrations for date filtering, layer control, and map synchronization.',
+        'Evaluate new datasets for scientific defensibility, spatial and temporal resolution, bias, provenance, and appropriate interpretation.',
+        'Contributed to PLRB receiving the 2025 Esri Special Achievement in GIS Award.',
       ],
       workIndex: {
         organization: 'PLRB',
@@ -137,13 +138,13 @@ export const portfolio = {
     {
       slug: 'corteva-field-sensing',
       title: 'Field Sensing Research Associate',
-      kind: 'Corteva Agriscience · 2024',
+      kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform used across seven research sites, saving approximately 100 processing hours and producing quality-controlled plot-level analyses.',
+        'Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform across seven research sites — automating approximately one hour of processing per collection (weeks across the campaign) and delivering quality-controlled plot summaries.',
       workIndex: {
         organization: 'Corteva Agriscience',
-        period: '2024',
+        period: '2024 — 2025',
         summary:
           'Field-sensing systems, sensor-data processing, quality control, and plot-level geospatial analysis for agricultural research.',
         linkLabel: 'Explore Corteva work',
@@ -217,14 +218,14 @@ export const portfolio = {
     {
       organization: 'Property & Liability Resource Bureau',
       scope: 'Production weather systems, geospatial automation, and catastrophe decision support',
-      role: 'Meteorologist — Weather & Catastrophe Analyst',
+      role: 'Meteorologist',
       period: '2025 — Present',
     },
     {
       organization: 'Corteva Agriscience',
       scope: 'Field-sensing systems, automated geospatial pipelines, and research instrumentation',
-      role: 'Field Sensing Research Associate',
-      period: '2024',
+      role: 'Field Sensing Research Associate (Contract)',
+      period: '2024 — 2025',
     },
     {
       organization: 'Iowa State University',
@@ -234,7 +235,7 @@ export const portfolio = {
     },
     {
       organization: 'Iowa State University',
-      scope: 'Boundary-layer meteorology research and scientific visualization',
+      scope: 'Boundary-layer meteorology research, large observational/gridded datasets, and physical mechanism visualization',
       role: 'Undergraduate Research Assistant',
       period: '2021',
     },
@@ -244,12 +245,13 @@ export const portfolio = {
     {
       title: 'Geospatial Systems',
       strengths:
-        'GIS automation, spatial and raster analysis, remote sensing, web GIS publishing, and field-sensor data workflows',
+        'Spatial ETL, automated pipelines, raster and vector processing, web GIS publishing, remote sensing, and field-sensor workflows',
       tools: [
         'ArcGIS Pro',
         'ArcGIS Enterprise / Online',
         'ArcPy',
         'Experience Builder',
+        'Spatial ETL',
         'GeoPandas',
         'Rasterio',
         'LiDAR',
@@ -259,20 +261,24 @@ export const portfolio = {
     {
       title: 'Meteorology & Modeling',
       strengths:
-        'Radar and severe-weather analysis, numerical weather prediction, atmospheric modeling, and land-surface modeling',
+        'Severe weather verification, catastrophe modeling, numerical weather prediction, atmospheric modeling, and land-surface modeling',
       tools: ['WRF', 'Noah-MP', 'NEXRAD / MRMS', 'GOES / MODIS', 'ERA5', 'CESM'],
     },
     {
       title: 'Data Engineering & Software',
       strengths:
-        'Automated data pipelines, data quality control and reconciliation, API integration, cloud-hosted services, and scientific web applications',
+        'Automated QC/validation, REST API integrations, continuous operational workflows, cloud services, and scientific software',
       tools: [
         'Python',
+        'SQL / PostgreSQL',
+        'R',
+        'MATLAB',
+        'C++',
+        'AWS',
+        'Linux',
         'pandas / xarray',
         'NetCDF / GRIB / GeoTIFF',
         'REST APIs',
-        'AWS',
-        'SQL / PostgreSQL',
         'FastAPI',
         'React / TypeScript',
       ],
@@ -299,7 +305,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently built AI-driven weather intelligence platform that integrates over 200 environmental data streams into source-backed analyses.',
+        'Recognized for an independently designed full-stack platform bridging atmospheric data systems with applied AI, demonstrating automated evidence extraction and report generation across 200+ environmental data streams.',
     },
   ] satisfies AwardItem[],
 
@@ -318,4 +324,6 @@ export const portfolio = {
     },
   ] satisfies EducationItem[],
 
+  contactLead:
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }
