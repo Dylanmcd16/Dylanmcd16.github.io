@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#164a24" />
+    <meta
+      name="description"
+      content="An interactive timelapse of the 2025 soybean season across 248 central Iowa fields: Sentinel-2 NDVI on all 59 usable acquisition dates, with Daymet rainfall accumulating alongside it on a satellite basemap."
+    />
+    <link rel="canonical" href="https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/" />
+    <meta property="og:site_name" content="Dylan McDermott Portfolio" />
+    <meta property="og:title" content="Iowa Soybean Season Explorer | Dylan McDermott" />
+    <meta
+      property="og:description"
+      content="Watch soybean greenness change through the 2025 growing season across 248 central Iowa fields, with rainfall accumulating alongside it."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/" />
+    <meta property="og:image" content="https://dylanmcd16.github.io/social/iowa-soybean-season-explorer.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Iowa Soybean Season Explorer - 2025 growing season NDVI and rainfall" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Iowa Soybean Season Explorer | Dylan McDermott" />
+    <meta
+      name="twitter:description"
+      content="Sentinel-2 NDVI and Daymet rainfall across 248 central Iowa soybean fields, 2025 season."
+    />
+    <meta name="twitter:image" content="https://dylanmcd16.github.io/social/iowa-soybean-season-explorer.jpg" />
+    <meta name="twitter:image:alt" content="Iowa Soybean Season Explorer - 2025 growing season NDVI and rainfall" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Iowa Soybean Season Explorer | Dylan McDermott</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://dylanmcd16.github.io/#person",
+            "name": "Dylan McDermott",
+            "url": "https://dylanmcd16.github.io/",
+            "jobTitle": "Meteorologist and Geospatial Data Professional",
+            "email": "mailto:dylanddermott@gmail.com",
+            "sameAs": [
+              "https://www.linkedin.com/in/dylan-mcdermott-193b18174/",
+              "https://github.com/Dylanmcd16"
+            ]
+          },
+          {
+            "@type": "WebApplication",
+            "name": "Iowa Soybean Season Explorer",
+            "applicationCategory": "Data visualization",
+            "operatingSystem": "Web browser",
+            "description": "An interactive timelapse of the 2025 central Iowa soybean season built from Sentinel-2 L2A surface reflectance, USDA Crop Sequence Boundaries and Cropland Data Layer, Daymet 1 km daily weather, and SSURGO soils: 9,769 valid field-level NDVI observations across 248 fields and 59 usable acquisition dates, with cumulative and trailing rainfall overlays in inches on a satellite basemap.",
+            "image": "https://dylanmcd16.github.io/social/iowa-soybean-season-explorer.jpg",
+            "url": "https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/",
+            "keywords": "Sentinel-2, NDVI, soybean, Cropland Data Layer, Crop Sequence Boundaries, Daymet, SSURGO, remote sensing, MapLibre, Python, React, TypeScript",
+            "author": {
+              "@id": "https://dylanmcd16.github.io/#person"
+            },
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://dylanmcd16.github.io/#website",
+              "name": "Dylan McDermott Portfolio",
+              "url": "https://dylanmcd16.github.io/"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>Iowa Soybean Season Explorer</h1>
+        <p>
+          An interactive timelapse of the 2025 soybean growing season across 248 central Iowa
+          fields, combining Sentinel-2 NDVI measured on all 59 usable acquisition dates with
+          Daymet daily rainfall on a satellite basemap.
+        </p>
+        <p>This interactive map requires JavaScript. <a href="/">Return to portfolio</a>.</p>
+      </main>
+    </noscript>
+    <script type="module" src="/src/pages/iowa-soybean-season-explorer-main.tsx"></script>
+  </body>
+</html>
