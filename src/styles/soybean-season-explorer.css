@@ -1,0 +1,495 @@
+/* ==========================================================================
+   Iowa Soybean Season Explorer
+   Uses the portfolio design tokens (index.css). The only local tokens are the
+   two data hues, so a green number and a blue number always mean the same
+   thing here as they do in the map legend.
+   ========================================================================== */
+
+.sse-page {
+  --sse-green: #2c6a30;
+  --sse-green-ink: #1d4a22;
+  --sse-blue: #1f5795;
+  --sse-ground: #0d1b2a;
+}
+
+.sse-page__title {
+  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.sse-section {
+  margin-top: 56px;
+}
+.sse-section > h2 {
+  margin-bottom: 14px;
+}
+.sse-section p {
+  max-width: 720px;
+  color: var(--ink-soft);
+}
+
+/* The explorer breaks out of the article column; headings and copy stay in it. */
+.sse-explorer {
+  width: min(1600px, calc(100vw - 2 * var(--pad)));
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--s5);
+}
+
+.sse-explorer--message {
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel);
+  color: var(--muted);
+}
+.sse-explorer--message p {
+  max-width: 48ch;
+  text-align: center;
+  margin: 0;
+  padding: var(--s5);
+}
+
+/* ---- summary row -------------------------------------------------------- */
+
+.sse-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--s4);
+  padding-bottom: var(--s4);
+  margin-bottom: var(--s4);
+  border-bottom: 1px solid var(--line);
+}
+.sse-summary div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sse-summary strong {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.sse-summary span {
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sse-summary__green {
+  color: var(--sse-green) !important;
+}
+.sse-summary__blue {
+  color: var(--sse-blue) !important;
+}
+
+/* ---- stage: map plus detail panel --------------------------------------- */
+
+.sse-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: var(--s4);
+  align-items: start;
+}
+
+.sse-stage__map {
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--sse-ground);
+}
+
+.sse-map {
+  width: 100%;
+  height: clamp(460px, 68vh, 760px);
+}
+
+.sse-map__veil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--sse-ground);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+/* Floating panels over the map. */
+.sse-overlay {
+  position: absolute;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-sm);
+  box-shadow: 0 6px 20px rgba(7, 17, 31, 0.18);
+  padding: var(--s3);
+  backdrop-filter: blur(6px);
+}
+.sse-overlay--layers {
+  top: var(--s3);
+  left: var(--s3);
+  max-width: 250px;
+}
+.sse-overlay--legend {
+  /* Clear of the attribution strip MapLibre draws along the bottom edge. */
+  bottom: 30px;
+  right: var(--s3);
+  width: 218px;
+}
+
+/* ---- layer switches ----------------------------------------------------- */
+
+.sse-layers__heading,
+.sse-layers__subheading {
+  margin: 0 0 var(--s2);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sse-layers__subheading {
+  margin-top: var(--s3);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.sse-switch {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 3px 0;
+}
+.sse-switch input {
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+  flex: none;
+}
+.sse-radios {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- legend ramps ------------------------------------------------------- */
+
+.sse-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+.sse-ramp__label {
+  margin: 0 0 var(--s1);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sse-ramp__bar {
+  height: 9px;
+  border-radius: 2px;
+  border: 1px solid var(--line-strong);
+}
+.sse-ramp__ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+  font-size: 0.66rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.sse-ramp__note {
+  margin: var(--s1) 0 0;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+/* ---- detail panel ------------------------------------------------------- */
+
+.sse-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  padding: var(--s4);
+  max-height: clamp(460px, 68vh, 760px);
+  overflow-y: auto;
+}
+.sse-panel--empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.sse-panel h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+.sse-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+}
+.sse-panel__hint,
+.sse-panel__meta,
+.sse-panel__soil {
+  margin: var(--s2) 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.sse-panel__soil {
+  color: var(--ink-soft);
+}
+
+.sse-zoom {
+  font: inherit;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--accent);
+  cursor: pointer;
+  flex: none;
+}
+.sse-zoom:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.sse-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s3);
+  margin: var(--s4) 0 0;
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+}
+.sse-stats div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sse-stats dt {
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sse-stats dd {
+  margin: 1px 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.sse-stats span {
+  font-size: 0.66rem;
+  color: var(--muted-2);
+}
+.sse-stats__green {
+  color: var(--sse-green);
+}
+.sse-stats__blue {
+  color: var(--sse-blue);
+}
+
+/* ---- charts ------------------------------------------------------------- */
+
+.sse-chart__label {
+  margin: var(--s4) 0 var(--s1);
+  font-size: 0.66rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sse-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.sse-chart__note {
+  margin: var(--s2) 0 0;
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.sse-chart__grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.sse-chart__tick {
+  font-size: 9px;
+  fill: var(--muted-2);
+  font-variant-numeric: tabular-nums;
+}
+.sse-chart__cursor {
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+.sse-chart__ndvi-line {
+  fill: none;
+  stroke: var(--sse-green);
+  stroke-width: 1.4;
+}
+.sse-chart__ndvi-dot {
+  fill: var(--sse-green-ink);
+}
+.sse-chart__rain-bar {
+  stroke: var(--sse-blue);
+  stroke-width: 1.1;
+}
+.sse-chart__rain-line {
+  fill: none;
+  stroke: var(--sse-blue);
+  stroke-width: 1.5;
+}
+.sse-chart__rain-area {
+  fill: var(--sse-blue);
+  opacity: 0.14;
+  stroke: none;
+}
+
+/* ---- playback ----------------------------------------------------------- */
+
+.sse-playback {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(180px, 260px) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s3);
+  margin-top: var(--s4);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel);
+}
+
+.sse-play,
+.sse-step {
+  font: inherit;
+  width: 36px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+.sse-play {
+  font-size: 0.8rem;
+}
+.sse-play:hover,
+.sse-step:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.sse-step:disabled {
+  color: var(--muted-2);
+  cursor: default;
+}
+
+.sse-playback__clock {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sse-playback__clock strong {
+  font-size: 0.98rem;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.sse-playback__clock span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.sse-slider {
+  width: 100%;
+  accent-color: var(--sse-green);
+}
+
+/* ---- notes grid --------------------------------------------------------- */
+
+.sse-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--s5);
+  margin-top: var(--s5);
+}
+.sse-notes h3 {
+  margin: 0 0 var(--s2);
+  font-size: 0.92rem;
+}
+.sse-notes p {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: none;
+}
+
+/* ---- focus and motion --------------------------------------------------- */
+
+.sse-page :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sse-map * {
+    transition: none !important;
+  }
+}
+
+/* ---- narrow screens ----------------------------------------------------- */
+
+@media (max-width: 1020px) {
+  .sse-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sse-panel {
+    max-height: none;
+  }
+  .sse-overlay--legend {
+    width: 190px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sse-playback {
+    grid-template-columns: auto auto auto minmax(0, 1fr);
+  }
+  .sse-slider {
+    grid-column: 1 / -1;
+  }
+  .sse-overlay--layers,
+  .sse-overlay--legend {
+    position: static;
+    width: auto;
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    backdrop-filter: none;
+  }
+  .sse-map {
+    height: 420px;
+  }
+}

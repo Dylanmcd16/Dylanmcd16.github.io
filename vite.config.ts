@@ -31,6 +31,10 @@ export default defineConfig({
           rootDirectory,
           'projects/iowa-severe-weather-explorer/index.html',
         ),
+        iowaSoybeanSeasonExplorer: resolve(
+          rootDirectory,
+          'projects/iowa-soybean-season-explorer/index.html',
+        ),
       },
     },
   },

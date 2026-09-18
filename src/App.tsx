@@ -369,6 +369,24 @@ function App() {
                   View <ArrowIcon />
                 </span>
               </a>
+
+              <a
+                className="project-strip"
+                href={`${base}projects/iowa-soybean-season-explorer/`}
+              >
+                <span className="project-strip-label">
+                  <span className="project-kind">Technical project</span>
+                  <span className="project-strip-title">Personal Project Demonstration - Iowa Soybean Season Explorer</span>
+                  <span className="project-strip-sub">
+                    Built a timelapse of the 2025 soybean season across 248 central Iowa fields,
+                    stepping through every clear Sentinel-2 pass with Daymet rainfall accumulating
+                    alongside it on satellite imagery.
+                  </span>
+                </span>
+                <span className="project-strip-cta">
+                  View <ArrowIcon />
+                </span>
+              </a>
             </div>
           </div>
         </section>

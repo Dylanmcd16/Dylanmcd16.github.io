@@ -84,6 +84,18 @@ export function WorkIndexPage({ base }: { base: string }) {
               Interactive maps and analysis of historical severe-weather events across Iowa.
             </span>
           </a>
+          <a
+            className="work-next-feature"
+            href={`${base}projects/iowa-soybean-season-explorer/`}
+          >
+            <span className="work-next-feature-title">
+              Iowa Soybean Season Explorer <ArrowIcon />
+            </span>
+            <span className="work-next-feature-sub">
+              A season-long timelapse of soybean greenness and rainfall across 248 central Iowa
+              fields, from Sentinel-2 and Daymet.
+            </span>
+          </a>
           <div className="work-next-links">
             <a href={`${base}${portfolio.resumeFile}`} target="_blank" rel="noreferrer">
               Résumé
