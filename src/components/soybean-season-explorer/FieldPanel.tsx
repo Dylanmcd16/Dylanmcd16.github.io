@@ -90,7 +90,7 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
         <h3>Selected field</h3>
         <p className="sse-panel__hint">
           Click any field on the map to see its NDVI through the season and the rainfall at its
-          Daymet cell. Zoom in to read the ground around it.
+          nearest sample point. Zoom in to read the ground around it.
         </p>
       </aside>
     )
@@ -110,8 +110,8 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
     ? series.v[series.d.indexOf(day)] ?? undefined
     : undefined
 
-  // ---- NDVI chart: one dot per clear pass, joined but never interpolated
-  // across a gap wider than the revisit interval would explain.
+  // ---- NDVI chart: one dot per date this field was actually measured on.
+  // A missing date is cloud over this field, not a gap in the season.
   const ndviScale = makeScales(nDays, 132, 1)
   const ndviPoints: AxisPoint[] = []
   if (series) {
@@ -157,7 +157,7 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
         {properties.acres ? `${properties.acres.toLocaleString()} acres` : '—'}
         {properties.ha ? ` · ${properties.ha} ha` : ''}
         {' · '}
-        {properties.n} clear passes
+        measured on {properties.n} of {manifest.nPasses} dates
       </p>
       {properties.soil ? <p className="sse-panel__soil">{properties.soil}</p> : null}
 
@@ -179,13 +179,13 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
         <div>
           <dt>Rain, last 14 d</dt>
           <dd className="sse-stats__blue">{trailing ? formatInches(trailing[day]) : '—'}</dd>
-          <span>at this cell</span>
+          <span>nearest sample</span>
         </div>
       </dl>
 
       <p className="sse-chart__label">NDVI through the season</p>
       <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 132`} role="img"
-        aria-label={`NDVI for field ${properties.id} across ${properties.n} clear passes`}>
+        aria-label={`NDVI for field ${properties.id} , measured on ${properties.n} dates`}>
         <Axes
           height={132}
           nDays={nDays}
@@ -204,12 +204,12 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
           className="sse-chart__cursor" />
       </svg>
       <p className="sse-chart__note">
-        One point per clear Sentinel-2 pass. Gaps are cloud, not a change in the crop.
+        One point per date this field could be measured. Gaps are cloud, not a change in the crop.
       </p>
 
       <p className="sse-chart__label">Daily rainfall</p>
       <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 104`} role="img"
-        aria-label={`Daily rainfall at the Daymet cell for field ${properties.id}`}>
+        aria-label={`Daily rainfall at the nearest sample point to field ${properties.id}`}>
         <Axes
           height={104}
           nDays={nDays}
@@ -239,7 +239,7 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
 
       <p className="sse-chart__label">Rainfall since 1 May</p>
       <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 108`} role="img"
-        aria-label={`Cumulative rainfall at the Daymet cell for field ${properties.id}`}>
+        aria-label={`Cumulative rainfall at the nearest sample point to field ${properties.id}`}>
         <Axes
           height={108}
           nDays={nDays}
@@ -258,8 +258,8 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
           y2={108 - PAD_BOTTOM} className="sse-chart__cursor" />
       </svg>
       <p className="sse-chart__note">
-        All three charts share one x-axis, so greenness and rainfall read together. Rainfall is a
-        Daymet 1 km estimate at this field&apos;s cell, in inches — not a gauge in the field.
+        All three charts share one x-axis, so greenness and rainfall read together. Rainfall is
+        Daymet sampled at the nearest point on a ~1 km grid, in inches — not a gauge in the field.
       </p>
     </aside>
   )

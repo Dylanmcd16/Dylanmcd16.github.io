@@ -58,10 +58,11 @@ const LAYER_FIELD_SELECTED = 'field-selected'
 
 /** A one-byte-per-channel image of the rainfall grid, redrawn each step.
  *
- * The values are the Daymet cells unchanged — one pixel per 1 km cell. Only
- * the *rendering* is smoothed: MapLibre resamples the image linearly, which
- * turns the lattice into a gradient instead of a checkerboard. Cells with no
- * data stay fully transparent rather than being filled in.
+ * The values are the Daymet samples unchanged — one image pixel per sample
+ * point, roughly 1 km apart. Only the *rendering* is smoothed: MapLibre
+ * resamples the image linearly, which turns the lattice into a gradient
+ * instead of a checkerboard. Positions with no sample stay fully transparent
+ * rather than being filled in.
  */
 function paintRainfall(
   canvas: HTMLCanvasElement,
@@ -187,15 +188,15 @@ export function SeasonMap({
           // Light enough that the imagery stays readable underneath. The
           // rainfall is context for the crop, not the subject of the map.
           'raster-opacity': 0.38,
-          // Linear resampling is what turns the 1 km lattice into a smooth
-          // field. The numbers behind it are still the individual cells.
+          // Linear resampling is what turns the ~1 km lattice into a smooth
+          // field. The numbers behind it are still the individual samples.
           'raster-resampling': 'linear',
           'raster-fade-duration': 0,
         },
         layout: { visibility: 'none' },
       })
 
-      // The overlay stops at the edge of the Daymet grid, which is a hard
+      // The overlay stops at the edge of the sampled area, which is a hard
       // rectangle. Outlining it makes that edge read as the boundary of the
       // data rather than as a rendering artefact.
       const [[west2, north2], [east2], , [, south2]] = raster.coordinates

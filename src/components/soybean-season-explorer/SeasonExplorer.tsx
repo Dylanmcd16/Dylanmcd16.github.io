@@ -11,8 +11,8 @@ import { SeasonMap } from './SeasonMap'
 import { LayerControls, PlaybackControls, SeasonLegend } from './SeasonControls'
 import { FieldPanel } from './FieldPanel'
 
-/** One frame per clear pass. Slow enough to read the date, fast enough that
- * the whole season runs in about half a minute. */
+/** One frame per usable acquisition date. Slow enough to read the date, fast
+ * enough that the whole season runs in about half a minute. */
 const FRAME_MS = 620
 
 export function SeasonExplorer() {
@@ -83,7 +83,7 @@ export function SeasonExplorer() {
   if (!data || !ndvi || !rainfall) {
     return (
       <div className="sse-explorer sse-explorer--message">
-        <p>Loading 248 fields, 59 clear Sentinel-2 passes and a season of rainfall…</p>
+        <p>Loading 248 fields, 59 usable Sentinel-2 dates and a season of rainfall…</p>
       </div>
     )
   }
@@ -93,9 +93,9 @@ export function SeasonExplorer() {
   const previousDay = step > 0 ? passes[step - 1] : null
   const daysSincePrevious = previousDay === null ? null : day - previousDay
 
-  // Summary figures for this pass, read straight off the data rather than
-  // stored: how much of the area the satellite actually saw, and how green it
-  // was where it could see.
+  // Summary figures for this date, read straight off the data rather than
+  // stored: how many fields the satellite actually measured, and how green
+  // they were. A usable date is rarely a cloud-free one everywhere.
   const observed: number[] = []
   for (const feature of data.fields.features) {
     const value = ndvi.get(feature.properties.id)?.get(day)
@@ -123,11 +123,14 @@ export function SeasonExplorer() {
         </div>
         <div>
           <strong>{manifest.nPasses}</strong>
-          <span>clear Sentinel-2 passes</span>
+          <span>usable Sentinel-2 acquisition dates</span>
         </div>
         <div>
           <strong>{manifest.nObservations.toLocaleString()}</strong>
-          <span>field observations</span>
+          <span>
+            valid field-level NDVI observations, of{' '}
+            {manifest.nPossibleObservations.toLocaleString()} possible
+          </span>
         </div>
         <div>
           <strong className="sse-summary__green">
@@ -135,7 +138,9 @@ export function SeasonExplorer() {
           </strong>
           <span>
             median NDVI on {shortDate(dateIso)}
-            {observed.length ? ` · ${observed.length} fields clear` : ' · all clouded out'}
+            {observed.length
+              ? ` · ${observed.length} of ${manifest.nFields} fields measured`
+              : ' · no field measurable'}
           </span>
         </div>
         <div>

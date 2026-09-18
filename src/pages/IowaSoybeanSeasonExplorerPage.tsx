@@ -18,9 +18,10 @@ export function IowaSoybeanSeasonExplorerPage() {
         <h1 className="sse-page__title">Iowa Soybean Season Explorer</h1>
         <p className="case-study-overview">
           How did soybean greenness change through the 2025 growing season in central Iowa, and how
-          did rainfall accumulate alongside it? This steps through every clear Sentinel-2 pass over
-          248 soybean fields near Ames, colouring each field by what the satellite actually measured
-          that day and letting the season&apos;s rainfall build underneath.
+          did rainfall accumulate alongside it? This steps through all 59 usable Sentinel-2
+          acquisition dates over 248 soybean fields near Ames, colouring each field by what the
+          satellite actually measured that day and letting the season&apos;s rainfall build
+          underneath.
         </p>
 
         <SeasonExplorer />
@@ -29,11 +30,18 @@ export function IowaSoybeanSeasonExplorerPage() {
         <section className="sse-section" aria-labelledby="sse-read-heading">
           <h2 id="sse-read-heading">How to read it</h2>
           <p>
-            The slider does not move day by day. It steps between the <strong>59 dates in 2025 when
-            Sentinel-2 had a clear view</strong> of this area — out of 214 days in the window. A
-            smooth day-by-day animation would imply the crop was watched continuously, and it was
-            not: most passes are lost to cloud. Nothing is interpolated between them, so a field
-            drawn as a hollow outline was clouded out on that pass rather than bare.
+            The slider does not move day by day. It steps between the{' '}
+            <strong>59 usable Sentinel-2 acquisition dates</strong> in 2025 — out of 214 days in the
+            window. A smooth day-by-day animation would imply the crop was watched continuously, and
+            it was not.
+          </p>
+          <p>
+            &ldquo;Usable&rdquo; does not mean cloud-free everywhere. A date qualifies when at least
+            one field could be measured on it, and on most of them some fields are still lost to
+            cloud — which is why the season yields{' '}
+            <strong>9,769 valid field-level NDVI observations</strong> rather than the 248 × 59 =
+            14,632 that a cloudless season would have produced. Nothing is interpolated, so a field
+            drawn as a hollow outline was clouded out on that date rather than bare.
           </p>
           <p>
             Rainfall runs on the real daily clock underneath. Cumulative totals count from 1 May,
@@ -55,13 +63,14 @@ export function IowaSoybeanSeasonExplorerPage() {
             inward so roads, ditches, and the neighbouring crop stay out of the signal. Sentinel-2
             L2A scenes are read as windowed cloud-optimised GeoTIFFs straight from AWS, masked per
             pixel with the scene classification layer, and reduced to a median NDVI over each
-            field&apos;s interior. Daymet supplies daily rainfall on its native 1 km grid, and
-            SSURGO the soil series for each field.
+            field&apos;s interior. Daymet supplies daily rainfall, queried at 806 points on a
+            regular latitude/longitude grid roughly 1 km apart, and SSURGO the soil series for each
+            field.
           </p>
           <p>
-            The result is 9,769 field-by-date observations across the season. The map is MapLibre
-            over Esri World Imagery, with the fields as real georeferenced polygons rather than a
-            drawing — zoom in and the field sits on the ground it came from, next to its own
+            The result is 9,769 valid field-level NDVI observations across the season. The map is
+            MapLibre over Esri World Imagery, with the fields as real georeferenced polygons rather
+            than a drawing — zoom in and the field sits on the ground it came from, next to its own
             farmstead and tree lines.
           </p>
         </section>
@@ -87,11 +96,14 @@ export function IowaSoybeanSeasonExplorerPage() {
               </p>
             </div>
             <div>
-              <h3>Gridded rainfall, not gauges</h3>
+              <h3>Sampled rainfall, not gauges</h3>
               <p>
-                Daymet interpolates weather-station records onto a 1 km grid. It is a modelled
-                estimate, not a rain gauge in the field. The display smooths between cell centres
-                for legibility; the underlying values remain the individual 1 km cells.
+                Daymet interpolates weather-station records onto a 1 km grid — a modelled estimate,
+                not a rain gauge in the field. It is sampled here at 806 latitude/longitude points
+                roughly 1 km apart, which are <em>not</em> snapped to Daymet&apos;s native projected
+                pixels, so the rectangles are the area each sample represents rather than a pixel
+                footprint. The display smooths between sample points for legibility; the values
+                themselves are the individual samples.
               </p>
             </div>
             <div>
@@ -111,7 +123,8 @@ export function IowaSoybeanSeasonExplorerPage() {
           <p>
             Sentinel-2 L2A surface reflectance (ESA Copernicus, via the Element 84 earth-search
             STAC API over AWS Open Data); USDA NASS Crop Sequence Boundaries and Cropland Data
-            Layer; Daymet V4 R1 daily surface weather on a 1 km grid (Thornton et al., ORNL DAAC,
+            Layer; Daymet V4 R1 daily surface weather on a 1 km grid, via the single-pixel
+            extraction service (Thornton et al., ORNL DAAC,
             <a
               className="text-link"
               href="https://doi.org/10.3334/ORNLDAAC/2129"

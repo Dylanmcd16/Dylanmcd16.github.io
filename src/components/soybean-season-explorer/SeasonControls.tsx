@@ -101,7 +101,7 @@ function Ramp({
 }
 
 /** Both scales are fixed for the whole season, so a colour means the same
- * thing on every pass and the animation can be read as change. */
+ * thing on every date and the animation can be read as change. */
 export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
   return (
     <div className="sse-legend">
@@ -109,14 +109,14 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
         label="Field NDVI"
         stops={NDVI_STOPS}
         format={(value) => value.toFixed(2)}
-        note="Bare soil to closed canopy. Hollow outline means cloud on this pass."
+        note="Bare soil to closed canopy. A hollow outline means the field was clouded out on this date."
       />
       {precipLayer === 'cumulative' ? (
         <Ramp
           label="Rain since 1 May"
           stops={CUMULATIVE_STOPS}
           format={(value) => formatInches(value, 0)}
-          note="Daymet 1 km estimate, smoothed for display."
+          note="Daymet, sampled on a ~1 km grid and smoothed for display."
         />
       ) : null}
       {precipLayer === 'trailing14' ? (
@@ -124,7 +124,7 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
           label="Rain, last 14 days"
           stops={TRAILING_STOPS}
           format={(value) => formatInches(value, 0)}
-          note="Daymet 1 km estimate, smoothed for display."
+          note="Daymet, sampled on a ~1 km grid and smoothed for display."
         />
       ) : null}
     </div>
@@ -136,7 +136,7 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
 // ---------------------------------------------------------------------------
 
 interface PlaybackProps {
-  /** Index into the list of clear passes, not a calendar day. */
+  /** Index into the list of usable acquisition dates, not a calendar day. */
   step: number
   nSteps: number
   dateIso: string
@@ -170,7 +170,7 @@ export function PlaybackControls({
         className="sse-step"
         onClick={() => onStepChange(Math.max(0, step - 1))}
         disabled={step === 0}
-        aria-label="Previous clear pass"
+        aria-label="Previous acquisition date"
       >
         ←
       </button>
@@ -179,7 +179,7 @@ export function PlaybackControls({
         className="sse-step"
         onClick={() => onStepChange(Math.min(nSteps - 1, step + 1))}
         disabled={step === nSteps - 1}
-        aria-label="Next clear pass"
+        aria-label="Next acquisition date"
       >
         →
       </button>
@@ -187,9 +187,9 @@ export function PlaybackControls({
       <div className="sse-playback__clock">
         <strong>{longDate(dateIso)}</strong>
         <span>
-          Pass {step + 1} of {nSteps}
+          Date {step + 1} of {nSteps}
           {daysSincePrevious === null
-            ? ' · first clear view of the season'
+            ? ' · first usable acquisition of the season'
             : ` · ${daysSincePrevious} ${daysSincePrevious === 1 ? 'day' : 'days'} since the previous one`}
         </span>
       </div>
@@ -202,7 +202,7 @@ export function PlaybackControls({
         step={1}
         value={step}
         onChange={(event) => onStepChange(Number(event.target.value))}
-        aria-label="Clear Sentinel-2 pass"
+        aria-label="Usable Sentinel-2 acquisition date"
       />
     </div>
   )

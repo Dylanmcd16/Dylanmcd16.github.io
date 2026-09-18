@@ -3,7 +3,7 @@
  * Everything expensive happens once, at load: the NDVI lookup, the cumulative
  * and trailing rainfall totals, and the raster grid layout. The playback loop
  * then only reads precomputed numbers, which is what keeps a 59-step autoplay
- * smooth with 248 fields and 806 weather cells on the map.
+ * smooth with 248 fields and 806 rainfall sample points on the map.
  */
 
 import type {
@@ -69,18 +69,19 @@ export function buildNdviLookup(data: SeasonData): NdviLookup {
 // ---------------------------------------------------------------------------
 
 export interface RainfallTotals {
-  /** Cell id -> inches accumulated from `rainZeroDate` through each day. */
+  /** Sample id -> inches accumulated from `rainZeroDate` through each day. */
   cumulative: Map<string, Float32Array>
-  /** Cell id -> inches over the trailing 14 days ending on each day. */
+  /** Sample id -> inches over the trailing 14 days ending on each day. */
   trailing14: Map<string, Float32Array>
-  /** Cell id -> that day's rainfall in inches, for the detail chart. */
+  /** Sample id -> that day's rainfall in inches, for the detail chart. */
   daily: Map<string, Float32Array>
 }
 
 /** Sum the daily series into the two running totals the map draws.
  *
  * Both are computed for every calendar day even though the slider only visits
- * 59 of them, because the field detail charts draw the full daily season.
+ * the 59 usable acquisition dates, because the field detail charts draw the
+ * full daily season.
  */
 export function buildRainfallTotals(data: SeasonData): RainfallTotals {
   const { manifest, precipDaily } = data
@@ -124,24 +125,25 @@ export function buildRainfallTotals(data: SeasonData): RainfallTotals {
 // The rainfall raster
 // ---------------------------------------------------------------------------
 
-/** The regular lattice the Daymet cells sit on, recovered from their centres.
+/** The lattice the rainfall sample points sit on, recovered from their centres.
  *
- * The export writes one square polygon per Daymet pixel. Those squares are the
- * honest footprint of the data, but drawn directly they read as a checkerboard,
- * so the explorer paints them into a small image instead and lets MapLibre
- * resample it. This works out the lattice indices needed to do that.
+ * The export writes one square polygon per sample point — the area that sample
+ * is taken to represent, not a native Daymet pixel. Drawn directly those
+ * squares read as a checkerboard, so the explorer paints them into a small
+ * image and lets MapLibre resample it. This works out the lattice indices
+ * needed to do that.
  */
 export interface RainfallRaster {
   width: number
   height: number
   /** Image corner coordinates, clockwise from top-left, for an image source. */
   coordinates: [[number, number], [number, number], [number, number], [number, number]]
-  /** Cell ids in row-major order, north row first. Empty string where absent. */
+  /** Sample ids in row-major order, north row first. Empty where absent. */
   cellIds: string[]
 }
 
 export function buildRainfallRaster(data: SeasonData): RainfallRaster {
-  const [dLat, dLon] = data.manifest.gridCellDeg
+  const [dLat, dLon] = data.manifest.sampleSpacingDeg
   const centres = data.grid.features.map((feature) => {
     const ring = feature.geometry.coordinates[0]
     return {
@@ -171,7 +173,7 @@ export function buildRainfallRaster(data: SeasonData): RainfallRaster {
     }
   }
 
-  // The image spans the outer edges of the edge cells, not their centres.
+  // The image spans the outer edges of the edge samples, not their centres.
   const west = minLon - dLon / 2
   const east = maxLon + dLon / 2
   const south = minLat - dLat / 2
@@ -210,7 +212,7 @@ export const NDVI_STOPS: ColourStop[] = [
   { value: 0.95, colour: '#164a24' },
 ]
 
-/** Season accumulation. The top of the scale is the wettest cell's season. */
+/** Season accumulation. The top of the scale is the wettest sample's season. */
 export const CUMULATIVE_STOPS: ColourStop[] = [
   { value: 0, colour: '#f7fcff' },
   { value: 6, colour: '#dceaf7' },
@@ -221,7 +223,7 @@ export const CUMULATIVE_STOPS: ColourStop[] = [
   { value: 36, colour: '#153d70' },
 ]
 
-/** Recent wet or dry. Tops out just above the wettest fortnight on record here. */
+/** Recent wet or dry. Tops out just above the wettest fortnight in this season. */
 export const TRAILING_STOPS: ColourStop[] = [
   { value: 0, colour: '#fbf7ea' },
   { value: 2, colour: '#cfe4f5' },

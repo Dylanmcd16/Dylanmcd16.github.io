@@ -24,7 +24,8 @@ function fixture(): SeasonData {
     nDays: 6,
     nPasses: 2,
     nObservations: 3,
-    nGridCells: 4,
+    nPossibleObservations: 2,
+    nSamplePoints: 4,
     days: [
       '2025-04-01',
       '2025-04-02',
@@ -37,7 +38,7 @@ function fixture(): SeasonData {
     rainZeroDate: '2025-04-03',
     minSoybeanFraction: 0.8,
     inwardBufferM: 20,
-    gridCellDeg: [0.01, 0.0121],
+    sampleSpacingDeg: [0.01, 0.0121],
     files: { fields: 'f', ndvi: 'n', precipGrid: 'g', precipDaily: 'p' },
     sources: {},
     notes: {},
@@ -155,7 +156,7 @@ describe('buildRainfallTotals', () => {
 describe('buildRainfallRaster', () => {
   const raster = buildRainfallRaster(fixture())
 
-  it('recovers the lattice shape from the cell centres', () => {
+  it('recovers the lattice shape from the sample-point centres', () => {
     expect(raster.width).toBe(2)
     expect(raster.height).toBe(2)
     expect(raster.cellIds).toHaveLength(4)
@@ -166,7 +167,7 @@ describe('buildRainfallRaster', () => {
     expect(raster.cellIds[2]).toBe('42.00000_-93.60000')
   })
 
-  it('spans the outer cell edges rather than their centres', () => {
+  it('spans the outer sample edges rather than their centres', () => {
     const [[west, north], , , [, south]] = raster.coordinates
     expect(west).toBeCloseTo(-93.60605, 5)
     expect(north).toBeCloseTo(42.015, 5)
