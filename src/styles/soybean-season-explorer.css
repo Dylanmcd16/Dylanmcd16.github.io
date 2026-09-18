@@ -1,320 +1,751 @@
 /* ==========================================================================
    Iowa Soybean Season Explorer
-   Uses the portfolio design tokens (index.css). The only local tokens are the
-   two data hues, so a green number and a blue number always mean the same
-   thing here as they do in the map legend.
+
+   Built against Apple's HIG design principles. Three of them do most of the
+   work here:
+
+   Simplicity — the map is the content and gets the whole frame. Everything
+   else is a control floating over it, so nothing competes with the data.
+
+   Craft — one type scale, one spacing scale, three radii, tabular figures
+   wherever numbers line up, hairlines instead of borders.
+
+   Familiarity — a segmented control and a switch, because that is what these
+   choices look like on Apple platforms.
+
+   The glass follows Apple's Liquid Glass spec (regular variant: 20-40px blur,
+   60-80% fill, 1.2-1.5x saturation, one-pixel highlight) and its most
+   important rule: glass belongs to the functional layer only, never to the
+   content layer. The map itself is never glass.
    ========================================================================== */
 
 .sse-page {
-  --sse-green: #2c6a30;
-  --sse-green-ink: #1d4a22;
-  --sse-blue: #1f5795;
-  --sse-ground: #0d1b2a;
+  /* Apple's own neutrals. Not pure grey -- these carry a faint warm cast that
+     keeps large areas of white from reading as clinical. */
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --ink-3: #86868b;
+  --ground: #fbfbfd;
+  --surface: #ffffff;
+  --hairline: rgba(0, 0, 0, 0.1);
+  --hairline-strong: rgba(0, 0, 0, 0.16);
+
+  /* One interactive accent for the whole page. */
+  --accent: #0071e3;
+  --accent-press: #0060c0;
+
+  /* Data hues, matched to the map legends so a green number and a green field
+     mean the same thing. These are content colours, not UI colours. */
+  --canopy: #2c6a30;
+  --canopy-deep: #1d4a22;
+  --rain: #16558f;
+
+  --shell: #f5f5f7;
+
+  /* Liquid Glass, regular variant. */
+  --glass-fill: rgba(255, 255, 255, 0.72);
+  --glass-edge: rgba(255, 255, 255, 0.55);
+  --glass-blur: blur(28px) saturate(1.35);
+  --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.14);
+
+  /* Type scale. 17px body is Apple's; the rest steps off it. */
+  --t-display: clamp(2.5rem, 5vw, 4rem);
+  --t-title: clamp(1.7rem, 2.6vw, 2.35rem);
+  --t-lead: clamp(1.125rem, 1.6vw, 1.4rem);
+  --t-body: 1.0625rem;
+  --t-caption: 0.8125rem;
+  --t-label: 0.6875rem;
+
+  /* Spacing. Every margin and padding below resolves to one of these. */
+  --x1: 4px;
+  --x2: 8px;
+  --x3: 12px;
+  --x4: 16px;
+  --x5: 24px;
+  --x6: 32px;
+  --x7: 48px;
+  --x8: 72px;
+  --x9: 112px;
+
+  /* Three radii. More than three stops reading as a system. */
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-pill: 980px;
+
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Apple's identity is the system font, so the system stack is the correct
+     choice rather than a convenient one: SF Pro on Apple hardware, Segoe on
+     Windows, and a real fallback everywhere else. */
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    'Segoe UI Variable Display', 'Segoe UI', system-ui, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink);
+  background: var(--ground);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: normal;
 }
 
-.sse-page__title {
-  font-size: clamp(1.7rem, 3.2vw, 2.6rem);
-  letter-spacing: -0.03em;
-  line-height: 1.08;
+/* ---- shell --------------------------------------------------------------- */
+
+.sse-page .sse-shell {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 var(--x5);
 }
 
-.sse-section {
-  margin-top: 56px;
-}
-.sse-section > h2 {
-  margin-bottom: 14px;
-}
-.sse-section p {
+.sse-page .sse-prose {
   max-width: 720px;
-  color: var(--ink-soft);
+  margin: 0 auto;
 }
 
-/* The explorer breaks out of the article column; headings and copy stay in it. */
-.sse-explorer {
-  width: min(1600px, calc(100vw - 2 * var(--pad)));
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: var(--s5);
+.sse-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--x5) 0 0;
+  font-size: var(--t-caption);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+.sse-back:hover {
+  text-decoration: underline;
 }
 
-.sse-explorer--message {
-  display: grid;
-  place-items: center;
-  min-height: 220px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--panel);
-  color: var(--muted);
-}
-.sse-explorer--message p {
-  max-width: 48ch;
+/* ---- hero ---------------------------------------------------------------- */
+
+.sse-hero {
   text-align: center;
+  padding: var(--x8) 0 var(--x7);
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.sse-hero__eyebrow {
+  margin: 0 0 var(--x4);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.sse-page h1.sse-hero__title {
   margin: 0;
-  padding: var(--s5);
+  font-size: var(--t-display);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  color: var(--ink);
 }
 
-/* ---- summary row -------------------------------------------------------- */
+.sse-hero__lead {
+  margin: var(--x5) auto 0;
+  max-width: 34em;
+  font-size: var(--t-lead);
+  font-weight: 400;
+  line-height: 1.42;
+  letter-spacing: -0.01em;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
 
-.sse-summary {
+/* ---- stat band ----------------------------------------------------------- */
+
+.sse-stats-band {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--s4);
-  padding-bottom: var(--s4);
-  margin-bottom: var(--s4);
-  border-bottom: 1px solid var(--line);
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  max-width: 1120px;
+  margin: 0 auto var(--x7);
+  padding: var(--x5) 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
 }
-.sse-summary div {
+
+.sse-stat {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  padding: var(--x2) var(--x4);
+  border-left: 1px solid var(--hairline);
 }
-.sse-summary strong {
-  font-size: 1.6rem;
+.sse-stat:first-child {
+  border-left: 0;
+}
+
+.sse-stat__figure {
+  font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--ink);
   font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  color: var(--ink);
 }
-.sse-summary span {
-  font-size: 0.74rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
+.sse-stat__figure--canopy {
+  color: var(--canopy);
 }
-.sse-summary__green {
-  color: var(--sse-green) !important;
-}
-.sse-summary__blue {
-  color: var(--sse-blue) !important;
+.sse-stat__figure--rain {
+  color: var(--rain);
 }
 
-/* ---- stage: map plus detail panel --------------------------------------- */
+.sse-stat__label {
+  font-size: var(--t-caption);
+  line-height: 1.35;
+  color: var(--ink-2);
+  letter-spacing: -0.003em;
+}
+
+/* ---- the map: the content layer, never glass ---------------------------- */
 
 .sse-stage {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: var(--s4);
-  align-items: start;
-}
-
-.sse-stage__map {
   position: relative;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   overflow: hidden;
-  background: var(--sse-ground);
+  background: var(--shell);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 24px 64px rgba(0, 0, 0, 0.12);
+  isolation: isolate;
 }
 
 .sse-map {
   width: 100%;
-  height: clamp(460px, 68vh, 760px);
+  height: clamp(540px, 76vh, 860px);
 }
 
 .sse-map__veil {
   position: absolute;
   inset: 0;
+  z-index: 5;
   display: grid;
   place-items: center;
-  background: var(--sse-ground);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.85rem;
-  pointer-events: none;
+  gap: var(--x3);
+  background: var(--shell);
+  color: var(--ink-2);
+  font-size: var(--t-caption);
 }
 
-/* Floating panels over the map. */
-.sse-overlay {
-  position: absolute;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid var(--line-strong);
+/* MapLibre's own chrome, restyled to match. */
+.sse-stage .maplibregl-ctrl-group {
   border-radius: var(--r-sm);
-  box-shadow: 0 6px 20px rgba(7, 17, 31, 0.18);
-  padding: var(--s3);
-  backdrop-filter: blur(6px);
+  overflow: hidden;
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-edge);
 }
-.sse-overlay--layers {
-  top: var(--s3);
-  left: var(--s3);
-  max-width: 250px;
+.sse-stage .maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--hairline);
 }
-.sse-overlay--legend {
-  /* Clear of the attribution strip MapLibre draws along the bottom edge. */
-  bottom: 30px;
-  right: var(--s3);
-  width: 218px;
+.sse-stage .maplibregl-ctrl-group button {
+  background: transparent;
+}
+.sse-stage .maplibregl-ctrl-attrib.maplibregl-compact {
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  backdrop-filter: blur(20px) saturate(1.3);
+  font-size: 10px;
+}
+.sse-stage .maplibregl-ctrl-scale {
+  border-radius: var(--r-sm);
+  border-color: var(--hairline-strong);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  font-size: 10px;
+  color: var(--ink-2);
+}
+.sse-stage .maplibregl-ctrl-top-right {
+  top: var(--x4);
+  right: var(--x4);
+}
+.sse-stage .maplibregl-ctrl-bottom-left {
+  bottom: 96px;
+  left: var(--x4);
 }
 
-/* ---- layer switches ----------------------------------------------------- */
+/* ---- the glass layer ---------------------------------------------------- */
 
-.sse-layers__heading,
-.sse-layers__subheading {
-  margin: 0 0 var(--s2);
-  font-size: 0.7rem;
+.sse-glass {
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--r-md);
+}
+
+.sse-float {
+  position: absolute;
+  z-index: 3;
+  animation: sse-rise 0.5s var(--ease) both;
+}
+@keyframes sse-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.sse-float--layers {
+  top: var(--x4);
+  left: var(--x4);
+  width: 246px;
+  padding: var(--x4);
+}
+
+.sse-float--legend {
+  right: var(--x4);
+  bottom: 96px;
+  width: 224px;
+  padding: var(--x4);
+}
+
+/* ---- layer controls ----------------------------------------------------- */
+
+.sse-eyebrow {
+  margin: 0 0 var(--x3);
+  font-size: var(--t-label);
+  font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--muted);
-}
-.sse-layers__subheading {
-  margin-top: var(--s3);
-  padding-top: var(--s3);
-  border-top: 1px solid var(--line);
+  color: var(--ink-3);
 }
 
-.sse-switch {
+/* An iOS-style switch, because that is what a single on/off choice looks like
+   on Apple platforms. The real checkbox stays in the tree for the keyboard
+   and for assistive technology. */
+.sse-toggle {
   display: flex;
-  align-items: flex-start;
-  gap: var(--s2);
-  font-size: 0.82rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--x3);
+  font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.3;
-  color: var(--ink-soft);
+  color: var(--ink);
   cursor: pointer;
-  padding: 3px 0;
 }
-.sse-switch input {
-  margin: 2px 0 0;
-  accent-color: var(--accent);
+.sse-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.sse-toggle__track {
+  position: relative;
   flex: none;
+  width: 44px;
+  height: 26px;
+  border-radius: var(--r-pill);
+  background: rgba(120, 120, 128, 0.22);
+  transition: background 0.26s var(--ease);
 }
-.sse-radios {
-  display: flex;
-  flex-direction: column;
+.sse-toggle__track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform 0.26s var(--ease);
+}
+.sse-toggle input:checked + .sse-toggle__track {
+  background: #30d158;
+}
+.sse-toggle input:checked + .sse-toggle__track::after {
+  transform: translateX(18px);
+}
+.sse-toggle input:focus-visible + .sse-toggle__track {
+  outline: 3px solid rgba(0, 113, 227, 0.4);
+  outline-offset: 2px;
 }
 
-/* ---- legend ramps ------------------------------------------------------- */
+.sse-divider {
+  height: 1px;
+  margin: var(--x4) calc(-1 * var(--x4)) var(--x4);
+  background: var(--hairline);
+}
+
+/* A segmented control: three alternatives, one visible selection. */
+.sse-segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  padding: 2px;
+  border: 0;
+  margin: 0;
+  border-radius: var(--r-sm);
+  background: rgba(120, 120, 128, 0.14);
+}
+.sse-segmented legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.sse-segment {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 7px 4px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.22s var(--ease), color 0.22s var(--ease),
+    box-shadow 0.22s var(--ease);
+}
+.sse-segment input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.sse-segment:hover {
+  color: var(--ink);
+}
+.sse-segment--on {
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.sse-segment:has(input:focus-visible) {
+  outline: 3px solid rgba(0, 113, 227, 0.4);
+  outline-offset: 1px;
+}
+
+/* ---- legend ------------------------------------------------------------- */
 
 .sse-legend {
   display: flex;
   flex-direction: column;
-  gap: var(--s3);
+  gap: var(--x4);
 }
 .sse-ramp__label {
-  margin: 0 0 var(--s1);
-  font-size: 0.7rem;
-  letter-spacing: 0.07em;
+  margin: 0 0 6px;
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-3);
 }
 .sse-ramp__bar {
-  height: 9px;
-  border-radius: 2px;
-  border: 1px solid var(--line-strong);
+  height: 8px;
+  border-radius: var(--r-pill);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 .sse-ramp__ticks {
   display: flex;
   justify-content: space-between;
-  margin-top: 2px;
-  font-size: 0.66rem;
-  color: var(--muted);
+  margin-top: 5px;
+  font-size: 0.625rem;
   font-variant-numeric: tabular-nums;
+  color: var(--ink-3);
 }
 .sse-ramp__note {
-  margin: var(--s1) 0 0;
-  font-size: 0.68rem;
-  line-height: 1.35;
-  color: var(--muted);
+  margin: 6px 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  color: var(--ink-3);
 }
 
-/* ---- detail panel ------------------------------------------------------- */
+/* ---- timeline ----------------------------------------------------------- */
 
-.sse-panel {
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--paper);
-  padding: var(--s4);
-  max-height: clamp(460px, 68vh, 760px);
-  overflow-y: auto;
-}
-.sse-panel--empty {
-  display: flex;
-  flex-direction: column;
-  gap: var(--s2);
-}
-.sse-panel h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-}
-.sse-panel__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--s3);
-}
-.sse-panel__hint,
-.sse-panel__meta,
-.sse-panel__soil {
-  margin: var(--s2) 0 0;
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.45;
-}
-.sse-panel__soil {
-  color: var(--ink-soft);
-}
-
-.sse-zoom {
-  font: inherit;
-  font-size: 0.74rem;
-  letter-spacing: 0.02em;
-  padding: 4px 10px;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
-  color: var(--accent);
-  cursor: pointer;
-  flex: none;
-}
-.sse-zoom:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-}
-
-.sse-stats {
+.sse-timeline {
+  position: absolute;
+  z-index: 4;
+  left: var(--x4);
+  right: var(--x4);
+  bottom: var(--x4);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--s3);
-  margin: var(--s4) 0 0;
-  padding-top: var(--s3);
-  border-top: 1px solid var(--line);
+  grid-template-columns: auto auto auto minmax(184px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--x4);
+  padding: var(--x3) var(--x4);
+  animation: sse-rise 0.5s var(--ease) both;
 }
-.sse-stats div {
+
+.sse-transport {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(120, 120, 128, 0.14);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+.sse-transport:hover:not(:disabled) {
+  background: rgba(120, 120, 128, 0.24);
+}
+.sse-transport:disabled {
+  color: var(--ink-3);
+  cursor: default;
+  opacity: 0.55;
+}
+.sse-transport--play {
+  background: var(--accent);
+  color: #fff;
+}
+.sse-transport--play:hover:not(:disabled) {
+  background: var(--accent-press);
+}
+.sse-transport svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.sse-clock {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
-.sse-stats dt {
-  font-size: 0.66rem;
+.sse-clock__date {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+.sse-clock__meta {
+  font-size: 0.6875rem;
+  line-height: 1.3;
+  color: var(--ink-2);
+}
+
+/* The track carries a tick per acquisition, so the gaps in the season are
+   visible in the control itself rather than only in the dates. */
+.sse-scrub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 38px;
+}
+.sse-scrub__ticks {
+  position: absolute;
+  inset: 50% 9px auto;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: var(--r-pill);
+  background: rgba(120, 120, 128, 0.22);
+  overflow: hidden;
+  pointer-events: none;
+}
+.sse-scrub__tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.22);
+}
+.sse-scrub__fill {
+  position: absolute;
+  inset: 50% auto auto 9px;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: var(--r-pill);
+  background: var(--canopy);
+  pointer-events: none;
+}
+.sse-scrub input {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.sse-scrub input::-webkit-slider-runnable-track {
+  height: 4px;
+  background: transparent;
+}
+.sse-scrub input::-moz-range-track {
+  height: 4px;
+  background: transparent;
+}
+.sse-scrub input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+}
+.sse-scrub input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+}
+.sse-scrub input:focus-visible {
+  outline: none;
+}
+.sse-scrub input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(0, 113, 227, 0.4);
+}
+
+/* ---- the field card ----------------------------------------------------- */
+
+/* An Apple Maps style place card: it arrives when something is selected and
+   leaves when it is dismissed, instead of sitting empty waiting to be filled. */
+.sse-card {
+  position: absolute;
+  z-index: 4;
+  top: var(--x4);
+  right: var(--x4);
+  width: 344px;
+  max-height: calc(100% - 96px - var(--x6));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--x5);
+  animation: sse-card-in 0.42s var(--ease) both;
+}
+@keyframes sse-card-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.98);
+  }
+}
+
+.sse-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--x3);
+}
+.sse-page .sse-card__title {
+  margin: 0;
+  font-size: 1.3125rem;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+.sse-card__dismiss {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(120, 120, 128, 0.16);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+.sse-card__dismiss:hover {
+  background: rgba(120, 120, 128, 0.28);
+  color: var(--ink);
+}
+.sse-card__dismiss svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.sse-card__meta,
+.sse-card__soil {
+  margin: var(--x2) 0 0;
+  font-size: var(--t-caption);
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+.sse-card__soil {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.sse-zoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: var(--x4) 0 0;
+  padding: 7px 15px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: var(--t-caption);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+.sse-zoom:hover {
+  background: var(--accent-press);
+}
+
+.sse-readout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--x3);
+  margin: var(--x5) 0 0;
+  padding-top: var(--x4);
+  border-top: 1px solid var(--hairline);
+}
+.sse-readout > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sse-readout dt {
+  font-size: 0.625rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-3);
 }
-.sse-stats dd {
-  margin: 1px 0 0;
-  font-size: 1.15rem;
+.sse-readout dd {
+  margin: 2px 0 0;
+  font-size: 1.1875rem;
   font-weight: 600;
+  letter-spacing: -0.015em;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
 }
-.sse-stats span {
-  font-size: 0.66rem;
-  color: var(--muted-2);
+.sse-readout span {
+  font-size: 0.625rem;
+  line-height: 1.3;
+  color: var(--ink-3);
 }
-.sse-stats__green {
-  color: var(--sse-green);
+.sse-readout__canopy {
+  color: var(--canopy);
 }
-.sse-stats__blue {
-  color: var(--sse-blue);
+.sse-readout__rain {
+  color: var(--rain);
 }
 
 /* ---- charts ------------------------------------------------------------- */
 
 .sse-chart__label {
-  margin: var(--s4) 0 var(--s1);
-  font-size: 0.66rem;
-  letter-spacing: 0.07em;
+  margin: var(--x5) 0 var(--x2);
+  font-size: var(--t-label);
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-3);
 }
 .sse-chart {
   display: block;
@@ -323,173 +754,215 @@
   overflow: visible;
 }
 .sse-chart__note {
-  margin: var(--s2) 0 0;
-  font-size: 0.7rem;
+  margin: var(--x3) 0 0;
+  font-size: 0.6875rem;
   line-height: 1.45;
-  color: var(--muted);
+  color: var(--ink-3);
 }
 .sse-chart__grid {
-  stroke: var(--line);
+  stroke: rgba(0, 0, 0, 0.09);
   stroke-width: 1;
 }
 .sse-chart__tick {
   font-size: 9px;
-  fill: var(--muted-2);
+  fill: var(--ink-3);
   font-variant-numeric: tabular-nums;
 }
 .sse-chart__cursor {
   stroke: var(--ink);
   stroke-width: 1.2;
+  stroke-dasharray: 2 2;
 }
 .sse-chart__ndvi-line {
   fill: none;
-  stroke: var(--sse-green);
-  stroke-width: 1.4;
+  stroke: var(--canopy);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
 }
 .sse-chart__ndvi-dot {
-  fill: var(--sse-green-ink);
+  fill: var(--canopy-deep);
 }
 .sse-chart__rain-bar {
-  stroke: var(--sse-blue);
+  stroke: var(--rain);
   stroke-width: 1.1;
 }
 .sse-chart__rain-line {
   fill: none;
-  stroke: var(--sse-blue);
-  stroke-width: 1.5;
+  stroke: var(--rain);
+  stroke-width: 1.6;
 }
 .sse-chart__rain-area {
-  fill: var(--sse-blue);
-  opacity: 0.14;
+  fill: var(--rain);
+  opacity: 0.12;
   stroke: none;
 }
 
-/* ---- playback ----------------------------------------------------------- */
+/* ---- hint under the map ------------------------------------------------- */
 
-.sse-playback {
-  display: grid;
-  grid-template-columns: auto auto auto minmax(180px, 260px) minmax(0, 1fr);
-  align-items: center;
-  gap: var(--s3);
-  margin-top: var(--s4);
-  padding: var(--s3) var(--s4);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--panel);
+.sse-hint {
+  margin: var(--x4) auto 0;
+  text-align: center;
+  font-size: var(--t-caption);
+  color: var(--ink-3);
 }
 
-.sse-play,
-.sse-step {
-  font: inherit;
-  width: 36px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: var(--r-sm);
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
+/* ---- prose sections ----------------------------------------------------- */
+
+.sse-section {
+  padding: var(--x9) 0 0;
+}
+.sse-page .sse-section h2 {
+  margin: 0 0 var(--x5);
+  font-size: var(--t-title);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.021em;
+  text-wrap: balance;
+}
+.sse-page .sse-section p {
+  margin: 0 0 var(--x4);
+  max-width: none;
+  font-size: var(--t-body);
+  line-height: 1.6;
+  letter-spacing: -0.003em;
+  color: var(--ink-2);
+}
+.sse-page .sse-section p:last-child {
+  margin-bottom: 0;
+}
+.sse-page .sse-section strong {
   color: var(--ink);
-  cursor: pointer;
+  font-weight: 600;
 }
-.sse-play {
-  font-size: 0.8rem;
-}
-.sse-play:hover,
-.sse-step:hover:not(:disabled) {
-  border-color: var(--accent);
+.sse-page .sse-section a {
   color: var(--accent);
+  text-decoration: none;
 }
-.sse-step:disabled {
-  color: var(--muted-2);
-  cursor: default;
+.sse-page .sse-section a:hover {
+  text-decoration: underline;
 }
-
-.sse-playback__clock {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-.sse-playback__clock strong {
-  font-size: 0.98rem;
-  letter-spacing: -0.01em;
-  font-variant-numeric: tabular-nums;
-}
-.sse-playback__clock span {
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.sse-slider {
-  width: 100%;
-  accent-color: var(--sse-green);
-}
-
-/* ---- notes grid --------------------------------------------------------- */
 
 .sse-notes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: var(--s5);
-  margin-top: var(--s5);
+  grid-template-columns: repeat(auto-fit, minmax(252px, 1fr));
+  gap: var(--x6) var(--x5);
+  max-width: 1120px;
+  margin: 0 auto;
 }
-.sse-notes h3 {
-  margin: 0 0 var(--s2);
-  font-size: 0.92rem;
+.sse-note {
+  padding-top: var(--x4);
+  border-top: 1px solid var(--hairline);
 }
-.sse-notes p {
+.sse-page .sse-note h3 {
+  margin: 0 0 var(--x2);
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.sse-page .sse-note p {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.9375rem;
   line-height: 1.55;
-  color: var(--ink-soft);
-  max-width: none;
+  color: var(--ink-2);
 }
 
-/* ---- focus and motion --------------------------------------------------- */
+.sse-foot {
+  padding: var(--x9) 0 var(--x8);
+}
+
+/* ---- focus, motion, contrast -------------------------------------------- */
 
 .sse-page :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid rgba(0, 113, 227, 0.45);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sse-map * {
-    transition: none !important;
+  .sse-page *,
+  .sse-page *::before,
+  .sse-page *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Apple's guidance for the glass: fall back to an opaque fill when the viewer
+   has asked for more contrast or less transparency. */
+@media (prefers-contrast: more) {
+  .sse-page {
+    --glass-fill: #ffffff;
+    --glass-edge: rgba(0, 0, 0, 0.3);
+  }
+  .sse-glass {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 
 /* ---- narrow screens ----------------------------------------------------- */
 
-@media (max-width: 1020px) {
-  .sse-stage {
-    grid-template-columns: minmax(0, 1fr);
+@media (max-width: 1180px) {
+  .sse-card {
+    width: 312px;
   }
-  .sse-panel {
-    max-height: none;
-  }
-  .sse-overlay--legend {
-    width: 190px;
+  .sse-float--legend {
+    width: 206px;
   }
 }
 
-@media (max-width: 720px) {
-  .sse-playback {
-    grid-template-columns: auto auto auto minmax(0, 1fr);
+/* Below this the floating layer stops being floating: the controls stack
+   under the map, which is the honest way to fit them on a phone. */
+@media (max-width: 900px) {
+  .sse-page .sse-shell {
+    padding: 0 var(--x4);
   }
-  .sse-slider {
-    grid-column: 1 / -1;
-  }
-  .sse-overlay--layers,
-  .sse-overlay--legend {
-    position: static;
-    width: auto;
-    max-width: none;
+  .sse-stage {
+    border-radius: var(--r-md);
+    overflow: visible;
     box-shadow: none;
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
-    backdrop-filter: none;
+    background: transparent;
   }
   .sse-map {
-    height: 420px;
+    height: 62vh;
+    min-height: 420px;
+    border-radius: var(--r-md);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 14px 36px rgba(0, 0, 0, 0.12);
+  }
+  .sse-float,
+  .sse-timeline,
+  .sse-card {
+    position: static;
+    inset: auto;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    animation: none;
+  }
+  .sse-timeline {
+    grid-template-columns: auto auto auto minmax(0, 1fr);
+    margin-top: var(--x3);
+  }
+  .sse-scrub {
+    grid-column: 1 / -1;
+  }
+  .sse-float--layers,
+  .sse-float--legend,
+  .sse-card {
+    margin-top: var(--x3);
+    padding: var(--x4);
+  }
+  .sse-stage .maplibregl-ctrl-bottom-left {
+    bottom: var(--x2);
+  }
+  .sse-hero {
+    padding: var(--x7) 0 var(--x6);
+  }
+  .sse-section {
+    padding-top: var(--x8);
+  }
+  .sse-stat {
+    border-left: 0;
   }
 }
