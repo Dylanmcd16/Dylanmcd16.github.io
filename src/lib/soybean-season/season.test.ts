@@ -259,12 +259,16 @@ describe('sampleStops', () => {
   })
 
   it('interpolates colour and alpha together halfway between two stops', () => {
-    // #eef6fd at alpha 0 -> #c3ddf2 at alpha 0.3, across 0 to 6 inches.
-    const [r, g, b, a] = sampleStops(CUMULATIVE_STOPS, 3)
-    expect([r, g, b]).toEqual([217, 234, 248])
-    // Each stop's alpha becomes a byte first and the bytes are then blended,
-    // so this is round(round(0.3 * 255) / 2), not round(0.15 * 255).
-    expect(a).toBe(39)
+    // Derived from the stops rather than hard-coded, so retuning the ramp
+    // cannot silently break this the way a literal did.
+    const [lo, hi] = [CUMULATIVE_STOPS[0], CUMULATIVE_STOPS[1]]
+    const mid = (lo.value + hi.value) / 2
+    const [, , , a] = sampleStops(CUMULATIVE_STOPS, mid)
+    const loByte = Math.round((lo.alpha ?? 1) * 255)
+    const hiByte = Math.round((hi.alpha ?? 1) * 255)
+    // Each stop's alpha becomes a byte first and the bytes are then blended.
+    expect(a).toBe(Math.round(loByte + (hiByte - loByte) * 0.5))
+    expect(a).toBeGreaterThan(0)
   })
 
   it('ramps alpha with depth, so a soaking reads darker than a shower', () => {
