@@ -5,34 +5,45 @@ import '../styles/soybean-season-explorer.css'
 
 const base = import.meta.env.BASE_URL
 
+/** The datasets behind the map, named so a reader can go and find them. */
+const SOURCES = [
+  { name: 'USDA Crop Sequence Boundaries', use: 'for field shapes' },
+  { name: 'USDA Cropland Data Layer', use: 'to identify 2025 soybean fields' },
+  { name: 'Sentinel-2 L2A', use: 'imagery for NDVI' },
+  { name: 'NOAA MRMS', use: 'for hourly precipitation' },
+  { name: 'USDA SSURGO', use: 'for soil information' },
+]
+
 /** Four things this page is careful not to claim, given one heading each so
  * the limits are as easy to find as the results. */
 const NOT_CLAIMED = [
   {
-    title: 'Greenness, not canopy cover',
-    body: `NDVI is a vegetation index. It is not canopy cover, leaf area, yield, or crop health,
-      and it saturates once a canopy closes — two fully closed fields can read the same while
-      differing underneath. No percentage cover is estimated here.`,
+    title: 'NDVI is not canopy cover',
+    body: [
+      'NDVI measures vegetation greenness. It is not canopy cover, leaf area, yield, or crop health.',
+      'No canopy percentage is estimated here.',
+    ],
   },
   {
-    title: 'Estimated field units, not parcels',
-    body: `Crop Sequence Boundaries are USDA's satellite-derived estimates of single-crop field
-      units. They are not surveyed property boundaries, FSA records, or ownership parcels, and the
-      field numbers are internal to this project.`,
+    title: 'These are estimated field units',
+    body: [
+      'USDA Crop Sequence Boundaries are satellite-derived field estimates.',
+      'They are not property boundaries, FSA records, or ownership parcels.',
+    ],
   },
   {
-    title: 'A radar estimate, not gauges',
-    body: `MRMS is a radar and gauge multi-sensor analysis, not a rain gauge in the field. Field
-      values are the mean over the MRMS cells a polygon covers, and at about 1 km most fields
-      cover only a few cells — so these are field-scale estimates, not field-scale measurements.
-      The display smooths between cells for legibility; the values themselves are the native
-      MRMS cells.`,
+    title: 'Rainfall is estimated',
+    body: [
+      'MRMS combines radar and gauge information to estimate precipitation.',
+      'It is not the same as having a rain gauge in each field, and most fields only intersect a few MRMS grid cells.',
+    ],
   },
   {
-    title: 'No causal claim',
-    body: `Greenness and rainfall are shown on one timeline so they can be read together. Nothing
-      here says rainfall caused a change in greenness, no field is ranked against another, no
-      planting date is estimated, and no model is fitted.`,
+    title: 'This is descriptive',
+    body: [
+      'The map shows greenness and rainfall on the same timeline.',
+      'It does not claim rainfall caused changes in NDVI, rank fields, estimate planting dates, or fit a predictive model.',
+    ],
   },
 ]
 
@@ -49,9 +60,8 @@ export function IowaSoybeanSeasonExplorerPage() {
         <p className="sse-hero__eyebrow">Independent project · Agriscience &amp; remote sensing</p>
         <h1 className="sse-hero__title">A soybean season, one satellite pass at a time.</h1>
         <p className="sse-hero__lead">
-          How did greenness change across 248 central Iowa fields through 2025, and how did
-          rainfall accumulate alongside it? Every colour on this map is something Sentinel-2
-          measured on the day it says.
+          See how soybean greenness changed across 248 central Iowa fields in 2025, alongside
+          rainfall from MRMS.
         </p>
       </header>
 
@@ -59,59 +69,56 @@ export function IowaSoybeanSeasonExplorerPage() {
 
       <div className="sse-shell">
         <section className="sse-section sse-prose" aria-labelledby="sse-read-heading">
-          <h2 id="sse-read-heading">How to read it</h2>
+          <h2 id="sse-read-heading">How to read the map</h2>
           <p>
-            The slider does not move day by day. It steps between the{' '}
-            <strong>59 usable Sentinel-2 acquisition dates</strong> in 2025 — out of 214 days in
-            the window. The ticks along the track sit at each one&apos;s true position in the
-            season, so the uneven spacing of clear views is visible in the control itself. A smooth
-            day-by-day animation would imply the crop was watched continuously, and it was not.
+            The slider moves between the <strong>59 Sentinel-2 dates with usable imagery</strong>,
+            not every calendar day. The spacing reflects the actual time between satellite passes.
           </p>
           <p>
-            &ldquo;Usable&rdquo; does not mean cloud-free everywhere. A date qualifies when at
-            least one field could be measured on it, and on most of them some fields are still lost
-            to cloud — which is why the season yields{' '}
-            <strong>9,769 valid field-level NDVI observations</strong> rather than the 248 × 59 =
-            14,632 that a cloudless season would have produced. Nothing is interpolated, so a field
-            drawn as a hollow outline was clouded out on that date rather than bare.
+            Clouds block some fields on most dates. Those fields are left hollow rather than filled
+            with an old or estimated value.
           </p>
           <p>
-            Rainfall runs on the real daily clock underneath, and it is radar. MRMS resolves
-            individual storms at about 1 km, so a thunderstorm that soaked one township and missed
-            the next one shows up as it happened rather than as a smooth gradient. Hours are
-            accumulated into <strong>local Central Time calendar days</strong>, including the
-            daylight-saving changes — grouping by UTC would push an evening storm, which is when
-            Midwest convection usually fires, into the following day.
+            Rainfall runs on the daily calendar underneath the satellite data. MRMS provides hourly
+            radar-based precipitation estimates, which are combined into Central Time calendar days.
           </p>
           <p>
-            Cumulative totals count from 1 May, the conventional start of the Iowa soybean planting
-            window — a stated reference point, not an estimated planting date. Switch the overlay to
-            the last 14 days to see recent wet and dry patches instead of the season&apos;s running
-            total. Both scales are fixed for the whole season, so a colour means the same thing on
-            every frame and the animation can be read as change rather than as rescaling. Where the
-            radar had no data, nothing is drawn — a gap is unknown rainfall, never zero.
+            Use <strong>Since 1 May</strong> for seasonal rainfall or <strong>Last 14 days</strong>{' '}
+            for recent wet and dry areas.
+          </p>
+          <p>
+            The color scales stay fixed throughout the season so changes from one date to the next
+            are directly comparable.
           </p>
         </section>
 
         <section className="sse-section sse-prose" aria-labelledby="sse-build-heading">
           <h2 id="sse-build-heading">What I built</h2>
+          <p>The project combines several public datasets into one interactive map:</p>
+          <ul className="sse-list">
+            {SOURCES.map((source) => (
+              <li key={source.name}>
+                <strong>{source.name}</strong> {source.use}
+              </li>
+            ))}
+          </ul>
           <p>
-            A Python pipeline selects the fields and measures them, and this page draws the result.
-            USDA Crop Sequence Boundaries supply candidate field polygons; each is kept only where
-            the 2025 Cropland Data Layer says at least 80% of it is soybean, then shrunk 20 m
-            inward so roads, ditches, and the neighbouring crop stay out of the signal. Sentinel-2
-            L2A scenes are read as windowed cloud-optimised GeoTIFFs straight from AWS, masked per
-            pixel with the scene classification layer, and reduced to a median NDVI over each
-            field&apos;s interior. Rainfall is NOAA&apos;s MRMS MultiSensor_QPE_01H_Pass2:
-            hourly radar and gauge precipitation estimates on a native ~1 km grid, streamed an hour
-            at a time from AWS, cropped to the study window, and accumulated into local calendar
-            days. SSURGO supplies the soil series for each field.
+            Fields are included when at least 80% of the area is classified as soybean. Each polygon
+            is also buffered inward by 20 m to reduce contamination from roads, ditches, and
+            neighboring fields.
           </p>
           <p>
-            The result is 9,769 valid field-level NDVI observations across the season. The map is
-            MapLibre over Esri World Imagery, with the fields as real georeferenced polygons rather
-            than a drawing — zoom in and a field sits on the ground it came from, next to its own
-            farmstead and tree lines.
+            Sentinel-2 pixels are cloud-masked before NDVI is calculated. The field value is the
+            median NDVI from the usable pixels inside each field.
+          </p>
+          <p>MRMS rainfall is accumulated from hourly estimates into local daily totals.</p>
+          <p>
+            The final dataset contains <strong>9,769 valid field-level NDVI observations</strong>{' '}
+            across the 2025 season.
+          </p>
+          <p>
+            The map is built with MapLibre over satellite imagery, so every field stays in its real
+            geographic location.
           </p>
         </section>
 
@@ -123,7 +130,9 @@ export function IowaSoybeanSeasonExplorerPage() {
             {NOT_CLAIMED.map((note) => (
               <div className="sse-note" key={note.title}>
                 <h3>{note.title}</h3>
-                <p>{note.body}</p>
+                {note.body.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
               </div>
             ))}
           </div>
@@ -135,17 +144,17 @@ export function IowaSoybeanSeasonExplorerPage() {
             Sentinel-2 L2A surface reflectance (ESA Copernicus, via the Element 84 earth-search
             STAC API over AWS Open Data); USDA NASS Crop Sequence Boundaries and Cropland Data
             Layer; NOAA{' '}
-            <a
-              href="https://www.nssl.noaa.gov/projects/mrms/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://www.nssl.noaa.gov/projects/mrms/" target="_blank" rel="noreferrer">
               MRMS
             </a>{' '}
-            MultiSensor_QPE_01H_Pass2 via the NOAA Open Data bucket{' '}
-            <code>noaa-mrms-pds</code>; USDA NRCS SSURGO via Soil Data Access. Basemap imagery ©
-            Esri, Maxar, and Earthstar Geographics; place labels © CARTO and OpenStreetMap
-            contributors.
+            MultiSensor_QPE_01H_Pass2 via the NOAA Open Data bucket <code>noaa-mrms-pds</code>;
+            USDA NRCS SSURGO via Soil Data Access. Basemap imagery © Esri, Maxar, and Earthstar
+            Geographics; place labels © CARTO and OpenStreetMap contributors.
+          </p>
+          <p className="sse-footnote">
+            Four MRMS grid cells (0.14%) were flagged by QC for a persistent fixed-location
+            accumulation artifact and excluded from visualization; original values are retained in
+            the processed dataset.
           </p>
         </section>
 

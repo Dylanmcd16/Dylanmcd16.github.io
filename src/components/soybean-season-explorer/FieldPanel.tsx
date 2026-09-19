@@ -307,10 +307,10 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
         />
       </svg>
       <p className="sse-chart__note">
-        All three charts share one x-axis, so greenness and rainfall read together. Rainfall is the{' '}
-        <strong>MRMS radar/multi-sensor precipitation estimate</strong>, averaged over the ~1 km
-        cells this field covers and shown in inches. It is an estimate, not a gauge in the field,
-        and at 1 km most fields cover only a few cells.
+        All three charts share one date axis, so greenness and rainfall can be read together.
+        Rainfall is the <strong>MRMS radar/multi-sensor precipitation estimate</strong>, averaged
+        over the roughly 1 km cells this field covers and shown in inches — an estimate, not a
+        gauge in the field.
       </p>
     </aside>
   )

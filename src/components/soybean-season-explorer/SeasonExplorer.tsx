@@ -168,20 +168,17 @@ export function SeasonExplorer() {
     : 0
 
   const stats: Stat[] = [
-    { figure: String(manifest.nFields), label: 'USDA-estimated soybean field units' },
-    { figure: String(manifest.nPasses), label: 'Usable Sentinel-2 acquisition dates' },
-    {
-      figure: manifest.nObservations.toLocaleString(),
-      label: `Valid field-level NDVI observations, of ${manifest.nPossibleObservations.toLocaleString()} possible`,
-    },
+    { figure: String(manifest.nFields), label: 'USDA-estimated soybean fields' },
+    { figure: String(manifest.nPasses), label: 'Usable Sentinel-2 dates' },
+    { figure: manifest.nObservations.toLocaleString(), label: 'Valid NDVI observations' },
     {
       figure: medianNdvi === null ? '—' : medianNdvi.toFixed(2),
-      label: `Median NDVI on ${shortDate(dateIso)} · ${observed.length} of ${manifest.nFields} fields measured`,
+      label: `Median NDVI on ${shortDate(dateIso)}`,
       tone: 'canopy',
     },
     {
       figure: formatInches(medianCumulative),
-      label: 'Rain since 1 May, area median',
+      label: 'Median rain since 1 May',
       tone: 'rain',
     },
   ]
@@ -251,8 +248,8 @@ export function SeasonExplorer() {
 
         {selectedFieldId === null ? (
           <p className="sse-hint">
-            Tap any field for its NDVI and rainfall through the season, or press play to watch the
-            whole year.
+            Click a field to see its NDVI and rainfall history, or press play to watch the season
+            unfold.
           </p>
         ) : null}
       </div>

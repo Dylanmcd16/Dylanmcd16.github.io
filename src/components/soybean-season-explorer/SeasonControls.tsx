@@ -23,7 +23,7 @@ interface LayerControlsProps {
 const PRECIP_OPTIONS: { id: PrecipLayer; label: string }[] = [
   { id: 'none', label: 'Off' },
   { id: 'cumulative', label: 'Since 1 May' },
-  { id: 'trailing14', label: 'Last 14 d' },
+  { id: 'trailing14', label: 'Last 14 days' },
 ]
 
 /** A switch for the fields, a segmented control for the rainfall window.
@@ -87,12 +87,12 @@ function Ramp({
   label,
   stops,
   format,
-  note,
+  notes,
 }: {
   label: string
   stops: ColourStop[]
   format: (value: number) => string
-  note?: string
+  notes?: string[]
 }) {
   return (
     <div className="sse-ramp">
@@ -103,7 +103,11 @@ function Ramp({
           <span key={stop.value}>{format(stop.value)}</span>
         ))}
       </div>
-      {note ? <p className="sse-ramp__note">{note}</p> : null}
+      {notes?.map((note) => (
+        <p className="sse-ramp__note" key={note}>
+          {note}
+        </p>
+      ))}
     </div>
   )
 }
@@ -117,14 +121,17 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
         label="Field NDVI"
         stops={NDVI_STOPS}
         format={(value) => value.toFixed(2)}
-        note="Bare soil to closed canopy. A hollow outline means the field was clouded out on this date."
+        notes={[
+          'Low vegetation → dense green canopy',
+          'Hollow fields were obscured by clouds on that date.',
+        ]}
       />
       {precipLayer === 'cumulative' ? (
         <Ramp
           label="Rain since 1 May"
           stops={CUMULATIVE_STOPS}
           format={(value) => formatInches(value, 0)}
-          note="MRMS radar estimate on its native ~1 km grid, smoothed for display."
+          notes={['MRMS precipitation estimate, about 1 km resolution.']}
         />
       ) : null}
       {precipLayer === 'trailing14' ? (
@@ -134,7 +141,7 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
           // Half-inch stops carry real contrast down here, so they need the
           // decimal: rounding them all to whole inches prints "1" twice.
           format={(value) => formatInches(value, Number.isInteger(value) ? 0 : 1)}
-          note="MRMS radar estimate on its native ~1 km grid, smoothed for display."
+          notes={['MRMS precipitation estimate, about 1 km resolution.']}
         />
       ) : null}
     </div>
@@ -236,8 +243,8 @@ export function Timeline({
         <span className="sse-clock__meta">
           Date {step + 1} of {nSteps}
           {daysSincePrevious === null
-            ? ' · first usable acquisition'
-            : ` · ${daysSincePrevious} ${daysSincePrevious === 1 ? 'day' : 'days'} since the last`}
+            ? ' · first usable image of the season'
+            : ` · ${daysSincePrevious} ${daysSincePrevious === 1 ? 'day' : 'days'} since the previous usable image`}
         </span>
       </div>
 

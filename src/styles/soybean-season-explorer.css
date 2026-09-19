@@ -292,7 +292,7 @@
 .sse-float--panel {
   top: var(--x4);
   left: var(--x4);
-  width: 274px;
+  width: 296px;
   padding: var(--x4) var(--x5);
 }
 
@@ -805,6 +805,29 @@
   margin: var(--x4) auto 0;
   text-align: center;
   font-size: var(--t-caption);
+  color: var(--ink-3);
+}
+
+.sse-page .sse-list {
+  margin: 0 0 var(--x4);
+  padding-left: 1.15em;
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.sse-page .sse-list li {
+  margin-bottom: var(--x2);
+}
+.sse-page .sse-list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.sse-page .sse-footnote {
+  margin-top: var(--x5);
+  padding-top: var(--x4);
+  border-top: 1px solid var(--hairline);
+  font-size: 0.875rem;
   color: var(--ink-3);
 }
 
