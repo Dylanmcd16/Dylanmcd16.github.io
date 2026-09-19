@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
   Map as MapLibreMap,
   NavigationControl,
@@ -12,13 +12,13 @@ import type { FieldProperties, PrecipLayer, SeasonData } from '../../types/soybe
 import {
   CUMULATIVE_STOPS,
   TRAILING_STOPS,
-  buildRainfallRaster,
+  buildLevelPalette,
   featureBounds,
   ndviColourExpression,
-  sampleStops,
+  rainCoordinates,
+  rainPlane,
+  rainStepMm,
   type NdviLookup,
-  type RainfallRaster,
-  type RainfallTotals,
 } from '../../lib/soybean-season/season'
 
 /** Satellite imagery, with place labels drawn over it.
@@ -58,48 +58,39 @@ const LAYER_FIELD_FILL = 'field-fill'
 const LAYER_FIELD_LINE = 'field-line'
 const LAYER_FIELD_SELECTED = 'field-selected'
 
-/** A one-byte-per-channel image of the rainfall grid, redrawn each step.
+/** Paint one date's MRMS grid into an image the map can show.
  *
- * The values are the Daymet samples unchanged — one image pixel per sample
- * point, roughly 1 km apart. Only the *rendering* is smoothed: MapLibre
- * resamples the image linearly, which turns the lattice into a gradient
- * instead of a checkerboard. Positions with no sample stay fully transparent
- * rather than being filled in.
+ * The values are the MRMS cells unchanged — one image pixel per native ~1 km
+ * cell, straight out of the exported binary. Only the *rendering* is smoothed:
+ * MapLibre resamples the image linearly, which turns the lattice into a
+ * gradient instead of a checkerboard. Nothing here alters an accumulation.
+ *
+ * Cells MRMS had no data for stay fully transparent rather than being drawn as
+ * dry, because a radar gap is unknown rainfall, not zero rainfall.
  */
 function paintRainfall(
   canvas: HTMLCanvasElement,
-  raster: RainfallRaster,
-  totals: Map<string, Float32Array>,
-  day: number,
-  layer: Exclude<PrecipLayer, 'none'>,
+  levels: Uint8Array,
+  palette: Uint8Array,
+  noData: number,
 ): string {
   const context = canvas.getContext('2d')
   if (!context) {
     return ''
   }
-  const stops = layer === 'cumulative' ? CUMULATIVE_STOPS : TRAILING_STOPS
-  const image = context.createImageData(raster.width, raster.height)
-
-  for (let i = 0; i < raster.cellIds.length; i += 1) {
-    const cellId = raster.cellIds[i]
+  const image = context.createImageData(canvas.width, canvas.height)
+  for (let i = 0; i < levels.length; i += 1) {
+    const level = levels[i]
     const offset = i * 4
-    if (!cellId) {
+    if (level === noData) {
       image.data[offset + 3] = 0
       continue
     }
-    const series = totals.get(cellId)
-    const value = series ? series[day] : Number.NaN
-    if (!Number.isFinite(value)) {
-      image.data[offset + 3] = 0
-      continue
-    }
-    const [r, g, b] = sampleStops(stops, value)
-    image.data[offset] = r
-    image.data[offset + 1] = g
-    image.data[offset + 2] = b
-    image.data[offset + 3] = 255
+    image.data[offset] = palette[level * 4]
+    image.data[offset + 1] = palette[level * 4 + 1]
+    image.data[offset + 2] = palette[level * 4 + 2]
+    image.data[offset + 3] = palette[level * 4 + 3]
   }
-
   context.putImageData(image, 0, 0)
   return canvas.toDataURL('image/png')
 }
@@ -107,9 +98,10 @@ function paintRainfall(
 interface SeasonMapProps {
   data: SeasonData
   ndvi: NdviLookup
-  rainfall: RainfallTotals
-  /** Calendar day index of the pass being shown. */
+  /** Calendar day index of the acquisition being shown. */
   day: number
+  /** Index into the usable acquisition dates, which indexes the rain grids. */
+  step: number
   precipLayer: PrecipLayer
   showFields: boolean
   selectedFieldId: number | null
@@ -120,8 +112,8 @@ interface SeasonMapProps {
 export function SeasonMap({
   data,
   ndvi,
-  rainfall,
   day,
+  step,
   precipLayer,
   showFields,
   selectedFieldId,
@@ -135,7 +127,6 @@ export function SeasonMap({
   // a ref would flip silently and leave the map unpainted.
   const [styleReady, setStyleReady] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
-  const rasterRef = useRef<RainfallRaster | null>(null)
   const selectRef = useRef(onSelectField)
   selectRef.current = onSelectField
 
@@ -145,12 +136,11 @@ export function SeasonMap({
       return
     }
 
-    const raster = buildRainfallRaster(data)
-    rasterRef.current = raster
     const canvas = document.createElement('canvas')
-    canvas.width = raster.width
-    canvas.height = raster.height
+    canvas.width = data.manifest.rain.nCols
+    canvas.height = data.manifest.rain.nRows
     canvasRef.current = canvas
+    const rainCorners = rainCoordinates(data.manifest)
 
     const [west, south, east, north] = data.manifest.bounds
     const map = new MapLibreMap({
@@ -180,16 +170,17 @@ export function SeasonMap({
       map.addSource(RAIN_SOURCE, {
         type: 'image',
         url: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
-        coordinates: raster.coordinates,
+        coordinates: rainCorners,
       })
       map.addLayer({
         id: LAYER_RAIN,
         type: 'raster',
         source: RAIN_SOURCE,
         paint: {
-          // Light enough that the imagery stays readable underneath. The
-          // rainfall is context for the crop, not the subject of the map.
-          'raster-opacity': 0.38,
+          // The ramp carries its own per-depth alpha, so the layer itself
+          // stays near-opaque and lets that do the work. A flat layer opacity
+          // would wash the dry ground and the storms by the same amount.
+          'raster-opacity': 0.95,
           // Linear resampling is what turns the ~1 km lattice into a smooth
           // field. The numbers behind it are still the individual samples.
           'raster-resampling': 'linear',
@@ -201,7 +192,7 @@ export function SeasonMap({
       // The overlay stops at the edge of the sampled area, which is a hard
       // rectangle. Outlining it makes that edge read as the boundary of the
       // data rather than as a rendering artefact.
-      const [[west2, north2], [east2], , [, south2]] = raster.coordinates
+      const [[west2, north2], [east2], , [, south2]] = rainCorners
       map.addSource(MASK_SOURCE, {
         type: 'geojson',
         data: {
@@ -219,11 +210,11 @@ export function SeasonMap({
                 [-180, -85],
               ],
               [
-                [raster.coordinates[3][0], raster.coordinates[3][1]],
-                [raster.coordinates[2][0], raster.coordinates[2][1]],
-                [raster.coordinates[1][0], raster.coordinates[1][1]],
-                [raster.coordinates[0][0], raster.coordinates[0][1]],
-                [raster.coordinates[3][0], raster.coordinates[3][1]],
+                [rainCorners[3][0], rainCorners[3][1]],
+                [rainCorners[2][0], rainCorners[2][1]],
+                [rainCorners[1][0], rainCorners[1][1]],
+                [rainCorners[0][0], rainCorners[0][1]],
+                [rainCorners[3][0], rainCorners[3][1]],
               ],
             ],
           },
@@ -377,29 +368,44 @@ export function SeasonMap({
     }
   }, [data, ndvi, day, styleReady])
 
-  // ---- rainfall raster for the current pass -------------------------------
+  // ---- rainfall for the current acquisition --------------------------------
+  // The two palettes are built once and reused: there are only 256 possible
+  // levels, so recomputing the ramp per cell per frame would be wasted work.
+  const palettes = useMemo(
+    () => ({
+      cumulative: buildLevelPalette(
+        CUMULATIVE_STOPS,
+        rainStepMm(data.manifest, 'cumulative'),
+      ),
+      trailing14: buildLevelPalette(
+        TRAILING_STOPS,
+        rainStepMm(data.manifest, 'trailing14'),
+      ),
+    }),
+    [data],
+  )
+
   useEffect(() => {
     const map = mapRef.current
     const canvas = canvasRef.current
-    const raster = rasterRef.current
-    if (!map || !styleReady || !canvas || !raster) {
-      return
-    }
-    const layer = map.getLayer(LAYER_RAIN)
-    if (!layer) {
+    if (!map || !styleReady || !canvas || !map.getLayer(LAYER_RAIN)) {
       return
     }
     if (precipLayer === 'none') {
       map.setLayoutProperty(LAYER_RAIN, 'visibility', 'none')
       return
     }
-    const totals = precipLayer === 'cumulative' ? rainfall.cumulative : rainfall.trailing14
-    const url = paintRainfall(canvas, raster, totals, day, precipLayer)
+    const url = paintRainfall(
+      canvas,
+      rainPlane(data, precipLayer, step),
+      palettes[precipLayer],
+      data.manifest.rain.noDataValue,
+    )
     if (url) {
       ;(map.getSource(RAIN_SOURCE) as ImageSource | undefined)?.updateImage({ url })
       map.setLayoutProperty(LAYER_RAIN, 'visibility', 'visible')
     }
-  }, [rainfall, day, precipLayer, styleReady])
+  }, [data, palettes, step, precipLayer, styleReady])
 
   // ---- field visibility and selection -------------------------------------
   useEffect(() => {

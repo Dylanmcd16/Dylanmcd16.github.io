@@ -124,15 +124,17 @@ export function SeasonLegend({ precipLayer }: { precipLayer: PrecipLayer }) {
           label="Rain since 1 May"
           stops={CUMULATIVE_STOPS}
           format={(value) => formatInches(value, 0)}
-          note="Daymet, sampled on a ~1 km grid and smoothed for display."
+          note="MRMS radar estimate on its native ~1 km grid, smoothed for display."
         />
       ) : null}
       {precipLayer === 'trailing14' ? (
         <Ramp
           label="Rain, last 14 days"
           stops={TRAILING_STOPS}
-          format={(value) => formatInches(value, 0)}
-          note="Daymet, sampled on a ~1 km grid and smoothed for display."
+          // Half-inch stops carry real contrast down here, so they need the
+          // decimal: rounding them all to whole inches prints "1" twice.
+          format={(value) => formatInches(value, Number.isInteger(value) ? 0 : 1)}
+          note="MRMS radar estimate on its native ~1 km grid, smoothed for display."
         />
       ) : null}
     </div>

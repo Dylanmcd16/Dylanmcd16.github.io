@@ -701,7 +701,8 @@
 
 .sse-readout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Four readings now that MRMS resolves the rainfall on the date itself. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--x3);
   margin: var(--x5) 0 0;
   padding-top: var(--x4);

@@ -1,14 +1,16 @@
 /** Loading and derivation for the Iowa Soybean Season Explorer.
  *
- * Everything expensive happens once, at load: the NDVI lookup, the cumulative
- * and trailing rainfall totals, and the raster grid layout. The playback loop
- * then only reads precomputed numbers, which is what keeps a 59-step autoplay
- * smooth with 248 fields and 806 rainfall sample points on the map.
+ * Everything expensive happens once, at load: the NDVI lookup and the per-field
+ * rainfall totals. The playback loop then only reads precomputed numbers and
+ * one slice of an already-decoded byte array, which is what keeps a 59-step
+ * autoplay smooth with 248 fields and a 48 × 60 rainfall grid on the map.
  */
 
 import type {
   FieldProperties,
-  GridCellProperties,
+  NdviSeries,
+  PrecipLayer,
+  RainFields,
   SeasonData,
   SeasonManifest,
 } from '../../types/soybean-season'
@@ -33,13 +35,27 @@ async function getJson<T>(file: string): Promise<T> {
 
 export async function loadSeasonData(): Promise<SeasonData> {
   const manifest = await getJson<SeasonManifest>('manifest.json')
-  const [fields, grid, ndvi, precipDaily] = await Promise.all([
+  const [fields, ndvi, rainFields, rainGrids] = await Promise.all([
     getJson<SeasonData['fields']>(manifest.files.fields),
-    getJson<SeasonData['grid']>(manifest.files.precipGrid),
     getJson<SeasonData['ndvi']>(manifest.files.ndvi),
-    getJson<SeasonData['precipDaily']>(manifest.files.precipDaily),
+    getJson<RainFields>(manifest.rain.fieldFile),
+    fetch(seasonAssetUrl(DATA_ROOT + manifest.rain.gridFile)).then(async (response) => {
+      if (!response.ok) {
+        throw new Error(`${manifest.rain.gridFile}: HTTP ${response.status}`)
+      }
+      return new Uint8Array(await response.arrayBuffer())
+    }),
   ])
-  return { manifest, fields, grid, ndvi, precipDaily }
+
+  // The binary carries no shape of its own, so it is checked against the
+  // manifest rather than trusted: a truncated fetch would otherwise paint a
+  // plausible-looking but wrong rainfall map.
+  const expected = manifest.rain.nRows * manifest.rain.nCols * manifest.ndviDays.length * 2
+  if (rainGrids.length !== expected) {
+    throw new Error(`rain grid is ${rainGrids.length} bytes, expected ${expected}`)
+  }
+
+  return { manifest, fields, ndvi, rainGrids, rainFields }
 }
 
 // ---------------------------------------------------------------------------
@@ -65,131 +81,100 @@ export function buildNdviLookup(data: SeasonData): NdviLookup {
 }
 
 // ---------------------------------------------------------------------------
-// Rainfall
+// The MRMS grid
 // ---------------------------------------------------------------------------
 
-export interface RainfallTotals {
-  /** Sample id -> inches accumulated from `rainZeroDate` through each day. */
-  cumulative: Map<string, Float32Array>
-  /** Sample id -> inches over the trailing 14 days ending on each day. */
-  trailing14: Map<string, Float32Array>
-  /** Sample id -> that day's rainfall in inches, for the detail chart. */
-  daily: Map<string, Float32Array>
+/** One date's grid for one window, as quantisation levels on the native grid.
+ *
+ * The binary holds every cumulative grid first, then every trailing grid, each
+ * row-major with the north row first. No copy is made — this is a view.
+ */
+export function rainPlane(
+  data: SeasonData,
+  layer: Exclude<PrecipLayer, 'none'>,
+  step: number,
+): Uint8Array {
+  const { nRows, nCols } = data.manifest.rain
+  const cells = nRows * nCols
+  const planeIndex = data.manifest.rain.planeOrder.indexOf(layer)
+  const offset = (planeIndex * data.manifest.ndviDays.length + step) * cells
+  return data.rainGrids.subarray(offset, offset + cells)
 }
 
-/** Sum the daily series into the two running totals the map draws.
+/** Millimetres per quantisation level for one window. */
+export function rainStepMm(
+  manifest: SeasonManifest,
+  layer: Exclude<PrecipLayer, 'none'>,
+): number {
+  return layer === 'cumulative' ? manifest.rain.cumulativeStepMm : manifest.rain.trailingStepMm
+}
+
+/** Image corner coordinates, clockwise from top-left, for an image source. */
+export function rainCoordinates(
+  manifest: SeasonManifest,
+): [[number, number], [number, number], [number, number], [number, number]] {
+  const [west, south, east, north] = manifest.rain.bounds
+  return [
+    [west, north],
+    [east, north],
+    [east, south],
+    [west, south],
+  ]
+}
+
+// ---------------------------------------------------------------------------
+// Per-field rainfall
+// ---------------------------------------------------------------------------
+
+export interface FieldRainfall {
+  /** All in inches, indexed by the season's day index. */
+  daily: Float32Array
+  cumulative: Float32Array
+  trailing14: Float32Array
+}
+
+/** Field id -> its rainfall series, in inches, on the season's day index.
  *
- * Both are computed for every calendar day even though the slider only visits
- * the 59 usable acquisition dates, because the field detail charts draw the
- * full daily season.
+ * The exported per-field record starts thirteen days before the season so the
+ * earliest trailing window is complete; this re-indexes onto the season's own
+ * days so the rainfall charts and the NDVI series share one x-axis.
+ *
+ * A null day is MRMS having no data there, which contributes nothing to a sum
+ * rather than counting as zero rainfall.
  */
-export function buildRainfallTotals(data: SeasonData): RainfallTotals {
-  const { manifest, precipDaily } = data
-  const zeroDay = Math.max(0, manifest.days.indexOf(manifest.rainZeroDate))
+export function buildFieldRainfall(data: SeasonData): Map<number, FieldRainfall> {
+  const { rainFields, manifest } = data
   const nDays = manifest.days.length
+  const offset = rainFields.seasonStartIndex
+  const out = new Map<number, FieldRainfall>()
 
-  const cumulative = new Map<string, Float32Array>()
-  const trailing14 = new Map<string, Float32Array>()
-  const daily = new Map<string, Float32Array>()
+  for (const [fieldId, series] of Object.entries(rainFields.mm)) {
+    const daily = new Float32Array(nDays)
+    const cumulative = new Float32Array(nDays)
+    const trailing = new Float32Array(nDays)
 
-  for (const [cellId, series] of Object.entries(precipDaily)) {
-    const inchesPerDay = new Float32Array(nDays)
-    const runningTotal = new Float32Array(nDays)
-    const trailingTotal = new Float32Array(nDays)
-
-    let total = 0
+    let running = 0
     for (let day = 0; day < nDays; day += 1) {
-      const inches = (series[day] ?? 0) / MM_PER_INCH
-      inchesPerDay[day] = inches
-      if (day >= zeroDay) {
-        total += inches
+      const source = offset + day
+      const inches = (series[source] ?? 0) / MM_PER_INCH
+      daily[day] = inches
+      if (source >= rainFields.rainZeroIndex) {
+        running += inches
       }
-      runningTotal[day] = total
+      cumulative[day] = running
 
-      let trailing = 0
-      for (let back = Math.max(0, day - TRAILING_DAYS + 1); back <= day; back += 1) {
-        trailing += (series[back] ?? 0) / MM_PER_INCH
+      let window = 0
+      for (let back = source - TRAILING_DAYS + 1; back <= source; back += 1) {
+        if (back >= 0) {
+          window += (series[back] ?? 0) / MM_PER_INCH
+        }
       }
-      trailingTotal[day] = trailing
+      trailing[day] = window
     }
 
-    daily.set(cellId, inchesPerDay)
-    cumulative.set(cellId, runningTotal)
-    trailing14.set(cellId, trailingTotal)
+    out.set(Number(fieldId), { daily, cumulative, trailing14: trailing })
   }
-
-  return { cumulative, trailing14, daily }
-}
-
-// ---------------------------------------------------------------------------
-// The rainfall raster
-// ---------------------------------------------------------------------------
-
-/** The lattice the rainfall sample points sit on, recovered from their centres.
- *
- * The export writes one square polygon per sample point — the area that sample
- * is taken to represent, not a native Daymet pixel. Drawn directly those
- * squares read as a checkerboard, so the explorer paints them into a small
- * image and lets MapLibre resample it. This works out the lattice indices
- * needed to do that.
- */
-export interface RainfallRaster {
-  width: number
-  height: number
-  /** Image corner coordinates, clockwise from top-left, for an image source. */
-  coordinates: [[number, number], [number, number], [number, number], [number, number]]
-  /** Sample ids in row-major order, north row first. Empty where absent. */
-  cellIds: string[]
-}
-
-export function buildRainfallRaster(data: SeasonData): RainfallRaster {
-  const [dLat, dLon] = data.manifest.sampleSpacingDeg
-  const centres = data.grid.features.map((feature) => {
-    const ring = feature.geometry.coordinates[0]
-    return {
-      id: feature.properties.id,
-      lon: (ring[0][0] + ring[2][0]) / 2,
-      lat: (ring[0][1] + ring[2][1]) / 2,
-    }
-  })
-
-  const lons = centres.map((c) => c.lon)
-  const lats = centres.map((c) => c.lat)
-  const minLon = Math.min(...lons)
-  const maxLon = Math.max(...lons)
-  const minLat = Math.min(...lats)
-  const maxLat = Math.max(...lats)
-
-  const width = Math.round((maxLon - minLon) / dLon) + 1
-  const height = Math.round((maxLat - minLat) / dLat) + 1
-
-  const cellIds = new Array<string>(width * height).fill('')
-  for (const centre of centres) {
-    const column = Math.round((centre.lon - minLon) / dLon)
-    // Row 0 is the north edge, matching image row order.
-    const row = Math.round((maxLat - centre.lat) / dLat)
-    if (column >= 0 && column < width && row >= 0 && row < height) {
-      cellIds[row * width + column] = centre.id
-    }
-  }
-
-  // The image spans the outer edges of the edge samples, not their centres.
-  const west = minLon - dLon / 2
-  const east = maxLon + dLon / 2
-  const south = minLat - dLat / 2
-  const north = maxLat + dLat / 2
-
-  return {
-    width,
-    height,
-    coordinates: [
-      [west, north],
-      [east, north],
-      [east, south],
-      [west, south],
-    ],
-    cellIds,
-  }
+  return out
 }
 
 // ---------------------------------------------------------------------------
@@ -199,9 +184,11 @@ export function buildRainfallRaster(data: SeasonData): RainfallRaster {
 export interface ColourStop {
   value: number
   colour: string
+  /** 0-1. Rainfall ramps carry their own alpha so dry ground stays readable. */
+  alpha?: number
 }
 
-/** Bare soil through closed canopy. Fixed so passes are comparable. */
+/** Bare soil through closed canopy. Fixed so dates are comparable. */
 export const NDVI_STOPS: ColourStop[] = [
   { value: 0.1, colour: '#ddcfa8' },
   { value: 0.25, colour: '#cbcc84' },
@@ -212,25 +199,38 @@ export const NDVI_STOPS: ColourStop[] = [
   { value: 0.95, colour: '#164a24' },
 ]
 
-/** Season accumulation. The top of the scale is the wettest sample's season. */
+/* The rainfall ramps carry alpha as well as colour, which is the difference
+   between a legible rainfall map and a blue film over the whole county. A flat
+   38% wash made dry ground and a soaking indistinguishable, because both sat in
+   the pale end of the ramp. Letting alpha climb with depth means nothing is
+   drawn where nothing fell, the imagery stays readable underneath, and a storm
+   reads as a storm. The scales are still fixed for the season -- a colour and
+   an opacity together mean one depth, on every frame. */
+
+/** Season accumulation, in inches, capped at the export's 36 in display max.
+ * Across the area the season ends between about 22 and 30 inches. */
 export const CUMULATIVE_STOPS: ColourStop[] = [
-  { value: 0, colour: '#f7fcff' },
-  { value: 6, colour: '#dceaf7' },
-  { value: 12, colour: '#b6d4ec' },
-  { value: 18, colour: '#84b4dc' },
-  { value: 24, colour: '#4e8dc4' },
-  { value: 30, colour: '#2a639f' },
-  { value: 36, colour: '#153d70' },
+  { value: 0, colour: '#eef6fd', alpha: 0 },
+  { value: 6, colour: '#c3ddf2', alpha: 0.12 },
+  { value: 12, colour: '#8fc0e6', alpha: 0.2 },
+  { value: 18, colour: '#5b9ed6', alpha: 0.28 },
+  { value: 24, colour: '#3277bd', alpha: 0.35 },
+  { value: 30, colour: '#1b5596', alpha: 0.41 },
+  { value: 36, colour: '#0d3468', alpha: 0.46 },
 ]
 
-/** Recent wet or dry. Tops out just above the wettest fortnight in this season. */
+/** Recent wet or dry, in inches, capped at the export's 8 in display max.
+ * A fortnight is under 2 inches on half the dates and over 5 on a handful, so
+ * most of the contrast is spent below 4. */
 export const TRAILING_STOPS: ColourStop[] = [
-  { value: 0, colour: '#fbf7ea' },
-  { value: 2, colour: '#cfe4f5' },
-  { value: 4, colour: '#8fc0e2' },
-  { value: 6, colour: '#4f93c8' },
-  { value: 8, colour: '#26639f' },
-  { value: 10, colour: '#123567' },
+  { value: 0, colour: '#ffffff', alpha: 0 },
+  { value: 0.5, colour: '#dbeaf7', alpha: 0.18 },
+  { value: 1, colour: '#b5d5ef', alpha: 0.32 },
+  { value: 2, colour: '#7fb5e2', alpha: 0.46 },
+  { value: 3, colour: '#4e91d0', alpha: 0.58 },
+  { value: 4.5, colour: '#2a68b0', alpha: 0.68 },
+  { value: 6, colour: '#1b4a8a', alpha: 0.76 },
+  { value: 8, colour: '#0d2d5e', alpha: 0.84 },
 ]
 
 function parseHex(hex: string): [number, number, number] {
@@ -238,32 +238,47 @@ function parseHex(hex: string): [number, number, number] {
   return [(value >> 16) & 255, (value >> 8) & 255, value & 255]
 }
 
-/** Linear interpolation through a stop list, clamped at both ends. */
-export function sampleStops(stops: ColourStop[], value: number): [number, number, number] {
+function withAlpha(stop: ColourStop): [number, number, number, number] {
+  const [r, g, b] = parseHex(stop.colour)
+  return [r, g, b, Math.round((stop.alpha ?? 1) * 255)]
+}
+
+/** Linear interpolation through a stop list, clamped at both ends.
+ *
+ * Returns RGBA: the rainfall ramps interpolate their opacity along with their
+ * colour, so a light shower fades out rather than turning pale blue.
+ */
+export function sampleStops(
+  stops: ColourStop[],
+  value: number,
+): [number, number, number, number] {
   if (!Number.isFinite(value) || value <= stops[0].value) {
-    return parseHex(stops[0].colour)
+    return withAlpha(stops[0])
   }
   const last = stops[stops.length - 1]
   if (value >= last.value) {
-    return parseHex(last.colour)
+    return withAlpha(last)
   }
   for (let i = 1; i < stops.length; i += 1) {
     if (value <= stops[i].value) {
       const lower = stops[i - 1]
       const upper = stops[i]
       const t = (value - lower.value) / (upper.value - lower.value)
-      const a = parseHex(lower.colour)
-      const b = parseHex(upper.colour)
+      const a = withAlpha(lower)
+      const b = withAlpha(upper)
       return [
         Math.round(a[0] + (b[0] - a[0]) * t),
         Math.round(a[1] + (b[1] - a[1]) * t),
         Math.round(a[2] + (b[2] - a[2]) * t),
+        Math.round(a[3] + (b[3] - a[3]) * t),
       ]
     }
   }
-  return parseHex(last.colour)
+  return withAlpha(last)
 }
 
+/** The ramp as a CSS gradient for the legend swatch, drawn opaque: the bar
+ * has to show what the colours are, not how transparent they will be. */
 export function stopsToCss(stops: ColourStop[]): string {
   const span = stops[stops.length - 1].value - stops[0].value
   const parts = stops.map((stop) => {
@@ -271,6 +286,25 @@ export function stopsToCss(stops: ColourStop[]): string {
     return `${stop.colour} ${pct.toFixed(1)}%`
   })
   return `linear-gradient(to right, ${parts.join(', ')})`
+}
+
+/** A 256-entry level -> RGB lookup, built once per window.
+ *
+ * Running 6,048 cells through the stop list on every frame would repeat the
+ * same interpolation thousands of times for nothing, and there are only 256
+ * possible inputs.
+ */
+export function buildLevelPalette(stops: ColourStop[], stepMm: number): Uint8Array {
+  const palette = new Uint8Array(256 * 4)
+  for (let level = 0; level < 256; level += 1) {
+    const inches = (level * stepMm) / MM_PER_INCH
+    const [r, g, b, a] = sampleStops(stops, inches)
+    palette[level * 4] = r
+    palette[level * 4 + 1] = g
+    palette[level * 4 + 2] = b
+    palette[level * 4 + 3] = a
+  }
+  return palette
 }
 
 /** The NDVI ramp as a MapLibre interpolate expression over a feature state. */
@@ -375,4 +409,4 @@ export function featureBounds(
   ]
 }
 
-export type { FieldProperties, GridCellProperties }
+export type { FieldProperties, NdviSeries }

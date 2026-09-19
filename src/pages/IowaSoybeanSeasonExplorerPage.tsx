@@ -21,11 +21,12 @@ const NOT_CLAIMED = [
       field numbers are internal to this project.`,
   },
   {
-    title: 'Sampled rainfall, not gauges',
-    body: `Daymet interpolates weather-station records onto a 1 km grid — a modelled estimate, not
-      a rain gauge in the field. It is sampled here at 806 latitude/longitude points roughly 1 km
-      apart, which are not snapped to Daymet's native projected pixels. The display smooths
-      between sample points for legibility; the values themselves are the individual samples.`,
+    title: 'A radar estimate, not gauges',
+    body: `MRMS is a radar and gauge multi-sensor analysis, not a rain gauge in the field. Field
+      values are the mean over the MRMS cells a polygon covers, and at about 1 km most fields
+      cover only a few cells — so these are field-scale estimates, not field-scale measurements.
+      The display smooths between cells for legibility; the values themselves are the native
+      MRMS cells.`,
   },
   {
     title: 'No causal claim',
@@ -75,12 +76,20 @@ export function IowaSoybeanSeasonExplorerPage() {
             drawn as a hollow outline was clouded out on that date rather than bare.
           </p>
           <p>
-            Rainfall runs on the real daily clock underneath. Cumulative totals count from 1 May,
-            the conventional start of the Iowa soybean planting window — a stated reference point,
-            not an estimated planting date. Switch the overlay to the last 14 days to see recent
-            wet and dry patches instead of the season&apos;s running total. Both scales are fixed
-            for the whole season, so a colour means the same thing on every frame and the animation
-            can be read as change rather than as rescaling.
+            Rainfall runs on the real daily clock underneath, and it is radar. MRMS resolves
+            individual storms at about 1 km, so a thunderstorm that soaked one township and missed
+            the next one shows up as it happened rather than as a smooth gradient. Hours are
+            accumulated into <strong>local Central Time calendar days</strong>, including the
+            daylight-saving changes — grouping by UTC would push an evening storm, which is when
+            Midwest convection usually fires, into the following day.
+          </p>
+          <p>
+            Cumulative totals count from 1 May, the conventional start of the Iowa soybean planting
+            window — a stated reference point, not an estimated planting date. Switch the overlay to
+            the last 14 days to see recent wet and dry patches instead of the season&apos;s running
+            total. Both scales are fixed for the whole season, so a colour means the same thing on
+            every frame and the animation can be read as change rather than as rescaling. Where the
+            radar had no data, nothing is drawn — a gap is unknown rainfall, never zero.
           </p>
         </section>
 
@@ -93,9 +102,10 @@ export function IowaSoybeanSeasonExplorerPage() {
             inward so roads, ditches, and the neighbouring crop stay out of the signal. Sentinel-2
             L2A scenes are read as windowed cloud-optimised GeoTIFFs straight from AWS, masked per
             pixel with the scene classification layer, and reduced to a median NDVI over each
-            field&apos;s interior. Daymet supplies daily rainfall, queried at 806 points on a
-            regular latitude/longitude grid roughly 1 km apart, and SSURGO the soil series for each
-            field.
+            field&apos;s interior. Rainfall is NOAA&apos;s MRMS MultiSensor_QPE_01H_Pass2:
+            hourly radar and gauge precipitation estimates on a native ~1 km grid, streamed an hour
+            at a time from AWS, cropped to the study window, and accumulated into local calendar
+            days. SSURGO supplies the soil series for each field.
           </p>
           <p>
             The result is 9,769 valid field-level NDVI observations across the season. The map is
@@ -124,13 +134,18 @@ export function IowaSoybeanSeasonExplorerPage() {
           <p>
             Sentinel-2 L2A surface reflectance (ESA Copernicus, via the Element 84 earth-search
             STAC API over AWS Open Data); USDA NASS Crop Sequence Boundaries and Cropland Data
-            Layer; Daymet V4 R1 daily surface weather on a 1 km grid, via the single-pixel
-            extraction service (Thornton et al., ORNL DAAC,{' '}
-            <a href="https://doi.org/10.3334/ORNLDAAC/2129" target="_blank" rel="noreferrer">
-              doi:10.3334/ORNLDAAC/2129
-            </a>
-            ); USDA NRCS SSURGO via Soil Data Access. Basemap imagery © Esri, Maxar, and Earthstar
-            Geographics; place labels © CARTO and OpenStreetMap contributors.
+            Layer; NOAA{' '}
+            <a
+              href="https://www.nssl.noaa.gov/projects/mrms/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              MRMS
+            </a>{' '}
+            MultiSensor_QPE_01H_Pass2 via the NOAA Open Data bucket{' '}
+            <code>noaa-mrms-pds</code>; USDA NRCS SSURGO via Soil Data Access. Basemap imagery ©
+            Esri, Maxar, and Earthstar Geographics; place labels © CARTO and OpenStreetMap
+            contributors.
           </p>
         </section>
 

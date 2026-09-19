@@ -3,7 +3,7 @@ import {
   formatInches,
   longDate,
   shortDate,
-  type RainfallTotals,
+  type FieldRainfall,
 } from '../../lib/soybean-season/season'
 import { requestZoomToField } from './SeasonMap'
 
@@ -83,7 +83,7 @@ function CloseIcon() {
 
 interface FieldPanelProps {
   data: SeasonData
-  rainfall: RainfallTotals
+  rainfall: Map<number, FieldRainfall>
   selectedFieldId: number
   /** Calendar day index of the acquisition being shown. */
   day: number
@@ -107,9 +107,10 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
   const nDays = manifest.days.length
   const dateIso = manifest.days[day]
 
-  const cumulative = rainfall.cumulative.get(properties.cell)
-  const trailing = rainfall.trailing14.get(properties.cell)
-  const daily = rainfall.daily.get(properties.cell)
+  const rain = rainfall.get(properties.id)
+  const cumulative = rain?.cumulative
+  const trailing = rain?.trailing14
+  const daily = rain?.daily
 
   const ndviToday = series ? series.v[series.d.indexOf(day)] ?? undefined : undefined
 
@@ -181,14 +182,19 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
           <span>{ndviToday === undefined ? 'clouded out' : longDate(dateIso)}</span>
         </div>
         <div>
-          <dt>Since 1 May</dt>
-          <dd className="sse-readout__rain">{cumulative ? formatInches(cumulative[day]) : '—'}</dd>
-          <span>to {shortDate(dateIso)}</span>
+          <dt>On this date</dt>
+          <dd className="sse-readout__rain">{daily ? formatInches(daily[day], 2) : '—'}</dd>
+          <span>{shortDate(dateIso)}, local day</span>
         </div>
         <div>
           <dt>Last 14 d</dt>
           <dd className="sse-readout__rain">{trailing ? formatInches(trailing[day]) : '—'}</dd>
-          <span>nearest sample</span>
+          <span>to {shortDate(dateIso)}</span>
+        </div>
+        <div>
+          <dt>Since 1 May</dt>
+          <dd className="sse-readout__rain">{cumulative ? formatInches(cumulative[day]) : '—'}</dd>
+          <span>to {shortDate(dateIso)}</span>
         </div>
       </dl>
 
@@ -235,7 +241,7 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
         className="sse-chart"
         viewBox={`0 0 ${CHART_WIDTH} 92`}
         role="img"
-        aria-label={`Daily rainfall at the nearest sample point to field ${properties.id}`}
+        aria-label={`Daily MRMS rainfall over field ${properties.id}`}
       >
         <Axes
           height={92}
@@ -274,7 +280,7 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
         className="sse-chart"
         viewBox={`0 0 ${CHART_WIDTH} 96`}
         role="img"
-        aria-label={`Cumulative rainfall at the nearest sample point to field ${properties.id}`}
+        aria-label={`Cumulative MRMS rainfall over field ${properties.id}`}
       >
         <Axes
           height={96}
@@ -301,8 +307,10 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: 
         />
       </svg>
       <p className="sse-chart__note">
-        All three charts share one x-axis, so greenness and rainfall read together. Rainfall is
-        Daymet sampled at the nearest point on a ~1 km grid, in inches — not a gauge in the field.
+        All three charts share one x-axis, so greenness and rainfall read together. Rainfall is the{' '}
+        <strong>MRMS radar/multi-sensor precipitation estimate</strong>, averaged over the ~1 km
+        cells this field covers and shown in inches. It is an estimate, not a gauge in the field,
+        and at 1 km most fields cover only a few cells.
       </p>
     </aside>
   )

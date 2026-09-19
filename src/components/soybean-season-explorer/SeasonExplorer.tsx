@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { PrecipLayer, SeasonData } from '../../types/soybean-season'
 import {
+  buildFieldRainfall,
   buildNdviLookup,
-  buildRainfallTotals,
   formatInches,
   loadSeasonData,
   peakGreennessStep,
+  rainPlane,
+  rainStepMm,
   shortDate,
   type NdviLookup,
 } from '../../lib/soybean-season/season'
@@ -70,7 +72,7 @@ export function SeasonExplorer() {
   }, [])
 
   const ndvi: NdviLookup | null = useMemo(() => (data ? buildNdviLookup(data) : null), [data])
-  const rainfall = useMemo(() => (data ? buildRainfallTotals(data) : null), [data])
+  const rainfall = useMemo(() => (data ? buildFieldRainfall(data) : null), [data])
 
   // Open on the greenest date of the season rather than on 1 April, where the
   // fields are bare soil and no rain has fallen yet. The first frame is what a
@@ -149,7 +151,17 @@ export function SeasonExplorer() {
   observed.sort((a, b) => a - b)
   const medianNdvi = observed.length ? observed[Math.floor(observed.length / 2)] : null
 
-  const cumulativeValues = Array.from(rainfall.cumulative.values()).map((series) => series[day])
+  // Area median straight off the MRMS grid for this date, so the headline
+  // figure and the map are the same numbers.
+  const levels = rainPlane(data, 'cumulative', currentStep)
+  const noData = manifest.rain.noDataValue
+  const stepMm = rainStepMm(manifest, 'cumulative')
+  const cumulativeValues: number[] = []
+  for (let i = 0; i < levels.length; i += 1) {
+    if (levels[i] !== noData) {
+      cumulativeValues.push((levels[i] * stepMm) / 25.4)
+    }
+  }
   cumulativeValues.sort((a, b) => a - b)
   const medianCumulative = cumulativeValues.length
     ? cumulativeValues[Math.floor(cumulativeValues.length / 2)]
@@ -188,8 +200,8 @@ export function SeasonExplorer() {
           <SeasonMap
             data={data}
             ndvi={ndvi}
-            rainfall={rainfall}
             day={day}
+            step={currentStep}
             precipLayer={precipLayer}
             showFields={showFields}
             selectedFieldId={selectedFieldId}
