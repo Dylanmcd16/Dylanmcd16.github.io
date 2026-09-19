@@ -48,8 +48,10 @@ const LABELS_SOURCE = 'carto-labels'
 const FIELDS_SOURCE = 'soybean-fields'
 const RAIN_SOURCE = 'rainfall-raster'
 const EXTENT_SOURCE = 'study-extent'
+const MASK_SOURCE = 'study-mask'
 
 const LAYER_RAIN = 'rainfall-fill'
+const LAYER_MASK = 'study-mask-fill'
 const LAYER_EXTENT = 'study-extent-line'
 const LAYER_LABELS = 'carto-labels-raster'
 const LAYER_FIELD_FILL = 'field-fill'
@@ -158,7 +160,7 @@ export function SeasonMap({
         [west, south],
         [east, north],
       ],
-      fitBoundsOptions: { padding: 24 },
+      fitBoundsOptions: { padding: 12 },
       maxBounds: [
         [west - 0.35, south - 0.3],
         [east + 0.35, north + 0.3],
@@ -200,6 +202,43 @@ export function SeasonMap({
       // rectangle. Outlining it makes that edge read as the boundary of the
       // data rather than as a rendering artefact.
       const [[west2, north2], [east2], , [, south2]] = raster.coordinates
+      map.addSource(MASK_SOURCE, {
+        type: 'geojson',
+        data: {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            // A polygon covering the world with the study area cut out of it.
+            type: 'Polygon',
+            coordinates: [
+              [
+                [-180, -85],
+                [180, -85],
+                [180, 85],
+                [-180, 85],
+                [-180, -85],
+              ],
+              [
+                [raster.coordinates[3][0], raster.coordinates[3][1]],
+                [raster.coordinates[2][0], raster.coordinates[2][1]],
+                [raster.coordinates[1][0], raster.coordinates[1][1]],
+                [raster.coordinates[0][0], raster.coordinates[0][1]],
+                [raster.coordinates[3][0], raster.coordinates[3][1]],
+              ],
+            ],
+          },
+        },
+      })
+      map.addLayer({
+        id: LAYER_MASK,
+        type: 'fill',
+        source: MASK_SOURCE,
+        paint: {
+          'fill-color': '#0b1522',
+          'fill-opacity': 0.46,
+        },
+      })
+
       map.addSource(EXTENT_SOURCE, {
         type: 'geojson',
         data: {
@@ -222,11 +261,10 @@ export function SeasonMap({
         type: 'line',
         source: EXTENT_SOURCE,
         paint: {
-          'line-color': 'rgba(255, 255, 255, 0.8)',
-          'line-width': 1.2,
-          'line-dasharray': [4, 3],
+          'line-color': 'rgba(255, 255, 255, 0.5)',
+          'line-width': 1,
+          'line-dasharray': [3, 3],
         },
-        layout: { visibility: 'none' },
       })
 
       map.addSource(LABELS_SOURCE, {
@@ -350,10 +388,6 @@ export function SeasonMap({
     const layer = map.getLayer(LAYER_RAIN)
     if (!layer) {
       return
-    }
-    const extentVisibility = precipLayer === 'none' ? 'none' : 'visible'
-    if (map.getLayer(LAYER_EXTENT)) {
-      map.setLayoutProperty(LAYER_EXTENT, 'visibility', extentVisibility)
     }
     if (precipLayer === 'none') {
       map.setLayoutProperty(LAYER_RAIN, 'visibility', 'none')

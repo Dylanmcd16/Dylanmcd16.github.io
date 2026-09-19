@@ -5,22 +5,47 @@ import {
   buildRainfallTotals,
   formatInches,
   loadSeasonData,
+  peakGreennessStep,
   shortDate,
+  type NdviLookup,
 } from '../../lib/soybean-season/season'
 import { SeasonMap } from './SeasonMap'
-import { LayerControls, PlaybackControls, SeasonLegend } from './SeasonControls'
+import { LayerControls, SeasonLegend, Timeline } from './SeasonControls'
 import { FieldPanel } from './FieldPanel'
 
 /** One frame per usable acquisition date. Slow enough to read the date, fast
  * enough that the whole season runs in about half a minute. */
 const FRAME_MS = 620
 
+interface Stat {
+  figure: string
+  label: string
+  tone?: 'canopy' | 'rain'
+}
+
+function StatBand({ stats }: { stats: Stat[] }) {
+  return (
+    <div className="sse-stats-band">
+      {stats.map((stat) => (
+        <div className="sse-stat" key={stat.label}>
+          <span
+            className={`sse-stat__figure${stat.tone ? ` sse-stat__figure--${stat.tone}` : ''}`}
+          >
+            {stat.figure}
+          </span>
+          <span className="sse-stat__label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export function SeasonExplorer() {
   const [data, setData] = useState<SeasonData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [mapReady, setMapReady] = useState(false)
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState<number | null>(null)
   const [playing, setPlaying] = useState(false)
   const [precipLayer, setPrecipLayer] = useState<PrecipLayer>('cumulative')
   const [showFields, setShowFields] = useState(true)
@@ -44,26 +69,36 @@ export function SeasonExplorer() {
     }
   }, [])
 
-  const ndvi = useMemo(() => (data ? buildNdviLookup(data) : null), [data])
+  const ndvi: NdviLookup | null = useMemo(() => (data ? buildNdviLookup(data) : null), [data])
   const rainfall = useMemo(() => (data ? buildRainfallTotals(data) : null), [data])
+
+  // Open on the greenest date of the season rather than on 1 April, where the
+  // fields are bare soil and no rain has fallen yet. The first frame is what a
+  // reader sees before touching anything, so it should show the thing working.
+  useEffect(() => {
+    if (data && ndvi && step === null) {
+      setStep(peakGreennessStep(data, ndvi))
+    }
+  }, [data, ndvi, step])
 
   const passes = data?.manifest.ndviDays ?? []
   const nSteps = passes.length
-  const day = passes[Math.min(step, Math.max(0, nSteps - 1))] ?? 0
+  const currentStep = step ?? 0
 
-  // Autoplay stops at the end of the season rather than looping, so the last
-  // frame stays on screen instead of snapping back to bare soil.
   useEffect(() => {
     if (!playing || nSteps === 0) {
       return
     }
     const timer = window.setInterval(() => {
       setStep((current) => {
-        if (current >= nSteps - 1) {
+        const at = current ?? 0
+        // Stop at the end rather than looping, so the last frame stays on
+        // screen instead of snapping back to bare soil.
+        if (at >= nSteps - 1) {
           setPlaying(false)
-          return current
+          return at
         }
-        return current + 1
+        return at + 1
       })
     }, FRAME_MS)
     return () => window.clearInterval(timer)
@@ -71,26 +106,34 @@ export function SeasonExplorer() {
 
   if (error) {
     return (
-      <div className="sse-explorer sse-explorer--message">
-        <p>
-          The season data could not be loaded ({error}). The explorer needs the files under{' '}
-          <code>public/data/iowa-soybean-season/</code>.
-        </p>
+      <div className="sse-shell">
+        <div className="sse-stage sse-map__veil" style={{ position: 'relative', height: 260 }}>
+          <p>
+            The season data could not be loaded ({error}). The explorer needs the files under{' '}
+            <code>public/data/iowa-soybean-season/</code>.
+          </p>
+        </div>
       </div>
     )
   }
 
-  if (!data || !ndvi || !rainfall) {
+  if (!data || !ndvi || !rainfall || step === null) {
     return (
-      <div className="sse-explorer sse-explorer--message">
-        <p>Loading 248 fields, 59 usable Sentinel-2 dates and a season of rainfall…</p>
+      <div className="sse-shell">
+        <div className="sse-stage">
+          <div className="sse-map" />
+          <div className="sse-map__veil">
+            Loading 248 fields, 59 usable Sentinel-2 dates and a season of rainfall…
+          </div>
+        </div>
       </div>
     )
   }
 
   const { manifest } = data
+  const day = passes[Math.min(currentStep, nSteps - 1)]
   const dateIso = manifest.days[day]
-  const previousDay = step > 0 ? passes[step - 1] : null
+  const previousDay = currentStep > 0 ? passes[currentStep - 1] : null
   const daysSincePrevious = previousDay === null ? null : day - previousDay
 
   // Summary figures for this date, read straight off the data rather than
@@ -104,9 +147,7 @@ export function SeasonExplorer() {
     }
   }
   observed.sort((a, b) => a - b)
-  const medianNdvi = observed.length
-    ? observed[Math.floor(observed.length / 2)]
-    : null
+  const medianNdvi = observed.length ? observed[Math.floor(observed.length / 2)] : null
 
   const cumulativeValues = Array.from(rainfall.cumulative.values()).map((series) => series[day])
   cumulativeValues.sort((a, b) => a - b)
@@ -114,43 +155,36 @@ export function SeasonExplorer() {
     ? cumulativeValues[Math.floor(cumulativeValues.length / 2)]
     : 0
 
-  return (
-    <div className="sse-explorer">
-      <div className="sse-summary">
-        <div>
-          <strong>{manifest.nFields}</strong>
-          <span>USDA-estimated soybean field units</span>
-        </div>
-        <div>
-          <strong>{manifest.nPasses}</strong>
-          <span>usable Sentinel-2 acquisition dates</span>
-        </div>
-        <div>
-          <strong>{manifest.nObservations.toLocaleString()}</strong>
-          <span>
-            valid field-level NDVI observations, of{' '}
-            {manifest.nPossibleObservations.toLocaleString()} possible
-          </span>
-        </div>
-        <div>
-          <strong className="sse-summary__green">
-            {medianNdvi === null ? '—' : medianNdvi.toFixed(2)}
-          </strong>
-          <span>
-            median NDVI on {shortDate(dateIso)}
-            {observed.length
-              ? ` · ${observed.length} of ${manifest.nFields} fields measured`
-              : ' · no field measurable'}
-          </span>
-        </div>
-        <div>
-          <strong className="sse-summary__blue">{formatInches(medianCumulative)}</strong>
-          <span>rain since 1 May, area median</span>
-        </div>
-      </div>
+  const stats: Stat[] = [
+    { figure: String(manifest.nFields), label: 'USDA-estimated soybean field units' },
+    { figure: String(manifest.nPasses), label: 'Usable Sentinel-2 acquisition dates' },
+    {
+      figure: manifest.nObservations.toLocaleString(),
+      label: `Valid field-level NDVI observations, of ${manifest.nPossibleObservations.toLocaleString()} possible`,
+    },
+    {
+      figure: medianNdvi === null ? '—' : medianNdvi.toFixed(2),
+      label: `Median NDVI on ${shortDate(dateIso)} · ${observed.length} of ${manifest.nFields} fields measured`,
+      tone: 'canopy',
+    },
+    {
+      figure: formatInches(medianCumulative),
+      label: 'Rain since 1 May, area median',
+      tone: 'rain',
+    },
+  ]
 
-      <div className="sse-stage">
-        <div className="sse-stage__map">
+  // Where each acquisition falls across the season, for the ticks on the
+  // scrubber: the clear views are not evenly spaced and the control says so.
+  const span = manifest.days.length - 1
+  const positions = passes.map((d) => d / span)
+
+  return (
+    <>
+      <StatBand stats={stats} />
+
+      <div className="sse-shell">
+        <div className="sse-stage">
           <SeasonMap
             data={data}
             ndvi={ndvi}
@@ -162,35 +196,54 @@ export function SeasonExplorer() {
             onSelectField={setSelectedFieldId}
             onReady={() => setMapReady(true)}
           />
-          <div className="sse-overlay sse-overlay--layers">
+
+          {/* Layers and legend share one panel on the left, which keeps the
+              whole right side free for the field card. */}
+          <div className="sse-float sse-float--panel sse-glass">
             <LayerControls
               showFields={showFields}
               onShowFieldsChange={setShowFields}
               precipLayer={precipLayer}
               onPrecipLayerChange={setPrecipLayer}
             />
-          </div>
-          <div className="sse-overlay sse-overlay--legend">
+            <div className="sse-divider" />
             <SeasonLegend precipLayer={precipLayer} />
           </div>
+
+          {selectedFieldId !== null ? (
+            <FieldPanel
+              data={data}
+              rainfall={rainfall}
+              selectedFieldId={selectedFieldId}
+              day={day}
+              onDismiss={() => setSelectedFieldId(null)}
+            />
+          ) : null}
+
+          <Timeline
+            step={currentStep}
+            nSteps={nSteps}
+            dateIso={dateIso}
+            daysSincePrevious={daysSincePrevious}
+            positions={positions}
+            playing={playing}
+            onStepChange={(next) => {
+              setPlaying(false)
+              setStep(next)
+            }}
+            onTogglePlay={() => setPlaying((current) => !current)}
+          />
+
           {!mapReady ? <div className="sse-map__veil">Loading satellite imagery…</div> : null}
         </div>
 
-        <FieldPanel data={data} rainfall={rainfall} selectedFieldId={selectedFieldId} day={day} />
+        {selectedFieldId === null ? (
+          <p className="sse-hint">
+            Tap any field for its NDVI and rainfall through the season, or press play to watch the
+            whole year.
+          </p>
+        ) : null}
       </div>
-
-      <PlaybackControls
-        step={step}
-        nSteps={nSteps}
-        dateIso={dateIso}
-        daysSincePrevious={daysSincePrevious}
-        playing={playing}
-        onStepChange={(next) => {
-          setPlaying(false)
-          setStep(next)
-        }}
-        onTogglePlay={() => setPlaying((current) => !current)}
-      />
-    </div>
+    </>
   )
 }

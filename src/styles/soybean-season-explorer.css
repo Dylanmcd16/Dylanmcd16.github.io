@@ -289,18 +289,11 @@
   }
 }
 
-.sse-float--layers {
+.sse-float--panel {
   top: var(--x4);
   left: var(--x4);
-  width: 246px;
-  padding: var(--x4);
-}
-
-.sse-float--legend {
-  right: var(--x4);
-  bottom: 96px;
-  width: 224px;
-  padding: var(--x4);
+  width: 274px;
+  padding: var(--x4) var(--x5);
 }
 
 /* ---- layer controls ----------------------------------------------------- */
@@ -394,9 +387,13 @@
   position: relative;
   display: grid;
   place-items: center;
-  padding: 7px 4px;
+  padding: 7px 2px;
   border-radius: 8px;
-  font-size: 0.75rem;
+  /* One line each: a wrapped segment makes the control ragged, and the
+     selected one taller than its neighbours. */
+  white-space: nowrap;
+  font-size: 0.6875rem;
+  letter-spacing: -0.01em;
   font-weight: 500;
   line-height: 1.15;
   text-align: center;
@@ -620,6 +617,10 @@
   overscroll-behavior: contain;
   padding: var(--x5);
   animation: sse-card-in 0.42s var(--ease) both;
+  /* The card scrolls, so its bottom edge fades instead of chopping a chart in
+     half: the cut then reads as "there is more" rather than as a clipping bug. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent 100%);
 }
 @keyframes sse-card-in {
   from {
@@ -907,9 +908,6 @@
   .sse-card {
     width: 312px;
   }
-  .sse-float--legend {
-    width: 206px;
-  }
 }
 
 /* Below this the floating layer stops being floating: the controls stack
@@ -947,8 +945,7 @@
   .sse-scrub {
     grid-column: 1 / -1;
   }
-  .sse-float--layers,
-  .sse-float--legend,
+  .sse-float--panel,
   .sse-card {
     margin-top: var(--x3);
     padding: var(--x4);

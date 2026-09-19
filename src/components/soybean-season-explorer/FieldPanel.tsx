@@ -7,11 +7,11 @@ import {
 } from '../../lib/soybean-season/season'
 import { requestZoomToField } from './SeasonMap'
 
-const CHART_WIDTH = 330
-const PAD_LEFT = 26
-const PAD_RIGHT = 8
+const CHART_WIDTH = 300
+const PAD_LEFT = 24
+const PAD_RIGHT = 6
 const PAD_TOP = 10
-const PAD_BOTTOM = 18
+const PAD_BOTTOM = 17
 
 interface AxisPoint {
   x: number
@@ -63,37 +63,42 @@ function Axes({
           </text>
         </g>
       ))}
-      <text x={PAD_LEFT} y={height - 4} className="sse-chart__tick">
+      <text x={PAD_LEFT} y={height - 3} className="sse-chart__tick">
         {startLabel}
       </text>
-      <text x={CHART_WIDTH - PAD_RIGHT} y={height - 4} className="sse-chart__tick" textAnchor="end">
+      <text x={CHART_WIDTH - PAD_RIGHT} y={height - 3} className="sse-chart__tick" textAnchor="end">
         {endLabel}
       </text>
     </g>
   )
 }
 
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 12 12" aria-hidden="true">
+      <path d="M1 1l10 10M11 1L1 11" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 interface FieldPanelProps {
   data: SeasonData
   rainfall: RainfallTotals
-  selectedFieldId: number | null
-  /** Calendar day index of the pass being shown. */
+  selectedFieldId: number
+  /** Calendar day index of the acquisition being shown. */
   day: number
+  onDismiss: () => void
 }
 
-export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelProps) {
+/** The detail card for one field.
+ *
+ * It only exists while a field is selected, so it arrives carrying content
+ * rather than sitting empty waiting to be filled.
+ */
+export function FieldPanel({ data, rainfall, selectedFieldId, day, onDismiss }: FieldPanelProps) {
   const feature = data.fields.features.find((f) => f.properties.id === selectedFieldId)
-
   if (!feature) {
-    return (
-      <aside className="sse-panel sse-panel--empty">
-        <h3>Selected field</h3>
-        <p className="sse-panel__hint">
-          Click any field on the map to see its NDVI through the season and the rainfall at its
-          nearest sample point. Zoom in to read the ground around it.
-        </p>
-      </aside>
-    )
+    return null
   }
 
   const { manifest } = data
@@ -106,13 +111,11 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
   const trailing = rainfall.trailing14.get(properties.cell)
   const daily = rainfall.daily.get(properties.cell)
 
-  const ndviToday = series
-    ? series.v[series.d.indexOf(day)] ?? undefined
-    : undefined
+  const ndviToday = series ? series.v[series.d.indexOf(day)] ?? undefined : undefined
 
   // ---- NDVI chart: one dot per date this field was actually measured on.
   // A missing date is cloud over this field, not a gap in the season.
-  const ndviScale = makeScales(nDays, 132, 1)
+  const ndviScale = makeScales(nDays, 120, 1)
   const ndviPoints: AxisPoint[] = []
   if (series) {
     series.d.forEach((d, i) => {
@@ -126,11 +129,10 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
     .map((point, i) => `${i === 0 ? 'M' : 'L'}${point.x.toFixed(1)} ${point.y.toFixed(1)}`)
     .join(' ')
 
-  // ---- rainfall charts
   const dailyMax = daily ? Math.max(0.5, ...Array.from(daily)) : 1
-  const dailyScale = makeScales(nDays, 104, dailyMax)
+  const dailyScale = makeScales(nDays, 92, dailyMax)
   const cumulativeMax = cumulative ? Math.max(1, cumulative[nDays - 1]) : 1
-  const cumulativeScale = makeScales(nDays, 108, cumulativeMax)
+  const cumulativeScale = makeScales(nDays, 96, cumulativeMax)
   const cumulativePath = cumulative
     ? Array.from(cumulative)
         .map(
@@ -146,48 +148,59 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
   const endLabel = shortDate(manifest.days[nDays - 1])
 
   return (
-    <aside className="sse-panel">
-      <div className="sse-panel__head">
-        <h3>Field {properties.id}</h3>
-        <button type="button" className="sse-zoom" onClick={() => requestZoomToField(properties.id)}>
-          Zoom to field
+    <aside className="sse-card sse-glass" aria-label={`Field ${properties.id} detail`}>
+      <div className="sse-card__head">
+        <h3 className="sse-card__title">Field {properties.id}</h3>
+        <button
+          type="button"
+          className="sse-card__dismiss"
+          onClick={onDismiss}
+          aria-label="Close the field detail"
+        >
+          <CloseIcon />
         </button>
       </div>
-      <p className="sse-panel__meta">
+
+      <p className="sse-card__meta">
         {properties.acres ? `${properties.acres.toLocaleString()} acres` : '—'}
         {properties.ha ? ` · ${properties.ha} ha` : ''}
-        {' · '}
-        measured on {properties.n} of {manifest.nPasses} dates
+        {` · measured on ${properties.n} of ${manifest.nPasses} dates`}
       </p>
-      {properties.soil ? <p className="sse-panel__soil">{properties.soil}</p> : null}
+      {properties.soil ? <p className="sse-card__soil">{properties.soil}</p> : null}
 
-      <dl className="sse-stats">
+      <button type="button" className="sse-zoom" onClick={() => requestZoomToField(properties.id)}>
+        Zoom to field
+      </button>
+
+      <dl className="sse-readout">
         <div>
           <dt>NDVI</dt>
-          <dd className="sse-stats__green">
+          <dd className="sse-readout__canopy">
             {ndviToday === undefined ? '—' : ndviToday.toFixed(3)}
           </dd>
           <span>{ndviToday === undefined ? 'clouded out' : longDate(dateIso)}</span>
         </div>
         <div>
-          <dt>Rain since 1 May</dt>
-          <dd className="sse-stats__blue">
-            {cumulative ? formatInches(cumulative[day]) : '—'}
-          </dd>
+          <dt>Since 1 May</dt>
+          <dd className="sse-readout__rain">{cumulative ? formatInches(cumulative[day]) : '—'}</dd>
           <span>to {shortDate(dateIso)}</span>
         </div>
         <div>
-          <dt>Rain, last 14 d</dt>
-          <dd className="sse-stats__blue">{trailing ? formatInches(trailing[day]) : '—'}</dd>
+          <dt>Last 14 d</dt>
+          <dd className="sse-readout__rain">{trailing ? formatInches(trailing[day]) : '—'}</dd>
           <span>nearest sample</span>
         </div>
       </dl>
 
       <p className="sse-chart__label">NDVI through the season</p>
-      <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 132`} role="img"
-        aria-label={`NDVI for field ${properties.id} , measured on ${properties.n} dates`}>
+      <svg
+        className="sse-chart"
+        viewBox={`0 0 ${CHART_WIDTH} 120`}
+        role="img"
+        aria-label={`NDVI for field ${properties.id}, measured on ${properties.n} dates`}
+      >
         <Axes
-          height={132}
+          height={120}
           nDays={nDays}
           yMax={1}
           yTicks={[0, 0.5, 1]}
@@ -197,21 +210,35 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
         />
         <path d={ndviPath} className="sse-chart__ndvi-line" />
         {ndviPoints.map((point) => (
-          <circle key={`${point.x}-${point.y}`} cx={point.x} cy={point.y} r={1.9}
-            className="sse-chart__ndvi-dot" />
+          <circle
+            key={`${point.x}-${point.y}`}
+            cx={point.x}
+            cy={point.y}
+            r={1.8}
+            className="sse-chart__ndvi-dot"
+          />
         ))}
-        <line x1={ndviScale.x(day)} x2={ndviScale.x(day)} y1={PAD_TOP} y2={132 - PAD_BOTTOM}
-          className="sse-chart__cursor" />
+        <line
+          x1={ndviScale.x(day)}
+          x2={ndviScale.x(day)}
+          y1={PAD_TOP}
+          y2={120 - PAD_BOTTOM}
+          className="sse-chart__cursor"
+        />
       </svg>
       <p className="sse-chart__note">
         One point per date this field could be measured. Gaps are cloud, not a change in the crop.
       </p>
 
       <p className="sse-chart__label">Daily rainfall</p>
-      <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 104`} role="img"
-        aria-label={`Daily rainfall at the nearest sample point to field ${properties.id}`}>
+      <svg
+        className="sse-chart"
+        viewBox={`0 0 ${CHART_WIDTH} 92`}
+        role="img"
+        aria-label={`Daily rainfall at the nearest sample point to field ${properties.id}`}
+      >
         <Axes
-          height={104}
+          height={92}
           nDays={nDays}
           yMax={dailyMax}
           yTicks={[0, dailyMax / 2, dailyMax]}
@@ -233,15 +260,24 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
               ) : null,
             )
           : null}
-        <line x1={dailyScale.x(day)} x2={dailyScale.x(day)} y1={PAD_TOP} y2={104 - PAD_BOTTOM}
-          className="sse-chart__cursor" />
+        <line
+          x1={dailyScale.x(day)}
+          x2={dailyScale.x(day)}
+          y1={PAD_TOP}
+          y2={92 - PAD_BOTTOM}
+          className="sse-chart__cursor"
+        />
       </svg>
 
       <p className="sse-chart__label">Rainfall since 1 May</p>
-      <svg className="sse-chart" viewBox={`0 0 ${CHART_WIDTH} 108`} role="img"
-        aria-label={`Cumulative rainfall at the nearest sample point to field ${properties.id}`}>
+      <svg
+        className="sse-chart"
+        viewBox={`0 0 ${CHART_WIDTH} 96`}
+        role="img"
+        aria-label={`Cumulative rainfall at the nearest sample point to field ${properties.id}`}
+      >
         <Axes
-          height={108}
+          height={96}
           nDays={nDays}
           yMax={cumulativeMax}
           yTicks={[0, cumulativeMax / 2, cumulativeMax]}
@@ -249,13 +285,20 @@ export function FieldPanel({ data, rainfall, selectedFieldId, day }: FieldPanelP
           startLabel={startLabel}
           endLabel={endLabel}
         />
-        <path d={`${cumulativePath} L${cumulativeScale.x(nDays - 1).toFixed(1)} ${cumulativeScale
-          .y(0)
-          .toFixed(1)} L${cumulativeScale.x(0).toFixed(1)} ${cumulativeScale.y(0).toFixed(1)} Z`}
-          className="sse-chart__rain-area" />
+        <path
+          d={`${cumulativePath} L${cumulativeScale.x(nDays - 1).toFixed(1)} ${cumulativeScale
+            .y(0)
+            .toFixed(1)} L${cumulativeScale.x(0).toFixed(1)} ${cumulativeScale.y(0).toFixed(1)} Z`}
+          className="sse-chart__rain-area"
+        />
         <path d={cumulativePath} className="sse-chart__rain-line" />
-        <line x1={cumulativeScale.x(day)} x2={cumulativeScale.x(day)} y1={PAD_TOP}
-          y2={108 - PAD_BOTTOM} className="sse-chart__cursor" />
+        <line
+          x1={cumulativeScale.x(day)}
+          x2={cumulativeScale.x(day)}
+          y1={PAD_TOP}
+          y2={96 - PAD_BOTTOM}
+          className="sse-chart__cursor"
+        />
       </svg>
       <p className="sse-chart__note">
         All three charts share one x-axis, so greenness and rainfall read together. Rainfall is

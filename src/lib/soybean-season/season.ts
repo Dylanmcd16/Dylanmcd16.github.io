@@ -287,6 +287,47 @@ export function ndviColourExpression(): unknown[] {
 }
 
 // ---------------------------------------------------------------------------
+// Opening frame
+// ---------------------------------------------------------------------------
+
+/** The acquisition index with the highest median NDVI across the fields.
+ *
+ * The season starts on 1 April, where the fields are bare soil and no rain has
+ * fallen — the least representative frame there is, and the one a reader would
+ * otherwise meet first. Opening on the greenest date shows the product doing
+ * its job. The date is real and labelled, so nothing is misrepresented; only
+ * the starting position changes.
+ */
+export function peakGreennessStep(data: SeasonData, ndvi: NdviLookup): number {
+  const passes = data.manifest.ndviDays
+  let bestStep = 0
+  let bestMedian = -Infinity
+
+  passes.forEach((day, index) => {
+    const values: number[] = []
+    for (const byDay of ndvi.values()) {
+      const value = byDay.get(day)
+      if (value !== undefined) {
+        values.push(value)
+      }
+    }
+    if (values.length < data.manifest.nFields * 0.5) {
+      // Skip dates where most fields were clouded out: a high median over a
+      // handful of fields is not a picture of the area.
+      return
+    }
+    values.sort((a, b) => a - b)
+    const median = values[Math.floor(values.length / 2)]
+    if (median > bestMedian) {
+      bestMedian = median
+      bestStep = index
+    }
+  })
+
+  return bestStep
+}
+
+// ---------------------------------------------------------------------------
 // Formatting
 // ---------------------------------------------------------------------------
 
