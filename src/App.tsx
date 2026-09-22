@@ -428,25 +428,24 @@ function App() {
           </div>
         </section>
 
-        {/* SKILLS + EDUCATION */}
+        {/* SKILLS */}
         <section className="section" id="skills">
           <div className="container">
             <h2>Skills</h2>
-            <div className="skills-grid">
-              {portfolio.skills.map((group) => (
-                <div className="skill-group" key={group.title}>
-                  {/* Title, one-line summary, chips — the hierarchy is the
-                      label, so no eyebrow text above any of the three. */}
-                  <h3>{group.title}</h3>
-                  <p className="skill-strengths">{group.strengths}</p>
-                  <ul className="skill-tools" aria-label={`${group.title} tools`}>
-                    {group.tools.map((tool) => (
-                      <li key={tool}>{tool}</li>
-                    ))}
-                  </ul>
-                </div>
+            <ol className="skills-list">
+              {portfolio.skills.map((group, index) => (
+                <li className="skill-row" key={group.title}>
+                  <div className="skill-row-heading">
+                    <span className="skill-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{group.title}</h3>
+                  </div>
+                  <div className="skill-row-detail">
+                    <p className="skill-strengths">{group.strengths}</p>
+                    <p className="skill-methods">{group.tools.join(' · ')}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
             <div className="skills-note">
               <p className="skills-note-label">{portfolio.skillsNote.label}</p>
               <p>{portfolio.skillsNote.body}</p>

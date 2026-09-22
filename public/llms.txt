@@ -24,7 +24,11 @@
 
 ## Core Capabilities
 
-Meteorological analysis, catastrophe modeling, severe weather verification, spatial analysis, Spatial ETL, Python automation, ArcPy, ArcGIS Pro, ArcGIS Enterprise and Server, Experience Builder, data quality control and reconciliation, data integration, REST APIs, radar, GOES, MODIS, MRMS, numerical weather prediction, remote sensing, field sensing, drone imagery, LiDAR, WRF, Noah-MP, machine learning and AI-supported analysis, AWS, SQL, PostgreSQL, MATLAB, R, C++, FORTRAN, React, TypeScript, FastAPI, Git, GitHub, and Linux.
+- Meteorology and weather analysis: severe weather verification, catastrophe analysis, NEXRAD, MRMS, GOES.
+- Atmospheric research and modeling: WRF, Noah-MP, CESM/LUMIP, ERA5, scientific visualization.
+- GIS and geospatial systems: ArcGIS Pro and Enterprise, ArcPy, Experience Builder, spatial ETL, raster and vector analysis.
+- Coding and data systems: Python, SQL, REST APIs, AWS, Linux, React, TypeScript.
+- Field sensing and remote sensing: GPS-linked instruments, infrared radiometers, drone imagery, LiDAR, GOES/MODIS.
 
 ## Key Links
 

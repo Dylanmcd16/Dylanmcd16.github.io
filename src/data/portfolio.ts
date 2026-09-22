@@ -57,10 +57,8 @@ export type Experience = {
   scope: string
 }
 
-// An index, not a case study: this section says what Dylan can do and which
-// technologies he knows. Where he used them, what he built, and why it
-// mattered is the Work section's job — so no employers, evidence lines, or
-// per-card links here, and no proficiency bars or ratings anywhere.
+// Concise disciplines drawn from the resume. The Work section supplies the
+// detailed examples, while these rows show the range of methods and interests.
 export type SkillGroup = {
   title: string
   strengths: string
@@ -243,50 +241,38 @@ export const portfolio = {
 
   skills: [
     {
-      title: 'Geospatial Systems',
+      title: 'Meteorology & Weather Analysis',
       strengths:
-        'Spatial ETL, automated pipelines, raster and vector processing, web GIS publishing, remote sensing, and field-sensor workflows',
-      tools: [
-        'ArcGIS Pro',
-        'ArcGIS Enterprise / Online',
-        'ArcPy',
-        'Experience Builder',
-        'Spatial ETL',
-        'GeoPandas',
-        'Rasterio',
-        'LiDAR',
-        'Drone imagery',
-      ],
+        'Analyze severe weather using observations, radar, satellite imagery, and model output; assess what each source can support.',
+      tools: ['Severe weather verification', 'Catastrophe analysis', 'NEXRAD', 'MRMS', 'GOES'],
     },
     {
-      title: 'Meteorology & Modeling',
+      title: 'Atmospheric Research & Modeling',
       strengths:
-        'Severe weather verification, catastrophe modeling, numerical weather prediction, atmospheric modeling, and land-surface modeling',
-      tools: ['WRF', 'Noah-MP', 'NEXRAD / MRMS', 'GOES / MODIS', 'ERA5', 'CESM'],
+        'Design numerical experiments, compare land-use scenarios, and interpret their effects on rainfall and convective systems.',
+      tools: ['WRF', 'Noah-MP', 'CESM / LUMIP', 'ERA5', 'Scientific visualization'],
     },
     {
-      title: 'Data Engineering & Software',
+      title: 'GIS & Geospatial Systems',
       strengths:
-        'Automated QC/validation, REST API integrations, continuous operational workflows, cloud services, and scientific software',
-      tools: [
-        'Python',
-        'SQL / PostgreSQL',
-        'R',
-        'MATLAB',
-        'C++',
-        'AWS',
-        'Linux',
-        'pandas / xarray',
-        'NetCDF / GRIB / GeoTIFF',
-        'REST APIs',
-        'FastAPI',
-        'React / TypeScript',
-      ],
+        'Turn weather and field data into validated spatial datasets, maps, and web GIS applications.',
+      tools: ['ArcGIS Pro & Enterprise', 'ArcPy', 'Experience Builder', 'Spatial ETL', 'Raster & vector analysis'],
+    },
+    {
+      title: 'Coding & Data Systems',
+      strengths:
+        'Build Python pipelines and API integrations that keep operational data, maps, and exports current and consistent.',
+      tools: ['Python', 'SQL', 'REST APIs', 'AWS', 'Linux', 'React / TypeScript'],
+    },
+    {
+      title: 'Field Sensing & Remote Sensing',
+      strengths:
+        'Build and operate field instruments; connect GPS-linked measurements with drone, LiDAR, and satellite observations.',
+      tools: ['Trimble GPS', 'Infrared radiometers', 'Drone imagery', 'LiDAR', 'GOES / MODIS'],
     },
   ] satisfies SkillGroup[],
 
-  // A working method rather than a skill category, so it sits below the cards
-  // as its own labelled note instead of becoming a chip or a fourth card.
+  // A working method rather than a discipline, shown as a short note below.
   skillsNote: {
     label: 'AI-assisted work',
     body: 'I use generative AI to assist with research, coding, and debugging. I verify its outputs, test results, and make the final decisions myself.',
