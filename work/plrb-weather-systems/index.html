@@ -88,11 +88,11 @@
         </ul>
 
         <h2>The challenge: Turning fragmented weather data into reliable claims decision support</h2>
-        <p>Claims professionals need weather evidence they can trust on the day they ask for it. I turn NOAA, IEM, and other environmental data into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently — and that keep maps, tables, and exports synchronized end to end.</p>
+        <p>Claims professionals need weather evidence they can trust on the day they ask for it. I turn NOAA and data-provider sources into daily production systems that remain accurate when reports arrive late, records are duplicated or incomplete, and downloads fail silently — and that keep maps, tables, and exports synchronized end to end.</p>
 
         <h2>Daily weather-data production</h2>
         <p>I built and continue to maintain and improve daily workflows for storm-report processing, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and date-stamped operational archives. The workflows are built to handle large daily report volumes; occurrence-number assignment is the primary remaining manual step, alongside a short surface-analysis review.</p>
-        <p>Python and ArcPy retrieve NOAA and Iowa Environmental Mesonet products, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.</p>
+        <p>Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.</p>
         <ul>
           <li>Reconciles reports that arrive after the initial daily run and removes delayed reports already included in the previous published dataset.</li>
           <li>Validates occurrence numbers and timestamps, removes duplicate records, and repairs missing city or ZIP attributes through spatial joins and nearest-feature analysis.</li>
@@ -142,7 +142,7 @@
 
         <h2>Esri Special Achievement in GIS (SAG) Award</h2>
         <p>PLRB received Esri&rsquo;s 2025 Special Achievement in GIS (SAG) Award, which recognizes organizations for innovative use of GIS technology. Esri presents the award to a small share of its user community each year, selected from hundreds of thousands of organizations worldwide.</p>
-        <p>The recognized work is the body of catastrophe analytics and claims-facing GIS delivery described on this page: the automated storm-report and weather-data pipelines, the ArcGIS Experience Builder applications used by member claims professionals, and the ArcGIS Server services and map products that keep those applications supplied with validated data. I built and maintain the production automation and applications behind that work as part of PLRB&rsquo;s Weather &amp; Catastrophe team.</p>
+        <p>The award recognized PLRB&rsquo;s catastrophe analytics and claims-facing GIS work: automated storm-report and weather-data pipelines, ArcGIS Experience Builder applications, and the ArcGIS Server services and maps that supply them with validated data. I build and maintain these production systems as part of PLRB&rsquo;s Weather &amp; Catastrophe team.</p>
         <figure>
           <img src="/Screenshot%202026-07-17%20154353.png" alt="LinkedIn post announcing PLRB&rsquo;s 2025 Esri Special Achievement in GIS Award" loading="lazy" />
           <figcaption>PLRB&rsquo;s Weather &amp; Catastrophe team accepting the 2025 Esri SAG Award. <a href="https://www.linkedin.com/posts/dylan-mcdermott-193b18174_plrb-esri-sagawards-activity-7384242498338172929-TbnD">Read the announcement on LinkedIn</a>.</figcaption>

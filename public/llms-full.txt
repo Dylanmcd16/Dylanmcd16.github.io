@@ -2,33 +2,33 @@
 
 ## Overview
 
-Dylan McDermott is a meteorologist and geospatial data professional based in West Des Moines, Iowa. He builds automated geospatial and weather-data workflows that turn scientific observations into reliable maps, analyses, and operational products, drawing on meteorological analysis, catastrophe research, geospatial data engineering, remote sensing, and field-sensing research.
+Dylan McDermott is a meteorologist and geospatial data professional based in West Des Moines, Iowa. He builds weather-data systems, geospatial workflows, and research tools across catastrophe analysis, remote sensing, and field sensing.
 
 ## Current Role: PLRB - Meteorologist
 
 Dylan is a Meteorologist at Property & Liability Resource Bureau (PLRB), beginning in January 2025. He designs, builds, and maintains ArcGIS-based geospatial products for weather-event verification, catastrophe analytics, and insurance-facing decision support.
 
-His work includes automated Python and ArcPy workflows that retrieve NOAA and Iowa Environmental Mesonet products, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. These workflows reconcile reports arriving after the initial daily run, validate occurrence numbers and timestamps, remove duplicates, repair missing city and ZIP attributes through spatial joins and nearest-feature analysis, and check required downloads before dependent products are generated. Companion workflows handle ArcGIS Server publishing and team notification.
+He builds Python and ArcPy workflows to retrieve data from NOAA and other providers, validate storm reports, standardize hazard classifications, spatially enrich records, and generate maps and synchronized shapefile, DBF, CSV, and text exports. The workflows reconcile late reports, check IDs and timestamps, remove duplicates, fill missing city and ZIP attributes, and verify downloads before producing dependent products. Companion workflows publish to ArcGIS Server and notify the team.
 
-He builds claims-facing ArcGIS Experience Builder applications, custom widgets, and REST API integrations for hail, wind, hurricane, current-weather, and location-specific weather analysis. He also integrates radar, satellite, numerical-model, and observational data into recurring products for severe weather, precipitation, smoke, evacuation, earthquake, power-outage, and catastrophe analysis. A separate Python and ArcPy workflow converts National Hurricane Center GIS archive data into publication-ready tropical cyclone track maps with programmatic layout extent, storm metadata, validation, and export.
+He builds claims-facing ArcGIS Experience Builder applications, custom widgets, and REST API integrations for hail, wind, hurricane, current-weather, and location-specific analysis. He combines radar, satellite, model, and observational data for severe weather, precipitation, smoke, evacuation, earthquake, and outage products. A Python and ArcPy workflow turns National Hurricane Center GIS archives into validated tropical-cyclone track maps with automated layouts and storm metadata.
 
-Dylan evaluates data quality, source limitations, bias, provenance, uncertainty, and transparent methodology for operational weather products, distinguishing direct observations from modeled and remotely sensed estimates. He conducted an exploratory machine-learning study estimating convective wind gusts from meteorological observations and engineered predictors. His work contributed to PLRB's 2025 Esri Special Achievement in GIS Award.
+Dylan evaluates data quality, source limitations, bias, provenance, and uncertainty, distinguishing direct observations from modeled and remotely sensed estimates. He also conducted an exploratory machine-learning study to estimate convective wind gusts from meteorological observations and engineered predictors. His work contributed to PLRB's 2025 Esri Special Achievement in GIS Award.
 
 ## Corteva Agriscience - Research Associate
 
 At Corteva Agriscience from June 2024 to January 2025 on a contract basis, Dylan built and operated field-sensing systems and independently developed Python and ArcPy workflows for data ingestion, quality control, spatial assignment to field and plot boundaries, analysis, visualization, and research delivery.
 
-He co-developed the Smartstick, a wheeled platform that collected spatially referenced crop-canopy measurements, and built the downstream workflow that connected GPS records, geospatial point creation, plot assignment, and plot-level summaries across more than seven research sites, including Johnston, Dallas Center, Lubbock, and Viluco. Dylan compared selected field measurements with drone imagery and drone LiDAR to support crop-stress research; the enclosure's internal logging and cloud-transfer implementation were handled by others. The pipeline automated approximately one hour of manual processing per collection, saving weeks across the campaign while delivering a reproducible workflow across all research sites.
+He co-developed the Smartstick, a wheeled platform for georeferenced crop-canopy measurements, and built a workflow linking GPS records to plot-level summaries at seven research sites, including Johnston, Dallas Center, Lubbock, and Viluco. He compared selected measurements with drone imagery and LiDAR for crop-stress research. Others handled the enclosure's internal logging and cloud transfer. The pipeline automated about an hour of processing per collection—saving weeks across the campaign—and applied a reproducible workflow across the sites.
 
-He analyzed soil-moisture, evapotranspiration, irrigation, crop-development-stage, and field measurements to estimate crop water use and help evaluate crop stress. This work combined measurements collected at different temporal and spatial scales, reviewed the data for gaps and sensor problems, and interpreted results alongside agronomists, engineers, and data scientists, connecting environmental conditions and irrigation practices with the field-sensing measurements.
+He analyzed soil moisture, evapotranspiration, irrigation, crop-development stage, and field measurements to estimate crop water use and assess crop stress. He reconciled measurements across spatial and temporal scales, checked for gaps and sensor issues, and interpreted results with agronomists, engineers, and data scientists.
 
-Other Corteva work included co-designing and building the Gold Standard automated weather station and antenna-based data relay system, co-building and operating a sixteen-chamber automated nitrous oxide soil-gas flux experiment, and building, maintaining, shipping, and tracking infrared radiometers deployed across the Midwest, California, Texas, and South America.
+Other work included co-designing the Gold Standard automated weather station and antenna-based relay; co-building and operating a 16-chamber automated nitrous oxide flux experiment; and supporting more than 200 infrared radiometers deployed across the Americas.
 
 ## Master's Thesis - Iowa State University
 
 Dylan earned an M.S. in Meteorology from Iowa State University in 2024. His thesis, "Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems," examined how historical U.S. land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
 
-The research used WRF and Noah-MP simulations at multiple resolutions; geospatial land-surface datasets translated from CESM/LUMIP inputs, evaluating present-day versus 1850 vegetation scenarios; and analysis of ERA5, CESM, WRF, GOES, MODIS, MRMS, radar, and observational precipitation datasets using Python, xarray, MATLAB, NumPy, and NetCDF.
+The research used WRF and Noah-MP simulations at multiple resolutions to compare present-day and 1850 vegetation scenarios. He translated CESM/LUMIP land-surface data to model grids and analyzed ERA5, CESM, WRF, GOES, MODIS, MRMS, radar, and observed precipitation with Python, xarray, MATLAB, NumPy, and NetCDF.
 
 ## Undergraduate Research - Iowa State University
 
@@ -36,11 +36,11 @@ As an undergraduate research assistant in 2021, Dylan conducted boundary-layer m
 
 ## Personal Project: Iowa Severe Weather Explorer
 
-Dylan built an end-to-end meteorological data pipeline and web application that reconstructs the August 10, 2020 Iowa derecho on a single synchronized five-minute timeline. It combines archived NEXRAD base-reflectivity composites, IEM storm reports and warning polygons, ASOS/AWOS surface observations, HRRR model fields byte-range subset from the NOAA HRRR archive on AWS, and GOES-16 ABI satellite imagery, with each dataset retaining its own valid time. The project also includes a Sentinel-2 before-and-after comparison of the May 2024 Greenfield, Iowa tornado and NWS Damage Assessment Toolkit survey products.
+Dylan built a meteorological data pipeline and web app that reconstructs the August 10, 2020 Iowa derecho on a five-minute timeline. It combines archived NEXRAD reflectivity, IEM storm reports and warnings, ASOS/AWOS observations, HRRR fields subset from NOAA's AWS archive, and GOES-16 ABI imagery. Each dataset retains its own valid time. The project also compares Sentinel-2 imagery before and after the May 2024 Greenfield tornado and includes NWS Damage Assessment Toolkit surveys.
 
 ## Personal Project: AI Weather Intelligence Platform
 
-Since 2025 Dylan has been developing a full-stack platform bridging atmospheric data systems with applied AI, featuring automated evidence extraction and report generation across 200+ environmental data streams. It translates complex environmental data into maps, plots, reports, and actionable answers. The project was named a Semi-Finalist in the AWS 10,000 AIdeas Competition.
+Since 2025, Dylan has developed a full-stack AI platform that extracts evidence and generates maps, plots, and reports from more than 200 environmental data streams. It was named a semi-finalist in the AWS 10,000 AIdeas Competition.
 
 ## Education
 

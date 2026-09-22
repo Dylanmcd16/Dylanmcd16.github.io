@@ -29,7 +29,7 @@ export function WorkIndexPage({ base }: { base: string }) {
         </a>
         <h1>Work Examples by role</h1>
         <p className="work-index-intro">
-          Click on a role to see work examples for that position.
+          Select a role to see related projects and results.
         </p>
 
         <ul className="work-index-list">

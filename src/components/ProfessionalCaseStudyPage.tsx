@@ -178,9 +178,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     summary: [
       'I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.',
     ],
-    challengeTitle: 'Turning authoritative weather data into practical claims decision support',
+    challengeTitle: 'Making authoritative weather data useful for claims analysis',
     challenge:
-      'PLRB’s goal is to give members fast, reliable access to weather evidence they can use in claims handling, investigations, and catastrophe analysis. Although NOAA, IEM, and other agencies provide extensive public data, those sources are often fragmented, technically complex, inconsistently formatted, or difficult to connect directly to an address or existing insurance workflow. The objective is not merely to display raw weather data, but to transform it into clear, defensible maps, reports, tables, and geospatial services that members can retrieve and interpret without processing the source data themselves.',
+      'PLRB members need fast, reliable weather evidence for claims and catastrophe analysis. NOAA and data providers offer extensive information, but sources can be fragmented, inconsistently formatted, and difficult to connect to an address or insurance workflow. I turn them into clear maps, reports, tables, and GIS services members can use without processing raw data themselves.',
     next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
@@ -198,14 +198,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Operations',
         title: 'Daily weather-data production',
         paragraphs: [
-          'I built and continue to maintain and improve daily workflows for storm-report processing, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and date-stamped operational archives. The workflows are built to handle large daily report volumes; occurrence-number assignment is the primary remaining manual step, alongside a short surface-analysis review.',
-          'Python and ArcPy retrieve NOAA and Iowa Environmental Mesonet products, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.',
+          'I maintain daily workflows for storm reports, data acquisition, SPC outlooks, ArcGIS-ready datasets, email updates, and operational archives. They handle high report volumes; assigning occurrence numbers and reviewing surface analyses remain the main manual steps.',
+          'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team.',
         ],
         bullets: [
-          'Reconciles reports that arrive after the initial daily run and removes delayed reports already included in the previous published dataset.',
-          'Validates occurrence numbers and timestamps, removes duplicate records, and repairs missing city or ZIP attributes through spatial joins and nearest-feature analysis.',
+          'Adds late reports while preventing records already published from appearing twice.',
+          'Checks occurrence numbers and timestamps, removes duplicates, and fills missing city or ZIP fields from nearby features.',
           'Checks required downloads and source files before dependent imagery and data products are generated.',
-          'Propagates analyst edits through merged feature classes, dissolves, maps, tables, and final exports.',
+          'Carries analyst edits through to final maps, tables, and exports.',
         ],
         images: [
           {
@@ -227,8 +227,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '02 / Applications',
         title: 'Claims-facing weather applications',
         paragraphs: [
-          'I build and maintain ArcGIS Experience Builder applications for hail, wind, hurricanes, and current weather. They combine reports, warnings, observations, radar-derived products, precipitation, lightning, and other evidence so claims professionals can investigate a location without handling raw scientific formats.',
-          'Where standard widgets were insufficient, I developed custom behavior and API integrations for date filtering, layer control, record generation, map synchronization, and location-specific reports.',
+          'I build ArcGIS Experience Builder applications for hail, wind, hurricanes, and current weather. They combine reports, warnings, observations, radar products, precipitation, and lightning so claims professionals can investigate a location without handling raw data formats.',
+          'Where standard widgets fell short, I added custom date filters, layer controls, record generation, map synchronization, and location-specific reports through API integrations.',
         ],
         images: [
           {
@@ -251,8 +251,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '03 / Research',
         title: 'Scientific validation of weather products',
         paragraphs: [
-          'I evaluate whether new datasets are scientifically defensible and operationally useful by testing what each variable represents, its spatial and temporal resolution, bias, provenance, update behavior, and the evidence required for responsible interpretation.',
-          'Examples include comparing surface PM2.5 observations with HRRR-Smoke guidance and evaluating products such as ProbSevere and radar-derived hail estimates. The emphasis is not simply adding more layers; it is preventing modeled or remotely sensed estimates from being presented as direct observations.',
+          'I evaluate new datasets for scientific reliability and operational value, checking what each variable represents, its spatial and temporal resolution, bias, source, and update behavior.',
+          'I compare surface PM2.5 observations with HRRR-Smoke guidance and assess products such as ProbSevere and radar-derived hail estimates. I make clear when modeled or remotely sensed values are estimates rather than direct observations.',
         ],
         images: [
           {
@@ -269,8 +269,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '04 / Exploration',
         title: 'Exploratory convective-wind modeling',
         paragraphs: [
-          'I conducted an exploratory machine-learning study that matched observed convective gusts with physically relevant environmental predictors, compared estimated and recorded wind speeds, and diagnosed failures caused by sparse station coverage and storm-scale variability.',
-          'The work clarified where modeled gust estimates may add context and where direct observations and expert meteorological analysis remain necessary.',
+          'I tested a machine-learning approach that matched observed convective gusts with environmental predictors, then compared estimated and recorded wind speeds. Sparse station coverage and storm-scale variability limited accuracy.',
+          'The work clarified where modeled gust estimates can add context and where direct observations and meteorological analysis remain necessary.',
           'This is a work in progress.'
         ],
       },
@@ -280,8 +280,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '05 / Automation',
         title: 'Automated Tropical Cyclone Track Mapping',
         paragraphs: [
-          'I built a Python and ArcPy workflow that converts National Hurricane Center GIS archives into publication-ready tropical-cyclone track maps. The workflow filters data by storm, reads track chronology and metadata, calculates the display extent, updates ArcGIS Pro layouts, validates required inputs, and exports standardized portrait and landscape products at 300 DPI.',
-          'This replaced a repetitive manual process with a reusable, error-checked mapping pipeline.',
+          'I built a Python and ArcPy workflow that turns National Hurricane Center GIS archives into print-ready tropical-cyclone maps. It selects a storm, reads track details, sets the map extent, updates ArcGIS Pro layouts, checks inputs, and exports standard portrait and landscape maps at 300 DPI.',
+          'This replaced a repetitive manual process with a reusable mapping workflow.',
         ],
         images: [
           {
@@ -298,8 +298,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '06 / Recognition',
         title: 'Esri Special Achievement in GIS (SAG) Award',
         paragraphs: [
-          'PLRB received Esri’s 2025 Special Achievement in GIS (SAG) Award, which recognizes organizations for innovative use of GIS technology. Esri presents the award to a small share of its user community each year, selected from hundreds of thousands of organizations worldwide.',
-          'The recognized work is the body of catastrophe analytics and claims-facing GIS delivery described on this page: the automated storm-report and weather-data pipelines, the ArcGIS Experience Builder applications used by member claims professionals, and the ArcGIS Server services and map products that keep those applications supplied with validated data. I built and maintain the production automation and applications behind that work as part of PLRB’s Weather & Catastrophe team.',
+          'PLRB received Esri’s 2025 Special Achievement in GIS (SAG) Award for innovative GIS work. Esri selects awardees from hundreds of thousands of organizations worldwide.',
+          'The award recognized the catastrophe analytics and claims-facing GIS work described here: automated data pipelines, ArcGIS Experience Builder applications, and the services and maps that supply them with validated data. I built and maintain the production workflows and applications as part of PLRB’s Weather & Catastrophe team.',
         ],
         images: [
           {
@@ -333,9 +333,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     summary: [
       'I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
     ],
-    challengeTitle: 'Turning field measurements into reliable research evidence',
+    challengeTitle: 'Turning field measurements into reliable research data',
     challenge:
-      'Field-sensing research requires more than collecting measurements. Sensors must be designed, deployed, maintained, and connected to workflows that identify bad readings, preserve spatial context, and produce data researchers can compare across plots, sites, instruments, and experiments. My work covered that full process—from building and operating field systems to automating the quality control, geospatial processing, visualization, and analysis of their measurements.',
+      'Field research requires more than collecting measurements. Sensors must work reliably, preserve location data, and produce results researchers can compare across plots, sites, and experiments. I built and operated field systems, then automated the quality checks, mapping, and analysis needed to prepare their data.',
     next: { label: 'Read my M.S. thesis', slug: 'land-use-convective-weather' },
     tags: ['Field sensing', 'Python', 'ArcPy', 'Trimble GPS', 'LiDAR', 'Instrumentation', 'Quality control'],
     sections: [
@@ -345,11 +345,11 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Field system',
         title: 'Smartstick sensing platform',
         paragraphs: [
-          'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions while moving through experimental rows, and operated it throughout the season. Infrared radiometers and thermocouples measured below-canopy, within-canopy, and upper-canopy temperatures, while additional sensors measured air temperature within and above the canopy.',
+          'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions in experimental rows, and operated it throughout the season. Infrared radiometers and thermocouples measured temperatures at multiple canopy heights; other sensors measured air temperature within and above the canopy.',
           'An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure\'s internal logging and cloud-transfer implementation were handled by others.',
         ],
         bullets: [
-          'Collected thousands of spatially referenced measurements per walk.',
+          'Collected thousands of GPS-referenced measurements per walk.',
           'Repeated collection approximately twice a week for two months at each site.',
           'Maintained sensors and collection procedures to limit drift and site-to-site inconsistency.',
         ],
@@ -375,11 +375,11 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '02 / Data system',
         title: 'Automated geospatial processing and analysis',
         paragraphs: [
-          'I independently built the Python and ArcPy pipeline that processed each collection from raw tabular files through research-ready outputs. It standardized the data, plotted measurements for visual quality control, removed irrelevant or unrealistic readings, excluded bad GPS positions and outliers, converted coordinates to points, and spatially joined every valid observation to its experimental plot, treatment, and genotype.',
-          'ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, automating approximately one hour of processing per collection (weeks across the campaign).',
+          'I independently built the Python and ArcPy pipeline that turned each collection’s raw files into research-ready data. It standardized records, plotted them for quality control, removed unrealistic readings, bad GPS positions, and outliers, then matched valid points to each plot, treatment, and genotype.',
+          'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, saving about an hour per collection—weeks across the campaign.',
         ],
         bullets: [
-          'Applied the same workflow to data from seven research sites.',
+          'Applied the same workflow across seven research sites.',
           'Overlaid measurements on drone imagery for spatial review.',
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
           'Found a positive relationship between Smartstick measurements and how experimental corn plots responded to stress.',
@@ -405,8 +405,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '03 / Analysis',
         title: 'Crop water-use and stress analysis',
         paragraphs: [
-          'I analyzed soil-moisture, evapotranspiration, irrigation, crop-development-stage, and field measurements to estimate crop water use and help evaluate crop stress. This work required combining measurements collected at different temporal and spatial scales, reviewing the data for gaps and sensor problems, and interpreting the results alongside agronomists, engineers, and data scientists.',
-          'The analysis connected environmental conditions and irrigation practices with the field-sensing measurements, providing additional context for understanding when and where crops were experiencing stress.',
+          'I combined soil moisture, evapotranspiration, irrigation, crop stage, and field data to estimate water use and assess crop stress. I checked for gaps and sensor problems, then interpreted results with agronomists, engineers, and data scientists.',
+          'This connected field measurements with environmental conditions and irrigation practices.',
         ],
       },
       {
@@ -415,8 +415,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '04 / Experimentation',
         title: 'Automated N₂O chamber system',
         paragraphs: [
-          'I co-designed and co-built a sixteen-chamber automated soil-gas system — wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.',
-          'I installed, maintained, and debugged the system in the field, then worked with data scientists to review the measurements, explain equipment-related anomalies, and distinguish valid signals from operational artifacts.',
+          'I co-designed and built a 16-chamber automated soil-gas system, including its wiring, tubing, controls, and code. It sampled every 15 minutes for four months, so equipment failures could compromise long stretches of data.',
+          'I installed, maintained, and debugged the system, then worked with data scientists to distinguish valid measurements from equipment-related artifacts.',
         ],
         images: [
           {
@@ -433,8 +433,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '05 / Instrumentation',
         title: 'Gold Standard instrument-comparison site',
         paragraphs: [
-          'I co-designed and built a reference station used to compare weather instruments and quantify how much nominally similar systems could disagree. The site included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors including Davis.',
-          'A data logger transmitted observations by radio to a computer in the research building. I supported ingestion, maintained the field system, and helped make the measurements available through a web-based visualization site.',
+          'I co-designed a reference station to compare weather instruments and measure how much similar systems differ. It included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors such as Davis.',
+          'A data logger sent observations by radio to the research building. I maintained the station and helped make its measurements available through a web-based visualization site.',
         ],
         images: [
           {
@@ -456,8 +456,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '06 / Fleet operations',
         title: 'Infrared-radiometer fleet tracking',
         paragraphs: [
-          'I built, maintained, shipped, and supported infrared radiometers in a fleet of more than 200 deployed across the Midwest, California, Texas, and South America.',
-          'I created sensor-tracking dashboards that consolidated serial numbers, calibration records, deployment locations, shipment status, repair history, operational notes, and data status. The system gave the team a single view of which instruments were available, deployed, in transit, or needed maintenance.',
+          'I built, maintained, shipped, and supported more than 200 infrared radiometers deployed across the Midwest, California, Texas, and South America.',
+          'I created dashboards tracking serial numbers, calibration, locations, shipping, repairs, notes, and data status so the team could see which instruments were available or needed maintenance.',
         ],
         images: [
           {

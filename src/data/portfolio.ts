@@ -92,7 +92,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I enjoy investigating complex scientific questions, working with environmental and geospatial data, and developing practical solutions through programming, analysis, and automation. My experience spans atmospheric research, agriculture research, geospatial technology, weather-data systems, and the development of tools that make scientific information more useful.',
+    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I investigate scientific questions and build practical solutions with environmental and geospatial data, programming, analysis, and automation. My experience spans atmospheric and agricultural research, geospatial technology, and weather-data systems.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -107,11 +107,11 @@ export const portfolio = {
       accent: 'operations',
       featured: true,
       description:
-        'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.',
+        'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep catastrophe evidence validated, synchronized, and ready for daily use.',
       outcomes: [
-        'Automate the processing of hundreds to thousands of reports and features daily while reconciling late reports and detecting duplicates, invalid IDs, and silent download failures.',
-        'Develop claims-facing ArcGIS Experience Builder applications with custom REST API integrations for date filtering, layer control, and map synchronization.',
-        'Evaluate new datasets for scientific defensibility, spatial and temporal resolution, bias, provenance, and appropriate interpretation.',
+        'Process hundreds to thousands of daily reports and features, reconciling late reports and catching duplicates, invalid IDs, and failed downloads.',
+        'Build claims-facing ArcGIS Experience Builder applications with REST API integrations for date filters, layer controls, and map synchronization.',
+        'Evaluate new datasets for accuracy, spatial and temporal resolution, bias, source, and appropriate use.',
         'Contributed to PLRB receiving the 2025 Esri Special Achievement in GIS Award.',
       ],
       workIndex: {
@@ -141,7 +141,7 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform across seven research sites — automating approximately one hour of processing per collection (weeks across the campaign) and delivering quality-controlled plot summaries.',
+        'Built the Python and ArcPy pipeline for a GPS-linked field-sensing platform at seven research sites. It saved about an hour of processing per collection—weeks across the campaign—and produced quality-checked plot summaries.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -152,10 +152,10 @@ export const portfolio = {
       },
       caseStudy: {
         overview:
-          'At Corteva, I built and operated field-sensing systems and independently developed the processing workflows that turned their raw observations into plot-level geospatial analyses for research teams.',
+          'At Corteva, I built and operated field-sensing systems and independently developed workflows that turned raw observations into plot-level analyses for research teams.',
         examples: [
-          'Built systems ranging from a gold-standard automated weather station and custom N₂O soil-gas flux chambers to hundreds of infrared radiometers deployed across the Americas.',
-          'Built the Python and ArcPy pipeline that validated, spatially assigned, visualized, and delivered Smartstick measurements from seven research sites; compared selected results with drone imagery and LiDAR.',
+          'Built field systems ranging from an automated weather station and custom N₂O soil-gas chambers to hundreds of infrared radiometers deployed across the Americas.',
+          'Built a Python and ArcPy pipeline to validate and map Smartstick data from seven research sites. Compared selected results with drone imagery and LiDAR.',
         ],
       },
       tech: ['Python', 'ArcPy', 'Field sensing', 'Spatial analysis'],
@@ -168,9 +168,9 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation scenarios to quantify effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
+        'Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation. Measured effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
       keyContribution:
-        'Produced an M.S. thesis combining atmospheric modeling, geospatial data preparation, and analysis of ERA5, CESM, WRF, and observational datasets.',
+        'Produced an M.S. thesis combining atmospheric models, geospatial data, and analysis of ERA5, CESM, WRF, and observations.',
       workIndex: {
         organization: 'Iowa State University',
         period: '2022 — 2024',
@@ -198,9 +198,9 @@ export const portfolio = {
       kind: 'Iowa State · Undergraduate Research Assistant · 2021',
       accent: 'analysis',
       description:
-        'Boundary-layer meteorology research with Dr. Ian Williams at Iowa State University. I identified the cases worth analyzing and produced the scientific plots and visualizations used to interpret them.',
+        'Researched boundary-layer meteorology with Dr. Ian Williams at Iowa State. I selected cases for analysis and created plots to interpret the results.',
       keyContribution:
-        'Built the case set and visualizations that an incoming graduate student used to carry the project forward.',
+        'Prepared the case set and plots an incoming graduate student used to continue the project.',
       caseStudy: {
         overview:
           'My undergraduate research focused on boundary-layer meteorology with Dr. Ian Williams at Iowa State University, separate from my senior thesis on extreme convective wind in Iowa.',
@@ -289,7 +289,7 @@ export const portfolio = {
   // as its own labelled note instead of becoming a chip or a fourth card.
   skillsNote: {
     label: 'AI-assisted work',
-    body: 'I’m highly experienced in using generative AI responsibly to assist with research, coding, debugging, and technical problem-solving, while independently verifying information, testing outputs, and applying my own judgment to the final work.',
+    body: 'I use generative AI to assist with research, coding, and debugging. I verify its outputs, test results, and make the final decisions myself.',
   },
 
   awards: [
@@ -305,7 +305,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently designed full-stack platform bridging atmospheric data systems with applied AI, demonstrating automated evidence extraction and report generation across 200+ environmental data streams.',
+        'Recognized for an independently designed full-stack platform that uses AI to extract evidence and generate reports from 200+ environmental data streams.',
     },
   ] satisfies AwardItem[],
 

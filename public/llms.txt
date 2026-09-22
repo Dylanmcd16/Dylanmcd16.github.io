@@ -1,6 +1,6 @@
 # Dylan McDermott
 
-> Meteorologist and geospatial data professional who builds automated geospatial and weather-data workflows that turn scientific observations into reliable maps, analyses, and operational products.
+> Meteorologist and geospatial data professional building weather-data workflows, maps, and operational tools.
 
 ## Profile
 
@@ -12,15 +12,15 @@
 
 ## Work Examples
 
-- [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Automates weather-data pipelines and builds claims-facing ArcGIS applications that keep multi-source catastrophe evidence validated, synchronized, and ready for daily use.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built the Python and ArcPy pipeline behind a GPS-linked field-sensing platform across seven research sites — automating approximately one hour of processing per collection (weeks across the campaign) and delivering quality-controlled plot summaries.
-- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation scenarios to quantify effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
-- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, synchronizing NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
+- [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Builds weather-data pipelines and claims-facing ArcGIS applications with validated catastrophe data.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built Python and ArcPy workflows for a GPS-linked sensing platform at seven sites, saving about an hour per collection and producing plot-level summaries.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Used multi-resolution WRF and Noah-MP experiments to study how present-day and 1850 vegetation affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
+- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, combining NEXRAD, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
 
 ## Awards
 
 - Esri Special Achievement in GIS (SAG) Award, 2025 - contributed to the PLRB catastrophe analytics and ArcGIS applications recognized by the award.
-- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (full-stack platform bridging atmospheric data systems with applied AI, demonstrating automated evidence extraction and report generation).
+- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (full-stack platform that extracts evidence and generates reports from 200+ environmental data streams).
 
 ## Core Capabilities
 

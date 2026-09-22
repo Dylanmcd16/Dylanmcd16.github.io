@@ -320,11 +320,7 @@ function App() {
                       {!project.featured && project.keyContribution && (
                         <p className="project-contribution">{project.keyContribution}</p>
                       )}
-                      <ul className="tech-list" aria-label="Technologies">
-                        {project.tech.map((tech) => (
-                          <li key={tech}>{tech}</li>
-                        ))}
-                      </ul>
+                      <p className="project-tech">{project.tech.join(' · ')}</p>
                       {project.caseStudyLabel && (
                         <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
                           {project.caseStudyLabel} <ArrowIcon />
@@ -358,9 +354,9 @@ function App() {
               >
                 <span className="project-strip-label">
                   <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Personal Project Demonstration - Iowa Severe Weather Explorer</span>
+                  <span className="project-strip-title">Iowa Severe Weather Explorer</span>
                   <span className="project-strip-sub">
-                    Built an interactive replay of the August 10, 2020 Iowa derecho, synchronizing
+                    Built an interactive replay of the August 10, 2020 Iowa derecho, combining
                     NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and
                     damage data on one timeline.
                   </span>
@@ -376,11 +372,10 @@ function App() {
               >
                 <span className="project-strip-label">
                   <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Personal Project Demonstration - Iowa Soybean Season Explorer</span>
+                  <span className="project-strip-title">Iowa Soybean Season Explorer</span>
                   <span className="project-strip-sub">
                     Built a timelapse of the 2025 soybean season across 248 central Iowa fields,
-                    stepping through all 59 usable Sentinel-2 acquisition dates with MRMS radar
-                    rainfall accumulating alongside it on satellite imagery.
+                    using 59 usable Sentinel-2 dates with MRMS radar rainfall alongside the imagery.
                   </span>
                 </span>
                 <span className="project-strip-cta">
