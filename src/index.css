@@ -538,13 +538,12 @@ svg.icon {
 .project {
   position: relative;
   overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-top: 1px solid var(--line-strong);
-  border-radius: 0;
-  padding: var(--s5) 0;
+  background: #f7f8fa;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: var(--s5);
   box-shadow: none;
-  transition: border-color 0.16s ease;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
   display: flex;
   flex-direction: column;
 }
@@ -581,7 +580,8 @@ svg.icon {
   }
 }
 .project:hover {
-  border-top-color: var(--accent);
+  background: #f4f6f8;
+  border-color: var(--line-strong);
 }
 .project.is-featured {
   grid-column: 1 / -1;
@@ -589,9 +589,8 @@ svg.icon {
   grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   gap: clamp(28px, 5vw, 54px);
   align-items: start;
-  background: transparent;
-  border-top: 2px solid var(--ink);
-  padding: var(--s5) 0;
+  background: #f7f8fa;
+  padding: clamp(24px, 3vw, 36px);
 }
 .project.is-featured .project-screenshot {
   width: 100%;
@@ -732,18 +731,17 @@ svg.icon {
   justify-content: space-between;
   gap: var(--s4);
   padding: var(--s4) var(--s5);
-  background: transparent;
-  border: 0;
-  border-top: 1px solid var(--line-strong);
-  border-bottom: 1px solid var(--line-strong);
-  border-radius: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
   box-shadow: none;
   text-decoration: none;
   color: var(--ink);
   transition: border-color 0.16s ease;
 }
 .project-strip:hover {
-  border-color: var(--accent);
+  background: #f7f8fa;
+  border-color: var(--line-strong);
 }
 .project-strip-label {
   display: flex;
@@ -1703,70 +1701,42 @@ svg.icon {
 
 /* ------------------------------------------------------ Skills / Education -- */
 
-/* Resume-based disciplines: one clear claim and one quiet methods line each. */
-.skills-list {
+/* Four resume-based groups keep the range visible without a long inventory. */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s4);
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--line-strong);
 }
-.skill-row {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
-  gap: var(--s6);
-  padding: var(--s6) 0;
-  border-bottom: 1px solid var(--line);
+.skill-card {
+  min-width: 0;
+  padding: var(--s5);
+  background: #f7f8fa;
+  border: 1px solid var(--line);
+  border-radius: 14px;
 }
-.skill-row-heading {
-  display: flex;
-  align-items: baseline;
-  gap: var(--s4);
-}
-.skill-number {
-  flex: none;
-  color: var(--accent);
-  font-size: 0.72rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
-}
-.skill-row h3 {
+.skill-card h3 {
   font-size: 1.26rem;
   font-weight: 650;
   letter-spacing: -0.025em;
 }
 .skill-strengths {
+  margin-top: var(--s2);
   color: var(--ink-soft);
-  font-size: 0.98rem;
+  font-size: 0.94rem;
   line-height: 1.55;
   max-width: 60ch;
 }
 .skill-methods {
-  margin-top: var(--s3);
+  margin-top: var(--s4);
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.83rem;
+  font-size: 0.8rem;
   line-height: 1.55;
   max-width: 65ch;
-}
-/* The AI note is a working method rather than a sixth discipline. */
-.skills-note {
-  margin-top: var(--s6);
-  max-width: 72ch;
-}
-.skills-note-label {
-  margin: 0 0 var(--s1);
-  color: var(--ink-soft);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.skills-note > p:last-child {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  text-wrap: pretty;
 }
 
 .education-heading {
@@ -2061,7 +2031,6 @@ footer {
   .project-strip {
     flex-direction: column;
     align-items: flex-start;
-    padding-inline: 0;
   }
   .project-strip-sub {
     max-width: none;
@@ -2173,9 +2142,7 @@ footer {
     height: calc(100vh - 150px);
     min-height: 560px;
   }
-  .skill-row {
+  .skills-grid {
     grid-template-columns: 1fr;
-    gap: var(--s2);
-    padding: var(--s5) 0;
   }
 }

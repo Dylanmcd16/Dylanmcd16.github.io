@@ -57,8 +57,7 @@ export type Experience = {
   scope: string
 }
 
-// Concise disciplines drawn from the resume. The Work section supplies the
-// detailed examples, while these rows show the range of methods and interests.
+// Compact resume-based disciplines, with Work providing the detailed examples.
 export type SkillGroup = {
   title: string
   strengths: string
@@ -241,42 +240,30 @@ export const portfolio = {
 
   skills: [
     {
-      title: 'Meteorology & Weather Analysis',
+      title: 'Meteorology & Severe Weather',
       strengths:
-        'Analyze severe weather using observations, radar, satellite imagery, and model output; assess what each source can support.',
-      tools: ['Severe weather verification', 'Catastrophe analysis', 'NEXRAD', 'MRMS', 'GOES'],
+        'Interpret radar, satellite, and model data for severe-weather verification and catastrophe analysis.',
+      tools: ['NEXRAD', 'MRMS', 'GOES', 'Weather models'],
     },
     {
-      title: 'Atmospheric Research & Modeling',
+      title: 'Scientific Research & Modeling',
       strengths:
-        'Design numerical experiments, compare land-use scenarios, and interpret their effects on rainfall and convective systems.',
-      tools: ['WRF', 'Noah-MP', 'CESM / LUMIP', 'ERA5', 'Scientific visualization'],
+        'Design atmospheric experiments and study how land-use change affects Midwest rainfall and convection.',
+      tools: ['WRF', 'Noah-MP', 'CESM / LUMIP', 'ERA5'],
     },
     {
-      title: 'GIS & Geospatial Systems',
+      title: 'ArcGIS & Geospatial Systems',
       strengths:
-        'Turn weather and field data into validated spatial datasets, maps, and web GIS applications.',
-      tools: ['ArcGIS Pro & Enterprise', 'ArcPy', 'Experience Builder', 'Spatial ETL', 'Raster & vector analysis'],
+        'Build spatial pipelines and web GIS applications for operational weather and research data.',
+      tools: ['ArcGIS Pro & Enterprise', 'ArcPy', 'Experience Builder', 'Spatial ETL'],
     },
     {
-      title: 'Coding & Data Systems',
+      title: 'Coding & Field Data',
       strengths:
-        'Build Python pipelines and API integrations that keep operational data, maps, and exports current and consistent.',
-      tools: ['Python', 'SQL', 'REST APIs', 'AWS', 'Linux', 'React / TypeScript'],
-    },
-    {
-      title: 'Field Sensing & Remote Sensing',
-      strengths:
-        'Build and operate field instruments; connect GPS-linked measurements with drone, LiDAR, and satellite observations.',
-      tools: ['Trimble GPS', 'Infrared radiometers', 'Drone imagery', 'LiDAR', 'GOES / MODIS'],
+        'Automate quality checks and analysis for operational datasets and GPS-linked field measurements.',
+      tools: ['Python', 'SQL', 'R', 'MATLAB', 'C++', 'REST APIs', 'AWS', 'GPS', 'LiDAR'],
     },
   ] satisfies SkillGroup[],
-
-  // A working method rather than a discipline, shown as a short note below.
-  skillsNote: {
-    label: 'AI-assisted work',
-    body: 'I use generative AI to assist with research, coding, and debugging. I verify its outputs, test results, and make the final decisions myself.',
-  },
 
   awards: [
     {

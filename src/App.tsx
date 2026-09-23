@@ -432,24 +432,15 @@ function App() {
         <section className="section" id="skills">
           <div className="container">
             <h2>Skills</h2>
-            <ol className="skills-list">
-              {portfolio.skills.map((group, index) => (
-                <li className="skill-row" key={group.title}>
-                  <div className="skill-row-heading">
-                    <span className="skill-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    <h3>{group.title}</h3>
-                  </div>
-                  <div className="skill-row-detail">
-                    <p className="skill-strengths">{group.strengths}</p>
-                    <p className="skill-methods">{group.tools.join(' · ')}</p>
-                  </div>
+            <ul className="skills-grid">
+              {portfolio.skills.map((group) => (
+                <li className="skill-card" key={group.title}>
+                  <h3>{group.title}</h3>
+                  <p className="skill-strengths">{group.strengths}</p>
+                  <p className="skill-methods">{group.tools.join(' · ')}</p>
                 </li>
               ))}
-            </ol>
-            <div className="skills-note">
-              <p className="skills-note-label">{portfolio.skillsNote.label}</p>
-              <p>{portfolio.skillsNote.body}</p>
-            </div>
+            </ul>
 
             <h2 className="awards-heading">Awards</h2>
             <ul className="awards-list">

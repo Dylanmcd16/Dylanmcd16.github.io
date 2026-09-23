@@ -54,11 +54,10 @@ Since 2025, Dylan has developed a full-stack AI platform that extracts evidence 
 
 ## Core Capabilities
 
-- Meteorology and weather analysis: severe weather verification, catastrophe analysis, radar and satellite interpretation, NEXRAD, MRMS, GOES, and numerical weather prediction.
-- Atmospheric research and modeling: WRF, Noah-MP, CESM/LUMIP, ERA5, MODIS, observational comparisons, uncertainty analysis, and scientific visualization.
-- GIS and geospatial systems: ArcGIS Pro and Enterprise, Experience Builder, ArcPy, GeoPandas, Rasterio, spatial ETL, and raster and vector analysis.
-- Coding and data systems: Python, SQL/PostgreSQL, REST APIs, AWS, Linux, React, TypeScript, FastAPI, pandas, xarray, NetCDF, GRIB, and GeoTIFF.
-- Field sensing and remote sensing: GPS-linked instrumentation, infrared radiometers, drone imagery, LiDAR, and satellite data.
+- Meteorology and severe-weather analysis: verification, catastrophe analysis, radar and satellite interpretation, NEXRAD, MRMS, GOES, and numerical weather prediction.
+- Scientific research and modeling: WRF, Noah-MP, CESM/LUMIP, ERA5, MODIS, observational comparisons, uncertainty analysis, and scientific visualization, including research on land-use effects on Midwest rainfall and convection.
+- ArcGIS and geospatial systems: ArcGIS Pro and Enterprise, Experience Builder, ArcPy, GeoPandas, Rasterio, spatial ETL, and raster and vector analysis.
+- Coding and field data: Python, SQL/PostgreSQL, R, MATLAB, C++, REST APIs, AWS, Linux, React, TypeScript, FastAPI, pandas, xarray, NetCDF, GRIB, GeoTIFF, GPS-linked instrumentation, infrared radiometers, drone imagery, and LiDAR.
 - Additional research tools: R, MATLAB, C++, FORTRAN, NumPy, OpenCV, Jupyter, Git/GitHub, JavaScript, and GR2Analyst; exploratory machine learning and AI-assisted analysis.
 
 ## Primary URLs
