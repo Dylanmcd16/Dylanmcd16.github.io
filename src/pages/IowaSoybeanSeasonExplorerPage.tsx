@@ -124,7 +124,7 @@ export function IowaSoybeanSeasonExplorerPage() {
 
         <section className="sse-section" aria-labelledby="sse-notclaimed-heading">
           <div className="sse-prose">
-            <h2 id="sse-notclaimed-heading">What this does not claim</h2>
+            <h2 id="sse-notclaimed-heading">Interpretation & limits</h2>
           </div>
           <div className="sse-notes">
             {NOT_CLAIMED.map((note) => (

@@ -2,11 +2,32 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { CaseStudyFooter } from './components/CaseStudyFooter'
 import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
 import { WorkIndexPage } from './components/WorkIndexPage'
-import { ESRI_SAG_AWARD_POST_URL, portfolio } from './data/portfolio'
+import { portfolio } from './data/portfolio'
 import { getRouteState, caseStudyUrl, workIndexUrl } from './utils/routes'
 
 // Lazy so the Cesium chunk never blocks the hero copy / CTA paint.
 const WeatherGlobe = lazy(() => import('./components/WeatherGlobe'))
+
+function HeroGlobe() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 821px)')
+    const update = () => setVisible(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
+
+  return visible ? (
+    <Suspense fallback={<div className="globe-wrap" aria-hidden="true" />}>
+      <WeatherGlobe />
+    </Suspense>
+  ) : null
+}
+
+const selectedProjects = ['plrb-weather-systems', 'corteva-field-sensing', 'land-use-convective-weather']
+  .flatMap((slug) => portfolio.projects.filter((project) => project.slug === slug))
 
 // "Work" leaves the page for the work index; the rest are in-page anchors.
 const navItems = [
@@ -34,27 +55,6 @@ function ExternalIcon() {
   )
 }
 
-function ProjectScreenshot() {
-  return (
-    <div className="project-screenshot">
-      <a
-        href={ESRI_SAG_AWARD_POST_URL}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Read the LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
-      >
-        <img
-          src={`${import.meta.env.BASE_URL}Screenshot 2026-07-17 154353.png`}
-          alt="LinkedIn post announcing PLRB's 2025 Esri Special Achievement in GIS Award"
-        />
-        <span className="project-screenshot-cue">
-          View on LinkedIn <ExternalIcon />
-        </span>
-      </a>
-    </div>
-  )
-}
-
 function CaseStudyPage({
   project,
   base,
@@ -71,18 +71,52 @@ function CaseStudyPage({
           <a className="text-link case-study-back" href={base}>
             ← Back to portfolio
           </a>
-          <h1>Master&apos;s Thesis – Iowa State University</h1>
+          <p className="project-kind">Iowa State University · M.S. research · 2022–2024</p>
+          <h1>Land-use effects on Midwest rainfall</h1>
           <p className="thesis-reader-description">
-            A study of how historical U.S. land-use change influenced Midwest rainfall and mesoscale convective systems.
+            I used atmospheric and land-surface models to investigate how replacing forests with
+            cropland affected the conditions behind the 1993 and 2008 Midwest floods.
           </p>
-          <iframe
-            className="thesis-reader"
-            src={thesisUrl}
-            title="M.S. thesis: Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems"
-          />
+          <div className="research-summary">
+            <section>
+              <h2>Research question</h2>
+              <p>How do historical changes in vegetation affect surface energy, moisture transport,
+                and rainfall from mesoscale convective systems?</p>
+            </section>
+            <section>
+              <h2>My approach</h2>
+              <p>I prepared CESM/LUMIP land-use inputs, ran WRF and Noah-MP experiments at multiple
+                resolutions, and compared present-day and 1850 vegetation scenarios using Python,
+                xarray, MATLAB, and observational datasets.</p>
+            </section>
+            <section>
+              <h2>Key finding</h2>
+              <p>In these simulations, 1850 vegetation reduced overall Midwest precipitation.
+                Changes in surface heat fluxes and moisture availability also weakened the
+                low-level jet. Lower evaporation largely offset the precipitation change in
+                the surface water balance.</p>
+            </section>
+            <section>
+              <h2>Interpretation</h2>
+              <p>These results come from model experiments of the 1993 and 2008 flood periods
+                and explain the physical mechanisms behind the rainfall changes.</p>
+            </section>
+          </div>
+          <a className="button button-primary" href={thesisUrl} target="_blank" rel="noreferrer">
+            Read the full thesis <ExternalIcon />
+          </a>
+          <details className="thesis-preview">
+            <summary>Preview the thesis on this page</summary>
+            <iframe
+              className="thesis-reader"
+              src={thesisUrl}
+              loading="lazy"
+              title="M.S. thesis: Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems"
+            />
+          </details>
           <CaseStudyFooter
             base={base}
-            next={{ label: 'Browse all work', href: `${base}#projects` }}
+            next={{ label: 'Browse all work', href: workIndexUrl() }}
           />
         </div>
       </main>
@@ -114,11 +148,10 @@ function CaseStudyPage({
           {project.tech.map((tech) => <li key={tech}>{tech}</li>)}
         </ul>
 
-        {project.slug === 'plrb-weather-systems' && <ProjectScreenshot />}
 
         <CaseStudyFooter
           base={base}
-          next={{ label: 'Browse all work', href: `${base}#projects` }}
+          next={{ label: 'Browse all work', href: workIndexUrl() }}
         />
       </div>
     </main>
@@ -266,7 +299,7 @@ function App() {
               <p className="hero-statement">{portfolio.heroStatement}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#projects">
-                  Work Examples <ArrowIcon />
+                  Explore my work <ArrowIcon />
                 </a>
                 <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
                   View Résumé
@@ -281,9 +314,7 @@ function App() {
                 </a>
               </div>
             </div>
-            <Suspense fallback={<div className="globe-wrap" aria-hidden="true" />}>
-              <WeatherGlobe />
-            </Suspense>
+            <HeroGlobe />
           </div>
           {/* Soft fade at the bottom of the hero so the growing globe blends
               into the Work Examples section instead of being cut off abruptly. */}
@@ -294,60 +325,46 @@ function App() {
         <section className="section" id="projects">
           <div className="container">
             <div className="selected-work-content">
-              <h2>Work</h2>
+              <h2>Selected work</h2>
+              <p className="section-intro">Agricultural research, operational data systems, and scientific modeling.</p>
               <div className="project-grid">
-              {portfolio.projects.map((project) => (
-                <article
-                  key={project.title}
-                  className={`project project--${project.accent} ${project.featured ? 'is-featured' : ''}`}
-                >
-                  <div className="project-body">
-                    <p className="project-kind">{project.kind}</p>
-                    <h3>{project.title}</h3>
-                    <p className="project-description">{project.description}</p>
-                    {project.featured && project.outcomes && (
-                      <div className="project-outcomes">
-                        <p>{project.outcomes.length === 1 ? 'Highlighted contribution' : 'Contributions'}</p>
-                        <ul>
-                          {project.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
-                        </ul>
-                      </div>
-                    )}
-                    {/* Trailing block is grouped so the card can align its
-                        kind / title / description rows against sibling cards
-                        via subgrid, with everything below sharing one row. */}
-                    <div className="project-foot">
-                      {!project.featured && project.keyContribution && (
+              {selectedProjects.map((project) => {
+                return (
+                  <article key={project.slug} className={`project project--${project.accent}`}>
+                    <div className="project-body">
+                      <p className="project-kind">{project.kind}</p>
+                      <h3>{project.title}</h3>
+                      <p className="project-description">{project.description}</p>
+                      <div className="project-foot">
                         <p className="project-contribution">{project.keyContribution}</p>
-                      )}
-                      <p className="project-tech">{project.tech.join(' · ')}</p>
-                      {project.caseStudyLabel && (
+                        <p className="project-tech">{project.tech.join(' · ')}</p>
                         <a className="text-link project-case-link" href={caseStudyUrl(project.slug)}>
                           {project.caseStudyLabel} <ArrowIcon />
                         </a>
-                      )}
-                      {project.links.length > 0 && (
-                        <div className="project-links">
-                          {project.links.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="text-link"
-                            >
-                              {link.label} <ExternalIcon />
-                            </a>
-                          ))}
-                        </div>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                  {project.featured && <ProjectScreenshot />}
-                </article>
-              ))}
+                  </article>
+                )
+              })}
               </div>
 
+              <h3 className="independent-heading">Interactive projects</h3>
+              <a
+                className="project-strip"
+                href={`${base}projects/iowa-soybean-season-explorer/`}
+              >
+                <span className="project-strip-label">
+                  <span className="project-kind">Technical project</span>
+                  <span className="project-strip-title">Iowa Soybean Season Explorer</span>
+                  <span className="project-strip-sub">
+                    Built a timelapse of the 2025 soybean season across 248 central Iowa fields,
+                    using 59 usable Sentinel-2 dates with MRMS radar rainfall alongside the imagery.
+                  </span>
+                </span>
+                <span className="project-strip-cta">
+                  Explore <ArrowIcon />
+                </span>
+              </a>
               <a
                 className="project-strip"
                 href={`${base}projects/iowa-severe-weather-explorer/`}
@@ -362,26 +379,10 @@ function App() {
                   </span>
                 </span>
                 <span className="project-strip-cta">
-                  View <ArrowIcon />
+                  Explore <ArrowIcon />
                 </span>
               </a>
 
-              <a
-                className="project-strip"
-                href={`${base}projects/iowa-soybean-season-explorer/`}
-              >
-                <span className="project-strip-label">
-                  <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Iowa Soybean Season Explorer</span>
-                  <span className="project-strip-sub">
-                    Built a timelapse of the 2025 soybean season across 248 central Iowa fields,
-                    using 59 usable Sentinel-2 dates with MRMS radar rainfall alongside the imagery.
-                  </span>
-                </span>
-                <span className="project-strip-cta">
-                  View <ArrowIcon />
-                </span>
-              </a>
             </div>
           </div>
         </section>
@@ -451,7 +452,7 @@ function App() {
                     <span className="award-issuer">{award.issuer}</span>
                   </p>
                   <p className="award-description">{award.description}</p>
-                  <p className="award-year">{award.year}</p>
+                  {award.year && <p className="award-year">{award.year}</p>}
                 </li>
               ))}
             </ul>
@@ -476,7 +477,7 @@ function App() {
                 LinkedIn <ExternalIcon />
               </a>
               <a className="button button-secondary" href={resumeUrl} target="_blank" rel="noreferrer">
-                Download Résumé
+                View Résumé
               </a>
             </div>
           </div>

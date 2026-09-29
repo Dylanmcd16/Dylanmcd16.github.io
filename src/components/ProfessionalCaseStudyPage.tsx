@@ -6,6 +6,8 @@ import { caseStudyUrl } from '../utils/routes'
 
 type CaseStudyImage = {
   src: string
+  width: number
+  height: number
   alt: string
   caption: string
   label?: string
@@ -26,6 +28,7 @@ type CaseStudySection = {
   bullets?: string[]
   images?: CaseStudyImage[]
   note?: string
+  workflow?: { title: string; description: string }[]
   code?: string
 }
 
@@ -73,10 +76,16 @@ def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
     # Import field boundaries and convert sensor longitude and latitude to points.
     shapefile_imported = "shapefile_imported.shp"
     arcpy.management.CopyFeatures(shp, shapefile_imported)
-    print(f"Loading shapefile from \${shp}")
+    print(f"Loading shapefile from {shp}")
 
     point_layer = "xy_points"
-    arcpy.management.XYTableToPoint(concatenated_file_path, point_layer, "lon", "lat")
+    arcpy.management.XYTableToPoint(
+        concatenated_file_path,
+        point_layer,
+        "lon",
+        "lat",
+        coordinate_system=arcpy.SpatialReference(4326),  # GPS positions are WGS 84
+    )
     print("Importing point layer using XY Table to Point")
 
     # Dissolve field boundaries to the plot identifier used for spatial assignment.
@@ -121,7 +130,7 @@ def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
     # Export the attributed observations for downstream analysis.
     csv_output_path = os.path.join(
         data_directory,
-        f"spatial_join_buffer_output_\${site}_\${date}.csv",
+        f"spatial_join_buffer_output_{site}_{date}.csv",
     )
     arcpy.conversion.TableToTable(
         spatial_join_buffer,
@@ -132,15 +141,16 @@ def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
 
     df_csv = pd.read_csv(csv_output_path)
     print("CSV File Columns:", df_csv.columns.tolist())
-    print(f"ArcGIS process complete. Outputs saved to \${csv_output_path}")
+    print(f"ArcGIS process complete. Outputs saved to {csv_output_path}")
 
     # Plot field boundaries and observations for a quick spatial QA check.
     gdf_dissolved = gpd.read_file(os.path.join(data_directory, dissolved_layer))
+    df_valid = df_csv[~((df_csv["lon"] == 0) & (df_csv["lat"] == 0))]
     points_gdf = gpd.GeoDataFrame(
-        df_csv,
-        geometry=gpd.points_from_xy(df_csv.lon, df_csv.lat),
-    )
-    points_gdf = points_gdf[~((points_gdf["lon"] == 0) & (points_gdf["lat"] == 0))]
+        df_valid,
+        geometry=gpd.points_from_xy(df_valid.lon, df_valid.lat),
+        crs="EPSG:4326",
+    ).to_crs(gdf_dissolved.crs)
 
     fig, ax = plt.subplots(figsize=(16, 8))
     gdf_dissolved.plot(
@@ -156,7 +166,7 @@ def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
         markersize=5,
         label="GPS-tagged sensor observations",
     )
-    plt.title(f"Sensor observations and plot boundaries: \${site}")
+    plt.title(f"Sensor observations and plot boundaries: {site}")
     plt.legend()
     plt.show()
 
@@ -210,12 +220,16 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'track_map_example.jpg',
+            width: 1700,
+            height: 2200,
             alt: 'National daily storm-track map generated from automated storm reports',
             caption: 'Daily storm-track output generated from standardized reports, event groupings, and automated ArcPy map production.',
             treatment: 'portrait',
           },
           {
             src: 'severe_outlook_example.jpeg',
+            width: 1536,
+            height: 1024,
             alt: 'Automated Day 2 severe-weather outlook map',
             caption: 'Recurring SPC outlook imagery retrieved and packaged automatically for operational distribution.',
           },
@@ -233,12 +247,16 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'hail_research_map.png',
+            width: 2559,
+            height: 1203,
             alt: 'Hail Research ArcGIS Experience Builder application',
             label: 'Hail research application',
             caption: 'Claims-oriented interface combining observed reports, gridded hail estimates, date controls, and evidence popups.',
           },
           {
             src: 'current_weather_map.png',
+            width: 1654,
+            height: 921,
             alt: 'Current Weather and Forecasts ArcGIS application displaying hurricane guidance',
             label: 'Hurricane event analysis',
             caption: 'Multi-source application combining tropical guidance, radar, warnings, outlooks, precipitation, and observations.',
@@ -257,6 +275,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'smoke_map_example.jpeg',
+            width: 1536,
+            height: 799,
             alt: 'ArcGIS Pro proof of concept comparing PM2.5 observations with HRRR-Smoke output',
             caption: 'Proof of concept used to test the practical limits of comparing modeled smoke with surface air-quality observations.',
             treatment: 'smoke',
@@ -271,7 +291,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         paragraphs: [
           'I tested a machine-learning approach that matched observed convective gusts with environmental predictors, then compared estimated and recorded wind speeds. Sparse station coverage and storm-scale variability limited accuracy.',
           'The work clarified where modeled gust estimates can add context and where direct observations and meteorological analysis remain necessary.',
-          'This is a work in progress.'
+          'This is ongoing, exploratory work.'
         ],
       },
       {
@@ -286,6 +306,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: '2026_bertha_track.jpg',
+            width: 3300,
+            height: 2550,
             alt: 'Automated tropical cyclone track map generated from National Hurricane Center GIS archive data',
             caption: 'Track map produced automatically from NHC GIS data, with layout extent, storm metadata, and export handled programmatically.',
             treatment: 'portrait',
@@ -304,6 +326,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'Screenshot 2026-07-17 154353.png',
+            width: 502,
+            height: 640,
             alt: 'LinkedIn post announcing PLRB’s 2025 Esri Special Achievement in GIS Award',
             caption: 'PLRB’s Weather & Catastrophe team accepting the 2025 Esri SAG Award. Open the announcement on LinkedIn.',
             treatment: 'portrait',
@@ -356,12 +380,16 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'smartstick.jpeg',
+            width: 1536,
+            height: 1152,
             alt: 'Corteva Smartstick mobile field-sensing platform',
             label: 'Field collection setup',
             caption: 'Mobile platform configured to collect canopy and air-temperature measurements with GPS and timestamps.',
           },
           {
             src: 'enclosure.jpeg',
+            width: 1152,
+            height: 1536,
             alt: 'Smartstick onboard electronics and data-acquisition enclosure',
             label: 'Onboard acquisition',
             caption: 'Computer, controls, and sensor electronics integrated into the field platform.',
@@ -376,7 +404,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Automated geospatial processing and analysis',
         paragraphs: [
           'I independently built the Python and ArcPy pipeline that turned each collection’s raw files into research-ready data. It standardized records, plotted them for quality control, removed unrealistic readings, bad GPS positions, and outliers, then matched valid points to each plot, treatment, and genotype.',
-          'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, saving about an hour per collection—weeks across the campaign.',
+          'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, saving about an hour of processing per collection—roughly 100 hours across the campaign.',
         ],
         bullets: [
           'Applied the same workflow across seven research sites.',
@@ -384,14 +412,24 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
           'Found a positive relationship between Smartstick measurements and how experimental corn plots responded to stress.',
         ],
+        workflow: [
+          { title: 'Validate observations', description: 'Standardize raw files and review sensor values, timestamps, outliers, and GPS positions.' },
+          { title: 'Assign plots', description: 'Map valid GPS points to experimental plots, using inward buffers to exclude edge observations.' },
+          { title: 'Summarize measurements', description: 'Produce plot-level tables, maps, and geospatial outputs for research review.' },
+          { title: 'Compare evidence', description: 'Review spatial patterns alongside drone imagery, LiDAR, and crop-stress observations.' },
+        ],
         images: [
           {
             src: 'field_plot_ex.png',
+            width: 1337,
+            height: 1176,
             alt: 'Illustrative field plots with GPS-tagged Smartstick measurement points',
             caption: 'Illustrative workflow: GPS-tagged observations converted to points and assigned to buffered experimental plots.',
           },
           {
             src: 'field_plot_data.png',
+            width: 1337,
+            height: 1177,
             alt: 'Illustrative plot-level analysis values derived from field measurements',
             caption: 'Illustrative plot-level summaries used to compare spatial patterns across an experiment.',
           },
@@ -421,6 +459,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'gas_sampling_build.jpeg',
+            width: 1152,
+            height: 1536,
             alt: 'Multi-channel soil-gas sampling and valve-control system under construction',
             caption: 'In-house valve-control and sampling system carrying chamber air to an on-site analyzer.',
             treatment: 'portrait',
@@ -439,11 +479,15 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'gold_standard_field.jpeg',
+            width: 1536,
+            height: 1152,
             alt: 'Gold Standard weather station at Corteva field demonstration plots',
             caption: 'Reference site supporting side-by-side comparisons of precipitation, wind, temperature, and infrared measurements.',
           },
           {
             src: 'gold_standard.jpeg',
+            width: 1179,
+            height: 1487,
             alt: 'Dylan McDermott on site during assembly of the reference weather station',
             caption: 'On site during assembly of the sensor mast, logging enclosures, and radio-linked acquisition system.',
             treatment: 'portrait',
@@ -462,11 +506,15 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         images: [
           {
             src: 'infrared-applications.jpg',
+            width: 700,
+            height: 368,
             alt: 'Infrared radiometer used for crop-canopy temperature measurements',
             caption: 'Infrared radiometers built and maintained for distributed crop-canopy research.',
           },
           {
             src: 'field_plot_2.png',
+            width: 1335,
+            height: 1178,
             alt: 'Illustrative field map with green and red instrument-status markers',
             caption: 'Illustrative fleet view showing operational placements and units requiring follow-up; no Corteva data is shown.',
           },
@@ -474,7 +522,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Automated approximately one hour of processing per Smartstick walk—on the order of 100 hours across the collection campaign.',
+      'Automated approximately one hour of processing per Smartstick collection—on the order of 100 hours across the campaign at seven research sites.',
       'Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.',
       'Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.',
       'Designed, built, maintained, and debugged field instrumentation from individual sensors to multi-month automated experiments.',
@@ -500,7 +548,7 @@ function SectionMedia({ images, base }: { images: CaseStudyImage[]; base: string
             rel="noreferrer"
             aria-label={image.hrefLabel ?? `${image.alt} - open full size`}
           >
-            <img src={`${base}${image.src}`} alt={image.alt} loading="lazy" />
+            <img src={`${base}${image.src}`} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
           </a>
           <figcaption>
             {image.label && <strong>{image.label}</strong>}
@@ -556,6 +604,16 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
           </div>
         </header>
 
+        <section className="case-results" aria-labelledby="case-results-title">
+          <div>
+            <p className="case-kicker">Outcome</p>
+            <h2 id="case-results-title">Results and impact</h2>
+          </div>
+          <ul>
+            {study.results.map((result) => <li key={result}>{result}</li>)}
+          </ul>
+        </section>
+
         <aside className="case-challenge" aria-labelledby="case-challenge-title">
           <p className="case-kicker">The challenge</p>
           <h2 id="case-challenge-title">{study.challengeTitle}</h2>
@@ -593,6 +651,13 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
                 )}
               </div>
 
+              {section.workflow && (
+                <ol className="case-workflow" aria-label="Processing workflow">
+                  {section.workflow.map((step) => (
+                    <li key={step.title}><h3>{step.title}</h3><p>{step.description}</p></li>
+                  ))}
+                </ol>
+              )}
               {section.images && <SectionMedia images={section.images} base={base} />}
               {section.note && <p className="case-media-note">{section.note}</p>}
               {section.code && (
@@ -608,16 +673,6 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
             </section>
           ))}
         </div>
-
-        <section className="case-results" aria-labelledby="case-results-title">
-          <div>
-            <p className="case-kicker">Outcome</p>
-            <h2 id="case-results-title">Results and impact</h2>
-          </div>
-          <ul>
-            {study.results.map((result) => <li key={result}>{result}</li>)}
-          </ul>
-        </section>
 
         <section className="case-toolkit" aria-labelledby="case-toolkit-title">
           <p className="case-kicker">Technical toolkit</p>

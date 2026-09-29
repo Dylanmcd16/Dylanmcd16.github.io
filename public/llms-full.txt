@@ -18,7 +18,7 @@ Dylan evaluates data quality, source limitations, bias, provenance, and uncertai
 
 At Corteva Agriscience from June 2024 to January 2025 on a contract basis, Dylan built and operated field-sensing systems and independently developed Python and ArcPy workflows for data ingestion, quality control, spatial assignment to field and plot boundaries, analysis, visualization, and research delivery.
 
-He co-developed the Smartstick, a wheeled platform for georeferenced crop-canopy measurements, and built a workflow linking GPS records to plot-level summaries at seven research sites, including Johnston, Dallas Center, Lubbock, and Viluco. He compared selected measurements with drone imagery and LiDAR for crop-stress research. Others handled the enclosure's internal logging and cloud transfer. The pipeline automated about an hour of processing per collection—saving weeks across the campaign—and applied a reproducible workflow across the sites.
+He co-developed the Smartstick, a wheeled platform for georeferenced crop-canopy measurements, and built a workflow linking GPS records to plot-level summaries at seven research sites, including Johnston, Dallas Center, Lubbock, and Viluco. He compared selected measurements with drone imagery and LiDAR for crop-stress research. Others handled the enclosure's internal logging and cloud transfer. The pipeline automated about an hour of processing per collection—roughly 100 hours across the campaign—and applied a reproducible workflow across the sites.
 
 He analyzed soil moisture, evapotranspiration, irrigation, crop-development stage, and field measurements to estimate crop water use and assess crop stress. He reconciled measurements across spatial and temporal scales, checked for gaps and sensor issues, and interpreted results with agronomists, engineers, and data scientists.
 
@@ -38,9 +38,13 @@ As an undergraduate research assistant in 2021, Dylan conducted boundary-layer m
 
 Dylan built a meteorological data pipeline and web app that reconstructs the August 10, 2020 Iowa derecho on a five-minute timeline. It combines archived NEXRAD reflectivity, IEM storm reports and warnings, ASOS/AWOS observations, HRRR fields subset from NOAA's AWS archive, and GOES-16 ABI imagery. Each dataset retains its own valid time. The project also compares Sentinel-2 imagery before and after the May 2024 Greenfield tornado and includes NWS Damage Assessment Toolkit surveys.
 
+## Personal Project: Iowa Soybean Season Explorer
+
+Dylan built an interactive 2025 season timelapse across 248 central Iowa fields, combining 59 usable Sentinel-2 acquisition dates and MRMS radar rainfall. The dataset contains 9,769 valid field-level NDVI observations. Field selection uses USDA crop classification; inward buffers and cloud masks limit contamination. Missing observations remain missing. This is descriptive analysis, not a yield model or causal inference.
+
 ## Personal Project: AI Weather Intelligence Platform
 
-Since 2025, Dylan has developed a full-stack AI platform that extracts evidence and generates maps, plots, and reports from more than 200 environmental data streams. It was named a semi-finalist in the AWS 10,000 AIdeas Competition.
+Since 2025, Dylan has developed an AI weather-intelligence platform that extracts evidence from environmental data and generates reports. It was named a semi-finalist in the AWS 10,000 AIdeas Competition.
 
 ## Education
 
@@ -57,7 +61,7 @@ Since 2025, Dylan has developed a full-stack AI platform that extracts evidence 
 - Meteorology and severe-weather analysis: verification, catastrophe analysis, radar and satellite interpretation, NEXRAD, MRMS, GOES, and numerical weather prediction.
 - Scientific research and modeling: WRF, Noah-MP, CESM/LUMIP, ERA5, MODIS, observational comparisons, uncertainty analysis, and scientific visualization, including research on land-use effects on Midwest rainfall and convection.
 - ArcGIS and geospatial systems: ArcGIS Pro and Enterprise, Experience Builder, ArcPy, GeoPandas, Rasterio, spatial ETL, and raster and vector analysis.
-- Coding and field data: Python, SQL/PostgreSQL, R, MATLAB, C++, REST APIs, AWS, Linux, React, TypeScript, FastAPI, pandas, xarray, NetCDF, GRIB, GeoTIFF, GPS-linked instrumentation, infrared radiometers, drone imagery, and LiDAR.
+- Data pipelines and quality control: Python, SQL/PostgreSQL, R, MATLAB, C++, REST APIs, AWS, Linux, React, TypeScript, FastAPI, pandas, xarray, NetCDF, GRIB, GeoTIFF, GPS-linked instrumentation, infrared radiometers, drone imagery, and LiDAR.
 - Additional research tools: R, MATLAB, C++, FORTRAN, NumPy, OpenCV, Jupyter, Git/GitHub, JavaScript, and GR2Analyst; exploratory machine learning and AI-assisted analysis.
 
 ## Primary URLs
@@ -68,6 +72,7 @@ Since 2025, Dylan has developed a full-stack AI platform that extracts evidence 
 - Corteva case study: https://dylanmcd16.github.io/work/corteva-field-sensing/
 - Master's thesis case study: https://dylanmcd16.github.io/work/land-use-convective-weather/
 - Iowa Severe Weather Explorer: https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/
+- Iowa Soybean Season Explorer: https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/
 - Thesis PDF: https://dylanmcd16.github.io/McDermott_iastate_0097M_21473.pdf
 - Resume PDF: https://dylanmcd16.github.io/resume.pdf
 - LinkedIn: https://www.linkedin.com/in/dylan-mcdermott-193b18174/
