@@ -22,9 +22,9 @@ export function IowaSevereWeatherExplorerPage() {
         <p className="project-kind">Independent project · Meteorology &amp; geospatial engineering</p>
         <h1 className="swx-page__title">Iowa Severe Weather Data Explorer</h1>
         <p className="case-study-overview">
-          I built a Python pipeline and interactive map to reconstruct the August 10, 2020
-          Iowa derecho from seven archived data sources. Explore radar, satellite imagery,
-          model guidance, and observations on a shared timeline.
+          An independent, end-to-end demonstration of meteorology, geospatial engineering, and
+          full-stack development: a Python pipeline that pulls seven archived data sources into
+          a single reconstructed severe-weather event, and a browser application that replays it.
         </p>
 
         {/* EVENT INTRODUCTION */}
@@ -38,9 +38,10 @@ export function IowaSevereWeatherExplorerPage() {
             storm reports, warnings, and surface observations can be read together.
           </p>
           <p className="swx-note">
-            <strong>Archived observations and model guidance.</strong> HRRR fields are numerical
-            model output; radar, satellite imagery, and surface measurements provide observational
-            evidence. Each source retains its own valid or observation time.
+            <strong>Real archived data.</strong> Nothing here is simulated. Each
+            source keeps its own true valid or observation time rather than being resampled to
+            look simultaneous — a five-minute radar frame, an hourly model field, and a surface
+            observation are not the same moment, and the interface does not pretend otherwise.
           </p>
         </section>
 
@@ -48,14 +49,15 @@ export function IowaSevereWeatherExplorerPage() {
         <section className="swx-section" aria-labelledby="swx-build-heading">
           <h2 id="swx-build-heading">What I built</h2>
           <p>
-            The pipeline processes NEXRAD radar, GOES-16 satellite imagery, HRRR model fields,
-            warnings, storm reports, surface observations, and damage surveys. It converts
-            GRIB2, NetCDF, and radar archives into WebP rasters, GeoJSON, and JSON for the browser.
-          </p>
-          <p>
-            The React and MapLibre interface lets readers switch layers, inspect source times,
-            and step through the event. This demonstrates data integration and event analysis;
-            it does not evaluate forecast skill or train a predictive model.
+            This is a demonstration of the August 10, 2020 Iowa derecho, where I put together an
+            interactive display of NEXRAD radar reflectivity and radial velocity, GOES-16
+            satellite imagery (visible, infrared, and sandwich), HRRR model fields (composite
+            reflectivity, surface wind gust, 10&nbsp;m wind speed, 2&nbsp;m temperature,
+            2&nbsp;m dew point, and MUCAPE), NWS warning polygons, local storm reports, ASOS/AWOS
+            surface observations, and NWS damage assessments — built from an archived N0Q
+            reflectivity composite, NEXRAD Level&nbsp;II velocity, HRRR GRIB2, and GOES-16 NetCDF,
+            and served to the browser as WebP rasters, GeoJSON, and JSON — with layer toggles, a
+            time slider, and a start/stop button to play back the event.
           </p>
         </section>
 
@@ -70,7 +72,7 @@ export function IowaSevereWeatherExplorerPage() {
           <h2 id="swx-greenfield-heading">Greenfield tornado damage Sentinel-2 imagery comparison</h2>
           <p>
             A separate demonstration, and a different event. On May 21, 2024, a violent tornado
-            struck Greenfield, Iowa. Drag the divider to compare Sentinel-2 imagery from before and
+            struck Greenfield, Iowa. Drag the divider to compare **Sentinel-2 imagery** from before and
             after. The post-event scene shows the damage scar cutting through town.
           </p>
           <BeforeAfterSlider

@@ -1,6 +1,6 @@
 # Dylan McDermott
 
-> Meteorologist and geospatial data professional building Python pipelines, research tools, and reliable environmental data systems across agriculture and weather.
+> Meteorologist and geospatial data professional building weather-data workflows, maps, and operational tools.
 
 ## Profile
 
@@ -17,19 +17,17 @@
 - [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Used multi-resolution WRF and Noah-MP experiments to study how present-day and 1850 vegetation affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
 - [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, combining NEXRAD, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
 
-- [Iowa Soybean Season Explorer](https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/): A descriptive 2025 season timelapse across 248 central Iowa fields, combining 59 usable Sentinel-2 dates and MRMS radar rainfall.
-
 ## Awards
 
 - Esri Special Achievement in GIS (SAG) Award, 2025 - contributed to the PLRB catastrophe analytics and ArcGIS applications recognized by the award.
-- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (AI weather-intelligence proof of concept with prototypes for evidence extraction and report generation).
+- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (full-stack platform that extracts evidence and generates reports from 200+ environmental data streams).
 
 ## Core Capabilities
 
 - Meteorology and severe weather: radar, satellite, and model interpretation; severe-weather verification and catastrophe analysis.
 - Scientific research and modeling: atmospheric experiments focused on land use, Midwest rainfall, and convection; WRF, Noah-MP, CESM/LUMIP, and ERA5.
 - ArcGIS and geospatial systems: ArcGIS Pro and Enterprise, ArcPy, Experience Builder, and spatial ETL.
-- Data pipelines and quality control: Python, SQL, R, MATLAB, C++, REST APIs, AWS, GPS-linked instruments, LiDAR, and drone imagery.
+- Coding and field data: Python, SQL, R, MATLAB, C++, REST APIs, AWS, GPS-linked instruments, LiDAR, and drone imagery.
 
 ## Key Links
 

@@ -89,7 +89,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I turn environmental observations into reliable research data and practical tools. My work spans Python pipelines at Corteva, production weather systems at PLRB, and atmospheric modeling at Iowa State, where I earned my M.S. in Meteorology.',
+    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I investigate scientific questions and build practical solutions with environmental and geospatial data, programming, analysis, and automation. My experience spans atmospheric and agricultural research, geospatial technology, and weather-data systems.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -99,12 +99,12 @@ export const portfolio = {
   projects: [
     {
       slug: 'plrb-weather-systems',
-      title: 'Production Weather & Geospatial Systems',
+      title: 'Weather, Catastrophe, & Geospatial Analysis',
       kind: 'PLRB · Professional · 2025–Present',
       accent: 'operations',
+      featured: true,
       description:
         'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep catastrophe evidence validated, synchronized, and ready for daily use.',
-      keyContribution: 'Hundreds to thousands of reports and features processed daily, with checks for late, missing, and duplicate inputs.',
       outcomes: [
         'Process hundreds to thousands of daily reports and features, reconciling late reports and catching duplicates, invalid IDs, and failed downloads.',
         'Build claims-facing ArcGIS Experience Builder applications with REST API integrations for date filters, layer controls, and map synchronization.',
@@ -134,12 +134,11 @@ export const portfolio = {
     },
     {
       slug: 'corteva-field-sensing',
-      title: 'Field Sensing & Research Data Pipelines',
-      kind: 'Corteva Agriscience · Contract · 2024–2025',
+      title: 'Field Sensing Research Associate',
+      kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Co-developed a GPS-linked sensing platform and independently built the Python and ArcPy pipeline that turned raw measurements into quality-checked plot summaries.',
-      keyContribution: 'One reproducible workflow across seven research sites; approximately one hour of processing saved per collection.',
+        'Built the Python and ArcPy pipeline for a GPS-linked field-sensing platform at seven research sites. It saved about an hour of processing per collection—weeks across the campaign—and produced quality-checked plot summaries.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -241,10 +240,10 @@ export const portfolio = {
 
   skills: [
     {
-      title: 'Data Pipelines & Quality Control',
+      title: 'Meteorology & Severe Weather',
       strengths:
-        'Automate quality checks and analysis for operational datasets and GPS-linked field measurements.',
-      tools: ['Python', 'SQL', 'R', 'MATLAB', 'C++', 'REST APIs', 'AWS', 'GPS', 'LiDAR'],
+        'Interpret radar, satellite, and model data for severe-weather verification and catastrophe analysis.',
+      tools: ['NEXRAD', 'MRMS', 'GOES', 'Weather models'],
     },
     {
       title: 'Scientific Research & Modeling',
@@ -259,10 +258,10 @@ export const portfolio = {
       tools: ['ArcGIS Pro & Enterprise', 'ArcPy', 'Experience Builder', 'Spatial ETL'],
     },
     {
-      title: 'Meteorology & Severe Weather',
+      title: 'Coding & Field Data',
       strengths:
-        'Interpret radar, satellite, and model data for severe-weather verification and catastrophe analysis.',
-      tools: ['NEXRAD', 'MRMS', 'GOES', 'Weather models'],
+        'Automate quality checks and analysis for operational datasets and GPS-linked field measurements.',
+      tools: ['Python', 'SQL', 'R', 'MATLAB', 'C++', 'REST APIs', 'AWS', 'GPS', 'LiDAR'],
     },
   ] satisfies SkillGroup[],
 
@@ -277,9 +276,9 @@ export const portfolio = {
     {
       title: 'AWS 10,000 AIdeas Competition — Semi-Finalist',
       issuer: 'Amazon Web Services',
-      year: '',
+      year: '2025',
       description:
-        'Recognized for an independently developed AI weather-intelligence proof of concept, with prototypes for evidence extraction and report generation.',
+        'Recognized for an independently designed full-stack platform that uses AI to extract evidence and generate reports from 200+ environmental data streams.',
     },
   ] satisfies AwardItem[],
 
@@ -299,5 +298,5 @@ export const portfolio = {
   ] satisfies EducationItem[],
 
   contactLead:
-    'Let’s talk about scientific computing, environmental data, and tools that help researchers make better decisions.',
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }
