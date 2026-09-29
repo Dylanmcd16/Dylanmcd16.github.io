@@ -27,7 +27,7 @@ export function WorkIndexPage({ base }: { base: string }) {
         <a className="text-link case-study-back" href={base}>
           ← Back to portfolio
         </a>
-        <h1>Work Examples by role</h1>
+        <h1>Work &amp; research</h1>
         <p className="work-index-intro">
           Select a role to see related projects and results.
         </p>
@@ -93,7 +93,7 @@ export function WorkIndexPage({ base }: { base: string }) {
             </span>
             <span className="work-next-feature-sub">
               A season-long timelapse of soybean greenness and rainfall across 248 central Iowa
-              fields, from Sentinel-2 and Daymet.
+              fields, from Sentinel-2 and MRMS radar rainfall.
             </span>
           </a>
           <div className="work-next-links">
