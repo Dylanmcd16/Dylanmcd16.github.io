@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/cesium/Widgets/widgets.css">
+    <script src="/cesium/Cesium.js"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07131f" />
+    <meta
+      name="description"
+      content="Field-sensing systems and the Python and ArcPy workflows that turned raw field measurements into plot-level geospatial research data at Corteva Agriscience."
+    />
+    <link rel="canonical" href="https://dylanmcd16.github.io/work/corteva-field-sensing/" />
+    <meta property="og:site_name" content="Dylan McDermott Portfolio" />
+    <meta property="og:title" content="Corteva - Field-Sensing Systems & Geospatial Research | Dylan McDermott" />
+    <meta
+      property="og:description"
+      content="Field-sensing systems and the Python and ArcPy workflows that turned raw field measurements into plot-level geospatial research data at Corteva Agriscience."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dylanmcd16.github.io/work/corteva-field-sensing/" />
+    <meta property="og:image" content="https://dylanmcd16.github.io/social/corteva-field-sensing.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Corteva - Field-Sensing Systems & Geospatial Research" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Corteva - Field-Sensing Systems & Geospatial Research | Dylan McDermott" />
+    <meta name="twitter:description" content="Field-sensing systems and the Python and ArcPy workflows that turned raw field measurements into plot-level geospatial research data at Corteva Agriscience." />
+    <meta name="twitter:image" content="https://dylanmcd16.github.io/social/corteva-field-sensing.jpg" />
+    <meta name="twitter:image:alt" content="Corteva - Field-Sensing Systems & Geospatial Research" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Corteva - Field-Sensing Systems & Geospatial Research | Dylan McDermott</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://dylanmcd16.github.io/#person",
+            "name": "Dylan McDermott",
+            "url": "https://dylanmcd16.github.io/",
+            "jobTitle": "Meteorologist and Geospatial Data Professional",
+            "email": "mailto:dylanddermott@gmail.com",
+            "sameAs": [
+              "https://www.linkedin.com/in/dylan-mcdermott-193b18174/",
+              "https://github.com/Dylanmcd16"
+            ]
+          },
+          {
+            "@type": "Article",
+            "headline": "Field-Sensing Systems & Geospatial Research",
+            "description": "The Smartstick field-sensing platform, automated Python and ArcPy processing pipelines, crop water-use and stress analysis, an automated N2O soil-gas experiment, a reference weather station, and infrared-radiometer fleet tracking at Corteva Agriscience.",
+            "image": "https://dylanmcd16.github.io/social/corteva-field-sensing.jpg",
+            "url": "https://dylanmcd16.github.io/work/corteva-field-sensing/",
+            "keywords": "field sensing, ArcPy, Trimble GPS, LiDAR, drone imagery, evapotranspiration, soil moisture, crop stress, instrumentation, quality control",
+            "about": "Agricultural field-sensing instrumentation and geospatial research workflows",
+            "author": {
+              "@id": "https://dylanmcd16.github.io/#person"
+            },
+            "publisher": {
+              "@id": "https://dylanmcd16.github.io/#person"
+            },
+            "mainEntityOfPage": "https://dylanmcd16.github.io/work/corteva-field-sensing/",
+            "isPartOf": {
+              "@type": "WebSite",
+              "@id": "https://dylanmcd16.github.io/#website",
+              "name": "Dylan McDermott Portfolio",
+              "url": "https://dylanmcd16.github.io/"
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/src-Dog9Y-7t.js"></script>
+    <script type="module" crossorigin src="/assets/main-DW5yuE9D.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/src-DrFYQ9eO.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main>
+        <p>Corteva Agriscience — Field Sensing Research Associate (Contract)</p>
+        <h1>Field-Sensing Systems &amp; Geospatial Research</h1>
+        <p>I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.</p>
+        <ul>
+          <li>Field sensing</li>
+          <li>Python</li>
+          <li>ArcPy</li>
+          <li>Trimble GPS</li>
+          <li>LiDAR</li>
+          <li>Instrumentation</li>
+          <li>Quality control</li>
+        </ul>
+
+        <h2>The challenge: Turning field measurements into reliable research evidence</h2>
+        <p>Field-sensing research requires more than collecting measurements. Sensors must be designed, deployed, maintained, and connected to workflows that identify bad readings, preserve spatial context, and produce data researchers can compare across plots, sites, instruments, and experiments. My work covered that full process—from building and operating field systems to automating the quality control, geospatial processing, visualization, and analysis of their measurements.</p>
+
+        <h2>Smartstick sensing platform</h2>
+        <p>I co-developed Corteva's Smartstick, a wheeled platform that recorded crop-canopy conditions while moving through experimental rows, and operated it throughout the season. Infrared radiometers and thermocouples measured below-canopy, within-canopy, and upper-canopy temperatures, while additional sensors measured air temperature within and above the canopy.</p>
+        <p>An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure's internal logging and cloud-transfer implementation were handled by others.</p>
+        <ul>
+          <li>Collected thousands of spatially referenced measurements per walk.</li>
+          <li>Repeated collection approximately twice a week for two months at each site.</li>
+          <li>Maintained sensors and collection procedures to limit drift and site-to-site inconsistency.</li>
+        </ul>
+        <figure>
+          <img src="/smartstick.jpeg" alt="Corteva Smartstick mobile field-sensing platform" loading="lazy" />
+          <figcaption>Field collection setup - Mobile platform configured to collect canopy and air-temperature measurements with GPS and timestamps.</figcaption>
+        </figure>
+        <figure>
+          <img src="/enclosure.jpeg" alt="Smartstick onboard electronics and data-acquisition enclosure" loading="lazy" />
+          <figcaption>Onboard acquisition - Computer, controls, and sensor electronics integrated into the field platform.</figcaption>
+        </figure>
+
+        <h2>Automated geospatial processing and analysis</h2>
+        <p>I independently built the Python and ArcPy pipeline that processed each collection from raw tabular files through research-ready outputs. It standardized the data, plotted measurements for visual quality control, removed irrelevant or unrealistic readings, excluded bad GPS positions and outliers, converted coordinates to points, and spatially joined every valid observation to its experimental plot, treatment, and genotype.</p>
+        <p>ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, automating approximately one hour of processing per collection (weeks across the campaign).</p>
+        <ul>
+          <li>Applied the same workflow to data from seven research sites.</li>
+          <li>Overlaid measurements on drone imagery for spatial review.</li>
+          <li>Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.</li>
+          <li>Found a positive relationship between Smartstick measurements and how experimental corn plots responded to stress.</li>
+        </ul>
+        <figure>
+          <img src="/field_plot_ex.png" alt="Illustrative field plots with GPS-tagged Smartstick measurement points" loading="lazy" />
+          <figcaption>Illustrative workflow: GPS-tagged observations converted to points and assigned to buffered experimental plots.</figcaption>
+        </figure>
+        <figure>
+          <img src="/field_plot_data.png" alt="Illustrative plot-level analysis values derived from field measurements" loading="lazy" />
+          <figcaption>Illustrative plot-level summaries used to compare spatial patterns across an experiment.</figcaption>
+        </figure>
+        <p>These explanatory illustrations do not contain Corteva data or depict a Corteva field.</p>
+
+        <h2>Crop water-use and stress analysis</h2>
+        <p>I analyzed soil-moisture, evapotranspiration, irrigation, crop-development-stage, and field measurements to estimate crop water use and help evaluate crop stress. This work required combining measurements collected at different temporal and spatial scales, reviewing the data for gaps and sensor problems, and interpreting the results alongside agronomists, engineers, and data scientists.</p>
+        <p>The analysis connected environmental conditions and irrigation practices with the field-sensing measurements, providing additional context for understanding when and where crops were experiencing stress.</p>
+
+        <h2>Automated N₂O chamber system</h2>
+        <p>I co-designed and co-built a sixteen-chamber automated soil-gas system — wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.</p>
+        <p>I installed, maintained, and debugged the system in the field, then worked with data scientists to review the measurements, explain equipment-related anomalies, and distinguish valid signals from operational artifacts.</p>
+        <figure>
+          <img src="/gas_sampling_build.jpeg" alt="Multi-channel soil-gas sampling and valve-control system under construction" loading="lazy" />
+          <figcaption>In-house valve-control and sampling system carrying chamber air to an on-site analyzer.</figcaption>
+        </figure>
+
+        <h2>Gold Standard instrument-comparison site</h2>
+        <p>I co-designed a reference station to compare weather instruments and measure how much similar systems differ. It included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors such as Davis.</p>
+        <p>A data logger transmitted observations by radio to a computer in the research building. I supported ingestion, maintained the field system, and helped make the measurements available through a web-based visualization site.</p>
+        <figure>
+          <img src="/gold_standard_field.jpeg" alt="Gold Standard weather station at Corteva field demonstration plots" loading="lazy" />
+          <figcaption>Reference site supporting side-by-side comparisons of precipitation, wind, temperature, and infrared measurements.</figcaption>
+        </figure>
+        <figure>
+          <img src="/gold_standard.jpeg" alt="Dylan McDermott on site during assembly of the reference weather station" loading="lazy" />
+          <figcaption>On site during assembly of the sensor mast, logging enclosures, and radio-linked acquisition system.</figcaption>
+        </figure>
+
+        <h2>Infrared-radiometer fleet tracking</h2>
+        <p>I built, maintained, shipped, and supported a fleet of more than 200 infrared radiometers across the Midwest, California, Texas, and South America.</p>
+        <p>I created dashboards tracking serial numbers, calibration, locations, shipments, repairs, and data status. They showed which instruments were available, deployed, in transit, or needed maintenance.</p>
+        <figure>
+          <img src="/infrared-applications.jpg" alt="Infrared radiometer used for crop-canopy temperature measurements" loading="lazy" />
+          <figcaption>Infrared radiometers built and maintained for distributed crop-canopy research.</figcaption>
+        </figure>
+        <figure>
+          <img src="/field_plot_2.png" alt="Illustrative field map with green and red instrument-status markers" loading="lazy" />
+          <figcaption>Illustrative fleet view showing operational placements and units requiring follow-up; no Corteva data is shown.</figcaption>
+        </figure>
+
+        <h2>Results and impact</h2>
+        <ul>
+          <li>Automated approximately one hour of processing per Smartstick walk—on the order of 100 hours across the collection campaign.</li>
+          <li>Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.</li>
+          <li>Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.</li>
+          <li>Designed, built, maintained, and debugged field instrumentation from individual sensors to multi-month automated experiments.</li>
+          <li>Created centralized tracking for more than 200 distributed infrared radiometers.</li>
+        </ul>
+
+        <h2>Tools and methods</h2>
+        <dl>
+          <dt>Sensing</dt>
+          <dd>IRTs, thermocouples, air-temperature sensors, automated gas chambers</dd>
+          <dt>Geospatial processing</dt>
+          <dd>Python, ArcPy, Trimble GPS, spatial joins, plot buffers</dd>
+          <dt>Research outputs</dt>
+          <dd>Points, shapefiles, maps, tables, plot summaries</dd>
+          <dt>Comparison data</dt>
+          <dd>Drone imagery, LiDAR, experimental treatments, crop-stress response</dd>
+        </dl>
+
+        <p><a href="/work/land-use-convective-weather/">Next: Read my M.S. thesis</a></p>
+        <p><a href="/">Return to Portfolio</a></p>
+      </main>
+    </noscript>
+  </body>
+</html>

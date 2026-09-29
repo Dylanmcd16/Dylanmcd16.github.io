@@ -1,0 +1,1172 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.3,
+              42.3
+            ],
+            [
+              -92.3,
+              42.22
+            ],
+            [
+              -92.74,
+              42.21
+            ],
+            [
+              -93.28,
+              42.21
+            ],
+            [
+              -92.3,
+              42.3
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DMX-150-1647",
+        "issued_time_ms": 1597078020000,
+        "expires_time_ms": 1597081500000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDMX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.37,
+              42.19
+            ],
+            [
+              -91.4,
+              42.35
+            ],
+            [
+              -90.74,
+              42.48
+            ],
+            [
+              -90.66,
+              42.22
+            ],
+            [
+              -91.37,
+              42.19
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-163-1738",
+        "issued_time_ms": 1597081080000,
+        "expires_time_ms": 1597083300000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -100.85,
+              39.22
+            ],
+            [
+              -101.23,
+              38.71
+            ],
+            [
+              -101.56,
+              38.73
+            ],
+            [
+              -101.24,
+              39.26
+            ],
+            [
+              -100.85,
+              39.22
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-GLD-220-1655",
+        "issued_time_ms": 1597078500000,
+        "expires_time_ms": 1597082400000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KGLD",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -88.06,
+              45.85
+            ],
+            [
+              -88.08,
+              46.03
+            ],
+            [
+              -87.55,
+              46.21
+            ],
+            [
+              -87.42,
+              45.89
+            ],
+            [
+              -88.06,
+              45.85
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-MQT-44-1631",
+        "issued_time_ms": 1597077060000,
+        "expires_time_ms": 1597079700000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KMQT",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -87.81,
+              45.86
+            ],
+            [
+              -87.76,
+              46.03
+            ],
+            [
+              -87.16,
+              46.07
+            ],
+            [
+              -87.2,
+              45.76
+            ],
+            [
+              -87.81,
+              45.86
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-MQT-46-1709",
+        "issued_time_ms": 1597079340000,
+        "expires_time_ms": 1597081260000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KMQT",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.22,
+              42.23
+            ],
+            [
+              -91.69,
+              42.22
+            ],
+            [
+              -91.72,
+              41.86
+            ],
+            [
+              -92.23,
+              41.86
+            ],
+            [
+              -92.22,
+              42.23
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-165-1747",
+        "issued_time_ms": 1597081620000,
+        "expires_time_ms": 1597083300000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -85.51,
+              46.31
+            ],
+            [
+              -85.58,
+              46.48
+            ],
+            [
+              -85.24,
+              46.58
+            ],
+            [
+              -85.23,
+              46.49
+            ],
+            [
+              -85.24,
+              46.34
+            ],
+            [
+              -85.51,
+              46.31
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-MQT-45-1644",
+        "issued_time_ms": 1597077840000,
+        "expires_time_ms": 1597078800000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KMQT",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.41,
+              41.51
+            ],
+            [
+              -92.3,
+              41.51
+            ],
+            [
+              -92.3,
+              42.23
+            ],
+            [
+              -91.36,
+              42.2
+            ],
+            [
+              -91.37,
+              41.63
+            ],
+            [
+              -91.82,
+              41.22
+            ],
+            [
+              -92.41,
+              41.51
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-159-1648",
+        "issued_time_ms": 1597078080000,
+        "expires_time_ms": 1597081500000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.41,
+              41.26
+            ],
+            [
+              -91.81,
+              41.22
+            ],
+            [
+              -91.72,
+              41.16
+            ],
+            [
+              -91.72,
+              40.61
+            ],
+            [
+              -92.18,
+              40.6
+            ],
+            [
+              -92.18,
+              41.16
+            ],
+            [
+              -92.41,
+              41.16
+            ],
+            [
+              -92.41,
+              41.26
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-160-1705",
+        "issued_time_ms": 1597079100000,
+        "expires_time_ms": 1597082400000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.41,
+              41.51
+            ],
+            [
+              -92.41,
+              41.23
+            ],
+            [
+              -92.92,
+              41.34
+            ],
+            [
+              -92.87,
+              41.72
+            ],
+            [
+              -92.99,
+              42.21
+            ],
+            [
+              -92.3,
+              42.24
+            ],
+            [
+              -92.3,
+              41.51
+            ],
+            [
+              -92.41,
+              41.51
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DMX-151-1652",
+        "issued_time_ms": 1597078320000,
+        "expires_time_ms": 1597080600000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDMX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.41,
+              41.51
+            ],
+            [
+              -92.41,
+              41.23
+            ],
+            [
+              -92.52,
+              41.24
+            ],
+            [
+              -92.49,
+              41.78
+            ],
+            [
+              -92.63,
+              42.24
+            ],
+            [
+              -92.3,
+              42.25
+            ],
+            [
+              -92.3,
+              41.51
+            ],
+            [
+              -92.41,
+              41.51
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DMX-154-1728",
+        "issued_time_ms": 1597080480000,
+        "expires_time_ms": 1597082400000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDMX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.49,
+              41.28
+            ],
+            [
+              -92.41,
+              41.27
+            ],
+            [
+              -92.41,
+              41.16
+            ],
+            [
+              -92.18,
+              41.16
+            ],
+            [
+              -92.18,
+              40.6
+            ],
+            [
+              -93.03,
+              40.59
+            ],
+            [
+              -93.03,
+              40.6
+            ],
+            [
+              -92.49,
+              41.28
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DMX-152-1658",
+        "issued_time_ms": 1597078680000,
+        "expires_time_ms": 1597081500000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDMX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -92.3,
+              42.3
+            ],
+            [
+              -92.3,
+              42.22
+            ],
+            [
+              -92.65,
+              42.21
+            ],
+            [
+              -92.74,
+              42.51
+            ],
+            [
+              -92.08,
+              42.6
+            ],
+            [
+              -92.08,
+              42.47
+            ],
+            [
+              -92.06,
+              42.47
+            ],
+            [
+              -92.06,
+              42.3
+            ],
+            [
+              -92.3,
+              42.3
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DMX-153-1713",
+        "issued_time_ms": 1597079580000,
+        "expires_time_ms": 1597082580000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDMX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.37,
+              42.64
+            ],
+            [
+              -91.37,
+              42.2
+            ],
+            [
+              -92.3,
+              42.23
+            ],
+            [
+              -92.3,
+              42.3
+            ],
+            [
+              -92.06,
+              42.3
+            ],
+            [
+              -92.06,
+              42.47
+            ],
+            [
+              -92.08,
+              42.47
+            ],
+            [
+              -92.08,
+              42.64
+            ],
+            [
+              -91.37,
+              42.64
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-161-1717",
+        "issued_time_ms": 1597079820000,
+        "expires_time_ms": 1597083300000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.49,
+              42.79
+            ],
+            [
+              -91.3,
+              43.0
+            ],
+            [
+              -91.18,
+              43.23
+            ],
+            [
+              -90.55,
+              43.23
+            ],
+            [
+              -90.61,
+              42.9
+            ],
+            [
+              -90.83,
+              42.66
+            ],
+            [
+              -90.9,
+              42.68
+            ],
+            [
+              -90.9,
+              42.65
+            ],
+            [
+              -91.0,
+              42.65
+            ],
+            [
+              -91.49,
+              42.79
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-ARX-79-1704",
+        "issued_time_ms": 1597079040000,
+        "expires_time_ms": 1597081500000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KARX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.72,
+              40.6
+            ],
+            [
+              -91.73,
+              40.61
+            ],
+            [
+              -91.82,
+              40.61
+            ],
+            [
+              -91.83,
+              41.21
+            ],
+            [
+              -91.53,
+              41.5
+            ],
+            [
+              -90.43,
+              41.43
+            ],
+            [
+              -90.65,
+              41.05
+            ],
+            [
+              -91.04,
+              40.66
+            ],
+            [
+              -91.31,
+              40.63
+            ],
+            [
+              -91.4,
+              40.56
+            ],
+            [
+              -91.72,
+              40.6
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-164-1742",
+        "issued_time_ms": 1597081320000,
+        "expires_time_ms": 1597084200000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.43,
+              43.18
+            ],
+            [
+              -90.23,
+              43.18
+            ],
+            [
+              -90.18,
+              43.16
+            ],
+            [
+              -90.09,
+              43.16
+            ],
+            [
+              -90.05,
+              43.15
+            ],
+            [
+              -90.01,
+              43.19
+            ],
+            [
+              -89.9,
+              43.19
+            ],
+            [
+              -89.84,
+              43.2
+            ],
+            [
+              -89.84,
+              42.51
+            ],
+            [
+              -90.42,
+              42.51
+            ],
+            [
+              -90.43,
+              43.18
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-MKX-66-1734",
+        "issued_time_ms": 1597080840000,
+        "expires_time_ms": 1597084200000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KMKX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.38,
+              40.35
+            ],
+            [
+              -93.29,
+              40.28
+            ],
+            [
+              -92.93,
+              40.06
+            ],
+            [
+              -93.47,
+              39.69
+            ],
+            [
+              -93.73,
+              39.85
+            ],
+            [
+              -93.84,
+              39.9
+            ],
+            [
+              -93.96,
+              39.94
+            ],
+            [
+              -94.2,
+              40.0
+            ],
+            [
+              -94.21,
+              40.03
+            ],
+            [
+              -94.28,
+              40.04
+            ],
+            [
+              -93.97,
+              40.52
+            ],
+            [
+              -93.38,
+              40.35
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-EAX-158-1758",
+        "issued_time_ms": 1597082280000,
+        "expires_time_ms": 1597086000000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KEAX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.64,
+              42.54
+            ],
+            [
+              -90.71,
+              42.64
+            ],
+            [
+              -90.96,
+              42.69
+            ],
+            [
+              -91.05,
+              42.74
+            ],
+            [
+              -91.07,
+              42.79
+            ],
+            [
+              -90.99,
+              42.88
+            ],
+            [
+              -90.96,
+              43.04
+            ],
+            [
+              -90.94,
+              43.06
+            ],
+            [
+              -90.83,
+              43.09
+            ],
+            [
+              -90.8,
+              43.11
+            ],
+            [
+              -90.74,
+              43.12
+            ],
+            [
+              -90.69,
+              43.17
+            ],
+            [
+              -90.43,
+              43.18
+            ],
+            [
+              -90.43,
+              42.51
+            ],
+            [
+              -90.64,
+              42.51
+            ],
+            [
+              -90.64,
+              42.54
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-ARX-80-1737",
+        "issued_time_ms": 1597081020000,
+        "expires_time_ms": 1597083300000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KARX",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -84.83,
+              34.88
+            ],
+            [
+              -84.66,
+              34.72
+            ],
+            [
+              -84.65,
+              34.58
+            ],
+            [
+              -84.68,
+              34.58
+            ],
+            [
+              -84.71,
+              34.6
+            ],
+            [
+              -84.73,
+              34.6
+            ],
+            [
+              -84.73,
+              34.61
+            ],
+            [
+              -84.72,
+              34.61
+            ],
+            [
+              -84.72,
+              34.62
+            ],
+            [
+              -84.74,
+              34.62
+            ],
+            [
+              -84.75,
+              34.61
+            ],
+            [
+              -84.86,
+              34.61
+            ],
+            [
+              -84.86,
+              34.62
+            ],
+            [
+              -84.91,
+              34.62
+            ],
+            [
+              -84.91,
+              34.63
+            ],
+            [
+              -84.93,
+              34.63
+            ],
+            [
+              -85.05,
+              34.79
+            ],
+            [
+              -84.83,
+              34.88
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-FFC-303-1711",
+        "issued_time_ms": 1597079460000,
+        "expires_time_ms": 1597081500000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KFFC",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -90.22,
+              42.16
+            ],
+            [
+              -90.2,
+              42.13
+            ],
+            [
+              -90.16,
+              42.12
+            ],
+            [
+              -90.17,
+              42.06
+            ],
+            [
+              -90.14,
+              42.01
+            ],
+            [
+              -90.16,
+              41.96
+            ],
+            [
+              -90.18,
+              41.81
+            ],
+            [
+              -90.25,
+              41.77
+            ],
+            [
+              -90.23,
+              41.68
+            ],
+            [
+              -90.16,
+              41.65
+            ],
+            [
+              -90.19,
+              41.55
+            ],
+            [
+              -90.36,
+              41.51
+            ],
+            [
+              -90.38,
+              41.48
+            ],
+            [
+              -90.43,
+              41.46
+            ],
+            [
+              -90.43,
+              41.42
+            ],
+            [
+              -91.5,
+              41.48
+            ],
+            [
+              -91.53,
+              41.51
+            ],
+            [
+              -91.75,
+              41.51
+            ],
+            [
+              -91.7,
+              42.21
+            ],
+            [
+              -90.36,
+              42.21
+            ],
+            [
+              -90.22,
+              42.16
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "warning_id": "SV-DVN-162-1734",
+        "issued_time_ms": 1597080840000,
+        "expires_time_ms": 1597084200000,
+        "phenomena": "SV",
+        "significance": "W",
+        "office": "KDVN",
+        "headline": "Severe Thunderstorm Warning"
+      }
+    }
+  ]
+}
