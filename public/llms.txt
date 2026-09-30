@@ -13,23 +13,24 @@
 ## Work Examples
 
 - [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Builds weather-data pipelines and claims-facing ArcGIS applications with validated catastrophe data.
-- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Built Python and ArcPy workflows for a GPS-linked sensing platform at seven sites, saving about an hour per collection and producing plot-level summaries.
-- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Used multi-resolution WRF and Noah-MP experiments to study how present-day and 1850 vegetation affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
+- [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Co-developed field-sensing systems and independently built Python and ArcPy workflows for GPS-linked measurements at seven research sites, producing plot-level summaries and saving roughly 100 hours across the campaign.
+- [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Ran WRF with Noah-MP at 50 km to compare present-day and 1850 vegetation during the 1993 and 2008 Midwest flood periods, analyzing simulated rainfall, surface fluxes, and moisture transport.
 - [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, combining NEXRAD, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
-
 - [Iowa Soybean Season Explorer](https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/): A descriptive 2025 season timelapse across 248 central Iowa fields, combining 59 usable Sentinel-2 dates and MRMS radar rainfall.
 
 ## Awards
 
 - Esri Special Achievement in GIS (SAG) Award, 2025 - contributed to the PLRB catastrophe analytics and ArcGIS applications recognized by the award.
-- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (an independently developed AI weather-intelligence platform that extracts evidence from environmental data and generates reports).
+- AWS 10,000 AIdeas Competition Semi-Finalist - AI Weather Intelligence Platform (independently developed AI weather intelligence platform that extracts evidence from scattered environmental data and generates responses, reports, maps, plots, and more).
 
 ## Core Capabilities
 
-- Meteorology and severe weather: radar, satellite, and model interpretation; severe-weather verification and catastrophe analysis.
-- Scientific research and modeling: atmospheric experiments focused on land use, Midwest rainfall, and convection; WRF, Noah-MP, CESM/LUMIP, and ERA5.
-- ArcGIS and geospatial systems: ArcGIS Pro and Enterprise, ArcPy, Experience Builder, and spatial ETL.
-- Data pipelines and quality control: Python, SQL, R, MATLAB, C++, REST APIs, AWS, GPS-linked instruments, LiDAR, and drone imagery.
+- Meteorology & Weather Analysis: Analyze radar, satellite, and model data for severe-weather verification and claims investigations. Evaluate datasets for bias, resolution, provenance, and appropriate interpretation. Tools and methods: NEXRAD / MRMS, GOES, ERA5, Observations & model guidance.
+- Numerical Modeling & Scientific Computing: Design WRF and Noah-MP experiments, translate CESM/LUMIP land-use inputs to model grids, and analyze rainfall, surface fluxes, and moisture transport. Tools and methods: WRF / Noah-MP, CESM / LUMIP, Python, MATLAB / NetCDF.
+- Python Pipelines & Data Quality: Acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows. Tools and methods: Python, ArcPy, REST APIs, AWS / Linux.
+- Geospatial Processing & Web GIS: Build spatial workflows with GPS filtering, inward plot buffers, spatial joins, and raster/vector processing. Develop claims-facing maps with custom filters and synchronized layers. Tools and methods: ArcGIS Pro & Enterprise, ArcPy, Experience Builder, Spatial ETL.
+- Field Instrumentation & Agricultural Research: Co-develop GPS-linked sensing platforms, automated soil-gas systems, and reference weather stations. Compare canopy measurements with drone imagery, LiDAR, and crop-stress response. Tools and methods: Trimble GPS, Infrared radiometers, Drone imagery / LiDAR, Sensor calibration.
+- Applied AI & Scientific Tooling: Build agentic weather workflows with LLM tool orchestration, structured schemas, evidence-backed responses, and provenance controls. Test working prototypes through evaluation, replay, and failure handling. Tools and methods: OpenAI tooling, Python / FastAPI, React, Supabase.
 
 ## Key Links
 

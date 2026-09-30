@@ -28,7 +28,7 @@ Other work included co-designing the Gold Standard automated weather station and
 
 Dylan earned an M.S. in Meteorology from Iowa State University in 2024. His thesis, "Impacts of US Deforestation on Rainfall from Mesoscale Convective Systems," examined how historical U.S. land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.
 
-The research used WRF and Noah-MP simulations at multiple resolutions to compare present-day and 1850 vegetation scenarios. He translated CESM/LUMIP land-surface data to model grids and analyzed ERA5, CESM, WRF, GOES, MODIS, MRMS, radar, and observed precipitation with Python, xarray, MATLAB, NumPy, and NetCDF.
+The research used WRF with Noah-MP at 50 km to compare present-day and 1850 vegetation during the 1993 and 2008 Midwest flood periods. He also prepared 3- and 15-km land-surface datasets for future simulations. He translated CESM/LUMIP land-surface data to model grids and analyzed ERA5, CESM, WRF, GOES, MODIS, MRMS, radar, and observed precipitation with Python, xarray, MATLAB, NumPy, and NetCDF.
 
 ## Undergraduate Research - Iowa State University
 
@@ -44,7 +44,7 @@ Dylan built an interactive 2025 season timelapse across 248 central Iowa fields,
 
 ## Personal Project: AI Weather Intelligence Platform
 
-Since 2025, Dylan has developed an AI weather-intelligence platform that extracts evidence from environmental data and generates reports. It was named a semi-finalist in the AWS 10,000 AIdeas Competition.
+Since 2025, Dylan has developed an AI weather intelligence platform that extracts evidence from scattered environmental data and generates responses, reports, maps, plots, and more. It was named a semi-finalist in the AWS 10,000 AIdeas Competition.
 
 ## Education
 
@@ -58,10 +58,12 @@ Since 2025, Dylan has developed an AI weather-intelligence platform that extract
 
 ## Core Capabilities
 
-- Meteorology and severe-weather analysis: verification, catastrophe analysis, radar and satellite interpretation, NEXRAD, MRMS, GOES, and numerical weather prediction.
-- Scientific research and modeling: WRF, Noah-MP, CESM/LUMIP, ERA5, MODIS, observational comparisons, uncertainty analysis, and scientific visualization, including research on land-use effects on Midwest rainfall and convection.
-- ArcGIS and geospatial systems: ArcGIS Pro and Enterprise, Experience Builder, ArcPy, GeoPandas, Rasterio, spatial ETL, and raster and vector analysis.
-- Data pipelines and quality control: Python, SQL/PostgreSQL, R, MATLAB, C++, REST APIs, AWS, Linux, React, TypeScript, FastAPI, pandas, xarray, NetCDF, GRIB, GeoTIFF, GPS-linked instrumentation, infrared radiometers, drone imagery, and LiDAR.
+- Meteorology & Weather Analysis: Analyze radar, satellite, and model data for severe-weather verification and claims investigations. Evaluate datasets for bias, resolution, provenance, and appropriate interpretation. Tools and methods: NEXRAD / MRMS, GOES, ERA5, Observations & model guidance.
+- Numerical Modeling & Scientific Computing: Design WRF and Noah-MP experiments, translate CESM/LUMIP land-use inputs to model grids, and analyze rainfall, surface fluxes, and moisture transport. Tools and methods: WRF / Noah-MP, CESM / LUMIP, Python, MATLAB / NetCDF.
+- Python Pipelines & Data Quality: Acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows. Tools and methods: Python, ArcPy, REST APIs, AWS / Linux.
+- Geospatial Processing & Web GIS: Build spatial workflows with GPS filtering, inward plot buffers, spatial joins, and raster/vector processing. Develop claims-facing maps with custom filters and synchronized layers. Tools and methods: ArcGIS Pro & Enterprise, ArcPy, Experience Builder, Spatial ETL.
+- Field Instrumentation & Agricultural Research: Co-develop GPS-linked sensing platforms, automated soil-gas systems, and reference weather stations. Compare canopy measurements with drone imagery, LiDAR, and crop-stress response. Tools and methods: Trimble GPS, Infrared radiometers, Drone imagery / LiDAR, Sensor calibration.
+- Applied AI & Scientific Tooling: Build agentic weather workflows with LLM tool orchestration, structured schemas, evidence-backed responses, and provenance controls. Test working prototypes through evaluation, replay, and failure handling. Tools and methods: OpenAI tooling, Python / FastAPI, React, Supabase.
 - Additional research tools: R, MATLAB, C++, FORTRAN, NumPy, OpenCV, Jupyter, Git/GitHub, JavaScript, and GR2Analyst; exploratory machine learning and AI-assisted analysis.
 
 ## Primary URLs

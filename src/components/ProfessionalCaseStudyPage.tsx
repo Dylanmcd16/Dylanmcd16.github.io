@@ -46,140 +46,6 @@ type ProfessionalCaseStudy = {
   tools: Array<{ label: string; values: string }>
 }
 
-const smartstickCode = `############### ARCGIS SECTION #######################
-import arcpy
-import pandas as pd
-import geopandas as gpd
-import matplotlib.pyplot as plt
-import os
-
-
-def run_arcgis_operations(concatenated_file_path, site, date, data_directory):
-    arcpy.env.workspace = data_directory
-    arcpy.env.overwriteOutput = True
-
-    # Define the field-boundary shapefile for each collection site.
-    shapefile_paths = {
-        "Loc1": r"path_to_file",
-        "Loc2": r"path_to_file",
-        "Loc3": r"path_to_file",
-        "Loc4": r"path_to_file",
-        "Loc5": r"path_to_file",
-        "Loc6": r"path_to_file",
-    }
-
-    shp = shapefile_paths.get(site)
-    if not shp:
-        print("FAILED: No shapefile found for the specified site")
-        return None
-
-    # Import field boundaries and convert sensor longitude and latitude to points.
-    shapefile_imported = "shapefile_imported.shp"
-    arcpy.management.CopyFeatures(shp, shapefile_imported)
-    print(f"Loading shapefile from {shp}")
-
-    point_layer = "xy_points"
-    arcpy.management.XYTableToPoint(
-        concatenated_file_path,
-        point_layer,
-        "lon",
-        "lat",
-        coordinate_system=arcpy.SpatialReference(4326),  # GPS positions are WGS 84
-    )
-    print("Importing point layer using XY Table to Point")
-
-    # Dissolve field boundaries to the plot identifier used for spatial assignment.
-    dissolved_layer = "dissolved_layer.shp"
-    arcpy.management.Dissolve(shapefile_imported, dissolved_layer, "PRISM_ID")
-    print("Dissolved shapefile by PRISM_ID")
-
-    # Match observations inside their corresponding field plots.
-    spatial_join_within = "spatial_join_within.shp"
-    arcpy.analysis.SpatialJoin(
-        point_layer,
-        dissolved_layer,
-        spatial_join_within,
-        join_type="KEEP_ALL",
-        match_option="WITHIN",
-        join_operation="JOIN_ONE_TO_MANY",
-    )
-    print("Joined point layer to dissolved field boundaries")
-
-    # Create an inward buffer to flag observations near plot edges.
-    buffer_layer = "buffer_layer.shp"
-    arcpy.analysis.Buffer(
-        dissolved_layer,
-        buffer_layer,
-        "-1.5 Feet",
-        dissolve_option="LIST",
-        dissolve_field="PRISM_ID",
-    )
-    print("Created -1.5 ft buffers by PRISM_ID")
-
-    spatial_join_buffer = "spatial_join_buffer.shp"
-    arcpy.analysis.SpatialJoin(
-        spatial_join_within,
-        buffer_layer,
-        spatial_join_buffer,
-        join_type="KEEP_ALL",
-        match_option="WITHIN",
-        join_operation="JOIN_ONE_TO_MANY",
-    )
-    print("Joined the assigned points to the plot-edge buffers")
-
-    # Export the attributed observations for downstream analysis.
-    csv_output_path = os.path.join(
-        data_directory,
-        f"spatial_join_buffer_output_{site}_{date}.csv",
-    )
-    arcpy.conversion.TableToTable(
-        spatial_join_buffer,
-        os.path.dirname(csv_output_path),
-        os.path.basename(csv_output_path),
-    )
-    print("Exported table as CSV")
-
-    df_csv = pd.read_csv(csv_output_path)
-    print("CSV File Columns:", df_csv.columns.tolist())
-    print(f"ArcGIS process complete. Outputs saved to {csv_output_path}")
-
-    # Plot field boundaries and observations for a quick spatial QA check.
-    gdf_dissolved = gpd.read_file(os.path.join(data_directory, dissolved_layer))
-    df_valid = df_csv[~((df_csv["lon"] == 0) & (df_csv["lat"] == 0))]
-    points_gdf = gpd.GeoDataFrame(
-        df_valid,
-        geometry=gpd.points_from_xy(df_valid.lon, df_valid.lat),
-        crs="EPSG:4326",
-    ).to_crs(gdf_dissolved.crs)
-
-    fig, ax = plt.subplots(figsize=(16, 8))
-    gdf_dissolved.plot(
-        ax=ax,
-        color="lightblue",
-        edgecolor="black",
-        alpha=0.6,
-        label="Experimental plot boundaries",
-    )
-    points_gdf.plot(
-        ax=ax,
-        color="red",
-        markersize=5,
-        label="GPS-tagged sensor observations",
-    )
-    plt.title(f"Sensor observations and plot boundaries: {site}")
-    plt.legend()
-    plt.show()
-
-    return csv_output_path
-
-
-arcgis_output_csv = run_arcgis_operations(
-    concatenated_file_path,
-    site,
-    date,
-    data_directory,
-)`
-
 const caseStudies: Record<string, ProfessionalCaseStudy> = {
   'plrb-weather-systems': {
     title: 'Weather, Catastrophe, & Geospatial Analysis',
@@ -208,14 +74,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Operations',
         title: 'Daily weather-data production',
         paragraphs: [
-          'I maintain daily workflows for storm reports, data acquisition, SPC outlooks, ArcGIS-ready datasets, email updates, and operational archives. They handle high report volumes; assigning occurrence numbers and reviewing surface analyses remain the main manual steps.',
+          'I build and maintain daily workflows for storm reports, data acquisition, SPC outlooks, ArcGIS-ready datasets, email updates, and operational archives. They handle high report volumes; assigning occurrence numbers and reviewing surface analyses remain the main manual steps.',
           'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team.',
         ],
         bullets: [
-          'Adds late reports while preventing records already published from appearing twice.',
-          'Checks occurrence numbers and timestamps, removes duplicates, and fills missing city or ZIP fields from nearby features.',
-          'Checks required downloads and source files before dependent imagery and data products are generated.',
-          'Carries analyst edits through to final maps, tables, and exports.',
+          'Built reconciliation logic that incorporates late reports without duplicating published records.',
+          'Added checks for occurrence numbers and timestamps, duplicate removal, and spatial enrichment of missing city or ZIP fields.',
+          'Added input checks to verify required downloads and source files before generating dependent products.',
+          'Built workflows that carry analyst edits through to final maps, tables, and exports.',
         ],
         images: [
           {
@@ -339,8 +205,8 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     ],
     results: [
       'Automated recurring maps, archives, alerts, exports, and ArcGIS updates that previously required hours of manual work.',
-      'Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.',
-      'Built claims-facing applications that combine multi-source weather evidence while preserving appropriate scientific interpretation.',
+      'Added validation and reconciliation for late, missing, duplicate, and malformed inputs, including failed downloads.',
+      'Built applications that combine weather evidence so claims professionals can review reports, observations, and estimates together.',
       'Contributed to PLRB’s 2025 Esri SAG recognition.',
     ],
     tools: [
@@ -355,7 +221,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     role: 'Corteva Agriscience — Field Sensing Research Associate (Contract)',
     scene: 'corteva',
     summary: [
-      'I designed field-sensing systems and the Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
+      'I co-developed field-sensing systems and independently built Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
     ],
     challengeTitle: 'Turning field measurements into reliable research data',
     challenge:
@@ -374,7 +240,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         ],
         bullets: [
           'Collected thousands of GPS-referenced measurements per walk.',
-          'Repeated collection approximately twice a week for two months at each site.',
+          'Conducted repeated field collections across the research season.',
           'Maintained sensors and collection procedures to limit drift and site-to-site inconsistency.',
         ],
         images: [
@@ -407,10 +273,9 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, saving about an hour of processing per collection—roughly 100 hours across the campaign.',
         ],
         bullets: [
-          'Applied the same workflow across seven research sites.',
           'Overlaid measurements on drone imagery for spatial review.',
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
-          'Found a positive relationship between Smartstick measurements and how experimental corn plots responded to stress.',
+          'Compared Smartstick measurements with treatment and crop-stress observations to assess relationships.',
         ],
         workflow: [
           { title: 'Validate observations', description: 'Standardize raw files and review sensor values, timestamps, outliers, and GPS positions.' },
@@ -435,7 +300,6 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           },
         ],
         note: 'These explanatory illustrations do not contain Corteva data or depict a Corteva field.',
-        code: smartstickCode,
       },
       {
         id: 'crop-water-use',
@@ -444,7 +308,6 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Crop water-use and stress analysis',
         paragraphs: [
           'I combined soil moisture, evapotranspiration, irrigation, crop stage, and field data to estimate water use and assess crop stress. I checked for gaps and sensor problems, then interpreted results with agronomists, engineers, and data scientists.',
-          'This connected field measurements with environmental conditions and irrigation practices.',
         ],
       },
       {
@@ -525,7 +388,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       'Automated approximately one hour of processing per Smartstick collection—on the order of 100 hours across the campaign at seven research sites.',
       'Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.',
       'Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.',
-      'Designed, built, maintained, and debugged field instrumentation from individual sensors to multi-month automated experiments.',
+      'Co-designed and built automated soil-gas and reference weather-station systems, then maintained and debugged them during field deployment.',
       'Created centralized tracking for more than 200 distributed infrared radiometers.',
     ],
     tools: [
@@ -604,16 +467,6 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
           </div>
         </header>
 
-        <section className="case-results" aria-labelledby="case-results-title">
-          <div>
-            <p className="case-kicker">Outcome</p>
-            <h2 id="case-results-title">Results and impact</h2>
-          </div>
-          <ul>
-            {study.results.map((result) => <li key={result}>{result}</li>)}
-          </ul>
-        </section>
-
         <aside className="case-challenge" aria-labelledby="case-challenge-title">
           <p className="case-kicker">The challenge</p>
           <h2 id="case-challenge-title">{study.challengeTitle}</h2>
@@ -673,6 +526,16 @@ export function ProfessionalCaseStudyPage({ slug, base }: { slug: string; base: 
             </section>
           ))}
         </div>
+
+        <section className="case-results" aria-labelledby="case-results-title">
+          <div>
+            <p className="case-kicker">Outcome</p>
+            <h2 id="case-results-title">Results and impact</h2>
+          </div>
+          <ul>
+            {study.results.map((result) => <li key={result}>{result}</li>)}
+          </ul>
+        </section>
 
         <section className="case-toolkit" aria-labelledby="case-toolkit-title">
           <p className="case-kicker">Technical toolkit</p>

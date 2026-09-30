@@ -94,10 +94,10 @@
         <p>I built and continue to maintain and improve daily workflows for storm-report processing, data acquisition, SPC outlook imagery, ArcGIS-ready datasets, email text, and date-stamped operational archives. The workflows are built to handle large daily report volumes; occurrence-number assignment is the primary remaining manual step, alongside a short surface-analysis review.</p>
         <p>Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize schemas and hazard classifications, enrich records through spatial joins, generate operational maps, and produce synchronized shapefile, DBF, CSV, and text exports. The workflow also identifies failed or missing inputs before dependent products are created, substantially reducing repetitive daily processing. Companion workflows handle ArcGIS Server publishing and team notification.</p>
         <ul>
-          <li>Reconciles reports that arrive after the initial daily run and removes delayed reports already included in the previous published dataset.</li>
-          <li>Validates occurrence numbers and timestamps, removes duplicate records, and repairs missing city or ZIP attributes through spatial joins and nearest-feature analysis.</li>
-          <li>Checks required downloads and source files before dependent imagery and data products are generated.</li>
-          <li>Propagates analyst edits through merged feature classes, dissolves, maps, tables, and final exports.</li>
+          <li>Built reconciliation logic that incorporates late reports without duplicating published records.</li>
+          <li>Added checks for occurrence numbers and timestamps, duplicate removal, and spatial enrichment of missing city or ZIP fields.</li>
+          <li>Added input checks to verify required downloads and source files before generating dependent products.</li>
+          <li>Built workflows that carry analyst edits through to final maps, tables, and exports.</li>
         </ul>
         <figure>
           <img src="/track_map_example.jpg" alt="National daily storm-track map generated from automated storm reports" loading="lazy" />
@@ -151,8 +151,8 @@
         <h2>Results and impact</h2>
         <ul>
           <li>Automated recurring maps, archives, alerts, exports, and ArcGIS updates that previously required hours of manual work.</li>
-          <li>Made production workflows resilient to late, missing, duplicated, malformed, and silently failed inputs.</li>
-          <li>Built claims-facing applications that combine multi-source weather evidence while preserving appropriate scientific interpretation.</li>
+          <li>Added validation and reconciliation for late, missing, duplicate, and malformed inputs, including failed downloads.</li>
+          <li>Built applications that combine weather evidence so claims professionals can review reports, observations, and estimates together.</li>
           <li>Contributed to PLRB’s 2025 Esri SAG recognition.</li>
         </ul>
 

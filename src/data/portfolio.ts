@@ -62,6 +62,8 @@ export type SkillGroup = {
   title: string
   strengths: string
   tools: string[]
+  example?: string
+  href?: string
 }
 
 export type AwardItem = {
@@ -89,7 +91,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I am a meteorologist and scientific researcher with an M.S. in Meteorology from Iowa State. I turn environmental observations into reliable research data and practical tools, from production weather systems at PLRB to Python field-data pipelines at Corteva and atmospheric modeling in my graduate research.',
+    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I investigate scientific questions and build practical solutions with environmental and geospatial data, programming, analysis, and automation. My experience spans atmospheric and agricultural research, geospatial technology, and weather-data systems.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
@@ -99,17 +101,17 @@ export const portfolio = {
   projects: [
     {
       slug: 'plrb-weather-systems',
-      title: 'Production Weather & Geospatial Systems',
+      title: 'Weather, Catastrophe, & Geospatial Analysis',
       kind: 'PLRB · Professional · 2025–Present',
       accent: 'operations',
+      featured: true,
       description:
-        'Automate weather-data pipelines and build claims-facing ArcGIS applications that keep catastrophe evidence validated, synchronized, and ready for daily use.',
-      keyContribution: 'Validated weather evidence for claims professionals, with hundreds to thousands of reports and features processed daily and checks for late, missing, and duplicate inputs.',
+        'Build and maintain weather-data pipelines and ArcGIS applications that help claims professionals investigate severe weather and catastrophe events.',
       outcomes: [
-        'Process hundreds to thousands of daily reports and features, reconciling late reports and catching duplicates, invalid IDs, and failed downloads.',
-        'Build claims-facing ArcGIS Experience Builder applications with REST API integrations for date filters, layer controls, and map synchronization.',
-        'Evaluate new datasets for accuracy, spatial and temporal resolution, bias, source, and appropriate use.',
-        'Contributed to PLRB receiving the 2025 Esri Special Achievement in GIS Award.',
+        'Process hundreds to thousands of reports and features daily, reconciling late arrivals and detecting duplicates, invalid identifiers, and failed downloads.',
+        'Develop ArcGIS Experience Builder applications with custom date filters, layer controls, synchronized maps, and location-specific reports.',
+        'Evaluate weather datasets for bias, provenance, spatial and temporal resolution, and appropriate interpretation.',
+        'Contributed to PLRB’s 2025 Esri Special Achievement in GIS Award.',
       ],
       workIndex: {
         organization: 'PLRB',
@@ -134,12 +136,11 @@ export const portfolio = {
     },
     {
       slug: 'corteva-field-sensing',
-      title: 'Field Sensing & Research Data Pipelines',
-      kind: 'Corteva Agriscience · Contract · 2024–2025',
+      title: 'Field Sensing Research Associate',
+      kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Co-developed a GPS-linked sensing platform and independently built the Python and ArcPy pipeline that turned raw measurements into quality-checked plot summaries.',
-      keyContribution: 'One reproducible workflow across seven research sites; about an hour of processing saved per collection, roughly 100 hours across the campaign.',
+        'Co-developed field-sensing systems and independently built a Python and ArcPy pipeline for GPS-linked measurements across seven research sites. Produced quality-controlled plot summaries and saved roughly 100 hours of manual processing across the campaign.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -166,9 +167,9 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Ran multi-resolution WRF and Noah-MP experiments comparing present-day and 1850 vegetation. Measured effects on Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems.',
+        'Ran WRF with Noah-MP to compare present-day and 1850 vegetation during the 1993 and 2008 Midwest flood periods. Analyzed simulated changes in rainfall, surface fluxes, and moisture transport.',
       keyContribution:
-        'Produced an M.S. thesis combining atmospheric models, geospatial data, and analysis of ERA5, CESM, WRF, and observations.',
+        'Translated CESM/LUMIP land-use data to model grids and prepared higher-resolution datasets for future simulations.',
       workIndex: {
         organization: 'Iowa State University',
         period: '2022 — 2024',
@@ -181,7 +182,7 @@ export const portfolio = {
         overview:
           'My M.S. research examined how historical land-use change affected Midwest rainfall, surface fluxes, moisture transport, and mesoscale convective systems. The work combined numerical weather and land-surface modeling with geospatial data preparation and multi-source analysis.',
         examples: [
-          'Designed and ran WRF and Noah-MP experiments at multiple model resolutions.',
+          'Ran WRF with Noah-MP at 50 km for the 1993 and 2008 flood periods and prepared 3- and 15-km land-surface datasets for future simulations.',
           'Prepared land-surface datasets by translating CESM/LUMIP land-use data to model grids.',
           'Compared ERA5, CESM, WRF, and observational datasets using Python, xarray, MATLAB, and NetCDF.',
         ],
@@ -196,7 +197,7 @@ export const portfolio = {
       kind: 'Iowa State · Undergraduate Research Assistant · 2021',
       accent: 'analysis',
       description:
-        'Researched boundary-layer meteorology with Dr. Ian Williams at Iowa State. I selected cases for analysis and created plots to interpret the results.',
+        'Selected cases and created scientific visualizations for boundary-layer research with Dr. Ian Williams at Iowa State.',
       keyContribution:
         'Prepared the case set and plots an incoming graduate student used to continue the project.',
       caseStudy: {
@@ -241,30 +242,76 @@ export const portfolio = {
 
   skills: [
     {
-      title: 'Data Pipelines & Quality Control',
-      strengths:
-        'Automate quality checks and analysis for operational datasets and GPS-linked field measurements.',
-      tools: ['Python', 'SQL', 'R', 'MATLAB', 'C++', 'REST APIs', 'AWS', 'GPS', 'LiDAR'],
+        "title": "Meteorology & Weather Analysis",
+        "strengths": "Analyze radar, satellite, and model data for severe-weather verification and claims investigations. Evaluate datasets for bias, resolution, provenance, and appropriate interpretation.",
+        "tools": [
+            "NEXRAD / MRMS",
+            "GOES",
+            "ERA5",
+            "Observations & model guidance"
+        ],
+        "example": "See PLRB weather work",
+        "href": "/work/plrb-weather-systems/"
     },
     {
-      title: 'Scientific Research & Modeling',
-      strengths:
-        'Design atmospheric experiments and study how land-use change affects Midwest rainfall and convection.',
-      tools: ['WRF', 'Noah-MP', 'CESM / LUMIP', 'ERA5'],
+        "title": "Numerical Modeling & Scientific Computing",
+        "strengths": "Design WRF and Noah-MP experiments, translate CESM/LUMIP land-use inputs to model grids, and analyze rainfall, surface fluxes, and moisture transport.",
+        "tools": [
+            "WRF / Noah-MP",
+            "CESM / LUMIP",
+            "Python",
+            "MATLAB / NetCDF"
+        ],
+        "example": "See graduate research",
+        "href": "/work/land-use-convective-weather/"
     },
     {
-      title: 'ArcGIS & Geospatial Systems',
-      strengths:
-        'Build spatial pipelines and web GIS applications for operational weather and research data.',
-      tools: ['ArcGIS Pro & Enterprise', 'ArcPy', 'Experience Builder', 'Spatial ETL'],
+        "title": "Python Pipelines & Data Quality",
+        "strengths": "Acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
+        "tools": [
+            "Python",
+            "ArcPy",
+            "REST APIs",
+            "AWS / Linux"
+        ],
+        "example": "See production workflows",
+        "href": "/work/plrb-weather-systems/"
     },
     {
-      title: 'Meteorology & Severe Weather',
-      strengths:
-        'Interpret radar, satellite, and model data for severe-weather verification and catastrophe analysis.',
-      tools: ['NEXRAD', 'MRMS', 'GOES', 'Weather models'],
+        "title": "Geospatial Processing & Web GIS",
+        "strengths": "Build spatial workflows with GPS filtering, inward plot buffers, spatial joins, and raster/vector processing. Develop claims-facing maps with custom filters and synchronized layers.",
+        "tools": [
+            "ArcGIS Pro & Enterprise",
+            "ArcPy",
+            "Experience Builder",
+            "Spatial ETL"
+        ],
+        "example": "See geospatial applications",
+        "href": "/work/plrb-weather-systems/"
     },
-  ] satisfies SkillGroup[],
+    {
+        "title": "Field Instrumentation & Agricultural Research",
+        "strengths": "Co-develop GPS-linked sensing platforms, automated soil-gas systems, and reference weather stations. Compare canopy measurements with drone imagery, LiDAR, and crop-stress response.",
+        "tools": [
+            "Trimble GPS",
+            "Infrared radiometers",
+            "Drone imagery / LiDAR",
+            "Sensor calibration"
+        ],
+        "example": "See Corteva field research",
+        "href": "/work/corteva-field-sensing/"
+    },
+    {
+        "title": "Applied AI & Scientific Tooling",
+        "strengths": "Build agentic weather workflows with LLM tool orchestration, structured schemas, evidence-backed responses, and provenance controls. Test working prototypes through evaluation, replay, and failure handling.",
+        "tools": [
+            "OpenAI tooling",
+            "Python / FastAPI",
+            "React",
+            "Supabase"
+        ]
+    }
+] satisfies SkillGroup[],
 
   awards: [
     {
@@ -279,7 +326,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently developed AI weather-intelligence platform that extracts evidence from environmental data and generates reports.',
+        'Recognized for an independently developed AI weather intelligence platform that extracts evidence from scattered environmental data and generates responses, reports, maps, plots, and more.',
     },
   ] satisfies AwardItem[],
 
@@ -299,5 +346,5 @@ export const portfolio = {
   ] satisfies EducationItem[],
 
   contactLead:
-    'Let’s talk about scientific computing, environmental data, and tools that help researchers make better decisions.',
+    'I welcome conversations about roles involving meteorology, geospatial data, environmental analysis, scientific computing, automation, or research.',
 }

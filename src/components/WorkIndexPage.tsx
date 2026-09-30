@@ -27,7 +27,7 @@ export function WorkIndexPage({ base }: { base: string }) {
         <a className="text-link case-study-back" href={base}>
           ← Back to portfolio
         </a>
-        <h1>Work &amp; research</h1>
+        <h1>Work Examples by role</h1>
         <p className="work-index-intro">
           Select a role to see related projects and results.
         </p>
