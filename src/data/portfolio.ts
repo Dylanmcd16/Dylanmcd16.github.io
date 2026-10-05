@@ -140,7 +140,7 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Co-developed Smartstick with IRT and PAR sensors for agricultural research. Built a Python and ArcPy processing proof of concept in approximately one week, reducing processing from about one hour to five minutes per collection across seven research sites.',
+        'Co-developed Smartstick with IRT and PAR sensors for research across seven sites. Built a Python and ArcPy processing proof of concept in approximately one week, reducing processing from about one hour to five minutes per collection.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -266,8 +266,8 @@ export const portfolio = {
         "href": "/work/land-use-convective-weather/"
     },
     {
-        "title": "Python Pipelines & Data Quality",
-        "strengths": "Acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
+        "title": "Python Pipelines & Data Stewardship",
+        "strengths": "Apply FAIR-aligned stewardship: document sources and fields, manage access, and acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
         "tools": [
             "Python",
             "ArcPy",
@@ -303,7 +303,7 @@ export const portfolio = {
     },
     {
         "title": "Applied AI & Scientific Tooling",
-        "strengths": "Build agentic weather workflows with LLM tool orchestration, structured schemas, evidence-backed responses, and provenance controls. Test working prototypes through evaluation, replay, and failure handling.",
+        "strengths": "Build scientific agents with LLM orchestration, multi-step tool calling, structured outputs, and provenance controls. Implement agent evaluation with regression tests, scientific replay, and evidence-grounded answer review.",
         "tools": [
             "OpenAI API",
             "Python / FastAPI",
@@ -326,7 +326,7 @@ export const portfolio = {
       issuer: 'Amazon Web Services',
       year: '2025',
       description:
-        'Recognized for an independently developed AI weather intelligence platform that extracts evidence from scattered environmental data and generates responses, reports, maps, plots, and more.',
+        'Recognized for an independently developed AI weather intelligence platform combining environmental-data retrieval, executable scientific analysis, and evidence-grounded answers and reports.',
     },
   ] satisfies AwardItem[],
 

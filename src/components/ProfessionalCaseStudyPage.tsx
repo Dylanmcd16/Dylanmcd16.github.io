@@ -75,7 +75,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Daily weather-data production',
         paragraphs: [
           'I build and maintain daily workflows for storm reports, data acquisition, SPC outlooks, ArcGIS-ready datasets, email updates, and operational archives. They handle high report volumes; assigning occurrence numbers and reviewing surface analyses remain the main manual steps.',
-          'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team. My acquisition and processing scripts use shared column names and feed an AWS-hosted ArcGIS Server, making consistent datasets reusable through our APIs and applications.',
+          'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team. I apply FAIR-aligned stewardship by documenting dataset fields and sources, organizing shared data and tools, managing access permissions, and maintaining records through our internal admin website. My acquisition and processing scripts use shared column names and feed an AWS-hosted ArcGIS Server, making consistent datasets reusable through our APIs and applications.',
         ],
         bullets: [
           'Built reconciliation logic that incorporates late reports without duplicating published records.',
@@ -242,7 +242,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         bullets: [
           'Collected thousands of GPS-referenced measurements per walk.',
           'Conducted repeated field collections across the research season.',
-          'I led coordination with teams in Puerto Rico, Texas, and Chile, reviewing sensor setups and measurement data and guiding changes to standardize collection methods across sites.',
+          'I led coordination with teams in California, Puerto Rico, Texas, and Chile, reviewing sensor setups and measurement data and guiding changes to standardize collection methods across sites.',
         ],
         images: [
           {
@@ -274,7 +274,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
           'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, reducing processing from about one hour to five minutes per collection. I developed the processing proof of concept in approximately one week using Python, ArcPy, and AI-assisted coding.',
         ],
         bullets: [
-          'I trained teammates to use the pipeline and incorporated their feedback to improve usability before handoff, allowing the team to run the code independently after I left.',
+          'I trained teammates and refined the code from their feedback. The team continued using the pipeline to process and analyze data after I left.',
           'Overlaid measurements on drone imagery for spatial review.',
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
           'Compared Smartstick measurements with treatment and crop-stress observations to assess relationships.',
@@ -304,12 +304,12 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         note: 'These explanatory illustrations do not contain Corteva data or depict a Corteva field.',
       },
       {
-        id: 'crop-water-use',
-        navLabel: 'Crop water use',
+        id: 'field-data-comparison',
+        navLabel: 'Research analysis',
         eyebrow: '03 / Analysis',
-        title: 'Crop water-use and stress analysis',
+        title: 'Field-data comparison and research analysis',
         paragraphs: [
-          'I combined soil moisture, evapotranspiration, irrigation, crop stage, and field data to estimate water use and assess crop stress. I checked for gaps and sensor problems, then interpreted results with agronomists, engineers, and data scientists.',
+          'I compared field measurements with drone imagery, LiDAR-derived canopy structure, and treatment data to review spatial patterns and support interpretation of experimental results.',
         ],
       },
       {
@@ -387,7 +387,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Built the Smartstick processing proof of concept in approximately one week and reduced processing from about one hour to five minutes per collection across seven research sites.',
+      'Built the Smartstick processing proof of concept in approximately one week and reduced processing from about one hour to five minutes per collection.',
       'Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.',
       'Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.',
       'Co-designed and built automated soil-gas and reference weather-station systems, then maintained and debugged them during field deployment.',

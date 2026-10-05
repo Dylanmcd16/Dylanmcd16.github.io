@@ -47,10 +47,10 @@
           {
             "@type": "Article",
             "headline": "Field-Sensing Systems & Geospatial Research",
-            "description": "The Smartstick field-sensing platform, automated Python and ArcPy processing pipelines, crop water-use and stress analysis, an automated N2O soil-gas experiment, a reference weather station, and infrared-radiometer fleet tracking at Corteva Agriscience.",
+            "description": "The Smartstick field-sensing platform, automated Python and ArcPy processing pipelines, field-data comparison and research analysis, an automated N2O soil-gas experiment, a reference weather station, and infrared-radiometer fleet tracking at Corteva Agriscience.",
             "image": "https://dylanmcd16.github.io/social/corteva-field-sensing.jpg",
             "url": "https://dylanmcd16.github.io/work/corteva-field-sensing/",
-            "keywords": "field sensing, ArcPy, Trimble GPS, LiDAR, drone imagery, evapotranspiration, soil moisture, crop stress, instrumentation, quality control",
+            "keywords": "field sensing, ArcPy, Trimble GPS, LiDAR, drone imagery, IRT and PAR sensors, research analysis, instrumentation, quality control",
             "about": "Agricultural field-sensing instrumentation and geospatial research workflows",
             "author": {
               "@id": "https://dylanmcd16.github.io/#person"
@@ -96,7 +96,7 @@
         <ul>
           <li>Collected thousands of spatially referenced measurements per walk.</li>
           <li>Conducted repeated field collections across the research season.</li>
-          <li>I led coordination with teams in Puerto Rico, Texas, and Chile, reviewing sensor setups and measurement data and guiding changes to standardize collection methods across sites.</li>
+          <li>I led coordination with teams in California, Puerto Rico, Texas, and Chile, reviewing sensor setups and measurement data and guiding changes to standardize collection methods across sites.</li>
         </ul>
         <figure>
           <img src="/smartstick.jpeg" alt="Corteva Smartstick mobile field-sensing platform" loading="lazy" />
@@ -109,7 +109,7 @@
 
         <h2>Automated geospatial processing and analysis</h2>
         <p>I independently built the Python and ArcPy pipeline that processed each collection from raw tabular files through research-ready outputs. It standardized the data, plotted measurements for visual quality control, removed irrelevant or unrealistic readings, excluded bad GPS positions and outliers, converted coordinates to points, and spatially joined every valid observation to its experimental plot, treatment, and genotype.</p>
-        <p>ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, reducing processing from about one hour to five minutes per collection. I developed the processing proof of concept in approximately one week using Python, ArcPy, and AI-assisted coding.</p><p>I trained teammates to use the pipeline and incorporated their feedback to improve usability before handoff, allowing the team to run the code independently after I left.</p>
+        <p>ArcPy used plot boundaries and inward buffers to remove observations outside plots or too close to plot edges. The workflow then generated point layers, shapefiles, plot summaries, maps, tables, and analysis products, reducing processing from about one hour to five minutes per collection. I developed the processing proof of concept in approximately one week using Python, ArcPy, and AI-assisted coding.</p><p>I trained teammates and refined the code from their feedback. The team continued using the pipeline to process and analyze data after I left.</p>
         <ul>
           <li>Overlaid measurements on drone imagery for spatial review.</li>
           <li>Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.</li>
@@ -125,9 +125,8 @@
         </figure>
         <p>These explanatory illustrations do not contain Corteva data or depict a Corteva field.</p>
 
-        <h2>Crop water-use and stress analysis</h2>
-        <p>I analyzed soil-moisture, evapotranspiration, irrigation, crop-development-stage, and field measurements to estimate crop water use and help evaluate crop stress. This work required combining measurements collected at different temporal and spatial scales, reviewing the data for gaps and sensor problems, and interpreting the results alongside agronomists, engineers, and data scientists.</p>
-        <p>The analysis connected environmental conditions and irrigation practices with the field-sensing measurements, providing additional context for understanding when and where crops were experiencing stress.</p>
+        <h2>Field-data comparison and research analysis</h2>
+        <p>I compared field measurements with drone imagery, LiDAR-derived canopy structure, and treatment data to review spatial patterns and support interpretation of experimental results.</p>
 
         <h2>Automated N₂O chamber system</h2>
         <p>I co-designed and co-built a sixteen-chamber automated soil-gas system — wiring, tubing, controls, and code. It sampled every fifteen minutes for four months, so failures in a chamber, valve, line, or control component could compromise long stretches of data.</p>
@@ -163,7 +162,7 @@
 
         <h2>Results and impact</h2>
         <ul>
-          <li>Built the Smartstick processing proof of concept in approximately one week and reduced processing from about one hour to five minutes per collection across seven research sites.</li>
+          <li>Built the Smartstick processing proof of concept in approximately one week and reduced processing from about one hour to five minutes per collection.</li>
           <li>Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.</li>
           <li>Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.</li>
           <li>Co-designed and built automated soil-gas and reference weather-station systems, then maintained and debugged them during field deployment.</li>
