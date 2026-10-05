@@ -75,7 +75,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Daily weather-data production',
         paragraphs: [
           'I build and maintain daily workflows for storm reports, data acquisition, SPC outlooks, ArcGIS-ready datasets, email updates, and operational archives. They handle high report volumes; assigning occurrence numbers and reviewing surface analyses remain the main manual steps.',
-          'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team.',
+          'Python and ArcPy retrieve data from NOAA and other providers, validate and reconcile storm reports, standardize hazard fields, match records to locations, generate maps, and produce synchronized exports. The workflows flag missing inputs before dependent products are created. Companion workflows publish to ArcGIS Server and notify the team. My acquisition and processing scripts use shared column names and feed an AWS-hosted ArcGIS Server, making consistent datasets reusable through our APIs and applications.',
         ],
         bullets: [
           'Built reconciliation logic that incorporates late reports without duplicating published records.',
@@ -108,7 +108,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Claims-facing weather applications',
         paragraphs: [
           'I build ArcGIS Experience Builder applications for hail, wind, hurricanes, and current weather. They combine reports, warnings, observations, radar products, precipitation, and lightning so claims professionals can investigate a location without handling raw data formats.',
-          'Where standard widgets fell short, I added custom date filters, layer controls, record generation, map synchronization, and location-specific reports through API integrations.',
+          'I use AI-assisted development to build analysis tools and automate data processing. Where standard widgets fell short, I added custom date filters, layer controls, record generation, map synchronization, and location-specific reports through API integrations.',
         ],
         images: [
           {
@@ -207,6 +207,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       'Automated recurring maps, archives, alerts, exports, and ArcGIS updates that previously required hours of manual work.',
       'Added validation and reconciliation for late, missing, duplicate, and malformed inputs, including failed downloads.',
       'Built applications that combine weather evidence so claims professionals can review reports, observations, and estimates together.',
+      'I work directly with IT on weather-system improvements under PLRB\'s security upgrade plan and verify that the updated workflows function correctly.',
       'Contributed to PLRB’s 2025 Esri SAG recognition.',
     ],
     tools: [
@@ -235,13 +236,13 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '01 / Field system',
         title: 'Smartstick sensing platform',
         paragraphs: [
-          'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions in experimental rows, and operated it throughout the season. Infrared radiometers and thermocouples measured temperatures at multiple canopy heights; other sensors measured air temperature within and above the canopy.',
+          'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions in experimental rows, and operated it throughout the season. Infrared thermometer (IRT) sensors measured canopy temperature, while photosynthetically active radiation (PAR) sensors measured light at different canopy levels. Thermocouples and other sensors also measured temperature within and above the canopy.',
           'An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure\'s internal logging and cloud-transfer implementation were handled by others.',
         ],
         bullets: [
           'Collected thousands of GPS-referenced measurements per walk.',
           'Conducted repeated field collections across the research season.',
-          'Maintained sensors and collection procedures to limit drift and site-to-site inconsistency.',
+          'I led coordination with teams in Puerto Rico, Texas, and Chile, reviewing sensor setups and measurement data and guiding changes to standardize collection methods across sites.',
         ],
         images: [
           {
@@ -250,7 +251,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
             height: 1152,
             alt: 'Corteva Smartstick mobile field-sensing platform',
             label: 'Field collection setup',
-            caption: 'Mobile platform configured to collect canopy and air-temperature measurements with GPS and timestamps.',
+            caption: 'Mobile platform with IRT and PAR sensors for canopy temperature and light measurements, recorded with GPS and timestamps.',
           },
           {
             src: 'enclosure.jpeg',
@@ -270,9 +271,10 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Automated geospatial processing and analysis',
         paragraphs: [
           'I independently built the Python and ArcPy pipeline that turned each collection’s raw files into research-ready data. It standardized records, plotted them for quality control, removed unrealistic readings, bad GPS positions, and outliers, then matched valid points to each plot, treatment, and genotype.',
-          'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, saving about an hour of processing per collection—roughly 100 hours across the campaign.',
+          'ArcPy used plot boundaries and inward buffers to exclude observations outside plots or near their edges. The workflow generated point layers, shapefiles, plot summaries, maps, and tables, reducing processing from about one hour to five minutes per collection. I developed the processing proof of concept in approximately one week using Python, ArcPy, and AI-assisted coding.',
         ],
         bullets: [
+          'I trained teammates to use the pipeline and incorporated their feedback to improve usability before handoff, allowing the team to run the code independently after I left.',
           'Overlaid measurements on drone imagery for spatial review.',
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
           'Compared Smartstick measurements with treatment and crop-stress observations to assess relationships.',
@@ -317,7 +319,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Automated N₂O chamber system',
         paragraphs: [
           'I co-designed and built a 16-chamber automated soil-gas system, including its wiring, tubing, controls, and code. It sampled every 15 minutes for four months, so equipment failures could compromise long stretches of data.',
-          'I installed, maintained, and debugged the system, then worked with data scientists to distinguish valid measurements from equipment-related artifacts.',
+          'I operated and monitored the system daily, maintained it, and troubleshot equipment issues. Working with my research team and data scientists, I assessed measurement quality, analyzed nitrous oxide data, and interpreted the research findings.',
         ],
         images: [
           {
@@ -336,7 +338,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '05 / Instrumentation',
         title: 'Gold Standard instrument-comparison site',
         paragraphs: [
-          'I co-designed a reference station to compare weather instruments and measure how much similar systems differ. It included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors such as Davis.',
+          'I co-designed and built the "Gold Standard" weather station to compare weather instruments and measure how much similar systems differ. It included nine rain gauges, four anemometers, four temperature sensors, infrared sensors, and instruments from vendors such as Davis.',
           'A data logger sent observations by radio to the research building. I maintained the station and helped make its measurements available through a web-based visualization site.',
         ],
         images: [
@@ -385,14 +387,14 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
       },
     ],
     results: [
-      'Automated approximately one hour of processing per Smartstick collection—on the order of 100 hours across the campaign at seven research sites.',
+      'Built the Smartstick processing proof of concept in approximately one week and reduced processing from about one hour to five minutes per collection across seven research sites.',
       'Converted thousands of timestamped, GPS-tagged readings into validated plot-level datasets and maps.',
       'Applied one reproducible workflow across seven research sites and compared selected results with drone imagery and LiDAR.',
       'Co-designed and built automated soil-gas and reference weather-station systems, then maintained and debugged them during field deployment.',
       'Created centralized tracking for more than 200 distributed infrared radiometers.',
     ],
     tools: [
-      { label: 'Sensing', values: 'IRTs, thermocouples, air-temperature sensors, automated gas chambers' },
+      { label: 'Sensing', values: 'IRT and PAR sensors, thermocouples, air-temperature sensors, automated gas chambers' },
       { label: 'Geospatial processing', values: 'Python, ArcPy, Trimble GPS, spatial joins, plot buffers' },
       { label: 'Research outputs', values: 'Points, shapefiles, maps, tables, plot summaries' },
       { label: 'Comparison data', values: 'Drone imagery, LiDAR, experimental treatments, crop-stress response' },

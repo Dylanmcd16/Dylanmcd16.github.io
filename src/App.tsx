@@ -390,6 +390,14 @@ function App() {
               ))}
               </div>
 
+              <article className="project-strip">
+                <div className="project-strip-label">
+                  <span className="project-kind">Independent AI development · 2025–Present</span>
+                  <h3 className="project-strip-title">AI Weather Intelligence Platform</h3>
+                  <p className="project-strip-sub">Independently developed outside work using Python, FastAPI, React, and the OpenAI API. LLM agents retrieve weather evidence through APIs and execute analysis tools, including filtering and maximum-value calculations. An address-and-date hail investigation combines radar-derived hail estimates, storm reports, and thunderstorm warnings, checks the evidence, and generates an answer. Retrieval and data validation are the most reliable capabilities; plotting and multi-address scaling remain under development.</p>
+                </div>
+              </article>
+
               <a
                 className="project-strip"
                 href={`${base}projects/iowa-severe-weather-explorer/`}

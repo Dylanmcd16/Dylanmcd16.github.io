@@ -140,7 +140,7 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Co-developed field-sensing systems and independently built a Python and ArcPy pipeline for GPS-linked measurements across seven research sites. Produced quality-controlled plot summaries and saved roughly 100 hours of manual processing across the campaign.',
+        'Co-developed Smartstick with IRT and PAR sensors for agricultural research. Built a Python and ArcPy processing proof of concept in approximately one week, reducing processing from about one hour to five minutes per collection across seven research sites.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -294,7 +294,7 @@ export const portfolio = {
         "strengths": "Co-develop GPS-linked sensing platforms, automated soil-gas systems, and reference weather stations. Compare canopy measurements with drone imagery, LiDAR, and crop-stress response.",
         "tools": [
             "Trimble GPS",
-            "Infrared radiometers",
+            "IRT and PAR sensors",
             "Drone imagery / LiDAR",
             "Sensor calibration"
         ],
@@ -305,7 +305,7 @@ export const portfolio = {
         "title": "Applied AI & Scientific Tooling",
         "strengths": "Build agentic weather workflows with LLM tool orchestration, structured schemas, evidence-backed responses, and provenance controls. Test working prototypes through evaluation, replay, and failure handling.",
         "tools": [
-            "OpenAI tooling",
+            "OpenAI API",
             "Python / FastAPI",
             "React",
             "Supabase"
