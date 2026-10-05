@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "weather-geo"
 version = "0.1.0"
 description = "Meteorological and geospatial data-engineering examples: acquire, validate, normalize, analyze, publish."
-readme = "README.md"
+readme = {text = "Reproducible weather and geospatial analysis workflows.", content-type = "text/plain"}
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [{ name = "Dylan McDermott" }]

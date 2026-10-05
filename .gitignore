@@ -29,3 +29,13 @@ Thumbs.db
 *.log
 npm-debug.log*
 .sse_*.cjs
+
+# Local documentation, planning, and agent context
+*.md
+docs/
+plans/
+notes/
+audits/
+scratch/
+.codex/
+.agents/
