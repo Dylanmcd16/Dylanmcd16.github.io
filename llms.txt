@@ -15,8 +15,7 @@
 - [PLRB - Meteorologist](https://dylanmcd16.github.io/work/plrb-weather-systems/): Builds weather-data pipelines and claims-facing ArcGIS applications with validated catastrophe data.
 - [Corteva - Research Associate](https://dylanmcd16.github.io/work/corteva-field-sensing/): Co-developed field-sensing systems and independently built Python and ArcPy workflows for GPS-linked measurements at seven research sites, producing plot-level summaries and saving roughly 100 hours across the campaign.
 - [Master's Thesis - Iowa State University](https://dylanmcd16.github.io/work/land-use-convective-weather/): Ran WRF with Noah-MP at 50 km to compare present-day and 1850 vegetation during the 1993 and 2008 Midwest flood periods, analyzing simulated rainfall, surface fluxes, and moisture transport.
-- [Iowa Severe Weather Explorer](https://dylanmcd16.github.io/projects/iowa-severe-weather-explorer/): Built an interactive replay of the August 10, 2020 Iowa derecho, combining NEXRAD, surface observations, HRRR, GOES-16, warnings, storm reports, and damage data on one timeline.
-- [Iowa Soybean Season Explorer](https://dylanmcd16.github.io/projects/iowa-soybean-season-explorer/): A descriptive 2025 season timelapse across 248 central Iowa fields, combining 59 usable Sentinel-2 dates and MRMS radar rainfall.
+- [VR/3D Radar Viewer](https://dylanmcd16.github.io/work/doppler-atlas/): Doppler Atlas, an independent weather radar visualization project in 3D and virtual reality. Website: https://doppleratlas.app/
 
 ## Awards
 
@@ -42,7 +41,7 @@
 
 ## Independent AI Development
 
-Independently developed outside work using Python, FastAPI, React, and the OpenAI Responses API. LLM orchestration connects multi-step tool calls and schema-constrained answers with observations, radar, satellite, model, and weather-event data. Scientific tools transform tabular, gridded, and geospatial datasets through derived variables, statistical summaries, and spatial and temporal analysis. Agent evaluation uses regression tests, scientific replay, and answer review against retained evidence. Plotting and multi-address scaling remain under development.
+An independent project connecting AI with weather data and scientific analysis tools. Built with Python, FastAPI, React, and the OpenAI API.
 
 ## Smartstick Research
 
