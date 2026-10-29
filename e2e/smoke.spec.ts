@@ -9,8 +9,8 @@ test.describe('homepage', () => {
     await expect(explorerLink).toBeVisible()
     await expect(explorerLink).toHaveAttribute('href', /\/work\/doppler-atlas\/$/)
     await explorerLink.click()
-    await expect(page.getByRole('heading', { name: 'VR/3D Radar Viewer', exact: true })).toBeVisible()
-    await expect(page.getByRole('link', { name: 'Visit Doppler Atlas' })).toHaveAttribute('href', 'https://doppleratlas.app/')
+    await expect(page.getByRole('heading', { name: 'Doppler Atlas: VR/3D Radar Viewer', exact: true })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Doppler Atlas website' })).toHaveAttribute('href', 'https://doppleratlas.app/')
   })
 })
 
