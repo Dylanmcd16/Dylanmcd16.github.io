@@ -1,0 +1,6 @@
+Screenshots reproduced from the Doppler Atlas website, retrieved October 29, 2026.
+Project by Dylan McDermott.
+orbit.webp: https://doppleratlas.app/media/vr-demo-orbit-poster.jpg
+spatial.webp: https://doppleratlas.app/images/spatial.png
+radar.webp: https://doppleratlas.app/images/radar.png
+WebP copies preserve the source image framing.

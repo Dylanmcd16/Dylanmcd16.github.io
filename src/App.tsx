@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { CaseStudyFooter } from './components/CaseStudyFooter'
 import { ProfessionalCaseStudyPage } from './components/ProfessionalCaseStudyPage'
 import { WorkIndexPage } from './components/WorkIndexPage'
+import { DopplerAtlasPage } from './components/DopplerAtlasPage'
 import { ESRI_SAG_AWARD_POST_URL, portfolio } from './data/portfolio'
 import { getRouteState, caseStudyUrl, workIndexUrl } from './utils/routes'
 
@@ -82,6 +83,10 @@ function CaseStudyPage({
   base: string
   thesisUrl: string
 }) {
+  if (project.slug === 'doppler-atlas') {
+    return <DopplerAtlasPage base={base} />
+  }
+
   if (project.slug === 'land-use-convective-weather') {
     return (
       <main className="case-study-page thesis-reader-page">
