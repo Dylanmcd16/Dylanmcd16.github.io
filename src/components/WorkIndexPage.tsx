@@ -77,10 +77,6 @@ export function WorkIndexPage({ base }: { base: string }) {
             <span className="work-next-feature-title">VR/3D Radar Viewer <ArrowIcon /></span>
             <span className="work-next-feature-sub">Doppler Atlas: weather radar in an interactive 3D and virtual reality environment.</span>
           </a>
-          <article>
-            <h3>AI Weather Intelligence Platform</h3>
-            <p>An independent project connecting AI with weather data and scientific analysis tools.</p>
-          </article>
           <div className="work-next-links">
             <a href={`${base}${portfolio.resumeFile}`} target="_blank" rel="noreferrer">
               Résumé
