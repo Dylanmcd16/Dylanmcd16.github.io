@@ -1,13 +1,16 @@
 import { expect, test } from '@playwright/test'
 
 test.describe('homepage', () => {
-  test('loads and links to the Iowa Severe Weather Data Explorer', async ({ page }) => {
+  test('loads and links to Doppler Atlas', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: 'Dylan McDermott' })).toBeVisible()
 
-    const explorerLink = page.locator('a[href*="iowa-severe-weather-explorer"]')
+    const explorerLink = page.locator('a[href="/work/doppler-atlas/"]')
     await expect(explorerLink).toBeVisible()
-    await expect(explorerLink).toHaveAttribute('href', /\/projects\/iowa-severe-weather-explorer\/$/)
+    await expect(explorerLink).toHaveAttribute('href', /\/work\/doppler-atlas\/$/)
+    await explorerLink.click()
+    await expect(page.getByRole('heading', { name: 'VR/3D Radar Viewer', exact: true })).toBeVisible()
+    await expect(page.getByRole('link', { name: 'Visit Doppler Atlas' })).toHaveAttribute('href', 'https://doppleratlas.app/')
   })
 })
 

@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test'
 const routes = [
   '/',
   '/work/',
+  '/work/doppler-atlas/',
   '/work/corteva-field-sensing/',
   '/work/plrb-weather-systems/',
   '/work/land-use-convective-weather/',
