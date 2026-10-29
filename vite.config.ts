@@ -23,6 +23,7 @@ export default defineConfig({
           rootDirectory,
           'work/corteva-field-sensing/index.html',
         ),
+        dopplerAtlas: resolve(rootDirectory, 'work/doppler-atlas/index.html'),
         thesis: resolve(
           rootDirectory,
           'work/land-use-convective-weather/index.html',

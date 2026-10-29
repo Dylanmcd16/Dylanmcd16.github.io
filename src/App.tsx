@@ -160,6 +160,14 @@ function CaseStudyPage({
 
         {project.slug === 'plrb-weather-systems' && <ProjectScreenshot />}
 
+        {project.links.map((link) => (
+          <p key={link.href}>
+            <a className="button button-primary" href={link.href} target="_blank" rel="noreferrer">
+              {link.label} <ExternalIcon />
+            </a>
+          </p>
+        ))}
+
         <CaseStudyFooter
           base={base}
           next={{ label: 'Browse all work', href: workIndexUrl() }}
@@ -338,7 +346,7 @@ function App() {
             <div className="selected-work-content">
               <h2>Work</h2>
               <div className="project-grid">
-              {portfolio.projects.map((project) => (
+              {portfolio.projects.filter((project) => project.slug !== 'doppler-atlas').map((project) => (
                 <article
                   key={project.title}
                   className={`project project--${project.accent} ${project.featured ? 'is-featured' : ''}`}
@@ -390,48 +398,21 @@ function App() {
               ))}
               </div>
 
+              <a className="project-strip" href={caseStudyUrl('doppler-atlas')}>
+                <span className="project-strip-label">
+                  <span className="project-kind">Independent project · Doppler Atlas</span>
+                  <span className="project-strip-title">VR/3D Radar Viewer</span>
+                  <span className="project-strip-sub">Explore weather radar in an interactive 3D and virtual reality environment.</span>
+                </span>
+                <span className="project-strip-cta">View <ArrowIcon /></span>
+              </a>
+
               <article className="project-strip">
                 <div className="project-strip-label">
-                  <span className="project-kind">Independent AI development · 2025–Present</span>
                   <h3 className="project-strip-title">AI Weather Intelligence Platform</h3>
-                  <p className="project-strip-sub">Independently developed outside work using Python, FastAPI, React, and the OpenAI Responses API. LLM orchestration connects multi-step tool calls and schema-constrained answers with observations, radar, satellite, model, and weather-event data. Scientific tools transform tabular, gridded, and geospatial datasets through derived variables, statistical summaries, and spatial and temporal analysis. Agent evaluation uses regression tests, scientific replay, and answer review against retained evidence. Plotting and multi-address scaling remain under development.</p>
+                  <p className="project-strip-sub">An independent project connecting AI with weather data and scientific analysis tools. Built with Python, FastAPI, React, and the OpenAI API.</p>
                 </div>
               </article>
-
-              <a
-                className="project-strip"
-                href={`${base}projects/iowa-severe-weather-explorer/`}
-              >
-                <span className="project-strip-label">
-                  <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Iowa Severe Weather Explorer</span>
-                  <span className="project-strip-sub">
-                    Built an interactive replay of the August 10, 2020 Iowa derecho, combining
-                    NEXRAD radar, surface observations, HRRR, GOES-16, warnings, storm reports, and
-                    damage data on one timeline.
-                  </span>
-                </span>
-                <span className="project-strip-cta">
-                  View <ArrowIcon />
-                </span>
-              </a>
-
-              <a
-                className="project-strip"
-                href={`${base}projects/iowa-soybean-season-explorer/`}
-              >
-                <span className="project-strip-label">
-                  <span className="project-kind">Technical project</span>
-                  <span className="project-strip-title">Iowa Soybean Season Explorer</span>
-                  <span className="project-strip-sub">
-                    Built a timelapse of the 2025 soybean season across 248 central Iowa fields,
-                    using 59 usable Sentinel-2 dates with MRMS radar rainfall alongside the imagery.
-                  </span>
-                </span>
-                <span className="project-strip-cta">
-                  View <ArrowIcon />
-                </span>
-              </a>
             </div>
           </div>
         </section>

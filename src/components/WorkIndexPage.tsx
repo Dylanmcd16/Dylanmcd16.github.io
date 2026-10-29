@@ -73,29 +73,14 @@ export function WorkIndexPage({ base }: { base: string }) {
           <h2 id="work-next-title" className="case-kicker">
             Explore more
           </h2>
-          <a
-            className="work-next-feature"
-            href={`${base}projects/iowa-severe-weather-explorer/`}
-          >
-            <span className="work-next-feature-title">
-              Iowa Severe Weather Explorer <ArrowIcon />
-            </span>
-            <span className="work-next-feature-sub">
-              Interactive maps and analysis of historical severe-weather events across Iowa.
-            </span>
+          <a className="work-next-feature" href={caseStudyUrl('doppler-atlas')}>
+            <span className="work-next-feature-title">VR/3D Radar Viewer <ArrowIcon /></span>
+            <span className="work-next-feature-sub">Doppler Atlas: weather radar in an interactive 3D and virtual reality environment.</span>
           </a>
-          <a
-            className="work-next-feature"
-            href={`${base}projects/iowa-soybean-season-explorer/`}
-          >
-            <span className="work-next-feature-title">
-              Iowa Soybean Season Explorer <ArrowIcon />
-            </span>
-            <span className="work-next-feature-sub">
-              A season-long timelapse of soybean greenness and rainfall across 248 central Iowa
-              fields, from Sentinel-2 and MRMS radar rainfall.
-            </span>
-          </a>
+          <article>
+            <h3>AI Weather Intelligence Platform</h3>
+            <p>An independent project connecting AI with weather data and scientific analysis tools.</p>
+          </article>
           <div className="work-next-links">
             <a href={`${base}${portfolio.resumeFile}`} target="_blank" rel="noreferrer">
               Résumé

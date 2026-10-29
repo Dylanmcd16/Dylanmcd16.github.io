@@ -211,6 +211,23 @@ export const portfolio = {
       tech: ['Boundary-layer meteorology', 'Case identification', 'Data visualization', 'Research collaboration'],
       links: [],
     },
+    {
+      slug: 'doppler-atlas',
+      title: 'VR/3D Radar Viewer',
+      kind: 'Independent project · Doppler Atlas',
+      accent: 'analysis',
+      description: 'Explore weather radar in an interactive 3D and virtual reality environment.',
+      caseStudy: {
+        overview: 'Doppler Atlas is my independent weather visualization project, built to explore radar in 3D and virtual reality. It brings meteorology and spatial interaction together so weather can be examined from different perspectives.',
+        examples: [
+          'Explore radar within a 3D map rather than a flat image.',
+          'Develop spatial controls and movable panels for a virtual reality weather workspace.',
+          'Build and refine the viewer using Unity and OpenXR.',
+        ],
+      },
+      tech: ['Unity', 'OpenXR', '3D visualization', 'Weather radar'],
+      links: [{ label: 'Visit Doppler Atlas', href: 'https://doppleratlas.app/' }],
+    },
   ] as Project[],
 
   experience: [
