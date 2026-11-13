@@ -140,7 +140,7 @@ export const portfolio = {
       kind: 'Corteva Agriscience · 2024–2025',
       accent: 'field',
       description:
-        'Co-developed Smartstick with IRT and PAR sensors for research across seven sites. Built a Python and ArcPy processing proof of concept in approximately one week, reducing processing from about one hour to five minutes per collection.',
+        'Co-developed Smartstick, a mobile sensing platform used across seven research sites. Built a Python and ArcPy processing proof of concept that reduced processing time from about one hour to five minutes per collection.',
       workIndex: {
         organization: 'Corteva Agriscience',
         period: '2024 — 2025',
@@ -167,7 +167,7 @@ export const portfolio = {
       kind: 'Iowa State · M.S. Research · 2022–2024',
       accent: 'modeling',
       description:
-        'Ran WRF with Noah-MP to compare present-day and 1850 vegetation during the 1993 and 2008 Midwest flood periods. Analyzed simulated changes in rainfall, surface fluxes, and moisture transport.',
+        'Used weather and land-surface models to study how historical land-use changes affected Midwest rainfall during the 1993 and 2008 flood periods. Analyzed simulated changes in rainfall, surface fluxes, and moisture transport.',
       keyContribution:
         'Translated CESM/LUMIP land-use data to model grids and prepared higher-resolution datasets for future simulations.',
       workIndex: {
@@ -216,7 +216,7 @@ export const portfolio = {
       title: 'VR/3D Radar Viewer',
       kind: 'Independent project · Doppler Atlas',
       accent: 'analysis',
-      description: 'Explore weather radar in an interactive 3D and virtual reality environment.',
+      description: 'Built Doppler Atlas, an interactive application for exploring weather radar in 3D and virtual reality.',
       caseStudy: {
         overview: 'Doppler Atlas is my independent weather visualization project, built to explore radar in 3D and virtual reality. It brings meteorology and spatial interaction together so weather can be examined from different perspectives.',
         examples: [
@@ -284,7 +284,7 @@ export const portfolio = {
     },
     {
         "title": "Python Pipelines & Data Stewardship",
-        "strengths": "Apply FAIR-aligned stewardship: document sources and fields, manage access, and acquire, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
+        "strengths": "Document data sources, manage access, and collect, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
         "tools": [
             "Python",
             "ArcPy",

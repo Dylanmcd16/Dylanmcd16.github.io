@@ -406,8 +406,8 @@ function App() {
               <a className="project-strip" href={caseStudyUrl('doppler-atlas')}>
                 <span className="project-strip-label">
                   <span className="project-kind">Independent project · Doppler Atlas</span>
-                  <span className="project-strip-title">VR/3D Radar Viewer</span>
-                  <span className="project-strip-sub">Explore weather radar in an interactive 3D and virtual reality environment.</span>
+                  <span className="project-strip-title">Doppler Atlas</span>
+                  <span className="project-strip-sub">Built Doppler Atlas, an interactive application for exploring weather radar in 3D and virtual reality.</span>
                 </span>
                 <span className="project-strip-cta">View <ArrowIcon /></span>
               </a>
