@@ -28,24 +28,24 @@ export function DopplerAtlasPage({ base }: { base: string }) {
         </section>
 
         <figure className="atlas-figure">
-          <a href={`${base}doppler-atlas/workspace-preview-20261112.webp`} target="_blank" rel="noreferrer" aria-label="Open full-size Doppler Atlas workspace screenshot">
-            <img src={`${base}doppler-atlas/workspace-preview-20261112.webp`} width="1440" height="1000" alt="Desktop preview of Doppler Atlas with a 3D radar volume over a map and vertical section, sounding, and radar panels" />
+          <a href={`${base}doppler-atlas/spatial.webp`} target="_blank" rel="noreferrer" aria-label="Open full-size Doppler Atlas workspace screenshot">
+            <img src={`${base}doppler-atlas/spatial.webp`} width="1600" height="1000" alt="Doppler Atlas workspace with a 3D radar volume, vertical section, atmospheric profile, radar map, and controls" />
           </a>
-          <figcaption>Desktop preview of the spatial workspace, with a 3D radar volume and supporting data panels. Select the image to enlarge.</figcaption>
+          <figcaption>Spatial workspace showing the radar volume and supporting data panels. Select the image to enlarge.</figcaption>
         </figure>
 
         <section className="atlas-section" aria-labelledby="atlas-radar">
           <h2 id="atlas-radar">Radar and geographic context</h2>
           <div className="atlas-copy">
-            <p>The 2D radar panel provides another view alongside the 3D volume. The velocity view below shows radar sweeps and a velocity color scale; vertical sections and probe controls provide additional ways to inspect the displayed data.</p>
-            <p>These desktop preview captures show the historical May 20, 2013 Moore storm demonstration, not current weather.</p>
+            <p>The 2D radar panel provides a geographic reference alongside the 3D volume. The panel shown below includes a height control and a reflectivity color scale; vertical sections and probe controls provide additional ways to inspect the displayed data.</p>
+            <p>The screenshots show the historical May 20, 2013 Moore storm demonstration, not current weather.</p>
           </div>
         </section>
         <figure className="atlas-figure atlas-radar-figure">
-          <a href={`${base}doppler-atlas/radar-velocity-preview-20261112.webp`} target="_blank" rel="noreferrer" aria-label="Open full-size radar panel screenshot">
-            <img src={`${base}doppler-atlas/radar-velocity-preview-20261112.webp`} width="1440" height="1000" alt="Desktop preview of the 2D radar panel showing radial velocity sweeps and a velocity color scale" loading="lazy" />
+          <a href={`${base}doppler-atlas/radar.webp`} target="_blank" rel="noreferrer" aria-label="Open full-size radar panel screenshot">
+            <img src={`${base}doppler-atlas/radar.webp`} width="1600" height="1000" alt="2D radar panel with reflectivity scale, geographic labels, and height control" loading="lazy" />
           </a>
-          <figcaption>2D radar velocity panel in the historical storm workspace.</figcaption>
+          <figcaption>Radar reflectivity panel from the historical storm workspace.</figcaption>
         </figure>
 
         <section className="atlas-section" aria-labelledby="atlas-tools">
