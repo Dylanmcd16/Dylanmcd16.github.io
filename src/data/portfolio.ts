@@ -83,7 +83,7 @@ export type EducationItem = {
 
 export const portfolio = {
   name: 'Dylan McDermott',
-  role: 'Meteorologist | Geospatial Data Professional',
+  role: 'Meteorologist | Scientific Research & Technology',
   location: 'West Des Moines, Iowa',
   email: 'dylanddermott@gmail.com',
   resumeFile: 'resume.pdf',
@@ -91,7 +91,7 @@ export const portfolio = {
   photo: 'photo-avatar.jpg',
 
   heroStatement:
-    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I investigate scientific questions and build practical solutions with environmental and geospatial data, programming, analysis, and automation. My experience spans atmospheric and agricultural research, geospatial technology, and weather-data systems.',
+    'I am a meteorologist, scientific researcher, and technical problem solver with an M.S. in Meteorology. I enjoy solving challenges and building practical solutions with environmental and geospatial data, programming, analysis, and automation. My experience spans atmospheric and agricultural research, geospatial technology, and weather-data systems.',
 
   links: {
     github: 'https://github.com/Dylanmcd16',
