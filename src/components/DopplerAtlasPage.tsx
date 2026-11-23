@@ -11,8 +11,8 @@ export function DopplerAtlasPage({ base }: { base: string }) {
         </nav>
 
         <header className="atlas-hero">
-          <h1>Doppler Atlas: VR/3D Radar Viewer</h1>
-          <p className="atlas-summary">I am developing a weather visualization application in Unity and OpenXR that displays radar reflectivity as a three-dimensional volume, with desktop and PC VR interfaces for exploring storms.</p>
+          <h1>Doppler Atlas — 3D Weather Visualization</h1>
+          <p className="atlas-summary">I built Doppler Atlas in Unity and OpenXR to visualize Doppler radar in 3D and explore weather model data, alerts, storm reports, and radar-derived hail estimates in VR and mixed reality.</p>
           <div className="atlas-links">
             <a className="text-link" href="https://doppleratlas.app/" target="_blank" rel="noreferrer">Doppler Atlas website ↗</a>
             <a className="text-link" href="https://doppleratlas.app/demo.html" target="_blank" rel="noreferrer">Video walkthrough ↗</a>
@@ -23,7 +23,7 @@ export function DopplerAtlasPage({ base }: { base: string }) {
           <h2 id="atlas-implementation">Technical approach</h2>
           <div className="atlas-copy">
             <p>The application combines meteorological data and a geographic map with a 3D radar volume. Users can rotate and move around the storm, inspect echoes with a probe, and examine vertical sections through the volume.</p>
-            <p>I build the visualization and spatial workspace in Unity, using OpenXR for VR interaction. Movable panels place the radar map, vertical section, atmospheric profile, and controls alongside the volume so the data can be examined together.</p>
+            <p>Movable panels place the radar map, vertical section, atmospheric profile, and controls alongside the volume so the data can be examined together.</p>
           </div>
         </section>
 

@@ -184,7 +184,7 @@ export const portfolio = {
         examples: [
           'Ran WRF with Noah-MP at 50 km for the 1993 and 2008 flood periods and prepared 3- and 15-km land-surface datasets for future simulations.',
           'Prepared land-surface datasets by translating CESM/LUMIP land-use data to model grids.',
-          'Compared ERA5, CESM, WRF, and observational datasets using Python, xarray, MATLAB, and NetCDF.',
+          'Used Python to compare simulated rainfall against NOAA rain-gauge observations. The baseline runs underestimated rainfall in both flood periods.',
         ],
       },
       tech: ['WRF', 'Noah-MP', 'Python', 'xarray'],
@@ -213,14 +213,14 @@ export const portfolio = {
     },
     {
       slug: 'doppler-atlas',
-      title: 'VR/3D Radar Viewer',
+      title: 'Doppler Atlas — 3D Weather Visualization',
       kind: 'Independent project · Doppler Atlas',
       accent: 'analysis',
-      description: 'Built Doppler Atlas, an interactive application for exploring weather radar in 3D and virtual reality.',
+      description: 'Explore 3D Doppler radar and weather data in virtual and mixed reality.',
       caseStudy: {
-        overview: 'Doppler Atlas is my independent weather visualization project, built to explore radar in 3D and virtual reality. It brings meteorology and spatial interaction together so weather can be examined from different perspectives.',
+        overview: 'I built Doppler Atlas in Unity and OpenXR to visualize Doppler radar in 3D and explore weather model data, alerts, storm reports, and radar-derived hail estimates in VR and mixed reality.',
         examples: [
-          'Explore radar within a 3D map rather than a flat image.',
+          'Explore radar volumes and weather data within a 3D map.',
           'Develop spatial controls and movable panels for a virtual reality weather workspace.',
           'Build and refine the viewer using Unity and OpenXR.',
         ],
@@ -260,7 +260,7 @@ export const portfolio = {
   skills: [
     {
         "title": "Meteorology & Weather Analysis",
-        "strengths": "Analyze radar, satellite, and model data for severe-weather verification and claims investigations. Evaluate datasets for bias, resolution, provenance, and appropriate interpretation.",
+        "strengths": "Analyze radar, satellite, and model data for severe weather and insurance claims.",
         "tools": [
             "NEXRAD / MRMS",
             "GOES",
@@ -272,7 +272,7 @@ export const portfolio = {
     },
     {
         "title": "Numerical Modeling & Scientific Computing",
-        "strengths": "Design WRF and Noah-MP experiments, translate CESM/LUMIP land-use inputs to model grids, and analyze rainfall, surface fluxes, and moisture transport.",
+        "strengths": "Run WRF and Noah-MP experiments and evaluate results against observations.",
         "tools": [
             "WRF / Noah-MP",
             "CESM / LUMIP",
@@ -284,7 +284,7 @@ export const portfolio = {
     },
     {
         "title": "Python Pipelines & Data Stewardship",
-        "strengths": "Document data sources, manage access, and collect, standardize, and validate environmental data. Reconcile late reports and detect duplicates, missing timestamps, invalid identifiers, and failed downloads in daily production workflows.",
+        "strengths": "Build production data pipelines and automate validation and reconciliation.",
         "tools": [
             "Python",
             "ArcPy",
@@ -296,7 +296,7 @@ export const portfolio = {
     },
     {
         "title": "Geospatial Processing & Web GIS",
-        "strengths": "Build spatial workflows with GPS filtering, inward plot buffers, spatial joins, and raster/vector processing. Develop claims-facing maps with custom filters and synchronized layers.",
+        "strengths": "Build spatial ETL workflows and ArcGIS web applications.",
         "tools": [
             "ArcGIS Pro & Enterprise",
             "ArcPy",
@@ -308,7 +308,7 @@ export const portfolio = {
     },
     {
         "title": "Field Instrumentation & Agricultural Research",
-        "strengths": "Co-develop GPS-linked sensing platforms, automated soil-gas systems, and reference weather stations. Compare canopy measurements with drone imagery, LiDAR, and crop-stress response.",
+        "strengths": "Build and test field sensors and integrate GPS, data loggers, and radio telemetry.",
         "tools": [
             "Trimble GPS",
             "IRT and PAR sensors",
@@ -320,7 +320,7 @@ export const portfolio = {
     },
     {
         "title": "Applied AI & Scientific Tooling",
-        "strengths": "Build scientific agents with LLM orchestration, multi-step tool calling, structured outputs, and provenance controls. Implement agent evaluation with regression tests, scientific replay, and evidence-grounded answer review.",
+        "strengths": "Build and evaluate AI tools that ground weather analysis in source data.",
         "tools": [
             "OpenAI API",
             "Python / FastAPI",

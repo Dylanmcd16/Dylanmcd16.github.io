@@ -74,7 +74,7 @@ export function WorkIndexPage({ base }: { base: string }) {
             Explore more
           </h2>
           <a className="work-next-feature" href={caseStudyUrl('doppler-atlas')}>
-            <span className="work-next-feature-title">VR/3D Radar Viewer <ArrowIcon /></span>
+            <span className="work-next-feature-title">Doppler Atlas — 3D Weather Visualization <ArrowIcon /></span>
             <span className="work-next-feature-sub">Doppler Atlas: weather radar in an interactive 3D and virtual reality environment.</span>
           </a>
           <div className="work-next-links">

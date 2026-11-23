@@ -52,11 +52,11 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     role: 'PLRB — Meteorologist',
     scene: 'plrb',
     summary: [
-      'I build and maintain production weather-data systems that turn NOAA, IEM, and other environmental datasets into reliable maps, reports, archives, and claims-facing applications.',
+      'I build Python and ArcPy pipelines that process hundreds to thousands of weather records and GIS features daily for insurance claims and catastrophe analysis.',
     ],
     challengeTitle: 'Making authoritative weather data useful for claims analysis',
     challenge:
-      'PLRB members need fast, reliable weather evidence for claims and catastrophe analysis. NOAA and data providers offer extensive information, but sources can be fragmented, inconsistently formatted, and difficult to connect to an address or insurance workflow. I turn them into clear maps, reports, tables, and GIS services members can use without processing raw data themselves.',
+      'Claims teams need to match weather reports, warnings, and radar estimates to a location without processing raw data.',
     next: { label: 'Corteva — Field-sensing research', slug: 'corteva-field-sensing' },
     tags: [
       'Meteorological analysis',
@@ -107,7 +107,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '02 / Applications',
         title: 'Claims-facing weather applications',
         paragraphs: [
-          'I build ArcGIS Experience Builder applications for hail, wind, hurricanes, and current weather. They combine reports, warnings, observations, radar products, precipitation, and lightning so claims professionals can investigate a location without handling raw data formats.',
+          'I build ArcGIS Experience Builder apps for claims teams, including the Hail Research Web App. It brings hail reports, radar-derived estimates, and warnings together so users can investigate a location.',
           'I use AI-assisted development to build analysis tools and automate data processing. Where standard widgets fell short, I added custom date filters, layer controls, record generation, map synchronization, and location-specific reports through API integrations.',
         ],
         images: [
@@ -186,8 +186,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         eyebrow: '06 / Recognition',
         title: 'Esri Special Achievement in GIS (SAG) Award',
         paragraphs: [
-          'PLRB received Esri’s 2025 Special Achievement in GIS (SAG) Award for innovative GIS work. Esri selects awardees from hundreds of thousands of organizations worldwide.',
-          'The award recognized the catastrophe analytics and claims-facing GIS work described here: automated data pipelines, ArcGIS Experience Builder applications, and the services and maps that supply them with validated data. I built and maintain the production workflows and applications as part of PLRB’s Weather & Catastrophe team.',
+          'I contributed data pipelines and ArcGIS applications to the PLRB Weather & Catastrophe team’s work recognized by Esri’s 2025 Special Achievement in GIS Award.',
         ],
         images: [
           {
@@ -205,10 +204,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     ],
     results: [
       'Automated recurring maps, archives, alerts, exports, and ArcGIS updates that previously required hours of manual work.',
-      'Added validation and reconciliation for late, missing, duplicate, and malformed inputs, including failed downloads.',
-      'Built applications that combine weather evidence so claims professionals can review reports, observations, and estimates together.',
-      'I work directly with IT on weather-system improvements under PLRB\'s security upgrade plan and verify that the updated workflows function correctly.',
-      'Contributed to PLRB’s 2025 Esri SAG recognition.',
+      'Partner with IT on weather-system security upgrades and verify that production workflows still run correctly.',
     ],
     tools: [
       { label: 'Automation', values: 'Python, ArcPy, scheduled production workflows' },
@@ -222,7 +218,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
     role: 'Corteva Agriscience — Field Sensing Research Associate (Contract)',
     scene: 'corteva',
     summary: [
-      'I co-developed field-sensing systems and independently built Python and ArcPy workflows that converted high-frequency measurements into quality-controlled, plot-level research data.',
+      'I built a Python and ArcPy pipeline for Smartstick field measurements across seven research sites, cutting processing time from about one hour to five minutes per collection.',
     ],
     challengeTitle: 'Turning field measurements into reliable research data',
     challenge:
@@ -237,7 +233,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         title: 'Smartstick sensing platform',
         paragraphs: [
           'I co-developed Corteva\'s Smartstick, a wheeled platform that recorded crop-canopy conditions in experimental rows, and operated it throughout the season. Infrared thermometer (IRT) sensors measured canopy temperature, while photosynthetically active radiation (PAR) sensors measured light at different canopy levels. Thermocouples and other sensors also measured temperature within and above the canopy.',
-          'An onboard computer recorded each observation with a timestamp and Trimble GPS coordinate. I designed the sensor placement, field procedures, and downstream analysis system; the enclosure\'s internal logging and cloud-transfer implementation were handled by others.',
+          'I field-tested infrared sensor mounting angles and integrated the data logger, which recorded Trimble GPS coordinates with temperature and light readings every 10 seconds.',
         ],
         bullets: [
           'Collected thousands of GPS-referenced measurements per walk.',
@@ -275,7 +271,7 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         ],
         bullets: [
           'I trained teammates and refined the code from their feedback. The team continued using the pipeline to process and analyze data after I left.',
-          'Overlaid measurements on drone imagery for spatial review.',
+          'Overlaid measurements on existing drone imagery to review spatial patterns across field plots.',
           'Compared LiDAR-derived canopy structure with ground measurements and crop-stress response.',
           'Compared Smartstick measurements with treatment and crop-stress observations to assess relationships.',
         ],
@@ -304,21 +300,12 @@ const caseStudies: Record<string, ProfessionalCaseStudy> = {
         note: 'These explanatory illustrations do not contain Corteva data or depict a Corteva field.',
       },
       {
-        id: 'field-data-comparison',
-        navLabel: 'Research analysis',
-        eyebrow: '03 / Analysis',
-        title: 'Field-data comparison and research analysis',
-        paragraphs: [
-          'I compared field measurements with drone imagery, LiDAR-derived canopy structure, and treatment data to review spatial patterns and support interpretation of experimental results.',
-        ],
-      },
-      {
         id: 'nitrous-oxide',
         navLabel: 'N₂O experiment',
         eyebrow: '04 / Experimentation',
         title: 'Automated N₂O chamber system',
         paragraphs: [
-          'I co-designed and built a 16-chamber automated soil-gas system, including its wiring, tubing, controls, and code. It sampled every 15 minutes for four months, so equipment failures could compromise long stretches of data.',
+          'I built, wired, and installed a 16-chamber automated soil-gas system and modified and tested the logger code for sampling intervals and valve sequencing. The system sampled every 15 minutes for four months.',
           'I operated and monitored the system daily, maintained it, and troubleshot equipment issues. Working with my research team and data scientists, I assessed measurement quality, analyzed nitrous oxide data, and interpreted the research findings.',
         ],
         images: [
